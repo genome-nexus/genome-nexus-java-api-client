@@ -1,0 +1,20 @@
+
+# TranscriptConsequenceSummary
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**codonChange** | **String** | Codon change |  [optional]
+**consequenceTerms** | **String** | Consequence terms (comma separated) |  [optional]
+**entrezGeneId** | **String** | Entrez gene id |  [optional]
+**hgvsc** | **String** | HGVSc |  [optional]
+**hgvsp** | **String** | HGVSp |  [optional]
+**hgvspShort** | **String** | HGVSp short |  [optional]
+**hugoGeneSymbol** | **String** | Hugo gene symbol |  [optional]
+**proteinPosition** | [**IntegerRange**](IntegerRange.md) | Protein position (start and end) |  [optional]
+**refSeq** | **String** | RefSeq id |  [optional]
+**transcriptId** | **String** | Transcript id | 
+**variantClassification** | **String** | Variant classification |  [optional]
+
+
+

@@ -1,0 +1,8 @@
+{
+  "apiPackage":"org.genome_nexus.client",
+  "modelPackage":"org.genome_nexus.client",
+  "groupId":"org.genome_nexus.client",
+  "artifactId":"genomeNexusInternalApiClient",
+  "artifactName":"Genome Nexus Internal API Client",
+  "artifactVersion":"1.1.1-SNAPSHOT"
+}

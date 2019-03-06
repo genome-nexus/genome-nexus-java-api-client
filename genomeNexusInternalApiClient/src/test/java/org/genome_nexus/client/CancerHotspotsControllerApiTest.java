@@ -17,6 +17,7 @@ import org.genome_nexus.ApiException;
 import org.genome_nexus.client.AggregatedHotspots;
 import org.genome_nexus.client.GenomicLocation;
 import org.genome_nexus.client.Hotspot;
+import org.genome_nexus.client.ProteinLocation;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -94,6 +95,54 @@ public class CancerHotspotsControllerApiTest {
     public void fetchHotspotAnnotationByHgvsPOSTTest() throws ApiException {
         List<String> variants = null;
         List<AggregatedHotspots> response = api.fetchHotspotAnnotationByHgvsPOST(variants);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchHotspotAnnotationByProteinLocationsPOSTTest() throws ApiException {
+        List<ProteinLocation> proteinLocations = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByProteinLocationsPOST(proteinLocations);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves hotspot annotations for the provided transcript ID
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchHotspotAnnotationByTranscriptIdGETTest() throws ApiException {
+        String transcriptId = null;
+        List<Hotspot> response = api.fetchHotspotAnnotationByTranscriptIdGET(transcriptId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript ID
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchHotspotAnnotationByTranscriptIdPOSTTest() throws ApiException {
+        List<String> transcriptIds = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByTranscriptIdPOST(transcriptIds);
 
         // TODO: test validations
     }

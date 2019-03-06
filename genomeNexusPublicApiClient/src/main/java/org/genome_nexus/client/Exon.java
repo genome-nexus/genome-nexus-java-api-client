@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ExonRange
+ * Exon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
-public class ExonRange {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
+public class Exon {
   @SerializedName("exonId")
   private String exonId = null;
 
@@ -46,7 +46,7 @@ public class ExonRange {
   @SerializedName("version")
   private Integer version = null;
 
-  public ExonRange exonId(String exonId) {
+  public Exon exonId(String exonId) {
     this.exonId = exonId;
     return this;
   }
@@ -64,7 +64,7 @@ public class ExonRange {
     this.exonId = exonId;
   }
 
-  public ExonRange exonStart(Integer exonStart) {
+  public Exon exonStart(Integer exonStart) {
     this.exonStart = exonStart;
     return this;
   }
@@ -82,7 +82,7 @@ public class ExonRange {
     this.exonStart = exonStart;
   }
 
-  public ExonRange exonEnd(Integer exonEnd) {
+  public Exon exonEnd(Integer exonEnd) {
     this.exonEnd = exonEnd;
     return this;
   }
@@ -100,7 +100,7 @@ public class ExonRange {
     this.exonEnd = exonEnd;
   }
 
-  public ExonRange rank(Integer rank) {
+  public Exon rank(Integer rank) {
     this.rank = rank;
     return this;
   }
@@ -118,7 +118,7 @@ public class ExonRange {
     this.rank = rank;
   }
 
-  public ExonRange strand(Integer strand) {
+  public Exon strand(Integer strand) {
     this.strand = strand;
     return this;
   }
@@ -136,7 +136,7 @@ public class ExonRange {
     this.strand = strand;
   }
 
-  public ExonRange version(Integer version) {
+  public Exon version(Integer version) {
     this.version = version;
     return this;
   }
@@ -163,13 +163,13 @@ public class ExonRange {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExonRange exonRange = (ExonRange) o;
-    return Objects.equals(this.exonId, exonRange.exonId) &&
-        Objects.equals(this.exonStart, exonRange.exonStart) &&
-        Objects.equals(this.exonEnd, exonRange.exonEnd) &&
-        Objects.equals(this.rank, exonRange.rank) &&
-        Objects.equals(this.strand, exonRange.strand) &&
-        Objects.equals(this.version, exonRange.version);
+    Exon exon = (Exon) o;
+    return Objects.equals(this.exonId, exon.exonId) &&
+        Objects.equals(this.exonStart, exon.exonStart) &&
+        Objects.equals(this.exonEnd, exon.exonEnd) &&
+        Objects.equals(this.rank, exon.rank) &&
+        Objects.equals(this.strand, exon.strand) &&
+        Objects.equals(this.version, exon.version);
   }
 
   @Override
@@ -181,7 +181,7 @@ public class ExonRange {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExonRange {\n");
+    sb.append("class Exon {\n");
     
     sb.append("    exonId: ").append(toIndentedString(exonId)).append("\n");
     sb.append("    exonStart: ").append(toIndentedString(exonStart)).append("\n");

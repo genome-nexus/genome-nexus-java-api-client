@@ -70,6 +70,42 @@ public class AnnotationControllerApiTest {
     }
     
     /**
+     * Retrieves VEP annotation for the give dbSNP id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchVariantAnnotationByIdGETTest() throws ApiException {
+        String variantId = null;
+        String isoformOverrideSource = null;
+        List<String> fields = null;
+        VariantAnnotation response = api.fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, fields);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves VEP annotation for the provided list of dbSNP ids
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchVariantAnnotationByIdPOSTTest() throws ApiException {
+        List<String> variantIds = null;
+        String isoformOverrideSource = null;
+        List<String> fields = null;
+        List<VariantAnnotation> response = api.fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, fields);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieves VEP annotation for the provided variant
      *
      * 

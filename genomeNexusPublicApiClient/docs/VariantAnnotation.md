@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **id** | **String** | Variant id | 
 **mostSevereConsequence** | **String** | Most severe consequence |  [optional]
 **mutationAssessor** | [**MutationAssessorAnnotation**](MutationAssessorAnnotation.md) | Mutation Assessor Annotation |  [optional]
+**myVariantInfo** | [**MyVariantInfoAnnotation**](MyVariantInfoAnnotation.md) | My Variant Info Annotation |  [optional]
 **seqRegionName** | **String** | Chromosome |  [optional]
 **start** | **Integer** | Start position |  [optional]
 **strand** | **Integer** | Strand (negative or positive) |  [optional]

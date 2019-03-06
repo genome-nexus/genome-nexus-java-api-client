@@ -94,8 +94,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AnnotationControllerApi* | [**fetchVariantAnnotationByGenomicLocationGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationGET) | **GET** /annotation/genomic/{genomicLocation} | Retrieves VEP annotation for the provided genomic location
 *AnnotationControllerApi* | [**fetchVariantAnnotationByGenomicLocationPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationPOST) | **POST** /annotation/genomic | Retrieves VEP annotation for the provided list of genomic locations
+*AnnotationControllerApi* | [**fetchVariantAnnotationByIdGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByIdGET) | **GET** /annotation/dbsnp/{variantId} | Retrieves VEP annotation for the give dbSNP id
+*AnnotationControllerApi* | [**fetchVariantAnnotationByIdPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByIdPOST) | **POST** /annotation/dbsnp/ | Retrieves VEP annotation for the provided list of dbSNP ids
 *AnnotationControllerApi* | [**fetchVariantAnnotationGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationGET) | **GET** /annotation/{variant} | Retrieves VEP annotation for the provided variant
 *AnnotationControllerApi* | [**fetchVariantAnnotationPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationPOST) | **POST** /annotation | Retrieves VEP annotation for the provided list of variants
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET) | **GET** /ensembl/canonical-gene/entrez/{entrezGeneId} | Retrieves Ensembl canonical gene id by Entrez Gene Id
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST) | **POST** /ensembl/canonical-gene/entrez | Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
 *EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByHugoSymbolGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolGET) | **GET** /ensembl/canonical-gene/hgnc/{hugoSymbol} | Retrieves Ensembl canonical gene id by Hugo Symbol
 *EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST) | **POST** /ensembl/canonical-gene/hgnc | Retrieves canonical Ensembl Gene ID by Hugo Symbols
 *EnsemblControllerApi* | [**fetchCanonicalEnsemblTranscriptByHugoSymbolGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblTranscriptByHugoSymbolGET) | **GET** /ensembl/canonical-transcript/hgnc/{hugoSymbol} | Retrieves Ensembl canonical transcript by Hugo Symbol
@@ -109,30 +113,43 @@ Class | Method | HTTP request | Description
 *PdbControllerApi* | [**fetchPdbHeaderPOST**](docs/PdbControllerApi.md#fetchPdbHeaderPOST) | **POST** /pdb/header | Retrieves PDB header info by a PDB id
 *PfamControllerApi* | [**fetchPfamDomainsByAccessionGET**](docs/PfamControllerApi.md#fetchPfamDomainsByAccessionGET) | **GET** /pfam/domain/{pfamAccession} | Retrieves a PFAM domain by a PFAM domain ID
 *PfamControllerApi* | [**fetchPfamDomainsByPfamAccessionPOST**](docs/PfamControllerApi.md#fetchPfamDomainsByPfamAccessionPOST) | **POST** /pfam/domain | Retrieves PFAM domains by PFAM domain accession IDs
-*PfamControllerApi* | [**fetchPfamDomainsGET**](docs/PfamControllerApi.md#fetchPfamDomainsGET) | **GET** /pfam/domain | Retrieves all PFAM domains
 
 
 ## Documentation for Models
 
+ - [Alleles](docs/Alleles.md)
+ - [ClinVar](docs/ClinVar.md)
  - [ColocatedVariant](docs/ColocatedVariant.md)
+ - [Cosmic](docs/Cosmic.md)
+ - [Dbsnp](docs/Dbsnp.md)
  - [EnsemblFilter](docs/EnsemblFilter.md)
  - [EnsemblGene](docs/EnsemblGene.md)
  - [EnsemblTranscript](docs/EnsemblTranscript.md)
- - [ExonRange](docs/ExonRange.md)
+ - [Exon](docs/Exon.md)
+ - [Gene](docs/Gene.md)
  - [GeneXref](docs/GeneXref.md)
  - [GenomicLocation](docs/GenomicLocation.md)
+ - [Hg19](docs/Hg19.md)
+ - [Hg38](docs/Hg38.md)
+ - [Hgvs](docs/Hgvs.md)
  - [Hotspot](docs/Hotspot.md)
  - [HotspotAnnotation](docs/HotspotAnnotation.md)
  - [IntegerRange](docs/IntegerRange.md)
  - [MutationAssessor](docs/MutationAssessor.md)
  - [MutationAssessorAnnotation](docs/MutationAssessorAnnotation.md)
+ - [Mutdb](docs/Mutdb.md)
+ - [MyVariantInfo](docs/MyVariantInfo.md)
+ - [MyVariantInfoAnnotation](docs/MyVariantInfoAnnotation.md)
  - [PdbHeader](docs/PdbHeader.md)
  - [PfamDomain](docs/PfamDomain.md)
  - [PfamDomainRange](docs/PfamDomainRange.md)
+ - [Snpeff](docs/Snpeff.md)
  - [TranscriptConsequence](docs/TranscriptConsequence.md)
  - [TranscriptConsequenceSummary](docs/TranscriptConsequenceSummary.md)
+ - [UntranslatedRegion](docs/UntranslatedRegion.md)
  - [VariantAnnotation](docs/VariantAnnotation.md)
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
+ - [Vcf](docs/Vcf.md)
  - [Version](docs/Version.md)
 
 

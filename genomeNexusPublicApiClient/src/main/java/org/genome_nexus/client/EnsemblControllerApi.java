@@ -58,6 +58,251 @@ public class EnsemblControllerApi {
     }
 
     /**
+     * Build call for fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET
+     * @param entrezGeneId An Entrez Gene Id. For example 23140 (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETCall(String entrezGeneId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/ensembl/canonical-gene/entrez/{entrezGeneId}"
+            .replaceAll("\\{" + "entrezGeneId" + "\\}", apiClient.escapeString(entrezGeneId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETValidateBeforeCall(String entrezGeneId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'entrezGeneId' is set
+        if (entrezGeneId == null) {
+            throw new ApiException("Missing the required parameter 'entrezGeneId' when calling fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETCall(entrezGeneId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves Ensembl canonical gene id by Entrez Gene Id
+     * 
+     * @param entrezGeneId An Entrez Gene Id. For example 23140 (required)
+     * @return EnsemblGene
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public EnsemblGene fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(String entrezGeneId) throws ApiException {
+        ApiResponse<EnsemblGene> resp = fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETWithHttpInfo(entrezGeneId);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves Ensembl canonical gene id by Entrez Gene Id
+     * 
+     * @param entrezGeneId An Entrez Gene Id. For example 23140 (required)
+     * @return ApiResponse&lt;EnsemblGene&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<EnsemblGene> fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETWithHttpInfo(String entrezGeneId) throws ApiException {
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETValidateBeforeCall(entrezGeneId, null, null);
+        Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves Ensembl canonical gene id by Entrez Gene Id (asynchronously)
+     * 
+     * @param entrezGeneId An Entrez Gene Id. For example 23140 (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETAsync(String entrezGeneId, final ApiCallback<EnsemblGene> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETValidateBeforeCall(entrezGeneId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<EnsemblGene>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST
+     * @param entrezGeneIds List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;] (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTCall(List<String> entrezGeneIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = entrezGeneIds;
+
+        // create path and map variables
+        String localVarPath = "/ensembl/canonical-gene/entrez";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTValidateBeforeCall(List<String> entrezGeneIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'entrezGeneIds' is set
+        if (entrezGeneIds == null) {
+            throw new ApiException("Missing the required parameter 'entrezGeneIds' when calling fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTCall(entrezGeneIds, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
+     * 
+     * @param entrezGeneIds List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;] (required)
+     * @return List&lt;EnsemblGene&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<EnsemblGene> fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST(List<String> entrezGeneIds) throws ApiException {
+        ApiResponse<List<EnsemblGene>> resp = fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTWithHttpInfo(entrezGeneIds);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
+     * 
+     * @param entrezGeneIds List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;] (required)
+     * @return ApiResponse&lt;List&lt;EnsemblGene&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<EnsemblGene>> fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTWithHttpInfo(List<String> entrezGeneIds) throws ApiException {
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTValidateBeforeCall(entrezGeneIds, null, null);
+        Type localVarReturnType = new TypeToken<List<EnsemblGene>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves canonical Ensembl Gene ID by Entrez Gene Ids (asynchronously)
+     * 
+     * @param entrezGeneIds List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;] (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTAsync(List<String> entrezGeneIds, final ApiCallback<List<EnsemblGene>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTValidateBeforeCall(entrezGeneIds, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<EnsemblGene>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for fetchCanonicalEnsemblGeneIdByHugoSymbolGET
      * @param hugoSymbol A Hugo Symbol. For example TP53 (required)
      * @param progressListener Progress listener

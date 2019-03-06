@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **canonical** | **String** | Canonical transcript indicator |  [optional]
 **codons** | **String** | Codons |  [optional]
 **consequenceTerms** | **List&lt;String&gt;** | List of consequence terms |  [optional]
+**exon** | **String** |  |  [optional]
 **geneId** | **String** | Ensembl gene id |  [optional]
 **geneSymbol** | **String** | Hugo gene symbol |  [optional]
 **hgncId** | **Integer** | HGNC id |  [optional]

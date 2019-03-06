@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**fetchPfamDomainsByAccessionGET**](PfamControllerApi.md#fetchPfamDomainsByAccessionGET) | **GET** /pfam/domain/{pfamAccession} | Retrieves a PFAM domain by a PFAM domain ID
 [**fetchPfamDomainsByPfamAccessionPOST**](PfamControllerApi.md#fetchPfamDomainsByPfamAccessionPOST) | **POST** /pfam/domain | Retrieves PFAM domains by PFAM domain accession IDs
-[**fetchPfamDomainsGET**](PfamControllerApi.md#fetchPfamDomainsGET) | **GET** /pfam/domain | Retrieves all PFAM domains
 
 
 <a name="fetchPfamDomainsByAccessionGET"></a>
@@ -81,45 +80,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pfamAccessions** | **List&lt;String&gt;**| List of PFAM domain accession IDs. For example [\&quot;PF02827\&quot;,\&quot;PF00093\&quot;,\&quot;PF15276\&quot;] |
-
-### Return type
-
-[**List&lt;PfamDomain&gt;**](PfamDomain.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="fetchPfamDomainsGET"></a>
-# **fetchPfamDomainsGET**
-> List&lt;PfamDomain&gt; fetchPfamDomainsGET()
-
-Retrieves all PFAM domains
-
-### Example
-```java
-// Import classes:
-//import org.genome_nexus.ApiException;
-//import org.genome_nexus.client.PfamControllerApi;
-
-
-PfamControllerApi apiInstance = new PfamControllerApi();
-try {
-    List<PfamDomain> result = apiInstance.fetchPfamDomainsGET();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PfamControllerApi#fetchPfamDomainsGET");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
 
 ### Return type
 

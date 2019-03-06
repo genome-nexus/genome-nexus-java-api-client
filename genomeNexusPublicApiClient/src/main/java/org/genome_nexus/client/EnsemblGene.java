@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * EnsemblGene
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class EnsemblGene {
   @SerializedName("geneId")
   private String geneId = null;
@@ -41,6 +41,9 @@ public class EnsemblGene {
 
   @SerializedName("previousSymbols")
   private List<String> previousSymbols = null;
+
+  @SerializedName("entrezGeneId")
+  private String entrezGeneId = null;
 
   public EnsemblGene geneId(String geneId) {
     this.geneId = geneId;
@@ -130,6 +133,24 @@ public class EnsemblGene {
     this.previousSymbols = previousSymbols;
   }
 
+  public EnsemblGene entrezGeneId(String entrezGeneId) {
+    this.entrezGeneId = entrezGeneId;
+    return this;
+  }
+
+   /**
+   * Entrez Gene Id
+   * @return entrezGeneId
+  **/
+  @ApiModelProperty(value = "Entrez Gene Id")
+  public String getEntrezGeneId() {
+    return entrezGeneId;
+  }
+
+  public void setEntrezGeneId(String entrezGeneId) {
+    this.entrezGeneId = entrezGeneId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -143,12 +164,13 @@ public class EnsemblGene {
     return Objects.equals(this.geneId, ensemblGene.geneId) &&
         Objects.equals(this.hugoSymbol, ensemblGene.hugoSymbol) &&
         Objects.equals(this.synonyms, ensemblGene.synonyms) &&
-        Objects.equals(this.previousSymbols, ensemblGene.previousSymbols);
+        Objects.equals(this.previousSymbols, ensemblGene.previousSymbols) &&
+        Objects.equals(this.entrezGeneId, ensemblGene.entrezGeneId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(geneId, hugoSymbol, synonyms, previousSymbols);
+    return Objects.hash(geneId, hugoSymbol, synonyms, previousSymbols, entrezGeneId);
   }
 
 
@@ -161,6 +183,7 @@ public class EnsemblGene {
     sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");
     sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
     sb.append("    previousSymbols: ").append(toIndentedString(previousSymbols)).append("\n");
+    sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

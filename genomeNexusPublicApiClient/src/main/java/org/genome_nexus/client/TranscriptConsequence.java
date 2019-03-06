@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * TranscriptConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class TranscriptConsequence {
   @SerializedName("amino_acids")
   private String aminoAcids = null;
@@ -41,6 +41,9 @@ public class TranscriptConsequence {
 
   @SerializedName("consequence_terms")
   private List<String> consequenceTerms = null;
+
+  @SerializedName("exon")
+  private String exon = null;
 
   @SerializedName("gene_id")
   private String geneId = null;
@@ -165,6 +168,24 @@ public class TranscriptConsequence {
 
   public void setConsequenceTerms(List<String> consequenceTerms) {
     this.consequenceTerms = consequenceTerms;
+  }
+
+  public TranscriptConsequence exon(String exon) {
+    this.exon = exon;
+    return this;
+  }
+
+   /**
+   * Get exon
+   * @return exon
+  **/
+  @ApiModelProperty(value = "")
+  public String getExon() {
+    return exon;
+  }
+
+  public void setExon(String exon) {
+    this.exon = exon;
   }
 
   public TranscriptConsequence geneId(String geneId) {
@@ -459,6 +480,7 @@ public class TranscriptConsequence {
         Objects.equals(this.canonical, transcriptConsequence.canonical) &&
         Objects.equals(this.codons, transcriptConsequence.codons) &&
         Objects.equals(this.consequenceTerms, transcriptConsequence.consequenceTerms) &&
+        Objects.equals(this.exon, transcriptConsequence.exon) &&
         Objects.equals(this.geneId, transcriptConsequence.geneId) &&
         Objects.equals(this.geneSymbol, transcriptConsequence.geneSymbol) &&
         Objects.equals(this.hgncId, transcriptConsequence.hgncId) &&
@@ -478,7 +500,7 @@ public class TranscriptConsequence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, geneId, geneSymbol, hgncId, hgvsc, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, variantAllele);
+    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, variantAllele);
   }
 
 
@@ -491,6 +513,7 @@ public class TranscriptConsequence {
     sb.append("    canonical: ").append(toIndentedString(canonical)).append("\n");
     sb.append("    codons: ").append(toIndentedString(codons)).append("\n");
     sb.append("    consequenceTerms: ").append(toIndentedString(consequenceTerms)).append("\n");
+    sb.append("    exon: ").append(toIndentedString(exon)).append("\n");
     sb.append("    geneId: ").append(toIndentedString(geneId)).append("\n");
     sb.append("    geneSymbol: ").append(toIndentedString(geneSymbol)).append("\n");
     sb.append("    hgncId: ").append(toIndentedString(hgncId)).append("\n");

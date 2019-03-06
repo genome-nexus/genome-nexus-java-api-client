@@ -4,6 +4,8 @@ All URIs are relative to *http://genomenexus.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET**](EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET) | **GET** /ensembl/canonical-gene/entrez/{entrezGeneId} | Retrieves Ensembl canonical gene id by Entrez Gene Id
+[**fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST**](EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST) | **POST** /ensembl/canonical-gene/entrez | Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
 [**fetchCanonicalEnsemblGeneIdByHugoSymbolGET**](EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolGET) | **GET** /ensembl/canonical-gene/hgnc/{hugoSymbol} | Retrieves Ensembl canonical gene id by Hugo Symbol
 [**fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST**](EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST) | **POST** /ensembl/canonical-gene/hgnc | Retrieves canonical Ensembl Gene ID by Hugo Symbols
 [**fetchCanonicalEnsemblTranscriptByHugoSymbolGET**](EnsemblControllerApi.md#fetchCanonicalEnsemblTranscriptByHugoSymbolGET) | **GET** /ensembl/canonical-transcript/hgnc/{hugoSymbol} | Retrieves Ensembl canonical transcript by Hugo Symbol
@@ -13,6 +15,92 @@ Method | HTTP request | Description
 [**fetchEnsemblTranscriptsGET**](EnsemblControllerApi.md#fetchEnsemblTranscriptsGET) | **GET** /ensembl/transcript | Retrieves Ensembl Transcripts by protein ID, and gene ID. Retrieves all transcripts in case no query parameter provided
 [**fetchGeneXrefsGET**](EnsemblControllerApi.md#fetchGeneXrefsGET) | **GET** /ensembl/xrefs | Perform lookups of Ensembl identifiers and retrieve their external references in other databases
 
+
+<a name="fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET"></a>
+# **fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET**
+> EnsemblGene fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(entrezGeneId)
+
+Retrieves Ensembl canonical gene id by Entrez Gene Id
+
+### Example
+```java
+// Import classes:
+//import org.genome_nexus.ApiException;
+//import org.genome_nexus.client.EnsemblControllerApi;
+
+
+EnsemblControllerApi apiInstance = new EnsemblControllerApi();
+String entrezGeneId = "entrezGeneId_example"; // String | An Entrez Gene Id. For example 23140
+try {
+    EnsemblGene result = apiInstance.fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(entrezGeneId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EnsemblControllerApi#fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entrezGeneId** | **String**| An Entrez Gene Id. For example 23140 |
+
+### Return type
+
+[**EnsemblGene**](EnsemblGene.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST"></a>
+# **fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST**
+> List&lt;EnsemblGene&gt; fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST(entrezGeneIds)
+
+Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
+
+### Example
+```java
+// Import classes:
+//import org.genome_nexus.ApiException;
+//import org.genome_nexus.client.EnsemblControllerApi;
+
+
+EnsemblControllerApi apiInstance = new EnsemblControllerApi();
+List<String> entrezGeneIds = Arrays.asList(new List<String>()); // List<String> | List of Entrez Gene Ids. For example [\"23140\",\"26009\",\"100131879\"]
+try {
+    List<EnsemblGene> result = apiInstance.fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST(entrezGeneIds);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EnsemblControllerApi#fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entrezGeneIds** | **List&lt;String&gt;**| List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;] |
+
+### Return type
+
+[**List&lt;EnsemblGene&gt;**](EnsemblGene.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="fetchCanonicalEnsemblGeneIdByHugoSymbolGET"></a>
 # **fetchCanonicalEnsemblGeneIdByHugoSymbolGET**

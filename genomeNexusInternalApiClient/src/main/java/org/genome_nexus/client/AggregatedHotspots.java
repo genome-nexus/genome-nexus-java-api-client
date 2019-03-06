@@ -26,17 +26,24 @@ import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.GenomicLocation;
 import org.genome_nexus.client.Hotspot;
+import org.genome_nexus.client.ProteinLocation;
 
 /**
  * AggregatedHotspots
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:33.210-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:57.095-05:00")
 public class AggregatedHotspots {
   @SerializedName("genomicLocation")
   private GenomicLocation genomicLocation = null;
 
   @SerializedName("hotspots")
   private List<Hotspot> hotspots = new ArrayList<Hotspot>();
+
+  @SerializedName("proteinLocation")
+  private ProteinLocation proteinLocation = null;
+
+  @SerializedName("transcriptId")
+  private String transcriptId = null;
 
   @SerializedName("variant")
   private String variant = null;
@@ -82,6 +89,42 @@ public class AggregatedHotspots {
     this.hotspots = hotspots;
   }
 
+  public AggregatedHotspots proteinLocation(ProteinLocation proteinLocation) {
+    this.proteinLocation = proteinLocation;
+    return this;
+  }
+
+   /**
+   * Get proteinLocation
+   * @return proteinLocation
+  **/
+  @ApiModelProperty(value = "")
+  public ProteinLocation getProteinLocation() {
+    return proteinLocation;
+  }
+
+  public void setProteinLocation(ProteinLocation proteinLocation) {
+    this.proteinLocation = proteinLocation;
+  }
+
+  public AggregatedHotspots transcriptId(String transcriptId) {
+    this.transcriptId = transcriptId;
+    return this;
+  }
+
+   /**
+   * Get transcriptId
+   * @return transcriptId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTranscriptId() {
+    return transcriptId;
+  }
+
+  public void setTranscriptId(String transcriptId) {
+    this.transcriptId = transcriptId;
+  }
+
   public AggregatedHotspots variant(String variant) {
     this.variant = variant;
     return this;
@@ -112,12 +155,14 @@ public class AggregatedHotspots {
     AggregatedHotspots aggregatedHotspots = (AggregatedHotspots) o;
     return Objects.equals(this.genomicLocation, aggregatedHotspots.genomicLocation) &&
         Objects.equals(this.hotspots, aggregatedHotspots.hotspots) &&
+        Objects.equals(this.proteinLocation, aggregatedHotspots.proteinLocation) &&
+        Objects.equals(this.transcriptId, aggregatedHotspots.transcriptId) &&
         Objects.equals(this.variant, aggregatedHotspots.variant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(genomicLocation, hotspots, variant);
+    return Objects.hash(genomicLocation, hotspots, proteinLocation, transcriptId, variant);
   }
 
 
@@ -128,6 +173,8 @@ public class AggregatedHotspots {
     
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
     sb.append("    hotspots: ").append(toIndentedString(hotspots)).append("\n");
+    sb.append("    proteinLocation: ").append(toIndentedString(proteinLocation)).append("\n");
+    sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("}");
     return sb.toString();

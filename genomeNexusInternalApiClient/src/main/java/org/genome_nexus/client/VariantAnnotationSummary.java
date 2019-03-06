@@ -30,7 +30,7 @@ import org.genome_nexus.client.TranscriptConsequenceSummary;
 /**
  * VariantAnnotationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:33.210-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:57.095-05:00")
 public class VariantAnnotationSummary {
   @SerializedName("assemblyName")
   private String assemblyName = null;
@@ -43,6 +43,12 @@ public class VariantAnnotationSummary {
 
   @SerializedName("strandSign")
   private String strandSign = null;
+
+  @SerializedName("transcriptConsequenceSummaries")
+  private List<TranscriptConsequenceSummary> transcriptConsequenceSummaries = new ArrayList<TranscriptConsequenceSummary>();
+
+  @SerializedName("transcriptConsequenceSummary")
+  private TranscriptConsequenceSummary transcriptConsequenceSummary = null;
 
   @SerializedName("transcriptConsequences")
   private List<TranscriptConsequenceSummary> transcriptConsequences = new ArrayList<TranscriptConsequenceSummary>();
@@ -125,6 +131,47 @@ public class VariantAnnotationSummary {
     this.strandSign = strandSign;
   }
 
+  public VariantAnnotationSummary transcriptConsequenceSummaries(List<TranscriptConsequenceSummary> transcriptConsequenceSummaries) {
+    this.transcriptConsequenceSummaries = transcriptConsequenceSummaries;
+    return this;
+  }
+
+  public VariantAnnotationSummary addTranscriptConsequenceSummariesItem(TranscriptConsequenceSummary transcriptConsequenceSummariesItem) {
+    this.transcriptConsequenceSummaries.add(transcriptConsequenceSummariesItem);
+    return this;
+  }
+
+   /**
+   * All transcript consequence summaries
+   * @return transcriptConsequenceSummaries
+  **/
+  @ApiModelProperty(required = true, value = "All transcript consequence summaries")
+  public List<TranscriptConsequenceSummary> getTranscriptConsequenceSummaries() {
+    return transcriptConsequenceSummaries;
+  }
+
+  public void setTranscriptConsequenceSummaries(List<TranscriptConsequenceSummary> transcriptConsequenceSummaries) {
+    this.transcriptConsequenceSummaries = transcriptConsequenceSummaries;
+  }
+
+  public VariantAnnotationSummary transcriptConsequenceSummary(TranscriptConsequenceSummary transcriptConsequenceSummary) {
+    this.transcriptConsequenceSummary = transcriptConsequenceSummary;
+    return this;
+  }
+
+   /**
+   * Most impactful transcript consequence of canonical transcript or if non-existent any transcript
+   * @return transcriptConsequenceSummary
+  **/
+  @ApiModelProperty(required = true, value = "Most impactful transcript consequence of canonical transcript or if non-existent any transcript")
+  public TranscriptConsequenceSummary getTranscriptConsequenceSummary() {
+    return transcriptConsequenceSummary;
+  }
+
+  public void setTranscriptConsequenceSummary(TranscriptConsequenceSummary transcriptConsequenceSummary) {
+    this.transcriptConsequenceSummary = transcriptConsequenceSummary;
+  }
+
   public VariantAnnotationSummary transcriptConsequences(List<TranscriptConsequenceSummary> transcriptConsequences) {
     this.transcriptConsequences = transcriptConsequences;
     return this;
@@ -136,10 +183,10 @@ public class VariantAnnotationSummary {
   }
 
    /**
-   * List of transcript consequence summaries
+   * (Deprecated) Transcript consequence summaries (list of one when using annotation/, multiple when using annotation/summary/
    * @return transcriptConsequences
   **/
-  @ApiModelProperty(required = true, value = "List of transcript consequence summaries")
+  @ApiModelProperty(required = true, value = "(Deprecated) Transcript consequence summaries (list of one when using annotation/, multiple when using annotation/summary/")
   public List<TranscriptConsequenceSummary> getTranscriptConsequences() {
     return transcriptConsequences;
   }
@@ -198,6 +245,8 @@ public class VariantAnnotationSummary {
         Objects.equals(this.canonicalTranscriptId, variantAnnotationSummary.canonicalTranscriptId) &&
         Objects.equals(this.genomicLocation, variantAnnotationSummary.genomicLocation) &&
         Objects.equals(this.strandSign, variantAnnotationSummary.strandSign) &&
+        Objects.equals(this.transcriptConsequenceSummaries, variantAnnotationSummary.transcriptConsequenceSummaries) &&
+        Objects.equals(this.transcriptConsequenceSummary, variantAnnotationSummary.transcriptConsequenceSummary) &&
         Objects.equals(this.transcriptConsequences, variantAnnotationSummary.transcriptConsequences) &&
         Objects.equals(this.variant, variantAnnotationSummary.variant) &&
         Objects.equals(this.variantType, variantAnnotationSummary.variantType);
@@ -205,7 +254,7 @@ public class VariantAnnotationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequences, variant, variantType);
+    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType);
   }
 
 
@@ -218,6 +267,8 @@ public class VariantAnnotationSummary {
     sb.append("    canonicalTranscriptId: ").append(toIndentedString(canonicalTranscriptId)).append("\n");
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
     sb.append("    strandSign: ").append(toIndentedString(strandSign)).append("\n");
+    sb.append("    transcriptConsequenceSummaries: ").append(toIndentedString(transcriptConsequenceSummaries)).append("\n");
+    sb.append("    transcriptConsequenceSummary: ").append(toIndentedString(transcriptConsequenceSummary)).append("\n");
     sb.append("    transcriptConsequences: ").append(toIndentedString(transcriptConsequences)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("    variantType: ").append(toIndentedString(variantType)).append("\n");

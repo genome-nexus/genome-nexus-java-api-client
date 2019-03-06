@@ -27,7 +27,7 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class TranscriptConsequenceSummary {
   @SerializedName("codonChange")
   private String codonChange = null;
@@ -37,6 +37,9 @@ public class TranscriptConsequenceSummary {
 
   @SerializedName("entrezGeneId")
   private String entrezGeneId = null;
+
+  @SerializedName("exon")
+  private String exon = null;
 
   @SerializedName("hgvsc")
   private String hgvsc = null;
@@ -114,6 +117,24 @@ public class TranscriptConsequenceSummary {
 
   public void setEntrezGeneId(String entrezGeneId) {
     this.entrezGeneId = entrezGeneId;
+  }
+
+  public TranscriptConsequenceSummary exon(String exon) {
+    this.exon = exon;
+    return this;
+  }
+
+   /**
+   * Get exon
+   * @return exon
+  **/
+  @ApiModelProperty(value = "")
+  public String getExon() {
+    return exon;
+  }
+
+  public void setExon(String exon) {
+    this.exon = exon;
   }
 
   public TranscriptConsequenceSummary hgvsc(String hgvsc) {
@@ -273,6 +294,7 @@ public class TranscriptConsequenceSummary {
     return Objects.equals(this.codonChange, transcriptConsequenceSummary.codonChange) &&
         Objects.equals(this.consequenceTerms, transcriptConsequenceSummary.consequenceTerms) &&
         Objects.equals(this.entrezGeneId, transcriptConsequenceSummary.entrezGeneId) &&
+        Objects.equals(this.exon, transcriptConsequenceSummary.exon) &&
         Objects.equals(this.hgvsc, transcriptConsequenceSummary.hgvsc) &&
         Objects.equals(this.hgvsp, transcriptConsequenceSummary.hgvsp) &&
         Objects.equals(this.hgvspShort, transcriptConsequenceSummary.hgvspShort) &&
@@ -285,7 +307,7 @@ public class TranscriptConsequenceSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codonChange, consequenceTerms, entrezGeneId, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, proteinPosition, refSeq, transcriptId, variantClassification);
+    return Objects.hash(codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, proteinPosition, refSeq, transcriptId, variantClassification);
   }
 
 
@@ -297,6 +319,7 @@ public class TranscriptConsequenceSummary {
     sb.append("    codonChange: ").append(toIndentedString(codonChange)).append("\n");
     sb.append("    consequenceTerms: ").append(toIndentedString(consequenceTerms)).append("\n");
     sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");
+    sb.append("    exon: ").append(toIndentedString(exon)).append("\n");
     sb.append("    hgvsc: ").append(toIndentedString(hgvsc)).append("\n");
     sb.append("    hgvsp: ").append(toIndentedString(hgvsp)).append("\n");
     sb.append("    hgvspShort: ").append(toIndentedString(hgvspShort)).append("\n");

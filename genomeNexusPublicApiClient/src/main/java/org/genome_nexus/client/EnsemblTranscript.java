@@ -24,13 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.genome_nexus.client.ExonRange;
+import org.genome_nexus.client.Exon;
 import org.genome_nexus.client.PfamDomainRange;
+import org.genome_nexus.client.UntranslatedRegion;
 
 /**
  * EnsemblTranscript
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class EnsemblTranscript {
   @SerializedName("transcriptId")
   private String transcriptId = null;
@@ -47,11 +48,20 @@ public class EnsemblTranscript {
   @SerializedName("pfamDomains")
   private List<PfamDomainRange> pfamDomains = null;
 
-  @SerializedName("exons")
-  private List<ExonRange> exons = null;
-
   @SerializedName("hugoSymbols")
   private List<String> hugoSymbols = null;
+
+  @SerializedName("refseqMrnaId")
+  private String refseqMrnaId = null;
+
+  @SerializedName("ccdsId")
+  private String ccdsId = null;
+
+  @SerializedName("exons")
+  private List<Exon> exons = null;
+
+  @SerializedName("utrs")
+  private List<UntranslatedRegion> utrs = null;
 
   public EnsemblTranscript transcriptId(String transcriptId) {
     this.transcriptId = transcriptId;
@@ -151,32 +161,6 @@ public class EnsemblTranscript {
     this.pfamDomains = pfamDomains;
   }
 
-  public EnsemblTranscript exons(List<ExonRange> exons) {
-    this.exons = exons;
-    return this;
-  }
-
-  public EnsemblTranscript addExonsItem(ExonRange exonsItem) {
-    if (this.exons == null) {
-      this.exons = new ArrayList<ExonRange>();
-    }
-    this.exons.add(exonsItem);
-    return this;
-  }
-
-   /**
-   * Exon information
-   * @return exons
-  **/
-  @ApiModelProperty(value = "Exon information")
-  public List<ExonRange> getExons() {
-    return exons;
-  }
-
-  public void setExons(List<ExonRange> exons) {
-    this.exons = exons;
-  }
-
   public EnsemblTranscript hugoSymbols(List<String> hugoSymbols) {
     this.hugoSymbols = hugoSymbols;
     return this;
@@ -203,6 +187,94 @@ public class EnsemblTranscript {
     this.hugoSymbols = hugoSymbols;
   }
 
+  public EnsemblTranscript refseqMrnaId(String refseqMrnaId) {
+    this.refseqMrnaId = refseqMrnaId;
+    return this;
+  }
+
+   /**
+   * RefSeq mRNA ID
+   * @return refseqMrnaId
+  **/
+  @ApiModelProperty(value = "RefSeq mRNA ID")
+  public String getRefseqMrnaId() {
+    return refseqMrnaId;
+  }
+
+  public void setRefseqMrnaId(String refseqMrnaId) {
+    this.refseqMrnaId = refseqMrnaId;
+  }
+
+  public EnsemblTranscript ccdsId(String ccdsId) {
+    this.ccdsId = ccdsId;
+    return this;
+  }
+
+   /**
+   * Consensus CDS (CCDS) ID
+   * @return ccdsId
+  **/
+  @ApiModelProperty(value = "Consensus CDS (CCDS) ID")
+  public String getCcdsId() {
+    return ccdsId;
+  }
+
+  public void setCcdsId(String ccdsId) {
+    this.ccdsId = ccdsId;
+  }
+
+  public EnsemblTranscript exons(List<Exon> exons) {
+    this.exons = exons;
+    return this;
+  }
+
+  public EnsemblTranscript addExonsItem(Exon exonsItem) {
+    if (this.exons == null) {
+      this.exons = new ArrayList<Exon>();
+    }
+    this.exons.add(exonsItem);
+    return this;
+  }
+
+   /**
+   * Exon information
+   * @return exons
+  **/
+  @ApiModelProperty(value = "Exon information")
+  public List<Exon> getExons() {
+    return exons;
+  }
+
+  public void setExons(List<Exon> exons) {
+    this.exons = exons;
+  }
+
+  public EnsemblTranscript utrs(List<UntranslatedRegion> utrs) {
+    this.utrs = utrs;
+    return this;
+  }
+
+  public EnsemblTranscript addUtrsItem(UntranslatedRegion utrsItem) {
+    if (this.utrs == null) {
+      this.utrs = new ArrayList<UntranslatedRegion>();
+    }
+    this.utrs.add(utrsItem);
+    return this;
+  }
+
+   /**
+   * UTR information
+   * @return utrs
+  **/
+  @ApiModelProperty(value = "UTR information")
+  public List<UntranslatedRegion> getUtrs() {
+    return utrs;
+  }
+
+  public void setUtrs(List<UntranslatedRegion> utrs) {
+    this.utrs = utrs;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -218,13 +290,16 @@ public class EnsemblTranscript {
         Objects.equals(this.proteinId, ensemblTranscript.proteinId) &&
         Objects.equals(this.proteinLength, ensemblTranscript.proteinLength) &&
         Objects.equals(this.pfamDomains, ensemblTranscript.pfamDomains) &&
+        Objects.equals(this.hugoSymbols, ensemblTranscript.hugoSymbols) &&
+        Objects.equals(this.refseqMrnaId, ensemblTranscript.refseqMrnaId) &&
+        Objects.equals(this.ccdsId, ensemblTranscript.ccdsId) &&
         Objects.equals(this.exons, ensemblTranscript.exons) &&
-        Objects.equals(this.hugoSymbols, ensemblTranscript.hugoSymbols);
+        Objects.equals(this.utrs, ensemblTranscript.utrs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transcriptId, geneId, proteinId, proteinLength, pfamDomains, exons, hugoSymbols);
+    return Objects.hash(transcriptId, geneId, proteinId, proteinLength, pfamDomains, hugoSymbols, refseqMrnaId, ccdsId, exons, utrs);
   }
 
 
@@ -238,8 +313,11 @@ public class EnsemblTranscript {
     sb.append("    proteinId: ").append(toIndentedString(proteinId)).append("\n");
     sb.append("    proteinLength: ").append(toIndentedString(proteinLength)).append("\n");
     sb.append("    pfamDomains: ").append(toIndentedString(pfamDomains)).append("\n");
-    sb.append("    exons: ").append(toIndentedString(exons)).append("\n");
     sb.append("    hugoSymbols: ").append(toIndentedString(hugoSymbols)).append("\n");
+    sb.append("    refseqMrnaId: ").append(toIndentedString(refseqMrnaId)).append("\n");
+    sb.append("    ccdsId: ").append(toIndentedString(ccdsId)).append("\n");
+    sb.append("    exons: ").append(toIndentedString(exons)).append("\n");
+    sb.append("    utrs: ").append(toIndentedString(utrs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

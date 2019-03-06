@@ -1,5 +1,5 @@
 
-# ExonRange
+# Exon
 
 ## Properties
 Name | Type | Description | Notes

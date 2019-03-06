@@ -4,12 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aminoAcidPosition** | [**IntegerRange**](IntegerRange.md) | Amino acid position (start - end) |  [optional]
 **hugoSymbol** | **String** | Hugo gene symbol |  [optional]
-**residue** | **String** | Hotspot Residue |  [optional]
-**transcriptId** | **String** | Transcript id | 
+**inframeCount** | **Integer** | Inframe mutation count |  [optional]
+**missenseCount** | **Integer** | Missense mutation count |  [optional]
+**residue** | **String** | Hotspot residue |  [optional]
+**spliceCount** | **Integer** | Splice mutation count |  [optional]
+**transcriptId** | **String** | Ensembl Transcript Id |  [optional]
+**truncatingCount** | **Integer** | Truncation mutation count |  [optional]
 **tumorCount** | **Integer** | Tumor count |  [optional]
-**tumorTypeCount** | **Integer** | Tumor type count |  [optional]
 **type** | **String** | Hotspot type |  [optional]
 
 

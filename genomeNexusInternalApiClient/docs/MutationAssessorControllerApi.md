@@ -22,7 +22,7 @@ Retrieves mutation assessor information for the provided list of variants
 
 
 MutationAssessorControllerApi apiInstance = new MutationAssessorControllerApi();
-String variant = "variant_example"; // String | A variants. For example 7:g.140453136A>T
+String variant = "variant_example"; // String | A variant. For example 7:g.140453136A>T
 try {
     MutationAssessor result = apiInstance.fetchMutationAssessorAnnotationGET(variant);
     System.out.println(result);
@@ -36,7 +36,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variant** | **String**| A variants. For example 7:g.140453136A&gt;T |
+ **variant** | **String**| A variant. For example 7:g.140453136A&gt;T |
 
 ### Return type
 

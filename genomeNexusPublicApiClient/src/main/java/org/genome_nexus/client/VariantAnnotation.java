@@ -27,13 +27,14 @@ import java.util.List;
 import org.genome_nexus.client.ColocatedVariant;
 import org.genome_nexus.client.HotspotAnnotation;
 import org.genome_nexus.client.MutationAssessorAnnotation;
+import org.genome_nexus.client.MyVariantInfoAnnotation;
 import org.genome_nexus.client.TranscriptConsequence;
 import org.genome_nexus.client.VariantAnnotationSummary;
 
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -64,6 +65,9 @@ public class VariantAnnotation {
 
   @SerializedName("mutation_assessor")
   private MutationAssessorAnnotation mutationAssessor = null;
+
+  @SerializedName("my_variant_info")
+  private MyVariantInfoAnnotation myVariantInfo = null;
 
   @SerializedName("seq_region_name")
   private String seqRegionName = null;
@@ -268,6 +272,24 @@ public class VariantAnnotation {
     this.mutationAssessor = mutationAssessor;
   }
 
+  public VariantAnnotation myVariantInfo(MyVariantInfoAnnotation myVariantInfo) {
+    this.myVariantInfo = myVariantInfo;
+    return this;
+  }
+
+   /**
+   * My Variant Info Annotation
+   * @return myVariantInfo
+  **/
+  @ApiModelProperty(value = "My Variant Info Annotation")
+  public MyVariantInfoAnnotation getMyVariantInfo() {
+    return myVariantInfo;
+  }
+
+  public void setMyVariantInfo(MyVariantInfoAnnotation myVariantInfo) {
+    this.myVariantInfo = myVariantInfo;
+  }
+
   public VariantAnnotation seqRegionName(String seqRegionName) {
     this.seqRegionName = seqRegionName;
     return this;
@@ -386,6 +408,7 @@ public class VariantAnnotation {
         Objects.equals(this.id, variantAnnotation.id) &&
         Objects.equals(this.mostSevereConsequence, variantAnnotation.mostSevereConsequence) &&
         Objects.equals(this.mutationAssessor, variantAnnotation.mutationAssessor) &&
+        Objects.equals(this.myVariantInfo, variantAnnotation.myVariantInfo) &&
         Objects.equals(this.seqRegionName, variantAnnotation.seqRegionName) &&
         Objects.equals(this.start, variantAnnotation.start) &&
         Objects.equals(this.strand, variantAnnotation.strand) &&
@@ -395,7 +418,7 @@ public class VariantAnnotation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hotspots, id, mostSevereConsequence, mutationAssessor, seqRegionName, start, strand, transcriptConsequences, variant);
+    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hotspots, id, mostSevereConsequence, mutationAssessor, myVariantInfo, seqRegionName, start, strand, transcriptConsequences, variant);
   }
 
 
@@ -414,6 +437,7 @@ public class VariantAnnotation {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    mostSevereConsequence: ").append(toIndentedString(mostSevereConsequence)).append("\n");
     sb.append("    mutationAssessor: ").append(toIndentedString(mutationAssessor)).append("\n");
+    sb.append("    myVariantInfo: ").append(toIndentedString(myVariantInfo)).append("\n");
     sb.append("    seqRegionName: ").append(toIndentedString(seqRegionName)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    strand: ").append(toIndentedString(strand)).append("\n");

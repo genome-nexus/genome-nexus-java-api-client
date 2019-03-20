@@ -36,6 +36,38 @@ public class EnsemblControllerApiTest {
 
     
     /**
+     * Retrieves Ensembl canonical gene id by Entrez Gene Id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchCanonicalEnsemblGeneIdByEntrezGeneIdGETTest() throws ApiException {
+        String entrezGeneId = null;
+        EnsemblGene response = api.fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(entrezGeneId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOSTTest() throws ApiException {
+        List<String> entrezGeneIds = null;
+        List<EnsemblGene> response = api.fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST(entrezGeneIds);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieves Ensembl canonical gene id by Hugo Symbol
      *
      * 

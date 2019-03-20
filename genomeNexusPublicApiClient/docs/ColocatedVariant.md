@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**dbSnpId** | **String** |  |  [optional]
 **gnomadNfeAllele** | **String** | GnomAD Non-Finnish European Allele | 
 **gnomadNfeMaf** | **String** | GnomAD Non-Finnish European MAF | 
 **gnomadAfrAllele** | **String** | GnomAD African/African American Allele | 

@@ -22,51 +22,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.genome_nexus.client.IntegerRange;
 
 /**
  * Hotspot
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:33.210-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:57.095-05:00")
 public class Hotspot {
-  @SerializedName("aminoAcidPosition")
-  private IntegerRange aminoAcidPosition = null;
-
   @SerializedName("hugoSymbol")
   private String hugoSymbol = null;
+
+  @SerializedName("inframeCount")
+  private Integer inframeCount = null;
+
+  @SerializedName("missenseCount")
+  private Integer missenseCount = null;
 
   @SerializedName("residue")
   private String residue = null;
 
+  @SerializedName("spliceCount")
+  private Integer spliceCount = null;
+
   @SerializedName("transcriptId")
   private String transcriptId = null;
+
+  @SerializedName("truncatingCount")
+  private Integer truncatingCount = null;
 
   @SerializedName("tumorCount")
   private Integer tumorCount = null;
 
-  @SerializedName("tumorTypeCount")
-  private Integer tumorTypeCount = null;
-
   @SerializedName("type")
   private String type = null;
-
-  public Hotspot aminoAcidPosition(IntegerRange aminoAcidPosition) {
-    this.aminoAcidPosition = aminoAcidPosition;
-    return this;
-  }
-
-   /**
-   * Amino acid position (start - end)
-   * @return aminoAcidPosition
-  **/
-  @ApiModelProperty(value = "Amino acid position (start - end)")
-  public IntegerRange getAminoAcidPosition() {
-    return aminoAcidPosition;
-  }
-
-  public void setAminoAcidPosition(IntegerRange aminoAcidPosition) {
-    this.aminoAcidPosition = aminoAcidPosition;
-  }
 
   public Hotspot hugoSymbol(String hugoSymbol) {
     this.hugoSymbol = hugoSymbol;
@@ -86,16 +73,52 @@ public class Hotspot {
     this.hugoSymbol = hugoSymbol;
   }
 
+  public Hotspot inframeCount(Integer inframeCount) {
+    this.inframeCount = inframeCount;
+    return this;
+  }
+
+   /**
+   * Inframe mutation count
+   * @return inframeCount
+  **/
+  @ApiModelProperty(value = "Inframe mutation count")
+  public Integer getInframeCount() {
+    return inframeCount;
+  }
+
+  public void setInframeCount(Integer inframeCount) {
+    this.inframeCount = inframeCount;
+  }
+
+  public Hotspot missenseCount(Integer missenseCount) {
+    this.missenseCount = missenseCount;
+    return this;
+  }
+
+   /**
+   * Missense mutation count
+   * @return missenseCount
+  **/
+  @ApiModelProperty(value = "Missense mutation count")
+  public Integer getMissenseCount() {
+    return missenseCount;
+  }
+
+  public void setMissenseCount(Integer missenseCount) {
+    this.missenseCount = missenseCount;
+  }
+
   public Hotspot residue(String residue) {
     this.residue = residue;
     return this;
   }
 
    /**
-   * Hotspot Residue
+   * Hotspot residue
    * @return residue
   **/
-  @ApiModelProperty(value = "Hotspot Residue")
+  @ApiModelProperty(value = "Hotspot residue")
   public String getResidue() {
     return residue;
   }
@@ -104,22 +127,58 @@ public class Hotspot {
     this.residue = residue;
   }
 
+  public Hotspot spliceCount(Integer spliceCount) {
+    this.spliceCount = spliceCount;
+    return this;
+  }
+
+   /**
+   * Splice mutation count
+   * @return spliceCount
+  **/
+  @ApiModelProperty(value = "Splice mutation count")
+  public Integer getSpliceCount() {
+    return spliceCount;
+  }
+
+  public void setSpliceCount(Integer spliceCount) {
+    this.spliceCount = spliceCount;
+  }
+
   public Hotspot transcriptId(String transcriptId) {
     this.transcriptId = transcriptId;
     return this;
   }
 
    /**
-   * Transcript id
+   * Ensembl Transcript Id
    * @return transcriptId
   **/
-  @ApiModelProperty(required = true, value = "Transcript id")
+  @ApiModelProperty(value = "Ensembl Transcript Id")
   public String getTranscriptId() {
     return transcriptId;
   }
 
   public void setTranscriptId(String transcriptId) {
     this.transcriptId = transcriptId;
+  }
+
+  public Hotspot truncatingCount(Integer truncatingCount) {
+    this.truncatingCount = truncatingCount;
+    return this;
+  }
+
+   /**
+   * Truncation mutation count
+   * @return truncatingCount
+  **/
+  @ApiModelProperty(value = "Truncation mutation count")
+  public Integer getTruncatingCount() {
+    return truncatingCount;
+  }
+
+  public void setTruncatingCount(Integer truncatingCount) {
+    this.truncatingCount = truncatingCount;
   }
 
   public Hotspot tumorCount(Integer tumorCount) {
@@ -138,24 +197,6 @@ public class Hotspot {
 
   public void setTumorCount(Integer tumorCount) {
     this.tumorCount = tumorCount;
-  }
-
-  public Hotspot tumorTypeCount(Integer tumorTypeCount) {
-    this.tumorTypeCount = tumorTypeCount;
-    return this;
-  }
-
-   /**
-   * Tumor type count
-   * @return tumorTypeCount
-  **/
-  @ApiModelProperty(value = "Tumor type count")
-  public Integer getTumorTypeCount() {
-    return tumorTypeCount;
-  }
-
-  public void setTumorTypeCount(Integer tumorTypeCount) {
-    this.tumorTypeCount = tumorTypeCount;
   }
 
   public Hotspot type(String type) {
@@ -186,18 +227,20 @@ public class Hotspot {
       return false;
     }
     Hotspot hotspot = (Hotspot) o;
-    return Objects.equals(this.aminoAcidPosition, hotspot.aminoAcidPosition) &&
-        Objects.equals(this.hugoSymbol, hotspot.hugoSymbol) &&
+    return Objects.equals(this.hugoSymbol, hotspot.hugoSymbol) &&
+        Objects.equals(this.inframeCount, hotspot.inframeCount) &&
+        Objects.equals(this.missenseCount, hotspot.missenseCount) &&
         Objects.equals(this.residue, hotspot.residue) &&
+        Objects.equals(this.spliceCount, hotspot.spliceCount) &&
         Objects.equals(this.transcriptId, hotspot.transcriptId) &&
+        Objects.equals(this.truncatingCount, hotspot.truncatingCount) &&
         Objects.equals(this.tumorCount, hotspot.tumorCount) &&
-        Objects.equals(this.tumorTypeCount, hotspot.tumorTypeCount) &&
         Objects.equals(this.type, hotspot.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcidPosition, hugoSymbol, residue, transcriptId, tumorCount, tumorTypeCount, type);
+    return Objects.hash(hugoSymbol, inframeCount, missenseCount, residue, spliceCount, transcriptId, truncatingCount, tumorCount, type);
   }
 
 
@@ -206,12 +249,14 @@ public class Hotspot {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hotspot {\n");
     
-    sb.append("    aminoAcidPosition: ").append(toIndentedString(aminoAcidPosition)).append("\n");
     sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");
+    sb.append("    inframeCount: ").append(toIndentedString(inframeCount)).append("\n");
+    sb.append("    missenseCount: ").append(toIndentedString(missenseCount)).append("\n");
     sb.append("    residue: ").append(toIndentedString(residue)).append("\n");
+    sb.append("    spliceCount: ").append(toIndentedString(spliceCount)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    truncatingCount: ").append(toIndentedString(truncatingCount)).append("\n");
     sb.append("    tumorCount: ").append(toIndentedString(tumorCount)).append("\n");
-    sb.append("    tumorTypeCount: ").append(toIndentedString(tumorTypeCount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

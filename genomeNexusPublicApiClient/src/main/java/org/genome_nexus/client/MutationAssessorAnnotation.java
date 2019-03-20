@@ -27,7 +27,7 @@ import org.genome_nexus.client.MutationAssessor;
 /**
  * MutationAssessorAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class MutationAssessorAnnotation {
   @SerializedName("annotation")
   private MutationAssessor annotation = null;

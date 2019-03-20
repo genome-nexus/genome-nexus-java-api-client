@@ -64,19 +64,4 @@ public class PfamControllerApiTest {
         // TODO: test validations
     }
     
-    /**
-     * Retrieves all PFAM domains
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void fetchPfamDomainsGETTest() throws ApiException {
-        List<PfamDomain> response = api.fetchPfamDomainsGET();
-
-        // TODO: test validations
-    }
-    
 }

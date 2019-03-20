@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **codonChange** | **String** | Codon change |  [optional]
 **consequenceTerms** | **String** | Consequence terms (comma separated) |  [optional]
 **entrezGeneId** | **String** | Entrez gene id |  [optional]
+**exon** | **String** |  |  [optional]
 **hgvsc** | **String** | HGVSc |  [optional]
 **hgvsp** | **String** | HGVSp |  [optional]
 **hgvspShort** | **String** | HGVSp short |  [optional]

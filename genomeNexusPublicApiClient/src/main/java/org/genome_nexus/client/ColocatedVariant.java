@@ -26,8 +26,11 @@ import java.io.IOException;
 /**
  * ColocatedVariant
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-16T15:36:31.946-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
 public class ColocatedVariant {
+  @SerializedName("dbSnpId")
+  private String dbSnpId = null;
+
   @SerializedName("gnomad_nfe_allele")
   private String gnomadNfeAllele = null;
 
@@ -45,6 +48,24 @@ public class ColocatedVariant {
 
   @SerializedName("gnomad_eas_maf")
   private String gnomadEasMaf = null;
+
+  public ColocatedVariant dbSnpId(String dbSnpId) {
+    this.dbSnpId = dbSnpId;
+    return this;
+  }
+
+   /**
+   * Get dbSnpId
+   * @return dbSnpId
+  **/
+  @ApiModelProperty(value = "")
+  public String getDbSnpId() {
+    return dbSnpId;
+  }
+
+  public void setDbSnpId(String dbSnpId) {
+    this.dbSnpId = dbSnpId;
+  }
 
   public ColocatedVariant gnomadNfeAllele(String gnomadNfeAllele) {
     this.gnomadNfeAllele = gnomadNfeAllele;
@@ -164,7 +185,8 @@ public class ColocatedVariant {
       return false;
     }
     ColocatedVariant colocatedVariant = (ColocatedVariant) o;
-    return Objects.equals(this.gnomadNfeAllele, colocatedVariant.gnomadNfeAllele) &&
+    return Objects.equals(this.dbSnpId, colocatedVariant.dbSnpId) &&
+        Objects.equals(this.gnomadNfeAllele, colocatedVariant.gnomadNfeAllele) &&
         Objects.equals(this.gnomadNfeMaf, colocatedVariant.gnomadNfeMaf) &&
         Objects.equals(this.gnomadAfrAllele, colocatedVariant.gnomadAfrAllele) &&
         Objects.equals(this.gnomadAfrMaf, colocatedVariant.gnomadAfrMaf) &&
@@ -174,7 +196,7 @@ public class ColocatedVariant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gnomadNfeAllele, gnomadNfeMaf, gnomadAfrAllele, gnomadAfrMaf, gnomadEasAllele, gnomadEasMaf);
+    return Objects.hash(dbSnpId, gnomadNfeAllele, gnomadNfeMaf, gnomadAfrAllele, gnomadAfrMaf, gnomadEasAllele, gnomadEasMaf);
   }
 
 
@@ -183,6 +205,7 @@ public class ColocatedVariant {
     StringBuilder sb = new StringBuilder();
     sb.append("class ColocatedVariant {\n");
     
+    sb.append("    dbSnpId: ").append(toIndentedString(dbSnpId)).append("\n");
     sb.append("    gnomadNfeAllele: ").append(toIndentedString(gnomadNfeAllele)).append("\n");
     sb.append("    gnomadNfeMaf: ").append(toIndentedString(gnomadNfeMaf)).append("\n");
     sb.append("    gnomadAfrAllele: ").append(toIndentedString(gnomadAfrAllele)).append("\n");

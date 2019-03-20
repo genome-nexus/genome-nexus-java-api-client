@@ -33,24 +33,6 @@ public class AnnotationSummaryControllerApiTest {
 
     
     /**
-     * Retrieves VEP annotation summary for the provided list of variants
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void fetchVariantAnnotationPOST1Test() throws ApiException {
-        List<String> variants = null;
-        String isoformOverrideSource = null;
-        String projection = null;
-        List<VariantAnnotationSummary> response = api.fetchVariantAnnotationPOST1(variants, isoformOverrideSource, projection);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Retrieves VEP annotation summary for the provided variant
      *
      * 
@@ -64,6 +46,24 @@ public class AnnotationSummaryControllerApiTest {
         String isoformOverrideSource = null;
         String projection = null;
         VariantAnnotationSummary response = api.fetchVariantAnnotationSummaryGET(variant, isoformOverrideSource, projection);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves VEP annotation summary for the provided list of variants
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchVariantAnnotationSummaryPOSTTest() throws ApiException {
+        List<String> variants = null;
+        String isoformOverrideSource = null;
+        String projection = null;
+        List<VariantAnnotationSummary> response = api.fetchVariantAnnotationSummaryPOST(variants, isoformOverrideSource, projection);
 
         // TODO: test validations
     }

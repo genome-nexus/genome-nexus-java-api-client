@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**fetchVariantAnnotationByGenomicLocationGET**](AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationGET) | **GET** /annotation/genomic/{genomicLocation} | Retrieves VEP annotation for the provided genomic location
 [**fetchVariantAnnotationByGenomicLocationPOST**](AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationPOST) | **POST** /annotation/genomic | Retrieves VEP annotation for the provided list of genomic locations
+[**fetchVariantAnnotationByIdGET**](AnnotationControllerApi.md#fetchVariantAnnotationByIdGET) | **GET** /annotation/dbsnp/{variantId} | Retrieves VEP annotation for the give dbSNP id
+[**fetchVariantAnnotationByIdPOST**](AnnotationControllerApi.md#fetchVariantAnnotationByIdPOST) | **POST** /annotation/dbsnp/ | Retrieves VEP annotation for the provided list of dbSNP ids
 [**fetchVariantAnnotationGET**](AnnotationControllerApi.md#fetchVariantAnnotationGET) | **GET** /annotation/{variant} | Retrieves VEP annotation for the provided variant
 [**fetchVariantAnnotationPOST**](AnnotationControllerApi.md#fetchVariantAnnotationPOST) | **POST** /annotation | Retrieves VEP annotation for the provided list of variants
 
@@ -90,6 +92,100 @@ Name | Type | Description  | Notes
  **genomicLocations** | [**List&lt;GenomicLocation&gt;**](GenomicLocation.md)| List of Genomic Locations |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor | [optional] [default to hotspots,mutation_assessor]
+
+### Return type
+
+[**List&lt;VariantAnnotation&gt;**](VariantAnnotation.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="fetchVariantAnnotationByIdGET"></a>
+# **fetchVariantAnnotationByIdGET**
+> VariantAnnotation fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, fields)
+
+Retrieves VEP annotation for the give dbSNP id
+
+### Example
+```java
+// Import classes:
+//import org.genome_nexus.ApiException;
+//import org.genome_nexus.client.AnnotationControllerApi;
+
+
+AnnotationControllerApi apiInstance = new AnnotationControllerApi();
+String variantId = "variantId_example"; // String | dbSNP id. For example rs116035550.
+String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: annotation_summary
+try {
+    VariantAnnotation result = apiInstance.fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, fields);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByIdGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variantId** | **String**| dbSNP id. For example rs116035550. |
+ **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: annotation_summary | [optional] [default to annotation_summary]
+
+### Return type
+
+[**VariantAnnotation**](VariantAnnotation.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="fetchVariantAnnotationByIdPOST"></a>
+# **fetchVariantAnnotationByIdPOST**
+> List&lt;VariantAnnotation&gt; fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, fields)
+
+Retrieves VEP annotation for the provided list of dbSNP ids
+
+### Example
+```java
+// Import classes:
+//import org.genome_nexus.ApiException;
+//import org.genome_nexus.client.AnnotationControllerApi;
+
+
+AnnotationControllerApi apiInstance = new AnnotationControllerApi();
+List<String> variantIds = Arrays.asList(new List<String>()); // List<String> | List of variant IDs. For example [\"rs116035550\"]
+String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: annotation_summary
+try {
+    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, fields);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByIdPOST");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variantIds** | **List&lt;String&gt;**| List of variant IDs. For example [\&quot;rs116035550\&quot;] |
+ **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: annotation_summary | [optional] [default to annotation_summary]
 
 ### Return type
 

@@ -325,6 +325,275 @@ public class AnnotationControllerApi {
         return call;
     }
     /**
+     * Build call for fetchVariantAnnotationByIdGET
+     * @param variantId dbSNP id. For example rs116035550. (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETCall(String variantId, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/annotation/dbsnp/{variantId}"
+            .replaceAll("\\{" + "variantId" + "\\}", apiClient.escapeString(variantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isoformOverrideSource != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (fields != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchVariantAnnotationByIdGETValidateBeforeCall(String variantId, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'variantId' is set
+        if (variantId == null) {
+            throw new ApiException("Missing the required parameter 'variantId' when calling fetchVariantAnnotationByIdGET(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETCall(variantId, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves VEP annotation for the give dbSNP id
+     * 
+     * @param variantId dbSNP id. For example rs116035550. (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @return VariantAnnotation
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public VariantAnnotation fetchVariantAnnotationByIdGET(String variantId, String isoformOverrideSource, List<String> fields) throws ApiException {
+        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationByIdGETWithHttpInfo(variantId, isoformOverrideSource, fields);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves VEP annotation for the give dbSNP id
+     * 
+     * @param variantId dbSNP id. For example rs116035550. (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @return ApiResponse&lt;VariantAnnotation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<VariantAnnotation> fetchVariantAnnotationByIdGETWithHttpInfo(String variantId, String isoformOverrideSource, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, fields, null, null);
+        Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves VEP annotation for the give dbSNP id (asynchronously)
+     * 
+     * @param variantId dbSNP id. For example rs116035550. (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETAsync(String variantId, String isoformOverrideSource, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchVariantAnnotationByIdPOST
+     * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTCall(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = variantIds;
+
+        // create path and map variables
+        String localVarPath = "/annotation/dbsnp/";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (isoformOverrideSource != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (fields != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTValidateBeforeCall(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'variantIds' is set
+        if (variantIds == null) {
+            throw new ApiException("Missing the required parameter 'variantIds' when calling fetchVariantAnnotationByIdPOST(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTCall(variantIds, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves VEP annotation for the provided list of dbSNP ids
+     * 
+     * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @return List&lt;VariantAnnotation&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<VariantAnnotation> fetchVariantAnnotationByIdPOST(List<String> variantIds, String isoformOverrideSource, List<String> fields) throws ApiException {
+        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationByIdPOSTWithHttpInfo(variantIds, isoformOverrideSource, fields);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves VEP annotation for the provided list of dbSNP ids
+     * 
+     * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationByIdPOSTWithHttpInfo(List<String> variantIds, String isoformOverrideSource, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, fields, null, null);
+        Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves VEP annotation for the provided list of dbSNP ids (asynchronously)
+     * 
+     * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
+     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTAsync(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for fetchVariantAnnotationGET
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)

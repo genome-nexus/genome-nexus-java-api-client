@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.genome_nexus.client.AggregatedHotspots;
 import org.genome_nexus.client.GenomicLocation;
 import org.genome_nexus.client.Hotspot;
+import org.genome_nexus.client.ProteinLocation;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -542,6 +543,373 @@ public class CancerHotspotsControllerApi {
         }
 
         com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(variants, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchHotspotAnnotationByProteinLocationsPOST
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTCall(List<ProteinLocation> proteinLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = proteinLocations;
+
+        // create path and map variables
+        String localVarPath = "/cancer_hotspots/proteinLocations";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(List<ProteinLocation> proteinLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'proteinLocations' is set
+        if (proteinLocations == null) {
+            throw new ApiException("Missing the required parameter 'proteinLocations' when calling fetchHotspotAnnotationByProteinLocationsPOST(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTCall(proteinLocations, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
+     * 
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @return List&lt;AggregatedHotspots&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AggregatedHotspots> fetchHotspotAnnotationByProteinLocationsPOST(List<ProteinLocation> proteinLocations) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(proteinLocations);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
+     * 
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(List<ProteinLocation> proteinLocations) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, null, null);
+        Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type (asynchronously)
+     * 
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTAsync(List<ProteinLocation> proteinLocations, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchHotspotAnnotationByTranscriptIdGET
+     * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETCall(String transcriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/cancer_hotspots/transcript/{transcriptId}"
+            .replaceAll("\\{" + "transcriptId" + "\\}", apiClient.escapeString(transcriptId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(String transcriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'transcriptId' is set
+        if (transcriptId == null) {
+            throw new ApiException("Missing the required parameter 'transcriptId' when calling fetchHotspotAnnotationByTranscriptIdGET(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETCall(transcriptId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided transcript ID
+     * 
+     * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @return List&lt;Hotspot&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Hotspot> fetchHotspotAnnotationByTranscriptIdGET(String transcriptId) throws ApiException {
+        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(transcriptId);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided transcript ID
+     * 
+     * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @return ApiResponse&lt;List&lt;Hotspot&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(String transcriptId) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, null, null);
+        Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided transcript ID (asynchronously)
+     * 
+     * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETAsync(String transcriptId, final ApiCallback<List<Hotspot>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for fetchHotspotAnnotationByTranscriptIdPOST
+     * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTCall(List<String> transcriptIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = transcriptIds;
+
+        // create path and map variables
+        String localVarPath = "/cancer_hotspots/transcript";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(List<String> transcriptIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'transcriptIds' is set
+        if (transcriptIds == null) {
+            throw new ApiException("Missing the required parameter 'transcriptIds' when calling fetchHotspotAnnotationByTranscriptIdPOST(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTCall(transcriptIds, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript ID
+     * 
+     * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @return List&lt;AggregatedHotspots&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AggregatedHotspots> fetchHotspotAnnotationByTranscriptIdPOST(List<String> transcriptIds) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(transcriptIds);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript ID
+     * 
+     * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(List<String> transcriptIds) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, null, null);
+        Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves hotspot annotations for the provided list of transcript ID (asynchronously)
+     * 
+     * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTAsync(List<String> transcriptIds, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

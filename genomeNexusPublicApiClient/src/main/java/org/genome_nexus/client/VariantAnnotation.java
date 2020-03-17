@@ -1,6 +1,6 @@
 /*
  * Genome Nexus API
- * Genome Nexus Variant Annotation API
+ * This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.  Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.   We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -26,15 +26,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.ColocatedVariant;
 import org.genome_nexus.client.HotspotAnnotation;
+import org.genome_nexus.client.IntergenicConsequences;
 import org.genome_nexus.client.MutationAssessorAnnotation;
 import org.genome_nexus.client.MyVariantInfoAnnotation;
+import org.genome_nexus.client.OncokbAnnotation;
+import org.genome_nexus.client.PtmAnnotation;
 import org.genome_nexus.client.TranscriptConsequence;
 import org.genome_nexus.client.VariantAnnotationSummary;
 
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -54,11 +57,17 @@ public class VariantAnnotation {
   @SerializedName("end")
   private Integer end = null;
 
+  @SerializedName("hgvsg")
+  private String hgvsg = null;
+
   @SerializedName("hotspots")
   private HotspotAnnotation hotspots = null;
 
   @SerializedName("id")
   private String id = null;
+
+  @SerializedName("intergenic_consequences")
+  private List<IntergenicConsequences> intergenicConsequences = new ArrayList<IntergenicConsequences>();
 
   @SerializedName("most_severe_consequence")
   private String mostSevereConsequence = null;
@@ -69,6 +78,12 @@ public class VariantAnnotation {
   @SerializedName("my_variant_info")
   private MyVariantInfoAnnotation myVariantInfo = null;
 
+  @SerializedName("oncokb")
+  private OncokbAnnotation oncokb = null;
+
+  @SerializedName("ptms")
+  private PtmAnnotation ptms = null;
+
   @SerializedName("seq_region_name")
   private String seqRegionName = null;
 
@@ -77,6 +92,9 @@ public class VariantAnnotation {
 
   @SerializedName("strand")
   private Integer strand = null;
+
+  @SerializedName("successfully_annotated")
+  private Boolean successfullyAnnotated = null;
 
   @SerializedName("transcript_consequences")
   private List<TranscriptConsequence> transcriptConsequences = null;
@@ -200,6 +218,24 @@ public class VariantAnnotation {
     this.end = end;
   }
 
+  public VariantAnnotation hgvsg(String hgvsg) {
+    this.hgvsg = hgvsg;
+    return this;
+  }
+
+   /**
+   * Get hgvsg
+   * @return hgvsg
+  **/
+  @ApiModelProperty(value = "")
+  public String getHgvsg() {
+    return hgvsg;
+  }
+
+  public void setHgvsg(String hgvsg) {
+    this.hgvsg = hgvsg;
+  }
+
   public VariantAnnotation hotspots(HotspotAnnotation hotspots) {
     this.hotspots = hotspots;
     return this;
@@ -234,6 +270,29 @@ public class VariantAnnotation {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public VariantAnnotation intergenicConsequences(List<IntergenicConsequences> intergenicConsequences) {
+    this.intergenicConsequences = intergenicConsequences;
+    return this;
+  }
+
+  public VariantAnnotation addIntergenicConsequencesItem(IntergenicConsequences intergenicConsequencesItem) {
+    this.intergenicConsequences.add(intergenicConsequencesItem);
+    return this;
+  }
+
+   /**
+   * intergenicConsequences
+   * @return intergenicConsequences
+  **/
+  @ApiModelProperty(required = true, value = "intergenicConsequences")
+  public List<IntergenicConsequences> getIntergenicConsequences() {
+    return intergenicConsequences;
+  }
+
+  public void setIntergenicConsequences(List<IntergenicConsequences> intergenicConsequences) {
+    this.intergenicConsequences = intergenicConsequences;
   }
 
   public VariantAnnotation mostSevereConsequence(String mostSevereConsequence) {
@@ -290,6 +349,42 @@ public class VariantAnnotation {
     this.myVariantInfo = myVariantInfo;
   }
 
+  public VariantAnnotation oncokb(OncokbAnnotation oncokb) {
+    this.oncokb = oncokb;
+    return this;
+  }
+
+   /**
+   * Oncokb
+   * @return oncokb
+  **/
+  @ApiModelProperty(value = "Oncokb")
+  public OncokbAnnotation getOncokb() {
+    return oncokb;
+  }
+
+  public void setOncokb(OncokbAnnotation oncokb) {
+    this.oncokb = oncokb;
+  }
+
+  public VariantAnnotation ptms(PtmAnnotation ptms) {
+    this.ptms = ptms;
+    return this;
+  }
+
+   /**
+   * Post Translational Modifications
+   * @return ptms
+  **/
+  @ApiModelProperty(value = "Post Translational Modifications")
+  public PtmAnnotation getPtms() {
+    return ptms;
+  }
+
+  public void setPtms(PtmAnnotation ptms) {
+    this.ptms = ptms;
+  }
+
   public VariantAnnotation seqRegionName(String seqRegionName) {
     this.seqRegionName = seqRegionName;
     return this;
@@ -342,6 +437,24 @@ public class VariantAnnotation {
 
   public void setStrand(Integer strand) {
     this.strand = strand;
+  }
+
+  public VariantAnnotation successfullyAnnotated(Boolean successfullyAnnotated) {
+    this.successfullyAnnotated = successfullyAnnotated;
+    return this;
+  }
+
+   /**
+   * Status flag indicating whether variant was succesfully annotated
+   * @return successfullyAnnotated
+  **/
+  @ApiModelProperty(example = "false", value = "Status flag indicating whether variant was succesfully annotated")
+  public Boolean isSuccessfullyAnnotated() {
+    return successfullyAnnotated;
+  }
+
+  public void setSuccessfullyAnnotated(Boolean successfullyAnnotated) {
+    this.successfullyAnnotated = successfullyAnnotated;
   }
 
   public VariantAnnotation transcriptConsequences(List<TranscriptConsequence> transcriptConsequences) {
@@ -404,21 +517,26 @@ public class VariantAnnotation {
         Objects.equals(this.assemblyName, variantAnnotation.assemblyName) &&
         Objects.equals(this.colocatedVariants, variantAnnotation.colocatedVariants) &&
         Objects.equals(this.end, variantAnnotation.end) &&
+        Objects.equals(this.hgvsg, variantAnnotation.hgvsg) &&
         Objects.equals(this.hotspots, variantAnnotation.hotspots) &&
         Objects.equals(this.id, variantAnnotation.id) &&
+        Objects.equals(this.intergenicConsequences, variantAnnotation.intergenicConsequences) &&
         Objects.equals(this.mostSevereConsequence, variantAnnotation.mostSevereConsequence) &&
         Objects.equals(this.mutationAssessor, variantAnnotation.mutationAssessor) &&
         Objects.equals(this.myVariantInfo, variantAnnotation.myVariantInfo) &&
+        Objects.equals(this.oncokb, variantAnnotation.oncokb) &&
+        Objects.equals(this.ptms, variantAnnotation.ptms) &&
         Objects.equals(this.seqRegionName, variantAnnotation.seqRegionName) &&
         Objects.equals(this.start, variantAnnotation.start) &&
         Objects.equals(this.strand, variantAnnotation.strand) &&
+        Objects.equals(this.successfullyAnnotated, variantAnnotation.successfullyAnnotated) &&
         Objects.equals(this.transcriptConsequences, variantAnnotation.transcriptConsequences) &&
         Objects.equals(this.variant, variantAnnotation.variant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hotspots, id, mostSevereConsequence, mutationAssessor, myVariantInfo, seqRegionName, start, strand, transcriptConsequences, variant);
+    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, oncokb, ptms, seqRegionName, start, strand, successfullyAnnotated, transcriptConsequences, variant);
   }
 
 
@@ -433,14 +551,19 @@ public class VariantAnnotation {
     sb.append("    assemblyName: ").append(toIndentedString(assemblyName)).append("\n");
     sb.append("    colocatedVariants: ").append(toIndentedString(colocatedVariants)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");
     sb.append("    hotspots: ").append(toIndentedString(hotspots)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    intergenicConsequences: ").append(toIndentedString(intergenicConsequences)).append("\n");
     sb.append("    mostSevereConsequence: ").append(toIndentedString(mostSevereConsequence)).append("\n");
     sb.append("    mutationAssessor: ").append(toIndentedString(mutationAssessor)).append("\n");
     sb.append("    myVariantInfo: ").append(toIndentedString(myVariantInfo)).append("\n");
+    sb.append("    oncokb: ").append(toIndentedString(oncokb)).append("\n");
+    sb.append("    ptms: ").append(toIndentedString(ptms)).append("\n");
     sb.append("    seqRegionName: ").append(toIndentedString(seqRegionName)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    strand: ").append(toIndentedString(strand)).append("\n");
+    sb.append("    successfullyAnnotated: ").append(toIndentedString(successfullyAnnotated)).append("\n");
     sb.append("    transcriptConsequences: ").append(toIndentedString(transcriptConsequences)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("}");

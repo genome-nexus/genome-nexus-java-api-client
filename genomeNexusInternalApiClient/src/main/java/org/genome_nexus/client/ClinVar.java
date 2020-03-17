@@ -1,6 +1,6 @@
 /*
  * Genome Nexus API
- * Genome Nexus Variant Annotation API
+ * This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.  Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.   We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -22,15 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.genome_nexus.client.Gene;
 import org.genome_nexus.client.Hg19;
 import org.genome_nexus.client.Hg38;
 import org.genome_nexus.client.Hgvs;
+import org.genome_nexus.client.Rcv;
 
 /**
  * ClinVar
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:57.095-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:56.556-04:00")
 public class ClinVar {
   @SerializedName("_license")
   private String license = null;
@@ -58,6 +61,12 @@ public class ClinVar {
 
   @SerializedName("hgvs")
   private Hgvs hgvs = null;
+
+  @SerializedName("rcv")
+  private List<Rcv> rcv = null;
+
+  @SerializedName("variantId")
+  private Integer variantId = null;
 
   public ClinVar license(String license) {
     this.license = license;
@@ -221,6 +230,50 @@ public class ClinVar {
     this.hgvs = hgvs;
   }
 
+  public ClinVar rcv(List<Rcv> rcv) {
+    this.rcv = rcv;
+    return this;
+  }
+
+  public ClinVar addRcvItem(Rcv rcvItem) {
+    if (this.rcv == null) {
+      this.rcv = new ArrayList<Rcv>();
+    }
+    this.rcv.add(rcvItem);
+    return this;
+  }
+
+   /**
+   * Get rcv
+   * @return rcv
+  **/
+  @ApiModelProperty(value = "")
+  public List<Rcv> getRcv() {
+    return rcv;
+  }
+
+  public void setRcv(List<Rcv> rcv) {
+    this.rcv = rcv;
+  }
+
+  public ClinVar variantId(Integer variantId) {
+    this.variantId = variantId;
+    return this;
+  }
+
+   /**
+   * variant_id
+   * @return variantId
+  **/
+  @ApiModelProperty(value = "variant_id")
+  public Integer getVariantId() {
+    return variantId;
+  }
+
+  public void setVariantId(Integer variantId) {
+    this.variantId = variantId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -239,12 +292,14 @@ public class ClinVar {
         Objects.equals(this.gene, clinVar.gene) &&
         Objects.equals(this.hg19, clinVar.hg19) &&
         Objects.equals(this.hg38, clinVar.hg38) &&
-        Objects.equals(this.hgvs, clinVar.hgvs);
+        Objects.equals(this.hgvs, clinVar.hgvs) &&
+        Objects.equals(this.rcv, clinVar.rcv) &&
+        Objects.equals(this.variantId, clinVar.variantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(license, alleleId, alt, chrom, cytogenic, gene, hg19, hg38, hgvs);
+    return Objects.hash(license, alleleId, alt, chrom, cytogenic, gene, hg19, hg38, hgvs, rcv, variantId);
   }
 
 
@@ -262,6 +317,8 @@ public class ClinVar {
     sb.append("    hg19: ").append(toIndentedString(hg19)).append("\n");
     sb.append("    hg38: ").append(toIndentedString(hg38)).append("\n");
     sb.append("    hgvs: ").append(toIndentedString(hgvs)).append("\n");
+    sb.append("    rcv: ").append(toIndentedString(rcv)).append("\n");
+    sb.append("    variantId: ").append(toIndentedString(variantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

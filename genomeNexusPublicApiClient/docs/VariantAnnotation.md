@@ -10,14 +10,19 @@ Name | Type | Description | Notes
 **assemblyName** | **String** | NCBI build number |  [optional]
 **colocatedVariants** | [**List&lt;ColocatedVariant&gt;**](ColocatedVariant.md) |  |  [optional]
 **end** | **Integer** | End position |  [optional]
+**hgvsg** | **String** |  |  [optional]
 **hotspots** | [**HotspotAnnotation**](HotspotAnnotation.md) | Hotspot Annotation |  [optional]
 **id** | **String** | Variant id | 
+**intergenicConsequences** | [**List&lt;IntergenicConsequences&gt;**](IntergenicConsequences.md) | intergenicConsequences | 
 **mostSevereConsequence** | **String** | Most severe consequence |  [optional]
 **mutationAssessor** | [**MutationAssessorAnnotation**](MutationAssessorAnnotation.md) | Mutation Assessor Annotation |  [optional]
 **myVariantInfo** | [**MyVariantInfoAnnotation**](MyVariantInfoAnnotation.md) | My Variant Info Annotation |  [optional]
+**oncokb** | [**OncokbAnnotation**](OncokbAnnotation.md) | Oncokb |  [optional]
+**ptms** | [**PtmAnnotation**](PtmAnnotation.md) | Post Translational Modifications |  [optional]
 **seqRegionName** | **String** | Chromosome |  [optional]
 **start** | **Integer** | Start position |  [optional]
 **strand** | **Integer** | Strand (negative or positive) |  [optional]
+**successfullyAnnotated** | **Boolean** | Status flag indicating whether variant was succesfully annotated |  [optional]
 **transcriptConsequences** | [**List&lt;TranscriptConsequence&gt;**](TranscriptConsequence.md) | List of transcripts |  [optional]
 **variant** | **String** | Variant key | 
 

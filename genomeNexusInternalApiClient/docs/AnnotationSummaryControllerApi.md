@@ -69,7 +69,7 @@ Retrieves VEP annotation summary for the provided list of variants
 
 
 AnnotationSummaryControllerApi apiInstance = new AnnotationSummaryControllerApi();
-List<String> variants = Arrays.asList(new List<String>()); // List<String> | List of variants. For example [\"X:g.66937331T>A\",\"17:g.41242962_41242963insGA\"]
+List<String> variants = Arrays.asList(new List<String>()); // List<String> | List of variants. For example [\"X:g.66937331T>A\",\"17:g.41242962_41242963insGA\"] (GRCh37) or [\"1:g.182712A>C\", \"2:g.265023C>T\", \"3:g.319781del\", \"19:g.110753dup\", \"1:g.1385015_1387562del\"] (GRCh38)
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
 String projection = "ALL"; // String | Indicates whether to return summary for all transcripts or only for canonical transcript
 try {
@@ -85,7 +85,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variants** | **List&lt;String&gt;**| List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] |
+ **variants** | **List&lt;String&gt;**| List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
  **projection** | **String**| Indicates whether to return summary for all transcripts or only for canonical transcript | [optional] [default to ALL] [enum: ALL, CANONICAL]
 

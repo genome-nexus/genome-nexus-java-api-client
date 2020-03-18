@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **chrom** | **String** | chrom |  [optional]
 **dbsnpBuild** | **Integer** | dbsnp_build |  [optional]
 **flags** | **List&lt;String&gt;** | flags |  [optional]
-**gene** | [**Gene**](Gene.md) | gene |  [optional]
 **hg19** | [**Hg19**](Hg19.md) | hg19 |  [optional]
 **license** | **String** | _license |  [optional]
 **ref** | **String** | ref |  [optional]

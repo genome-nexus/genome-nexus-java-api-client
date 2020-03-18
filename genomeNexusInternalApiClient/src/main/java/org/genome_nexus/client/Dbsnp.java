@@ -1,6 +1,6 @@
 /*
  * Genome Nexus API
- * Genome Nexus Variant Annotation API
+ * This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.  Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.   We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -25,13 +25,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.Alleles;
-import org.genome_nexus.client.Gene;
 import org.genome_nexus.client.Hg19;
 
 /**
  * Dbsnp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:57.095-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:56.556-04:00")
 public class Dbsnp {
   @SerializedName("_class")
   private String propertyClass = null;
@@ -53,9 +52,6 @@ public class Dbsnp {
 
   @SerializedName("flags")
   private List<String> flags = null;
-
-  @SerializedName("gene")
-  private Gene gene = null;
 
   @SerializedName("hg19")
   private Hg19 hg19 = null;
@@ -220,24 +216,6 @@ public class Dbsnp {
     this.flags = flags;
   }
 
-  public Dbsnp gene(Gene gene) {
-    this.gene = gene;
-    return this;
-  }
-
-   /**
-   * gene
-   * @return gene
-  **/
-  @ApiModelProperty(value = "gene")
-  public Gene getGene() {
-    return gene;
-  }
-
-  public void setGene(Gene gene) {
-    this.gene = gene;
-  }
-
   public Dbsnp hg19(Hg19 hg19) {
     this.hg19 = hg19;
     return this;
@@ -381,7 +359,6 @@ public class Dbsnp {
         Objects.equals(this.chrom, dbsnp.chrom) &&
         Objects.equals(this.dbsnpBuild, dbsnp.dbsnpBuild) &&
         Objects.equals(this.flags, dbsnp.flags) &&
-        Objects.equals(this.gene, dbsnp.gene) &&
         Objects.equals(this.hg19, dbsnp.hg19) &&
         Objects.equals(this.license, dbsnp.license) &&
         Objects.equals(this.ref, dbsnp.ref) &&
@@ -393,7 +370,7 @@ public class Dbsnp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(propertyClass, alleleOrigin, alleles, alt, chrom, dbsnpBuild, flags, gene, hg19, license, ref, rsid, validated, varSubtype, vartype);
+    return Objects.hash(propertyClass, alleleOrigin, alleles, alt, chrom, dbsnpBuild, flags, hg19, license, ref, rsid, validated, varSubtype, vartype);
   }
 
 
@@ -409,7 +386,6 @@ public class Dbsnp {
     sb.append("    chrom: ").append(toIndentedString(chrom)).append("\n");
     sb.append("    dbsnpBuild: ").append(toIndentedString(dbsnpBuild)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
-    sb.append("    gene: ").append(toIndentedString(gene)).append("\n");
     sb.append("    hg19: ").append(toIndentedString(hg19)).append("\n");
     sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    ref: ").append(toIndentedString(ref)).append("\n");

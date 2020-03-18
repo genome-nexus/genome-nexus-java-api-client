@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **hg19** | [**Hg19**](Hg19.md) | hg19 |  [optional]
 **hg38** | [**Hg38**](Hg38.md) | hg38 |  [optional]
 **hgvs** | [**Hgvs**](Hgvs.md) | hgvs |  [optional]
+**rcv** | [**List&lt;Rcv&gt;**](Rcv.md) |  |  [optional]
+**variantId** | **Integer** | variant_id |  [optional]
 
 
 

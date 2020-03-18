@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="fetchVariantAnnotationByGenomicLocationGET"></a>
 # **fetchVariantAnnotationByGenomicLocationGET**
-> VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, fields)
+> VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the provided genomic location
 
@@ -28,9 +28,10 @@ Retrieves VEP annotation for the provided genomic location
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
 String genomicLocation = "genomicLocation_example"; // String | A genomic location. For example 7,140453136,140453136,A,T
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("hotspots,mutation_assessor"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor
 try {
-    VariantAnnotation result = apiInstance.fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, fields);
+    VariantAnnotation result = apiInstance.fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByGenomicLocationGET");
@@ -44,6 +45,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **genomicLocation** | **String**| A genomic location. For example 7,140453136,140453136,A,T |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor | [optional] [default to hotspots,mutation_assessor]
 
 ### Return type
@@ -61,7 +63,7 @@ No authorization required
 
 <a name="fetchVariantAnnotationByGenomicLocationPOST"></a>
 # **fetchVariantAnnotationByGenomicLocationPOST**
-> List&lt;VariantAnnotation&gt; fetchVariantAnnotationByGenomicLocationPOST(genomicLocations, isoformOverrideSource, fields)
+> List&lt;VariantAnnotation&gt; fetchVariantAnnotationByGenomicLocationPOST(genomicLocations, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the provided list of genomic locations
 
@@ -75,9 +77,10 @@ Retrieves VEP annotation for the provided list of genomic locations
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
 List<GenomicLocation> genomicLocations = Arrays.asList(new GenomicLocation()); // List<GenomicLocation> | List of Genomic Locations
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("hotspots,mutation_assessor"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor
 try {
-    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationByGenomicLocationPOST(genomicLocations, isoformOverrideSource, fields);
+    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationByGenomicLocationPOST(genomicLocations, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByGenomicLocationPOST");
@@ -91,6 +94,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **genomicLocations** | [**List&lt;GenomicLocation&gt;**](GenomicLocation.md)| List of Genomic Locations |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor | [optional] [default to hotspots,mutation_assessor]
 
 ### Return type
@@ -108,7 +112,7 @@ No authorization required
 
 <a name="fetchVariantAnnotationByIdGET"></a>
 # **fetchVariantAnnotationByIdGET**
-> VariantAnnotation fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, fields)
+> VariantAnnotation fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the give dbSNP id
 
@@ -122,9 +126,10 @@ Retrieves VEP annotation for the give dbSNP id
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
 String variantId = "variantId_example"; // String | dbSNP id. For example rs116035550.
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: annotation_summary
 try {
-    VariantAnnotation result = apiInstance.fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, fields);
+    VariantAnnotation result = apiInstance.fetchVariantAnnotationByIdGET(variantId, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByIdGET");
@@ -138,6 +143,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variantId** | **String**| dbSNP id. For example rs116035550. |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: annotation_summary | [optional] [default to annotation_summary]
 
 ### Return type
@@ -155,7 +161,7 @@ No authorization required
 
 <a name="fetchVariantAnnotationByIdPOST"></a>
 # **fetchVariantAnnotationByIdPOST**
-> List&lt;VariantAnnotation&gt; fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, fields)
+> List&lt;VariantAnnotation&gt; fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the provided list of dbSNP ids
 
@@ -169,9 +175,10 @@ Retrieves VEP annotation for the provided list of dbSNP ids
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
 List<String> variantIds = Arrays.asList(new List<String>()); // List<String> | List of variant IDs. For example [\"rs116035550\"]
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: annotation_summary
 try {
-    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, fields);
+    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationByIdPOST(variantIds, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByIdPOST");
@@ -185,6 +192,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variantIds** | **List&lt;String&gt;**| List of variant IDs. For example [\&quot;rs116035550\&quot;] |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: annotation_summary | [optional] [default to annotation_summary]
 
 ### Return type
@@ -202,7 +210,7 @@ No authorization required
 
 <a name="fetchVariantAnnotationGET"></a>
 # **fetchVariantAnnotationGET**
-> VariantAnnotation fetchVariantAnnotationGET(variant, isoformOverrideSource, fields)
+> VariantAnnotation fetchVariantAnnotationGET(variant, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the provided variant
 
@@ -216,9 +224,10 @@ Retrieves VEP annotation for the provided variant
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
 String variant = "variant_example"; // String | Variant. For example 17:g.41242962_41242963insGA
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("hotspots,mutation_assessor"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor
 try {
-    VariantAnnotation result = apiInstance.fetchVariantAnnotationGET(variant, isoformOverrideSource, fields);
+    VariantAnnotation result = apiInstance.fetchVariantAnnotationGET(variant, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationGET");
@@ -232,6 +241,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variant** | **String**| Variant. For example 17:g.41242962_41242963insGA |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor | [optional] [default to hotspots,mutation_assessor]
 
 ### Return type
@@ -249,7 +259,7 @@ No authorization required
 
 <a name="fetchVariantAnnotationPOST"></a>
 # **fetchVariantAnnotationPOST**
-> List&lt;VariantAnnotation&gt; fetchVariantAnnotationPOST(variants, isoformOverrideSource, fields)
+> List&lt;VariantAnnotation&gt; fetchVariantAnnotationPOST(variants, isoformOverrideSource, token, fields)
 
 Retrieves VEP annotation for the provided list of variants
 
@@ -261,11 +271,12 @@ Retrieves VEP annotation for the provided list of variants
 
 
 AnnotationControllerApi apiInstance = new AnnotationControllerApi();
-List<String> variants = Arrays.asList(new List<String>()); // List<String> | List of variants. For example [\"X:g.66937331T>A\",\"17:g.41242962_41242963insGA\"]
+List<String> variants = Arrays.asList(new List<String>()); // List<String> | List of variants. For example [\"X:g.66937331T>A\",\"17:g.41242962_41242963insGA\"] (GRCh37) or [\"1:g.182712A>C\", \"2:g.265023C>T\", \"3:g.319781del\", \"19:g.110753dup\", \"1:g.1385015_1387562del\"] (GRCh38)
 String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
 List<String> fields = Arrays.asList("hotspots,mutation_assessor"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor
 try {
-    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationPOST(variants, isoformOverrideSource, fields);
+    List<VariantAnnotation> result = apiInstance.fetchVariantAnnotationPOST(variants, isoformOverrideSource, token, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationPOST");
@@ -277,8 +288,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variants** | **List&lt;String&gt;**| List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] |
+ **variants** | **List&lt;String&gt;**| List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) |
  **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional]
+ **token** | **String**| Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor | [optional] [default to hotspots,mutation_assessor]
 
 ### Return type

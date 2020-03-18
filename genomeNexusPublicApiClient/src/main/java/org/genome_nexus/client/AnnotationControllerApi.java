@@ -1,6 +1,6 @@
 /*
  * Genome Nexus API
- * Genome Nexus Variant Annotation API
+ * This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.  Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.   We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -59,13 +59,14 @@ public class AnnotationControllerApi {
      * Build call for fetchVariantAnnotationByGenomicLocationGET
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETCall(String genomicLocation, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETCall(String genomicLocation, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -76,6 +77,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -112,7 +115,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(String genomicLocation, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(String genomicLocation, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'genomicLocation' is set
         if (genomicLocation == null) {
@@ -120,7 +123,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETCall(genomicLocation, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETCall(genomicLocation, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -130,12 +133,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(String genomicLocation, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationByGenomicLocationGETWithHttpInfo(genomicLocation, isoformOverrideSource, fields);
+    public VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(String genomicLocation, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationByGenomicLocationGETWithHttpInfo(genomicLocation, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
@@ -144,12 +148,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VariantAnnotation> fetchVariantAnnotationByGenomicLocationGETWithHttpInfo(String genomicLocation, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, isoformOverrideSource, fields, null, null);
+    public ApiResponse<VariantAnnotation> fetchVariantAnnotationByGenomicLocationGETWithHttpInfo(String genomicLocation, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -159,12 +164,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETAsync(String genomicLocation, String isoformOverrideSource, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationGETAsync(String genomicLocation, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -185,7 +191,7 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -194,13 +200,14 @@ public class AnnotationControllerApi {
      * Build call for fetchVariantAnnotationByGenomicLocationPOST
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTCall(List<GenomicLocation> genomicLocations, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTCall(List<GenomicLocation> genomicLocations, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = genomicLocations;
 
         // create path and map variables
@@ -210,6 +217,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -246,7 +255,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(List<GenomicLocation> genomicLocations, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(List<GenomicLocation> genomicLocations, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'genomicLocations' is set
         if (genomicLocations == null) {
@@ -254,7 +263,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTCall(genomicLocations, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTCall(genomicLocations, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -264,12 +273,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VariantAnnotation> fetchVariantAnnotationByGenomicLocationPOST(List<GenomicLocation> genomicLocations, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationByGenomicLocationPOSTWithHttpInfo(genomicLocations, isoformOverrideSource, fields);
+    public List<VariantAnnotation> fetchVariantAnnotationByGenomicLocationPOST(List<GenomicLocation> genomicLocations, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationByGenomicLocationPOSTWithHttpInfo(genomicLocations, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
@@ -278,12 +288,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationByGenomicLocationPOSTWithHttpInfo(List<GenomicLocation> genomicLocations, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, isoformOverrideSource, fields, null, null);
+    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationByGenomicLocationPOSTWithHttpInfo(List<GenomicLocation> genomicLocations, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -293,12 +304,13 @@ public class AnnotationControllerApi {
      * 
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTAsync(List<GenomicLocation> genomicLocations, String isoformOverrideSource, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByGenomicLocationPOSTAsync(List<GenomicLocation> genomicLocations, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -319,7 +331,7 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -328,13 +340,14 @@ public class AnnotationControllerApi {
      * Build call for fetchVariantAnnotationByIdGET
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETCall(String variantId, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETCall(String variantId, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -345,6 +358,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -381,7 +396,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationByIdGETValidateBeforeCall(String variantId, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationByIdGETValidateBeforeCall(String variantId, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variantId' is set
         if (variantId == null) {
@@ -389,7 +404,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETCall(variantId, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETCall(variantId, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -399,12 +414,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VariantAnnotation fetchVariantAnnotationByIdGET(String variantId, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationByIdGETWithHttpInfo(variantId, isoformOverrideSource, fields);
+    public VariantAnnotation fetchVariantAnnotationByIdGET(String variantId, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationByIdGETWithHttpInfo(variantId, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
@@ -413,12 +429,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VariantAnnotation> fetchVariantAnnotationByIdGETWithHttpInfo(String variantId, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, fields, null, null);
+    public ApiResponse<VariantAnnotation> fetchVariantAnnotationByIdGETWithHttpInfo(String variantId, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -428,12 +445,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETAsync(String variantId, String isoformOverrideSource, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdGETAsync(String variantId, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -454,7 +472,7 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdGETValidateBeforeCall(variantId, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -463,13 +481,14 @@ public class AnnotationControllerApi {
      * Build call for fetchVariantAnnotationByIdPOST
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTCall(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTCall(List<String> variantIds, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = variantIds;
 
         // create path and map variables
@@ -479,6 +498,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -515,7 +536,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTValidateBeforeCall(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTValidateBeforeCall(List<String> variantIds, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variantIds' is set
         if (variantIds == null) {
@@ -523,7 +544,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTCall(variantIds, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTCall(variantIds, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -533,12 +554,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VariantAnnotation> fetchVariantAnnotationByIdPOST(List<String> variantIds, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationByIdPOSTWithHttpInfo(variantIds, isoformOverrideSource, fields);
+    public List<VariantAnnotation> fetchVariantAnnotationByIdPOST(List<String> variantIds, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationByIdPOSTWithHttpInfo(variantIds, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
@@ -547,12 +569,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationByIdPOSTWithHttpInfo(List<String> variantIds, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, fields, null, null);
+    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationByIdPOSTWithHttpInfo(List<String> variantIds, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -562,12 +585,13 @@ public class AnnotationControllerApi {
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTAsync(List<String> variantIds, String isoformOverrideSource, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationByIdPOSTAsync(List<String> variantIds, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -588,7 +612,7 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationByIdPOSTValidateBeforeCall(variantIds, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -597,13 +621,14 @@ public class AnnotationControllerApi {
      * Build call for fetchVariantAnnotationGET
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationGETCall(String variant, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationGETCall(String variant, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -614,6 +639,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -650,7 +677,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationGETValidateBeforeCall(String variant, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationGETValidateBeforeCall(String variant, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variant' is set
         if (variant == null) {
@@ -658,7 +685,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationGETCall(variant, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationGETCall(variant, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -668,12 +695,13 @@ public class AnnotationControllerApi {
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public VariantAnnotation fetchVariantAnnotationGET(String variant, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationGETWithHttpInfo(variant, isoformOverrideSource, fields);
+    public VariantAnnotation fetchVariantAnnotationGET(String variant, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<VariantAnnotation> resp = fetchVariantAnnotationGETWithHttpInfo(variant, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
@@ -682,12 +710,13 @@ public class AnnotationControllerApi {
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<VariantAnnotation> fetchVariantAnnotationGETWithHttpInfo(String variant, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationGETValidateBeforeCall(variant, isoformOverrideSource, fields, null, null);
+    public ApiResponse<VariantAnnotation> fetchVariantAnnotationGETWithHttpInfo(String variant, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationGETValidateBeforeCall(variant, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -697,12 +726,13 @@ public class AnnotationControllerApi {
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationGETAsync(String variant, String isoformOverrideSource, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationGETAsync(String variant, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<VariantAnnotation> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -723,22 +753,23 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationGETValidateBeforeCall(variant, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationGETValidateBeforeCall(variant, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<VariantAnnotation>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for fetchVariantAnnotationPOST
-     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (required)
+     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationPOSTCall(List<String> variants, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationPOSTCall(List<String> variants, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = variants;
 
         // create path and map variables
@@ -748,6 +779,8 @@ public class AnnotationControllerApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (isoformOverrideSource != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("isoformOverrideSource", isoformOverrideSource));
+        if (token != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("token", token));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "fields", fields));
 
@@ -784,7 +817,7 @@ public class AnnotationControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchVariantAnnotationPOSTValidateBeforeCall(List<String> variants, String isoformOverrideSource, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchVariantAnnotationPOSTValidateBeforeCall(List<String> variants, String isoformOverrideSource, String token, List<String> fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variants' is set
         if (variants == null) {
@@ -792,7 +825,7 @@ public class AnnotationControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTCall(variants, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTCall(variants, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -800,28 +833,30 @@ public class AnnotationControllerApi {
     /**
      * Retrieves VEP annotation for the provided list of variants
      * 
-     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (required)
+     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<VariantAnnotation> fetchVariantAnnotationPOST(List<String> variants, String isoformOverrideSource, List<String> fields) throws ApiException {
-        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationPOSTWithHttpInfo(variants, isoformOverrideSource, fields);
+    public List<VariantAnnotation> fetchVariantAnnotationPOST(List<String> variants, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        ApiResponse<List<VariantAnnotation>> resp = fetchVariantAnnotationPOSTWithHttpInfo(variants, isoformOverrideSource, token, fields);
         return resp.getData();
     }
 
     /**
      * Retrieves VEP annotation for the provided list of variants
      * 
-     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (required)
+     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationPOSTWithHttpInfo(List<String> variants, String isoformOverrideSource, List<String> fields) throws ApiException {
-        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTValidateBeforeCall(variants, isoformOverrideSource, fields, null, null);
+    public ApiResponse<List<VariantAnnotation>> fetchVariantAnnotationPOSTWithHttpInfo(List<String> variants, String isoformOverrideSource, String token, List<String> fields) throws ApiException {
+        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTValidateBeforeCall(variants, isoformOverrideSource, token, fields, null, null);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -829,14 +864,15 @@ public class AnnotationControllerApi {
     /**
      * Retrieves VEP annotation for the provided list of variants (asynchronously)
      * 
-     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (required)
+     * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor (optional, default to hotspots,mutation_assessor)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVariantAnnotationPOSTAsync(List<String> variants, String isoformOverrideSource, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVariantAnnotationPOSTAsync(List<String> variants, String isoformOverrideSource, String token, List<String> fields, final ApiCallback<List<VariantAnnotation>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -857,7 +893,7 @@ public class AnnotationControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTValidateBeforeCall(variants, isoformOverrideSource, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchVariantAnnotationPOSTValidateBeforeCall(variants, isoformOverrideSource, token, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<VariantAnnotation>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

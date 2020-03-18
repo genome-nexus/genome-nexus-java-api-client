@@ -110,21 +110,29 @@ Class | Method | HTTP request | Description
 *MutationAssessorControllerApi* | [**postMutationAssessorAnnotation**](docs/MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
 *MyVariantInfoControllerApi* | [**fetchMyVariantInfoAnnotationGET**](docs/MyVariantInfoControllerApi.md#fetchMyVariantInfoAnnotationGET) | **GET** /my_variant_info/variant/{variant} | Retrieves myvariant information for the provided list of variants
 *MyVariantInfoControllerApi* | [**postMyVariantInfoAnnotation**](docs/MyVariantInfoControllerApi.md#postMyVariantInfoAnnotation) | **POST** /my_variant_info/variant | Retrieves myvariant information for the provided list of variants
+*SignalMutationControllerApi* | [**fetchSignalMutationsByHugoSymbolGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHugoSymbolGETUsingGET) | **GET** /signal/mutation | Retrieves SignalDB mutations by Hugo Gene Symbol
+*SignalMutationControllerApi* | [**fetchSignalMutationsByMutationFilterPOSTUsingPOST**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByMutationFilterPOSTUsingPOST) | **POST** /signal/mutation | Retrieves SignalDB mutations by Mutation Filter
 
 
 ## Documentation for Models
 
  - [AggregatedHotspots](docs/AggregatedHotspots.md)
+ - [AlleleCount](docs/AlleleCount.md)
+ - [AlleleFrequency](docs/AlleleFrequency.md)
+ - [AlleleNumber](docs/AlleleNumber.md)
  - [Alleles](docs/Alleles.md)
  - [ClinVar](docs/ClinVar.md)
  - [Cosmic](docs/Cosmic.md)
+ - [CountByTumorType](docs/CountByTumorType.md)
  - [Dbsnp](docs/Dbsnp.md)
  - [Gene](docs/Gene.md)
  - [GeneXref](docs/GeneXref.md)
  - [GenomicLocation](docs/GenomicLocation.md)
+ - [Gnomad](docs/Gnomad.md)
  - [Hg19](docs/Hg19.md)
  - [Hg38](docs/Hg38.md)
  - [Hgvs](docs/Hgvs.md)
+ - [Homozygotes](docs/Homozygotes.md)
  - [Hotspot](docs/Hotspot.md)
  - [IntegerRange](docs/IntegerRange.md)
  - [IsoformOverride](docs/IsoformOverride.md)
@@ -132,6 +140,9 @@ Class | Method | HTTP request | Description
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)
  - [ProteinLocation](docs/ProteinLocation.md)
+ - [Rcv](docs/Rcv.md)
+ - [SignalMutation](docs/SignalMutation.md)
+ - [SignalMutationFilter](docs/SignalMutationFilter.md)
  - [Snpeff](docs/Snpeff.md)
  - [TranscriptConsequenceSummary](docs/TranscriptConsequenceSummary.md)
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)

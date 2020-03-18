@@ -1,6 +1,6 @@
 /*
  * Genome Nexus API
- * Genome Nexus Variant Annotation API
+ * This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.  Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.   We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * TranscriptConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-06T12:23:53.961-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
 public class TranscriptConsequence {
   @SerializedName("amino_acids")
   private String aminoAcids = null;
@@ -52,10 +52,13 @@ public class TranscriptConsequence {
   private String geneSymbol = null;
 
   @SerializedName("hgnc_id")
-  private Integer hgncId = null;
+  private String hgncId = null;
 
   @SerializedName("hgvsc")
   private String hgvsc = null;
+
+  @SerializedName("hgvsg")
+  private String hgvsg = null;
 
   @SerializedName("hgvsp")
   private String hgvsp = null;
@@ -224,7 +227,7 @@ public class TranscriptConsequence {
     this.geneSymbol = geneSymbol;
   }
 
-  public TranscriptConsequence hgncId(Integer hgncId) {
+  public TranscriptConsequence hgncId(String hgncId) {
     this.hgncId = hgncId;
     return this;
   }
@@ -234,11 +237,11 @@ public class TranscriptConsequence {
    * @return hgncId
   **/
   @ApiModelProperty(value = "HGNC id")
-  public Integer getHgncId() {
+  public String getHgncId() {
     return hgncId;
   }
 
-  public void setHgncId(Integer hgncId) {
+  public void setHgncId(String hgncId) {
     this.hgncId = hgncId;
   }
 
@@ -258,6 +261,24 @@ public class TranscriptConsequence {
 
   public void setHgvsc(String hgvsc) {
     this.hgvsc = hgvsc;
+  }
+
+  public TranscriptConsequence hgvsg(String hgvsg) {
+    this.hgvsg = hgvsg;
+    return this;
+  }
+
+   /**
+   * HGVSg
+   * @return hgvsg
+  **/
+  @ApiModelProperty(value = "HGVSg")
+  public String getHgvsg() {
+    return hgvsg;
+  }
+
+  public void setHgvsg(String hgvsg) {
+    this.hgvsg = hgvsg;
   }
 
   public TranscriptConsequence hgvsp(String hgvsp) {
@@ -485,6 +506,7 @@ public class TranscriptConsequence {
         Objects.equals(this.geneSymbol, transcriptConsequence.geneSymbol) &&
         Objects.equals(this.hgncId, transcriptConsequence.hgncId) &&
         Objects.equals(this.hgvsc, transcriptConsequence.hgvsc) &&
+        Objects.equals(this.hgvsg, transcriptConsequence.hgvsg) &&
         Objects.equals(this.hgvsp, transcriptConsequence.hgvsp) &&
         Objects.equals(this.polyphenPrediction, transcriptConsequence.polyphenPrediction) &&
         Objects.equals(this.polyphenScore, transcriptConsequence.polyphenScore) &&
@@ -500,7 +522,7 @@ public class TranscriptConsequence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, variantAllele);
+    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, variantAllele);
   }
 
 
@@ -518,6 +540,7 @@ public class TranscriptConsequence {
     sb.append("    geneSymbol: ").append(toIndentedString(geneSymbol)).append("\n");
     sb.append("    hgncId: ").append(toIndentedString(hgncId)).append("\n");
     sb.append("    hgvsc: ").append(toIndentedString(hgvsc)).append("\n");
+    sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");
     sb.append("    hgvsp: ").append(toIndentedString(hgvsp)).append("\n");
     sb.append("    polyphenPrediction: ").append(toIndentedString(polyphenPrediction)).append("\n");
     sb.append("    polyphenScore: ").append(toIndentedString(polyphenScore)).append("\n");

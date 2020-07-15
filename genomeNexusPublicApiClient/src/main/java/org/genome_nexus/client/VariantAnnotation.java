@@ -29,15 +29,17 @@ import org.genome_nexus.client.HotspotAnnotation;
 import org.genome_nexus.client.IntergenicConsequences;
 import org.genome_nexus.client.MutationAssessorAnnotation;
 import org.genome_nexus.client.MyVariantInfoAnnotation;
+import org.genome_nexus.client.NucleotideContextAnnotation;
 import org.genome_nexus.client.OncokbAnnotation;
 import org.genome_nexus.client.PtmAnnotation;
+import org.genome_nexus.client.SignalAnnotation;
 import org.genome_nexus.client.TranscriptConsequence;
 import org.genome_nexus.client.VariantAnnotationSummary;
 
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:05.418-04:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -78,14 +80,23 @@ public class VariantAnnotation {
   @SerializedName("my_variant_info")
   private MyVariantInfoAnnotation myVariantInfo = null;
 
+  @SerializedName("nucleotide_context")
+  private NucleotideContextAnnotation nucleotideContext = null;
+
   @SerializedName("oncokb")
   private OncokbAnnotation oncokb = null;
+
+  @SerializedName("originalVariantQuery")
+  private String originalVariantQuery = null;
 
   @SerializedName("ptms")
   private PtmAnnotation ptms = null;
 
   @SerializedName("seq_region_name")
   private String seqRegionName = null;
+
+  @SerializedName("signalAnnotation")
+  private SignalAnnotation signalAnnotation = null;
 
   @SerializedName("start")
   private Integer start = null;
@@ -349,6 +360,24 @@ public class VariantAnnotation {
     this.myVariantInfo = myVariantInfo;
   }
 
+  public VariantAnnotation nucleotideContext(NucleotideContextAnnotation nucleotideContext) {
+    this.nucleotideContext = nucleotideContext;
+    return this;
+  }
+
+   /**
+   * Nucleotide Context Annotation
+   * @return nucleotideContext
+  **/
+  @ApiModelProperty(value = "Nucleotide Context Annotation")
+  public NucleotideContextAnnotation getNucleotideContext() {
+    return nucleotideContext;
+  }
+
+  public void setNucleotideContext(NucleotideContextAnnotation nucleotideContext) {
+    this.nucleotideContext = nucleotideContext;
+  }
+
   public VariantAnnotation oncokb(OncokbAnnotation oncokb) {
     this.oncokb = oncokb;
     return this;
@@ -365,6 +394,24 @@ public class VariantAnnotation {
 
   public void setOncokb(OncokbAnnotation oncokb) {
     this.oncokb = oncokb;
+  }
+
+  public VariantAnnotation originalVariantQuery(String originalVariantQuery) {
+    this.originalVariantQuery = originalVariantQuery;
+    return this;
+  }
+
+   /**
+   * Get originalVariantQuery
+   * @return originalVariantQuery
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginalVariantQuery() {
+    return originalVariantQuery;
+  }
+
+  public void setOriginalVariantQuery(String originalVariantQuery) {
+    this.originalVariantQuery = originalVariantQuery;
   }
 
   public VariantAnnotation ptms(PtmAnnotation ptms) {
@@ -401,6 +448,24 @@ public class VariantAnnotation {
 
   public void setSeqRegionName(String seqRegionName) {
     this.seqRegionName = seqRegionName;
+  }
+
+  public VariantAnnotation signalAnnotation(SignalAnnotation signalAnnotation) {
+    this.signalAnnotation = signalAnnotation;
+    return this;
+  }
+
+   /**
+   * Get signalAnnotation
+   * @return signalAnnotation
+  **/
+  @ApiModelProperty(value = "")
+  public SignalAnnotation getSignalAnnotation() {
+    return signalAnnotation;
+  }
+
+  public void setSignalAnnotation(SignalAnnotation signalAnnotation) {
+    this.signalAnnotation = signalAnnotation;
   }
 
   public VariantAnnotation start(Integer start) {
@@ -524,9 +589,12 @@ public class VariantAnnotation {
         Objects.equals(this.mostSevereConsequence, variantAnnotation.mostSevereConsequence) &&
         Objects.equals(this.mutationAssessor, variantAnnotation.mutationAssessor) &&
         Objects.equals(this.myVariantInfo, variantAnnotation.myVariantInfo) &&
+        Objects.equals(this.nucleotideContext, variantAnnotation.nucleotideContext) &&
         Objects.equals(this.oncokb, variantAnnotation.oncokb) &&
+        Objects.equals(this.originalVariantQuery, variantAnnotation.originalVariantQuery) &&
         Objects.equals(this.ptms, variantAnnotation.ptms) &&
         Objects.equals(this.seqRegionName, variantAnnotation.seqRegionName) &&
+        Objects.equals(this.signalAnnotation, variantAnnotation.signalAnnotation) &&
         Objects.equals(this.start, variantAnnotation.start) &&
         Objects.equals(this.strand, variantAnnotation.strand) &&
         Objects.equals(this.successfullyAnnotated, variantAnnotation.successfullyAnnotated) &&
@@ -536,7 +604,7 @@ public class VariantAnnotation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, oncokb, ptms, seqRegionName, start, strand, successfullyAnnotated, transcriptConsequences, variant);
+    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, nucleotideContext, oncokb, originalVariantQuery, ptms, seqRegionName, signalAnnotation, start, strand, successfullyAnnotated, transcriptConsequences, variant);
   }
 
 
@@ -558,9 +626,12 @@ public class VariantAnnotation {
     sb.append("    mostSevereConsequence: ").append(toIndentedString(mostSevereConsequence)).append("\n");
     sb.append("    mutationAssessor: ").append(toIndentedString(mutationAssessor)).append("\n");
     sb.append("    myVariantInfo: ").append(toIndentedString(myVariantInfo)).append("\n");
+    sb.append("    nucleotideContext: ").append(toIndentedString(nucleotideContext)).append("\n");
     sb.append("    oncokb: ").append(toIndentedString(oncokb)).append("\n");
+    sb.append("    originalVariantQuery: ").append(toIndentedString(originalVariantQuery)).append("\n");
     sb.append("    ptms: ").append(toIndentedString(ptms)).append("\n");
     sb.append("    seqRegionName: ").append(toIndentedString(seqRegionName)).append("\n");
+    sb.append("    signalAnnotation: ").append(toIndentedString(signalAnnotation)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    strand: ").append(toIndentedString(strand)).append("\n");
     sb.append("    successfullyAnnotated: ").append(toIndentedString(successfullyAnnotated)).append("\n");

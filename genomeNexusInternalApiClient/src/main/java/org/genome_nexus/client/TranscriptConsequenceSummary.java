@@ -27,8 +27,17 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:56.556-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:07.104-04:00")
 public class TranscriptConsequenceSummary {
+  @SerializedName("aminoAcidAlt")
+  private String aminoAcidAlt = null;
+
+  @SerializedName("aminoAcidRef")
+  private String aminoAcidRef = null;
+
+  @SerializedName("aminoAcids")
+  private String aminoAcids = null;
+
   @SerializedName("codonChange")
   private String codonChange = null;
 
@@ -64,6 +73,60 @@ public class TranscriptConsequenceSummary {
 
   @SerializedName("variantClassification")
   private String variantClassification = null;
+
+  public TranscriptConsequenceSummary aminoAcidAlt(String aminoAcidAlt) {
+    this.aminoAcidAlt = aminoAcidAlt;
+    return this;
+  }
+
+   /**
+   * Alt Amino Acid
+   * @return aminoAcidAlt
+  **/
+  @ApiModelProperty(value = "Alt Amino Acid")
+  public String getAminoAcidAlt() {
+    return aminoAcidAlt;
+  }
+
+  public void setAminoAcidAlt(String aminoAcidAlt) {
+    this.aminoAcidAlt = aminoAcidAlt;
+  }
+
+  public TranscriptConsequenceSummary aminoAcidRef(String aminoAcidRef) {
+    this.aminoAcidRef = aminoAcidRef;
+    return this;
+  }
+
+   /**
+   * Reference Amino Acid
+   * @return aminoAcidRef
+  **/
+  @ApiModelProperty(value = "Reference Amino Acid")
+  public String getAminoAcidRef() {
+    return aminoAcidRef;
+  }
+
+  public void setAminoAcidRef(String aminoAcidRef) {
+    this.aminoAcidRef = aminoAcidRef;
+  }
+
+  public TranscriptConsequenceSummary aminoAcids(String aminoAcids) {
+    this.aminoAcids = aminoAcids;
+    return this;
+  }
+
+   /**
+   * Amino acids change
+   * @return aminoAcids
+  **/
+  @ApiModelProperty(value = "Amino acids change")
+  public String getAminoAcids() {
+    return aminoAcids;
+  }
+
+  public void setAminoAcids(String aminoAcids) {
+    this.aminoAcids = aminoAcids;
+  }
 
   public TranscriptConsequenceSummary codonChange(String codonChange) {
     this.codonChange = codonChange;
@@ -291,7 +354,10 @@ public class TranscriptConsequenceSummary {
       return false;
     }
     TranscriptConsequenceSummary transcriptConsequenceSummary = (TranscriptConsequenceSummary) o;
-    return Objects.equals(this.codonChange, transcriptConsequenceSummary.codonChange) &&
+    return Objects.equals(this.aminoAcidAlt, transcriptConsequenceSummary.aminoAcidAlt) &&
+        Objects.equals(this.aminoAcidRef, transcriptConsequenceSummary.aminoAcidRef) &&
+        Objects.equals(this.aminoAcids, transcriptConsequenceSummary.aminoAcids) &&
+        Objects.equals(this.codonChange, transcriptConsequenceSummary.codonChange) &&
         Objects.equals(this.consequenceTerms, transcriptConsequenceSummary.consequenceTerms) &&
         Objects.equals(this.entrezGeneId, transcriptConsequenceSummary.entrezGeneId) &&
         Objects.equals(this.exon, transcriptConsequenceSummary.exon) &&
@@ -307,7 +373,7 @@ public class TranscriptConsequenceSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, proteinPosition, refSeq, transcriptId, variantClassification);
+    return Objects.hash(aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, proteinPosition, refSeq, transcriptId, variantClassification);
   }
 
 
@@ -316,6 +382,9 @@ public class TranscriptConsequenceSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class TranscriptConsequenceSummary {\n");
     
+    sb.append("    aminoAcidAlt: ").append(toIndentedString(aminoAcidAlt)).append("\n");
+    sb.append("    aminoAcidRef: ").append(toIndentedString(aminoAcidRef)).append("\n");
+    sb.append("    aminoAcids: ").append(toIndentedString(aminoAcids)).append("\n");
     sb.append("    codonChange: ").append(toIndentedString(codonChange)).append("\n");
     sb.append("    consequenceTerms: ").append(toIndentedString(consequenceTerms)).append("\n");
     sb.append("    entrezGeneId: ").append(toIndentedString(entrezGeneId)).append("\n");

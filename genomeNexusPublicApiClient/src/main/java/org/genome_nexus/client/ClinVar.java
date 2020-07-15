@@ -33,11 +33,8 @@ import org.genome_nexus.client.Rcv;
 /**
  * ClinVar
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:05.418-04:00")
 public class ClinVar {
-  @SerializedName("_license")
-  private String license = null;
-
   @SerializedName("alleleId")
   private Integer alleleId = null;
 
@@ -62,29 +59,14 @@ public class ClinVar {
   @SerializedName("hgvs")
   private Hgvs hgvs = null;
 
+  @SerializedName("license")
+  private String license = null;
+
   @SerializedName("rcv")
   private List<Rcv> rcv = null;
 
   @SerializedName("variantId")
   private Integer variantId = null;
-
-  public ClinVar license(String license) {
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * Get license
-   * @return license
-  **/
-  @ApiModelProperty(value = "")
-  public String getLicense() {
-    return license;
-  }
-
-  public void setLicense(String license) {
-    this.license = license;
-  }
 
   public ClinVar alleleId(Integer alleleId) {
     this.alleleId = alleleId;
@@ -230,6 +212,24 @@ public class ClinVar {
     this.hgvs = hgvs;
   }
 
+  public ClinVar license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * license
+   * @return license
+  **/
+  @ApiModelProperty(value = "license")
+  public String getLicense() {
+    return license;
+  }
+
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
   public ClinVar rcv(List<Rcv> rcv) {
     this.rcv = rcv;
     return this;
@@ -284,8 +284,7 @@ public class ClinVar {
       return false;
     }
     ClinVar clinVar = (ClinVar) o;
-    return Objects.equals(this.license, clinVar.license) &&
-        Objects.equals(this.alleleId, clinVar.alleleId) &&
+    return Objects.equals(this.alleleId, clinVar.alleleId) &&
         Objects.equals(this.alt, clinVar.alt) &&
         Objects.equals(this.chrom, clinVar.chrom) &&
         Objects.equals(this.cytogenic, clinVar.cytogenic) &&
@@ -293,13 +292,14 @@ public class ClinVar {
         Objects.equals(this.hg19, clinVar.hg19) &&
         Objects.equals(this.hg38, clinVar.hg38) &&
         Objects.equals(this.hgvs, clinVar.hgvs) &&
+        Objects.equals(this.license, clinVar.license) &&
         Objects.equals(this.rcv, clinVar.rcv) &&
         Objects.equals(this.variantId, clinVar.variantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(license, alleleId, alt, chrom, cytogenic, gene, hg19, hg38, hgvs, rcv, variantId);
+    return Objects.hash(alleleId, alt, chrom, cytogenic, gene, hg19, hg38, hgvs, license, rcv, variantId);
   }
 
 
@@ -308,7 +308,6 @@ public class ClinVar {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClinVar {\n");
     
-    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    alleleId: ").append(toIndentedString(alleleId)).append("\n");
     sb.append("    alt: ").append(toIndentedString(alt)).append("\n");
     sb.append("    chrom: ").append(toIndentedString(chrom)).append("\n");
@@ -317,6 +316,7 @@ public class ClinVar {
     sb.append("    hg19: ").append(toIndentedString(hg19)).append("\n");
     sb.append("    hg38: ").append(toIndentedString(hg38)).append("\n");
     sb.append("    hgvs: ").append(toIndentedString(hgvs)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    rcv: ").append(toIndentedString(rcv)).append("\n");
     sb.append("    variantId: ").append(toIndentedString(variantId)).append("\n");
     sb.append("}");

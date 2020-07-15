@@ -4,9 +4,53 @@ All URIs are relative to *http://genomenexus.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**fetchSignalMutationsByHgvsgGETUsingGET**](SignalMutationControllerApi.md#fetchSignalMutationsByHgvsgGETUsingGET) | **GET** /signal/mutation/hgvs/{variant} | Retrieves SignalDB mutations by hgvgs variant
 [**fetchSignalMutationsByHugoSymbolGETUsingGET**](SignalMutationControllerApi.md#fetchSignalMutationsByHugoSymbolGETUsingGET) | **GET** /signal/mutation | Retrieves SignalDB mutations by Hugo Gene Symbol
 [**fetchSignalMutationsByMutationFilterPOSTUsingPOST**](SignalMutationControllerApi.md#fetchSignalMutationsByMutationFilterPOSTUsingPOST) | **POST** /signal/mutation | Retrieves SignalDB mutations by Mutation Filter
 
+
+<a name="fetchSignalMutationsByHgvsgGETUsingGET"></a>
+# **fetchSignalMutationsByHgvsgGETUsingGET**
+> List&lt;SignalMutation&gt; fetchSignalMutationsByHgvsgGETUsingGET(variant)
+
+Retrieves SignalDB mutations by hgvgs variant
+
+### Example
+```java
+// Import classes:
+//import org.genome_nexus.ApiException;
+//import org.genome_nexus.client.SignalMutationControllerApi;
+
+
+SignalMutationControllerApi apiInstance = new SignalMutationControllerApi();
+String variant = "variant_example"; // String | A variant. For example 13:g.32890665G>A
+try {
+    List<SignalMutation> result = apiInstance.fetchSignalMutationsByHgvsgGETUsingGET(variant);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SignalMutationControllerApi#fetchSignalMutationsByHgvsgGETUsingGET");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variant** | **String**| A variant. For example 13:g.32890665G&gt;A |
+
+### Return type
+
+[**List&lt;SignalMutation&gt;**](SignalMutation.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="fetchSignalMutationsByHugoSymbolGETUsingGET"></a>
 # **fetchSignalMutationsByHugoSymbolGETUsingGET**

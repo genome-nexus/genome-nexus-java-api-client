@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **gnomadGenome** | [**Gnomad**](Gnomad.md) | gnomad_genome |  [optional]
 **hgvs** | **String** | hgvs |  [optional]
 **mutdb** | [**Mutdb**](Mutdb.md) |  |  [optional]
+**query** | **String** |  |  [optional]
 **snpeff** | [**Snpeff**](Snpeff.md) | snpeff |  [optional]
+**variant** | **String** | variant |  [optional]
 **vcf** | [**Vcf**](Vcf.md) | vcf |  [optional]
 **version** | **Integer** | version |  [optional]
 

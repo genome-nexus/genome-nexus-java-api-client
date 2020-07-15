@@ -27,11 +27,8 @@ import org.genome_nexus.client.Hg19;
 /**
  * Cosmic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:05.418-04:00")
 public class Cosmic {
-  @SerializedName("_license")
-  private String license = null;
-
   @SerializedName("alt")
   private String alt = null;
 
@@ -44,6 +41,9 @@ public class Cosmic {
   @SerializedName("hg19")
   private Hg19 hg19 = null;
 
+  @SerializedName("license")
+  private String license = null;
+
   @SerializedName("mutFreq")
   private Double mutFreq = null;
 
@@ -55,24 +55,6 @@ public class Cosmic {
 
   @SerializedName("tumorSite")
   private String tumorSite = null;
-
-  public Cosmic license(String license) {
-    this.license = license;
-    return this;
-  }
-
-   /**
-   * Get license
-   * @return license
-  **/
-  @ApiModelProperty(value = "")
-  public String getLicense() {
-    return license;
-  }
-
-  public void setLicense(String license) {
-    this.license = license;
-  }
 
   public Cosmic alt(String alt) {
     this.alt = alt;
@@ -144,6 +126,24 @@ public class Cosmic {
 
   public void setHg19(Hg19 hg19) {
     this.hg19 = hg19;
+  }
+
+  public Cosmic license(String license) {
+    this.license = license;
+    return this;
+  }
+
+   /**
+   * _license
+   * @return license
+  **/
+  @ApiModelProperty(value = "_license")
+  public String getLicense() {
+    return license;
+  }
+
+  public void setLicense(String license) {
+    this.license = license;
   }
 
   public Cosmic mutFreq(Double mutFreq) {
@@ -228,11 +228,11 @@ public class Cosmic {
       return false;
     }
     Cosmic cosmic = (Cosmic) o;
-    return Objects.equals(this.license, cosmic.license) &&
-        Objects.equals(this.alt, cosmic.alt) &&
+    return Objects.equals(this.alt, cosmic.alt) &&
         Objects.equals(this.chrom, cosmic.chrom) &&
         Objects.equals(this.cosmicId, cosmic.cosmicId) &&
         Objects.equals(this.hg19, cosmic.hg19) &&
+        Objects.equals(this.license, cosmic.license) &&
         Objects.equals(this.mutFreq, cosmic.mutFreq) &&
         Objects.equals(this.mutNt, cosmic.mutNt) &&
         Objects.equals(this.ref, cosmic.ref) &&
@@ -241,7 +241,7 @@ public class Cosmic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(license, alt, chrom, cosmicId, hg19, mutFreq, mutNt, ref, tumorSite);
+    return Objects.hash(alt, chrom, cosmicId, hg19, license, mutFreq, mutNt, ref, tumorSite);
   }
 
 
@@ -250,11 +250,11 @@ public class Cosmic {
     StringBuilder sb = new StringBuilder();
     sb.append("class Cosmic {\n");
     
-    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    alt: ").append(toIndentedString(alt)).append("\n");
     sb.append("    chrom: ").append(toIndentedString(chrom)).append("\n");
     sb.append("    cosmicId: ").append(toIndentedString(cosmicId)).append("\n");
     sb.append("    hg19: ").append(toIndentedString(hg19)).append("\n");
+    sb.append("    license: ").append(toIndentedString(license)).append("\n");
     sb.append("    mutFreq: ").append(toIndentedString(mutFreq)).append("\n");
     sb.append("    mutNt: ").append(toIndentedString(mutNt)).append("\n");
     sb.append("    ref: ").append(toIndentedString(ref)).append("\n");

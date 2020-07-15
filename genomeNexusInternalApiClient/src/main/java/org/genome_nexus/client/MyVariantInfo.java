@@ -33,7 +33,7 @@ import org.genome_nexus.client.Vcf;
 /**
  * MyVariantInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:56.556-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:07.104-04:00")
 public class MyVariantInfo {
   @SerializedName("clinVar")
   private ClinVar clinVar = null;
@@ -56,8 +56,14 @@ public class MyVariantInfo {
   @SerializedName("mutdb")
   private Mutdb mutdb = null;
 
+  @SerializedName("query")
+  private String query = null;
+
   @SerializedName("snpeff")
   private Snpeff snpeff = null;
+
+  @SerializedName("variant")
+  private String variant = null;
 
   @SerializedName("vcf")
   private Vcf vcf = null;
@@ -191,6 +197,24 @@ public class MyVariantInfo {
     this.mutdb = mutdb;
   }
 
+  public MyVariantInfo query(String query) {
+    this.query = query;
+    return this;
+  }
+
+   /**
+   * Get query
+   * @return query
+  **/
+  @ApiModelProperty(value = "")
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
   public MyVariantInfo snpeff(Snpeff snpeff) {
     this.snpeff = snpeff;
     return this;
@@ -207,6 +231,24 @@ public class MyVariantInfo {
 
   public void setSnpeff(Snpeff snpeff) {
     this.snpeff = snpeff;
+  }
+
+  public MyVariantInfo variant(String variant) {
+    this.variant = variant;
+    return this;
+  }
+
+   /**
+   * variant
+   * @return variant
+  **/
+  @ApiModelProperty(value = "variant")
+  public String getVariant() {
+    return variant;
+  }
+
+  public void setVariant(String variant) {
+    this.variant = variant;
   }
 
   public MyVariantInfo vcf(Vcf vcf) {
@@ -262,14 +304,16 @@ public class MyVariantInfo {
         Objects.equals(this.gnomadGenome, myVariantInfo.gnomadGenome) &&
         Objects.equals(this.hgvs, myVariantInfo.hgvs) &&
         Objects.equals(this.mutdb, myVariantInfo.mutdb) &&
+        Objects.equals(this.query, myVariantInfo.query) &&
         Objects.equals(this.snpeff, myVariantInfo.snpeff) &&
+        Objects.equals(this.variant, myVariantInfo.variant) &&
         Objects.equals(this.vcf, myVariantInfo.vcf) &&
         Objects.equals(this.version, myVariantInfo.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clinVar, cosmic, dbsnp, gnomadExome, gnomadGenome, hgvs, mutdb, snpeff, vcf, version);
+    return Objects.hash(clinVar, cosmic, dbsnp, gnomadExome, gnomadGenome, hgvs, mutdb, query, snpeff, variant, vcf, version);
   }
 
 
@@ -285,7 +329,9 @@ public class MyVariantInfo {
     sb.append("    gnomadGenome: ").append(toIndentedString(gnomadGenome)).append("\n");
     sb.append("    hgvs: ").append(toIndentedString(hgvs)).append("\n");
     sb.append("    mutdb: ").append(toIndentedString(mutdb)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    snpeff: ").append(toIndentedString(snpeff)).append("\n");
+    sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("    vcf: ").append(toIndentedString(vcf)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

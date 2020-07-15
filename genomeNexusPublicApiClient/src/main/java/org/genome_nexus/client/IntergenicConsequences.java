@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * IntergenicConsequences
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:55.091-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:05.418-04:00")
 public class IntergenicConsequences {
   @SerializedName("impact")
   private String impact = null;

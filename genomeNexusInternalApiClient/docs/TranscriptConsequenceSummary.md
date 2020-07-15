@@ -4,6 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aminoAcidAlt** | **String** | Alt Amino Acid |  [optional]
+**aminoAcidRef** | **String** | Reference Amino Acid |  [optional]
+**aminoAcids** | **String** | Amino acids change |  [optional]
 **codonChange** | **String** | Codon change |  [optional]
 **consequenceTerms** | **String** | Consequence terms (comma separated) |  [optional]
 **entrezGeneId** | **String** | Entrez gene id |  [optional]

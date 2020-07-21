@@ -110,6 +110,9 @@ Class | Method | HTTP request | Description
 *MutationAssessorControllerApi* | [**postMutationAssessorAnnotation**](docs/MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
 *MyVariantInfoControllerApi* | [**fetchMyVariantInfoAnnotationGET**](docs/MyVariantInfoControllerApi.md#fetchMyVariantInfoAnnotationGET) | **GET** /my_variant_info/variant/{variant} | Retrieves myvariant information for the provided list of variants
 *MyVariantInfoControllerApi* | [**postMyVariantInfoAnnotation**](docs/MyVariantInfoControllerApi.md#postMyVariantInfoAnnotation) | **POST** /my_variant_info/variant | Retrieves myvariant information for the provided list of variants
+*NucleotideContextControllerApi* | [**fetchNucleotideContextAnnotationGET**](docs/NucleotideContextControllerApi.md#fetchNucleotideContextAnnotationGET) | **GET** /nucleotide_context/{variant} | Retrieves nucleotide context information for the provided list of variants
+*NucleotideContextControllerApi* | [**postNucleotideContextAnnotation**](docs/NucleotideContextControllerApi.md#postNucleotideContextAnnotation) | **POST** /nucleotide_context | Retrieves nucleotide context information for the provided list of variants
+*SignalMutationControllerApi* | [**fetchSignalMutationsByHgvsgGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHgvsgGETUsingGET) | **GET** /signal/mutation/hgvs/{variant} | Retrieves SignalDB mutations by hgvgs variant
 *SignalMutationControllerApi* | [**fetchSignalMutationsByHugoSymbolGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHugoSymbolGETUsingGET) | **GET** /signal/mutation | Retrieves SignalDB mutations by Hugo Gene Symbol
 *SignalMutationControllerApi* | [**fetchSignalMutationsByMutationFilterPOSTUsingPOST**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByMutationFilterPOSTUsingPOST) | **POST** /signal/mutation | Retrieves SignalDB mutations by Mutation Filter
 
@@ -139,6 +142,7 @@ Class | Method | HTTP request | Description
  - [MutationAssessor](docs/MutationAssessor.md)
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)
+ - [NucleotideContext](docs/NucleotideContext.md)
  - [ProteinLocation](docs/ProteinLocation.md)
  - [Rcv](docs/Rcv.md)
  - [SignalMutation](docs/SignalMutation.md)

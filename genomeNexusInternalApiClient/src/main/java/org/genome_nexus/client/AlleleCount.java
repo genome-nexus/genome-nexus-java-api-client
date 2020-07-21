@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AlleleCount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-03-17T16:29:56.556-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:07.104-04:00")
 public class AlleleCount {
   @SerializedName("ac")
   private Integer ac = null;

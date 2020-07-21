@@ -34,6 +34,22 @@ public class SignalMutationControllerApiTest {
 
     
     /**
+     * Retrieves SignalDB mutations by hgvgs variant
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchSignalMutationsByHgvsgGETUsingGETTest() throws ApiException {
+        String variant = null;
+        List<SignalMutation> response = api.fetchSignalMutationsByHgvsgGETUsingGET(variant);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieves SignalDB mutations by Hugo Gene Symbol
      *
      * 

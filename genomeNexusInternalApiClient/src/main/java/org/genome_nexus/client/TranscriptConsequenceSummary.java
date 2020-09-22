@@ -27,7 +27,7 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:07.104-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:48:04.268-04:00")
 public class TranscriptConsequenceSummary {
   @SerializedName("aminoAcidAlt")
   private String aminoAcidAlt = null;
@@ -62,11 +62,23 @@ public class TranscriptConsequenceSummary {
   @SerializedName("hugoGeneSymbol")
   private String hugoGeneSymbol = null;
 
+  @SerializedName("polyphen_prediction")
+  private String polyphenPrediction = null;
+
+  @SerializedName("polyphen_score")
+  private Double polyphenScore = null;
+
   @SerializedName("proteinPosition")
   private IntegerRange proteinPosition = null;
 
   @SerializedName("refSeq")
   private String refSeq = null;
+
+  @SerializedName("sift_prediction")
+  private String siftPrediction = null;
+
+  @SerializedName("sift_score")
+  private Double siftScore = null;
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
@@ -272,6 +284,42 @@ public class TranscriptConsequenceSummary {
     this.hugoGeneSymbol = hugoGeneSymbol;
   }
 
+  public TranscriptConsequenceSummary polyphenPrediction(String polyphenPrediction) {
+    this.polyphenPrediction = polyphenPrediction;
+    return this;
+  }
+
+   /**
+   * Polyphen Prediction
+   * @return polyphenPrediction
+  **/
+  @ApiModelProperty(value = "Polyphen Prediction")
+  public String getPolyphenPrediction() {
+    return polyphenPrediction;
+  }
+
+  public void setPolyphenPrediction(String polyphenPrediction) {
+    this.polyphenPrediction = polyphenPrediction;
+  }
+
+  public TranscriptConsequenceSummary polyphenScore(Double polyphenScore) {
+    this.polyphenScore = polyphenScore;
+    return this;
+  }
+
+   /**
+   * Polyphen Score
+   * @return polyphenScore
+  **/
+  @ApiModelProperty(value = "Polyphen Score")
+  public Double getPolyphenScore() {
+    return polyphenScore;
+  }
+
+  public void setPolyphenScore(Double polyphenScore) {
+    this.polyphenScore = polyphenScore;
+  }
+
   public TranscriptConsequenceSummary proteinPosition(IntegerRange proteinPosition) {
     this.proteinPosition = proteinPosition;
     return this;
@@ -306,6 +354,42 @@ public class TranscriptConsequenceSummary {
 
   public void setRefSeq(String refSeq) {
     this.refSeq = refSeq;
+  }
+
+  public TranscriptConsequenceSummary siftPrediction(String siftPrediction) {
+    this.siftPrediction = siftPrediction;
+    return this;
+  }
+
+   /**
+   * Sift Prediction
+   * @return siftPrediction
+  **/
+  @ApiModelProperty(value = "Sift Prediction")
+  public String getSiftPrediction() {
+    return siftPrediction;
+  }
+
+  public void setSiftPrediction(String siftPrediction) {
+    this.siftPrediction = siftPrediction;
+  }
+
+  public TranscriptConsequenceSummary siftScore(Double siftScore) {
+    this.siftScore = siftScore;
+    return this;
+  }
+
+   /**
+   * Sift Score
+   * @return siftScore
+  **/
+  @ApiModelProperty(value = "Sift Score")
+  public Double getSiftScore() {
+    return siftScore;
+  }
+
+  public void setSiftScore(Double siftScore) {
+    this.siftScore = siftScore;
   }
 
   public TranscriptConsequenceSummary transcriptId(String transcriptId) {
@@ -365,15 +449,19 @@ public class TranscriptConsequenceSummary {
         Objects.equals(this.hgvsp, transcriptConsequenceSummary.hgvsp) &&
         Objects.equals(this.hgvspShort, transcriptConsequenceSummary.hgvspShort) &&
         Objects.equals(this.hugoGeneSymbol, transcriptConsequenceSummary.hugoGeneSymbol) &&
+        Objects.equals(this.polyphenPrediction, transcriptConsequenceSummary.polyphenPrediction) &&
+        Objects.equals(this.polyphenScore, transcriptConsequenceSummary.polyphenScore) &&
         Objects.equals(this.proteinPosition, transcriptConsequenceSummary.proteinPosition) &&
         Objects.equals(this.refSeq, transcriptConsequenceSummary.refSeq) &&
+        Objects.equals(this.siftPrediction, transcriptConsequenceSummary.siftPrediction) &&
+        Objects.equals(this.siftScore, transcriptConsequenceSummary.siftScore) &&
         Objects.equals(this.transcriptId, transcriptConsequenceSummary.transcriptId) &&
         Objects.equals(this.variantClassification, transcriptConsequenceSummary.variantClassification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, proteinPosition, refSeq, transcriptId, variantClassification);
+    return Objects.hash(aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, polyphenPrediction, polyphenScore, proteinPosition, refSeq, siftPrediction, siftScore, transcriptId, variantClassification);
   }
 
 
@@ -393,8 +481,12 @@ public class TranscriptConsequenceSummary {
     sb.append("    hgvsp: ").append(toIndentedString(hgvsp)).append("\n");
     sb.append("    hgvspShort: ").append(toIndentedString(hgvspShort)).append("\n");
     sb.append("    hugoGeneSymbol: ").append(toIndentedString(hugoGeneSymbol)).append("\n");
+    sb.append("    polyphenPrediction: ").append(toIndentedString(polyphenPrediction)).append("\n");
+    sb.append("    polyphenScore: ").append(toIndentedString(polyphenScore)).append("\n");
     sb.append("    proteinPosition: ").append(toIndentedString(proteinPosition)).append("\n");
     sb.append("    refSeq: ").append(toIndentedString(refSeq)).append("\n");
+    sb.append("    siftPrediction: ").append(toIndentedString(siftPrediction)).append("\n");
+    sb.append("    siftScore: ").append(toIndentedString(siftScore)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
     sb.append("    variantClassification: ").append(toIndentedString(variantClassification)).append("\n");
     sb.append("}");

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Homozygotes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:07.104-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:48:04.268-04:00")
 public class Homozygotes {
   @SerializedName("hom")
   private Integer hom = null;

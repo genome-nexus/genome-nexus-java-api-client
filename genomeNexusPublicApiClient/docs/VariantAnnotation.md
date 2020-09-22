@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **myVariantInfo** | [**MyVariantInfoAnnotation**](MyVariantInfoAnnotation.md) | My Variant Info Annotation |  [optional]
 **nucleotideContext** | [**NucleotideContextAnnotation**](NucleotideContextAnnotation.md) | Nucleotide Context Annotation |  [optional]
 **oncokb** | [**OncokbAnnotation**](OncokbAnnotation.md) | Oncokb |  [optional]
-**originalVariantQuery** | **String** |  |  [optional]
+**originalVariantQuery** | **String** | Original variant query | 
 **ptms** | [**PtmAnnotation**](PtmAnnotation.md) | Post Translational Modifications |  [optional]
 **seqRegionName** | **String** | Chromosome |  [optional]
 **signalAnnotation** | [**SignalAnnotation**](SignalAnnotation.md) |  |  [optional]

@@ -74,7 +74,7 @@ public class AnnotationControllerApiExample {
         String genomicLocation = "genomicLocation_example"; // String | A genomic location. For example 7,140453136,140453136,A,T
         String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
         String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
-        List<String> fields = Arrays.asList("hotspots,mutation_assessor"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots,mutation_assessor
+        List<String> fields = Arrays.asList("hotspots"); // List<String> | Comma separated list of fields to include (case-sensitive!). For example: hotspots
         try {
             VariantAnnotation result = apiInstance.fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, token, fields);
             System.out.println(result);

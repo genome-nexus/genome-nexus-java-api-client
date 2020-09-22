@@ -15,8 +15,12 @@ Name | Type | Description | Notes
 **hgvsp** | **String** | HGVSp |  [optional]
 **hgvspShort** | **String** | HGVSp short |  [optional]
 **hugoGeneSymbol** | **String** | Hugo gene symbol |  [optional]
+**polyphenPrediction** | **String** | Polyphen Prediction |  [optional]
+**polyphenScore** | **Double** | Polyphen Score |  [optional]
 **proteinPosition** | [**IntegerRange**](IntegerRange.md) | Protein position (start and end) |  [optional]
 **refSeq** | **String** | RefSeq id |  [optional]
+**siftPrediction** | **String** | Sift Prediction |  [optional]
+**siftScore** | **Double** | Sift Score |  [optional]
 **transcriptId** | **String** | Transcript id | 
 **variantClassification** | **String** | Variant classification |  [optional]
 

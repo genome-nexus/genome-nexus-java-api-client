@@ -39,7 +39,7 @@ import org.genome_nexus.client.VariantAnnotationSummary;
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-07-15T14:02:05.418-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:47:55.205-04:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -402,10 +402,10 @@ public class VariantAnnotation {
   }
 
    /**
-   * Get originalVariantQuery
+   * Original variant query
    * @return originalVariantQuery
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "Original variant query")
   public String getOriginalVariantQuery() {
     return originalVariantQuery;
   }

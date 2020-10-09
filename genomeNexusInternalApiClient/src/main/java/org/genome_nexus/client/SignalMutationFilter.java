@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * SignalMutationFilter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:48:04.268-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:46.721-04:00")
 public class SignalMutationFilter {
   @SerializedName("hugoSymbols")
   private List<String> hugoSymbols = null;

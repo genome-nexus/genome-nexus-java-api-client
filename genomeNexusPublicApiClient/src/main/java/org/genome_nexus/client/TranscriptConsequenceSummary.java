@@ -27,7 +27,7 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:47:55.205-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
 public class TranscriptConsequenceSummary {
   @SerializedName("aminoAcidAlt")
   private String aminoAcidAlt = null;
@@ -62,10 +62,10 @@ public class TranscriptConsequenceSummary {
   @SerializedName("hugoGeneSymbol")
   private String hugoGeneSymbol = null;
 
-  @SerializedName("polyphen_prediction")
+  @SerializedName("polyphenPrediction")
   private String polyphenPrediction = null;
 
-  @SerializedName("polyphen_score")
+  @SerializedName("polyphenScore")
   private Double polyphenScore = null;
 
   @SerializedName("proteinPosition")
@@ -74,10 +74,10 @@ public class TranscriptConsequenceSummary {
   @SerializedName("refSeq")
   private String refSeq = null;
 
-  @SerializedName("sift_prediction")
+  @SerializedName("siftPrediction")
   private String siftPrediction = null;
 
-  @SerializedName("sift_score")
+  @SerializedName("siftScore")
   private Double siftScore = null;
 
   @SerializedName("transcriptId")

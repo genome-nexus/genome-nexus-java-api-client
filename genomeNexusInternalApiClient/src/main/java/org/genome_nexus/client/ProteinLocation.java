@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * ProteinLocation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:48:04.268-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:46.721-04:00")
 public class ProteinLocation {
   @SerializedName("transcriptId")
   private String transcriptId = null;

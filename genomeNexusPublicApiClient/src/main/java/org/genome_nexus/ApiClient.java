@@ -52,7 +52,7 @@ import org.genome_nexus.auth.OAuth;
 
 public class ApiClient {
 
-    private String basePath = "http://genomenexus.org";
+    private String basePath = "http://www.genomenexus.org";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -105,7 +105,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://genomenexus.org
+     * @param basePath Base path of the URL (e.g http://www.genomenexus.org
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

@@ -89,7 +89,7 @@ public class AnnotationControllerApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://genomenexus.org*
+All URIs are relative to *http://www.genomenexus.org*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

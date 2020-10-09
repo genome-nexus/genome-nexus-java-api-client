@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCRIPT_DIR_PARENT="$( cd "$SCRIPT_DIR/.." && pwd )"
-GENOME_NEXUS_API_DOCS=${1:-http://genomenexus.org/v2/api-docs}
+GENOME_NEXUS_API_DOCS=${1:-https://genomenexus.org/v2/api-docs}
 SWAGGER_CODEGEN_CLI_JAR="$SCRIPT_DIR/swagger-codegen-cli.jar"
 
 # only download the client if it is not already downloaded

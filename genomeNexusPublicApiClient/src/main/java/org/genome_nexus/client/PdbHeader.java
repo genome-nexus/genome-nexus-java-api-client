@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * PdbHeader
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T17:47:55.205-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
 public class PdbHeader {
   @SerializedName("compound")
   private Object compound = null;

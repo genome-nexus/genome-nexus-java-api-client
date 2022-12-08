@@ -13,7 +13,7 @@
 
 package org.genome_nexus;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:46.721-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

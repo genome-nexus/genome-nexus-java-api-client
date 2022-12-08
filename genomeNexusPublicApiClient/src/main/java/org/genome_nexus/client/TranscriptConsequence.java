@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * TranscriptConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class TranscriptConsequence {
   @SerializedName("amino_acids")
   private String aminoAcids = null;
@@ -89,6 +89,9 @@ public class TranscriptConsequence {
 
   @SerializedName("transcript_id")
   private String transcriptId = null;
+
+  @SerializedName("uniprotId")
+  private String uniprotId = null;
 
   @SerializedName("variant_allele")
   private String variantAllele = null;
@@ -469,6 +472,24 @@ public class TranscriptConsequence {
     this.transcriptId = transcriptId;
   }
 
+  public TranscriptConsequence uniprotId(String uniprotId) {
+    this.uniprotId = uniprotId;
+    return this;
+  }
+
+   /**
+   * Get uniprotId
+   * @return uniprotId
+  **/
+  @ApiModelProperty(value = "")
+  public String getUniprotId() {
+    return uniprotId;
+  }
+
+  public void setUniprotId(String uniprotId) {
+    this.uniprotId = uniprotId;
+  }
+
   public TranscriptConsequence variantAllele(String variantAllele) {
     this.variantAllele = variantAllele;
     return this;
@@ -517,12 +538,13 @@ public class TranscriptConsequence {
         Objects.equals(this.siftPrediction, transcriptConsequence.siftPrediction) &&
         Objects.equals(this.siftScore, transcriptConsequence.siftScore) &&
         Objects.equals(this.transcriptId, transcriptConsequence.transcriptId) &&
+        Objects.equals(this.uniprotId, transcriptConsequence.uniprotId) &&
         Objects.equals(this.variantAllele, transcriptConsequence.variantAllele);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, variantAllele);
+    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, uniprotId, variantAllele);
   }
 
 
@@ -551,6 +573,7 @@ public class TranscriptConsequence {
     sb.append("    siftPrediction: ").append(toIndentedString(siftPrediction)).append("\n");
     sb.append("    siftScore: ").append(toIndentedString(siftScore)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    uniprotId: ").append(toIndentedString(uniprotId)).append("\n");
     sb.append("    variantAllele: ").append(toIndentedString(variantAllele)).append("\n");
     sb.append("}");
     return sb.toString();

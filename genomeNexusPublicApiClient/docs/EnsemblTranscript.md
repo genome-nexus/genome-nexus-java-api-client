@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uniprotId** | **String** |  |  [optional]
 **transcriptId** | **String** | Ensembl transcript id | 
 **geneId** | **String** | Ensembl gene id | 
 **proteinId** | **String** | Ensembl protein id | 

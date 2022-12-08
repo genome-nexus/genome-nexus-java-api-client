@@ -28,13 +28,16 @@ import java.util.List;
 /**
  * Hgvs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:46.721-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
 public class Hgvs {
   @SerializedName("coding")
   private List<String> coding = null;
 
   @SerializedName("genomic")
   private List<String> genomic = null;
+
+  @SerializedName("protein")
+  private List<String> protein = null;
 
   public Hgvs coding(List<String> coding) {
     this.coding = coding;
@@ -88,6 +91,32 @@ public class Hgvs {
     this.genomic = genomic;
   }
 
+  public Hgvs protein(List<String> protein) {
+    this.protein = protein;
+    return this;
+  }
+
+  public Hgvs addProteinItem(String proteinItem) {
+    if (this.protein == null) {
+      this.protein = new ArrayList<String>();
+    }
+    this.protein.add(proteinItem);
+    return this;
+  }
+
+   /**
+   * Get protein
+   * @return protein
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getProtein() {
+    return protein;
+  }
+
+  public void setProtein(List<String> protein) {
+    this.protein = protein;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -99,12 +128,13 @@ public class Hgvs {
     }
     Hgvs hgvs = (Hgvs) o;
     return Objects.equals(this.coding, hgvs.coding) &&
-        Objects.equals(this.genomic, hgvs.genomic);
+        Objects.equals(this.genomic, hgvs.genomic) &&
+        Objects.equals(this.protein, hgvs.protein);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(coding, genomic);
+    return Objects.hash(coding, genomic, protein);
   }
 
 
@@ -115,6 +145,7 @@ public class Hgvs {
     
     sb.append("    coding: ").append(toIndentedString(coding)).append("\n");
     sb.append("    genomic: ").append(toIndentedString(genomic)).append("\n");
+    sb.append("    protein: ").append(toIndentedString(protein)).append("\n");
     sb.append("}");
     return sb.toString();
   }

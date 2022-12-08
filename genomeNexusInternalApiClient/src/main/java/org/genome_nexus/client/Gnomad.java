@@ -30,7 +30,7 @@ import org.genome_nexus.client.Homozygotes;
 /**
  * Gnomad
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:46.721-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
 public class Gnomad {
   @SerializedName("alleleCount")
   private AlleleCount alleleCount = null;

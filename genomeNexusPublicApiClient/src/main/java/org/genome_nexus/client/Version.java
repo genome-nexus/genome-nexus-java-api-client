@@ -26,10 +26,31 @@ import java.io.IOException;
 /**
  * Version
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class Version {
+  @SerializedName("static")
+  private Boolean _static = null;
+
   @SerializedName("version")
   private String version = null;
+
+  public Version _static(Boolean _static) {
+    this._static = _static;
+    return this;
+  }
+
+   /**
+   * Get _static
+   * @return _static
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isStatic() {
+    return _static;
+  }
+
+  public void setStatic(Boolean _static) {
+    this._static = _static;
+  }
 
   public Version version(String version) {
     this.version = version;
@@ -59,12 +80,13 @@ public class Version {
       return false;
     }
     Version version = (Version) o;
-    return Objects.equals(this.version, version.version);
+    return Objects.equals(this._static, version._static) &&
+        Objects.equals(this.version, version.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version);
+    return Objects.hash(_static, version);
   }
 
 
@@ -73,6 +95,7 @@ public class Version {
     StringBuilder sb = new StringBuilder();
     sb.append("class Version {\n");
     
+    sb.append("    _static: ").append(toIndentedString(_static)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

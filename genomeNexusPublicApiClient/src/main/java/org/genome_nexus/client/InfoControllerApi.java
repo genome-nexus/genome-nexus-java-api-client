@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.genome_nexus.client.Version;
+import org.genome_nexus.client.AggregateSourceInfo;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -114,23 +114,23 @@ public class InfoControllerApi {
     /**
      * Retrieve Genome Nexus Version
      * 
-     * @return Version
+     * @return AggregateSourceInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Version fetchVersionGET() throws ApiException {
-        ApiResponse<Version> resp = fetchVersionGETWithHttpInfo();
+    public AggregateSourceInfo fetchVersionGET() throws ApiException {
+        ApiResponse<AggregateSourceInfo> resp = fetchVersionGETWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Retrieve Genome Nexus Version
      * 
-     * @return ApiResponse&lt;Version&gt;
+     * @return ApiResponse&lt;AggregateSourceInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Version> fetchVersionGETWithHttpInfo() throws ApiException {
+    public ApiResponse<AggregateSourceInfo> fetchVersionGETWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = fetchVersionGETValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Version>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateSourceInfo>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -141,7 +141,7 @@ public class InfoControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchVersionGETAsync(final ApiCallback<Version> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchVersionGETAsync(final ApiCallback<AggregateSourceInfo> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -163,7 +163,7 @@ public class InfoControllerApi {
         }
 
         com.squareup.okhttp.Call call = fetchVersionGETValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Version>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateSourceInfo>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

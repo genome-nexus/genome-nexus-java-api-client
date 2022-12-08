@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Exon
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class Exon {
   @SerializedName("exonId")
   private String exonId = null;

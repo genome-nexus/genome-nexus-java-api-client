@@ -7,7 +7,7 @@ SWAGGER_CODEGEN_CLI_JAR="$SCRIPT_DIR/swagger-codegen-cli.jar"
 # only download the client if it is not already downloaded
 if [ ! -f ${SWAGGER_CODEGEN_CLI_JAR} ]; then
     if which curl ; then
-        curl 'https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar' --output-file ${SWAGGER_CODEGEN_CLI_JAR}
+        curl 'https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar' --output ${SWAGGER_CODEGEN_CLI_JAR}
     else
         if which wget ; then
             wget 'http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar' -O ${SWAGGER_CODEGEN_CLI_JAR}

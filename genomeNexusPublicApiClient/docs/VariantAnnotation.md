@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **annotationJSON** | **String** | Annotation data as JSON string |  [optional]
 **annotationSummary** | [**VariantAnnotationSummary**](VariantAnnotationSummary.md) | Variant Annotation Summary |  [optional]
 **assemblyName** | **String** | NCBI build number |  [optional]
+**clinvar** | [**ClinvarAnnotation**](ClinvarAnnotation.md) | ClinVar |  [optional]
 **colocatedVariants** | [**List&lt;ColocatedVariant&gt;**](ColocatedVariant.md) |  |  [optional]
 **end** | **Integer** | End position |  [optional]
 **hgvsg** | **String** |  |  [optional]

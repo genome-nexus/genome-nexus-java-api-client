@@ -14,7 +14,7 @@
 package org.genome_nexus.client;
 
 import org.genome_nexus.ApiException;
-import org.genome_nexus.client.Version;
+import org.genome_nexus.client.AggregateSourceInfo;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -42,7 +42,7 @@ public class InfoControllerApiTest {
      */
     @Test
     public void fetchVersionGETTest() throws ApiException {
-        Version response = api.fetchVersionGET();
+        AggregateSourceInfo response = api.fetchVersionGET();
 
         // TODO: test validations
     }

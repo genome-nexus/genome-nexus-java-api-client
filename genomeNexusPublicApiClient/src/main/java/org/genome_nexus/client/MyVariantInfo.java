@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.genome_nexus.client.ClinVar;
+import org.genome_nexus.client.Clinvar;
 import org.genome_nexus.client.Cosmic;
 import org.genome_nexus.client.Dbsnp;
 import org.genome_nexus.client.Gnomad;
@@ -33,10 +33,10 @@ import org.genome_nexus.client.Vcf;
 /**
  * MyVariantInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class MyVariantInfo {
   @SerializedName("clinVar")
-  private ClinVar clinVar = null;
+  private Clinvar clinVar = null;
 
   @SerializedName("cosmic")
   private Cosmic cosmic = null;
@@ -71,7 +71,7 @@ public class MyVariantInfo {
   @SerializedName("version")
   private Integer version = null;
 
-  public MyVariantInfo clinVar(ClinVar clinVar) {
+  public MyVariantInfo clinVar(Clinvar clinVar) {
     this.clinVar = clinVar;
     return this;
   }
@@ -81,11 +81,11 @@ public class MyVariantInfo {
    * @return clinVar
   **/
   @ApiModelProperty(value = "clinvar")
-  public ClinVar getClinVar() {
+  public Clinvar getClinvar() {
     return clinVar;
   }
 
-  public void setClinVar(ClinVar clinVar) {
+  public void setClinvar(Clinvar clinVar) {
     this.clinVar = clinVar;
   }
 

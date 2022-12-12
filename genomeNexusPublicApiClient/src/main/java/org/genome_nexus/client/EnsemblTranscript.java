@@ -31,8 +31,11 @@ import org.genome_nexus.client.UntranslatedRegion;
 /**
  * EnsemblTranscript
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class EnsemblTranscript {
+  @SerializedName("uniprotId")
+  private String uniprotId = null;
+
   @SerializedName("transcriptId")
   private String transcriptId = null;
 
@@ -62,6 +65,24 @@ public class EnsemblTranscript {
 
   @SerializedName("utrs")
   private List<UntranslatedRegion> utrs = null;
+
+  public EnsemblTranscript uniprotId(String uniprotId) {
+    this.uniprotId = uniprotId;
+    return this;
+  }
+
+   /**
+   * Get uniprotId
+   * @return uniprotId
+  **/
+  @ApiModelProperty(value = "")
+  public String getUniprotId() {
+    return uniprotId;
+  }
+
+  public void setUniprotId(String uniprotId) {
+    this.uniprotId = uniprotId;
+  }
 
   public EnsemblTranscript transcriptId(String transcriptId) {
     this.transcriptId = transcriptId;
@@ -285,7 +306,8 @@ public class EnsemblTranscript {
       return false;
     }
     EnsemblTranscript ensemblTranscript = (EnsemblTranscript) o;
-    return Objects.equals(this.transcriptId, ensemblTranscript.transcriptId) &&
+    return Objects.equals(this.uniprotId, ensemblTranscript.uniprotId) &&
+        Objects.equals(this.transcriptId, ensemblTranscript.transcriptId) &&
         Objects.equals(this.geneId, ensemblTranscript.geneId) &&
         Objects.equals(this.proteinId, ensemblTranscript.proteinId) &&
         Objects.equals(this.proteinLength, ensemblTranscript.proteinLength) &&
@@ -299,7 +321,7 @@ public class EnsemblTranscript {
 
   @Override
   public int hashCode() {
-    return Objects.hash(transcriptId, geneId, proteinId, proteinLength, pfamDomains, hugoSymbols, refseqMrnaId, ccdsId, exons, utrs);
+    return Objects.hash(uniprotId, transcriptId, geneId, proteinId, proteinLength, pfamDomains, hugoSymbols, refseqMrnaId, ccdsId, exons, utrs);
   }
 
 
@@ -308,6 +330,7 @@ public class EnsemblTranscript {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnsemblTranscript {\n");
     
+    sb.append("    uniprotId: ").append(toIndentedString(uniprotId)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
     sb.append("    geneId: ").append(toIndentedString(geneId)).append("\n");
     sb.append("    proteinId: ").append(toIndentedString(proteinId)).append("\n");

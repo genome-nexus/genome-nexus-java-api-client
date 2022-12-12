@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.genome_nexus.client.ClinvarAnnotation;
 import org.genome_nexus.client.ColocatedVariant;
 import org.genome_nexus.client.HotspotAnnotation;
 import org.genome_nexus.client.IntergenicConsequences;
@@ -39,7 +40,7 @@ import org.genome_nexus.client.VariantAnnotationSummary;
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -52,6 +53,9 @@ public class VariantAnnotation {
 
   @SerializedName("assembly_name")
   private String assemblyName = null;
+
+  @SerializedName("clinvar")
+  private ClinvarAnnotation clinvar = null;
 
   @SerializedName("colocatedVariants")
   private List<ColocatedVariant> colocatedVariants = null;
@@ -183,6 +187,24 @@ public class VariantAnnotation {
 
   public void setAssemblyName(String assemblyName) {
     this.assemblyName = assemblyName;
+  }
+
+  public VariantAnnotation clinvar(ClinvarAnnotation clinvar) {
+    this.clinvar = clinvar;
+    return this;
+  }
+
+   /**
+   * ClinVar
+   * @return clinvar
+  **/
+  @ApiModelProperty(value = "ClinVar")
+  public ClinvarAnnotation getClinvar() {
+    return clinvar;
+  }
+
+  public void setClinvar(ClinvarAnnotation clinvar) {
+    this.clinvar = clinvar;
   }
 
   public VariantAnnotation colocatedVariants(List<ColocatedVariant> colocatedVariants) {
@@ -580,6 +602,7 @@ public class VariantAnnotation {
         Objects.equals(this.annotationJSON, variantAnnotation.annotationJSON) &&
         Objects.equals(this.annotationSummary, variantAnnotation.annotationSummary) &&
         Objects.equals(this.assemblyName, variantAnnotation.assemblyName) &&
+        Objects.equals(this.clinvar, variantAnnotation.clinvar) &&
         Objects.equals(this.colocatedVariants, variantAnnotation.colocatedVariants) &&
         Objects.equals(this.end, variantAnnotation.end) &&
         Objects.equals(this.hgvsg, variantAnnotation.hgvsg) &&
@@ -604,7 +627,7 @@ public class VariantAnnotation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, colocatedVariants, end, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, nucleotideContext, oncokb, originalVariantQuery, ptms, seqRegionName, signalAnnotation, start, strand, successfullyAnnotated, transcriptConsequences, variant);
+    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, clinvar, colocatedVariants, end, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, nucleotideContext, oncokb, originalVariantQuery, ptms, seqRegionName, signalAnnotation, start, strand, successfullyAnnotated, transcriptConsequences, variant);
   }
 
 
@@ -617,6 +640,7 @@ public class VariantAnnotation {
     sb.append("    annotationJSON: ").append(toIndentedString(annotationJSON)).append("\n");
     sb.append("    annotationSummary: ").append(toIndentedString(annotationSummary)).append("\n");
     sb.append("    assemblyName: ").append(toIndentedString(assemblyName)).append("\n");
+    sb.append("    clinvar: ").append(toIndentedString(clinvar)).append("\n");
     sb.append("    colocatedVariants: ").append(toIndentedString(colocatedVariants)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");

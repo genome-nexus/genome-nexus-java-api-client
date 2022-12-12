@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **siftPrediction** | **String** | Sift Prediction |  [optional]
 **siftScore** | **Double** | Sift Score |  [optional]
 **transcriptId** | **String** | Transcript id | 
+**uniprotId** | **String** | Uniprot ID |  [optional]
 **variantClassification** | **String** | Variant classification |  [optional]
 
 

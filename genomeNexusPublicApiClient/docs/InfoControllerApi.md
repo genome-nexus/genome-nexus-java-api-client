@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="fetchVersionGET"></a>
 # **fetchVersionGET**
-> Version fetchVersionGET()
+> AggregateSourceInfo fetchVersionGET()
 
 Retrieve Genome Nexus Version
 
@@ -22,7 +22,7 @@ Retrieve Genome Nexus Version
 
 InfoControllerApi apiInstance = new InfoControllerApi();
 try {
-    Version result = apiInstance.fetchVersionGET();
+    AggregateSourceInfo result = apiInstance.fetchVersionGET();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InfoControllerApi#fetchVersionGET");
@@ -35,7 +35,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Version**](Version.md)
+[**AggregateSourceInfo**](AggregateSourceInfo.md)
 
 ### Authorization
 

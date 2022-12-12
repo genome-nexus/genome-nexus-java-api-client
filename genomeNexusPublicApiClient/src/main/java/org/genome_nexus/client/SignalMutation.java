@@ -25,11 +25,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.CountByTumorType;
+import org.genome_nexus.client.GeneralPopulationStats;
+import org.genome_nexus.client.StatsByTumorType;
 
 /**
  * SignalMutation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-10-09T14:40:44.549-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class SignalMutation {
   @SerializedName("biallelicCountsByTumorType")
   private List<CountByTumorType> biallelicCountsByTumorType = null;
@@ -43,11 +45,20 @@ public class SignalMutation {
   @SerializedName("endPosition")
   private Long endPosition = null;
 
+  @SerializedName("generalPopulationStats")
+  private GeneralPopulationStats generalPopulationStats = null;
+
   @SerializedName("hugoGeneSymbol")
   private String hugoGeneSymbol = null;
 
+  @SerializedName("mskExperReview")
+  private Boolean mskExperReview = null;
+
   @SerializedName("mutationStatus")
   private String mutationStatus = null;
+
+  @SerializedName("overallNumberOfGermlineHomozygous")
+  private Integer overallNumberOfGermlineHomozygous = null;
 
   @SerializedName("pathogenic")
   private String pathogenic = null;
@@ -63,6 +74,9 @@ public class SignalMutation {
 
   @SerializedName("startPosition")
   private Long startPosition = null;
+
+  @SerializedName("statsByTumorType")
+  private List<StatsByTumorType> statsByTumorType = null;
 
   @SerializedName("variantAllele")
   private String variantAllele = null;
@@ -155,6 +169,24 @@ public class SignalMutation {
     this.endPosition = endPosition;
   }
 
+  public SignalMutation generalPopulationStats(GeneralPopulationStats generalPopulationStats) {
+    this.generalPopulationStats = generalPopulationStats;
+    return this;
+  }
+
+   /**
+   * General Population Stats
+   * @return generalPopulationStats
+  **/
+  @ApiModelProperty(value = "General Population Stats")
+  public GeneralPopulationStats getGeneralPopulationStats() {
+    return generalPopulationStats;
+  }
+
+  public void setGeneralPopulationStats(GeneralPopulationStats generalPopulationStats) {
+    this.generalPopulationStats = generalPopulationStats;
+  }
+
   public SignalMutation hugoGeneSymbol(String hugoGeneSymbol) {
     this.hugoGeneSymbol = hugoGeneSymbol;
     return this;
@@ -173,6 +205,24 @@ public class SignalMutation {
     this.hugoGeneSymbol = hugoGeneSymbol;
   }
 
+  public SignalMutation mskExperReview(Boolean mskExperReview) {
+    this.mskExperReview = mskExperReview;
+    return this;
+  }
+
+   /**
+   * Msk Expert Review
+   * @return mskExperReview
+  **/
+  @ApiModelProperty(example = "false", value = "Msk Expert Review")
+  public Boolean isMskExperReview() {
+    return mskExperReview;
+  }
+
+  public void setMskExperReview(Boolean mskExperReview) {
+    this.mskExperReview = mskExperReview;
+  }
+
   public SignalMutation mutationStatus(String mutationStatus) {
     this.mutationStatus = mutationStatus;
     return this;
@@ -189,6 +239,24 @@ public class SignalMutation {
 
   public void setMutationStatus(String mutationStatus) {
     this.mutationStatus = mutationStatus;
+  }
+
+  public SignalMutation overallNumberOfGermlineHomozygous(Integer overallNumberOfGermlineHomozygous) {
+    this.overallNumberOfGermlineHomozygous = overallNumberOfGermlineHomozygous;
+    return this;
+  }
+
+   /**
+   * Get overallNumberOfGermlineHomozygous
+   * @return overallNumberOfGermlineHomozygous
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getOverallNumberOfGermlineHomozygous() {
+    return overallNumberOfGermlineHomozygous;
+  }
+
+  public void setOverallNumberOfGermlineHomozygous(Integer overallNumberOfGermlineHomozygous) {
+    this.overallNumberOfGermlineHomozygous = overallNumberOfGermlineHomozygous;
   }
 
   public SignalMutation pathogenic(String pathogenic) {
@@ -289,6 +357,32 @@ public class SignalMutation {
     this.startPosition = startPosition;
   }
 
+  public SignalMutation statsByTumorType(List<StatsByTumorType> statsByTumorType) {
+    this.statsByTumorType = statsByTumorType;
+    return this;
+  }
+
+  public SignalMutation addStatsByTumorTypeItem(StatsByTumorType statsByTumorTypeItem) {
+    if (this.statsByTumorType == null) {
+      this.statsByTumorType = new ArrayList<StatsByTumorType>();
+    }
+    this.statsByTumorType.add(statsByTumorTypeItem);
+    return this;
+  }
+
+   /**
+   * Stats By Tumor Type
+   * @return statsByTumorType
+  **/
+  @ApiModelProperty(value = "Stats By Tumor Type")
+  public List<StatsByTumorType> getStatsByTumorType() {
+    return statsByTumorType;
+  }
+
+  public void setStatsByTumorType(List<StatsByTumorType> statsByTumorType) {
+    this.statsByTumorType = statsByTumorType;
+  }
+
   public SignalMutation variantAllele(String variantAllele) {
     this.variantAllele = variantAllele;
     return this;
@@ -321,19 +415,23 @@ public class SignalMutation {
         Objects.equals(this.chromosome, signalMutation.chromosome) &&
         Objects.equals(this.countsByTumorType, signalMutation.countsByTumorType) &&
         Objects.equals(this.endPosition, signalMutation.endPosition) &&
+        Objects.equals(this.generalPopulationStats, signalMutation.generalPopulationStats) &&
         Objects.equals(this.hugoGeneSymbol, signalMutation.hugoGeneSymbol) &&
+        Objects.equals(this.mskExperReview, signalMutation.mskExperReview) &&
         Objects.equals(this.mutationStatus, signalMutation.mutationStatus) &&
+        Objects.equals(this.overallNumberOfGermlineHomozygous, signalMutation.overallNumberOfGermlineHomozygous) &&
         Objects.equals(this.pathogenic, signalMutation.pathogenic) &&
         Objects.equals(this.penetrance, signalMutation.penetrance) &&
         Objects.equals(this.qcPassCountsByTumorType, signalMutation.qcPassCountsByTumorType) &&
         Objects.equals(this.referenceAllele, signalMutation.referenceAllele) &&
         Objects.equals(this.startPosition, signalMutation.startPosition) &&
+        Objects.equals(this.statsByTumorType, signalMutation.statsByTumorType) &&
         Objects.equals(this.variantAllele, signalMutation.variantAllele);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(biallelicCountsByTumorType, chromosome, countsByTumorType, endPosition, hugoGeneSymbol, mutationStatus, pathogenic, penetrance, qcPassCountsByTumorType, referenceAllele, startPosition, variantAllele);
+    return Objects.hash(biallelicCountsByTumorType, chromosome, countsByTumorType, endPosition, generalPopulationStats, hugoGeneSymbol, mskExperReview, mutationStatus, overallNumberOfGermlineHomozygous, pathogenic, penetrance, qcPassCountsByTumorType, referenceAllele, startPosition, statsByTumorType, variantAllele);
   }
 
 
@@ -346,13 +444,17 @@ public class SignalMutation {
     sb.append("    chromosome: ").append(toIndentedString(chromosome)).append("\n");
     sb.append("    countsByTumorType: ").append(toIndentedString(countsByTumorType)).append("\n");
     sb.append("    endPosition: ").append(toIndentedString(endPosition)).append("\n");
+    sb.append("    generalPopulationStats: ").append(toIndentedString(generalPopulationStats)).append("\n");
     sb.append("    hugoGeneSymbol: ").append(toIndentedString(hugoGeneSymbol)).append("\n");
+    sb.append("    mskExperReview: ").append(toIndentedString(mskExperReview)).append("\n");
     sb.append("    mutationStatus: ").append(toIndentedString(mutationStatus)).append("\n");
+    sb.append("    overallNumberOfGermlineHomozygous: ").append(toIndentedString(overallNumberOfGermlineHomozygous)).append("\n");
     sb.append("    pathogenic: ").append(toIndentedString(pathogenic)).append("\n");
     sb.append("    penetrance: ").append(toIndentedString(penetrance)).append("\n");
     sb.append("    qcPassCountsByTumorType: ").append(toIndentedString(qcPassCountsByTumorType)).append("\n");
     sb.append("    referenceAllele: ").append(toIndentedString(referenceAllele)).append("\n");
     sb.append("    startPosition: ").append(toIndentedString(startPosition)).append("\n");
+    sb.append("    statsByTumorType: ").append(toIndentedString(statsByTumorType)).append("\n");
     sb.append("    variantAllele: ").append(toIndentedString(variantAllele)).append("\n");
     sb.append("}");
     return sb.toString();

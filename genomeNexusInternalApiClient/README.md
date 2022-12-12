@@ -102,19 +102,18 @@ Class | Method | HTTP request | Description
 *CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByTranscriptIdGET**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByTranscriptIdGET) | **GET** /cancer_hotspots/transcript/{transcriptId} | Retrieves hotspot annotations for the provided transcript ID
 *CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByTranscriptIdPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByTranscriptIdPOST) | **POST** /cancer_hotspots/transcript | Retrieves hotspot annotations for the provided list of transcript ID
 *CrossReferenceControllerApi* | [**fetchGeneXrefsGET1**](docs/CrossReferenceControllerApi.md#fetchGeneXrefsGET1) | **GET** /xrefs/{accession} | Perform lookups of Ensembl identifiers and retrieve their external references in other databases
-*IsoformOverrideControllerApi* | [**fetchAllIsoformOverridesGET**](docs/IsoformOverrideControllerApi.md#fetchAllIsoformOverridesGET) | **GET** /isoform_override/{source} | Gets the isoform override information for the specified source
-*IsoformOverrideControllerApi* | [**fetchIsoformOverrideGET**](docs/IsoformOverrideControllerApi.md#fetchIsoformOverrideGET) | **GET** /isoform_override/{source}/{transcriptId} | Gets the isoform override information for the specified source and transcript id
-*IsoformOverrideControllerApi* | [**fetchIsoformOverridePOST**](docs/IsoformOverrideControllerApi.md#fetchIsoformOverridePOST) | **POST** /isoform_override | Gets the isoform override information for the specified source and the list of transcript ids
-*IsoformOverrideControllerApi* | [**fetchIsoformOverrideSourcesGET**](docs/IsoformOverrideControllerApi.md#fetchIsoformOverrideSourcesGET) | **GET** /isoform_override/sources | Gets a list of available isoform override data sources
+*CuriousCasesControllerApi* | [**fetchCuriousCasesGET**](docs/CuriousCasesControllerApi.md#fetchCuriousCasesGET) | **GET** /curious_cases/{genomicLocation} | Retrieves Curious Cases info by a genomic location
 *MutationAssessorControllerApi* | [**fetchMutationAssessorAnnotationGET**](docs/MutationAssessorControllerApi.md#fetchMutationAssessorAnnotationGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
 *MutationAssessorControllerApi* | [**postMutationAssessorAnnotation**](docs/MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
 *MyVariantInfoControllerApi* | [**fetchMyVariantInfoAnnotationGET**](docs/MyVariantInfoControllerApi.md#fetchMyVariantInfoAnnotationGET) | **GET** /my_variant_info/variant/{variant} | Retrieves myvariant information for the provided list of variants
 *MyVariantInfoControllerApi* | [**postMyVariantInfoAnnotation**](docs/MyVariantInfoControllerApi.md#postMyVariantInfoAnnotation) | **POST** /my_variant_info/variant | Retrieves myvariant information for the provided list of variants
 *NucleotideContextControllerApi* | [**fetchNucleotideContextAnnotationGET**](docs/NucleotideContextControllerApi.md#fetchNucleotideContextAnnotationGET) | **GET** /nucleotide_context/{variant} | Retrieves nucleotide context information for the provided list of variants
 *NucleotideContextControllerApi* | [**postNucleotideContextAnnotation**](docs/NucleotideContextControllerApi.md#postNucleotideContextAnnotation) | **POST** /nucleotide_context | Retrieves nucleotide context information for the provided list of variants
+*SearchControllerApi* | [**searchAnnotationByKeywordGETUsingGET**](docs/SearchControllerApi.md#searchAnnotationByKeywordGETUsingGET) | **GET** /search | Performs index search.
 *SignalMutationControllerApi* | [**fetchSignalMutationsByHgvsgGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHgvsgGETUsingGET) | **GET** /signal/mutation/hgvs/{variant} | Retrieves SignalDB mutations by hgvgs variant
 *SignalMutationControllerApi* | [**fetchSignalMutationsByHugoSymbolGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHugoSymbolGETUsingGET) | **GET** /signal/mutation | Retrieves SignalDB mutations by Hugo Gene Symbol
 *SignalMutationControllerApi* | [**fetchSignalMutationsByMutationFilterPOSTUsingPOST**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByMutationFilterPOSTUsingPOST) | **POST** /signal/mutation | Retrieves SignalDB mutations by Mutation Filter
+*SignalQueryControllerApi* | [**searchSignalByKeywordGETUsingGET**](docs/SignalQueryControllerApi.md#searchSignalByKeywordGETUsingGET) | **GET** /signal/search | Performs search by gene, protein change, variant or region.
 
 
 ## Documentation for Models
@@ -127,9 +126,11 @@ Class | Method | HTTP request | Description
  - [ClinVar](docs/ClinVar.md)
  - [Cosmic](docs/Cosmic.md)
  - [CountByTumorType](docs/CountByTumorType.md)
+ - [CuriousCases](docs/CuriousCases.md)
  - [Dbsnp](docs/Dbsnp.md)
  - [Gene](docs/Gene.md)
  - [GeneXref](docs/GeneXref.md)
+ - [GeneralPopulationStats](docs/GeneralPopulationStats.md)
  - [GenomicLocation](docs/GenomicLocation.md)
  - [Gnomad](docs/Gnomad.md)
  - [Hg19](docs/Hg19.md)
@@ -137,8 +138,10 @@ Class | Method | HTTP request | Description
  - [Hgvs](docs/Hgvs.md)
  - [Homozygotes](docs/Homozygotes.md)
  - [Hotspot](docs/Hotspot.md)
+ - [HrdScore](docs/HrdScore.md)
+ - [Index](docs/Index.md)
+ - [IndexSearch](docs/IndexSearch.md)
  - [IntegerRange](docs/IntegerRange.md)
- - [IsoformOverride](docs/IsoformOverride.md)
  - [MutationAssessor](docs/MutationAssessor.md)
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)
@@ -147,7 +150,10 @@ Class | Method | HTTP request | Description
  - [Rcv](docs/Rcv.md)
  - [SignalMutation](docs/SignalMutation.md)
  - [SignalMutationFilter](docs/SignalMutationFilter.md)
+ - [SignalPopulationStats](docs/SignalPopulationStats.md)
+ - [SignalQuery](docs/SignalQuery.md)
  - [Snpeff](docs/Snpeff.md)
+ - [StatsByTumorType](docs/StatsByTumorType.md)
  - [TranscriptConsequenceSummary](docs/TranscriptConsequenceSummary.md)
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
  - [Vcf](docs/Vcf.md)

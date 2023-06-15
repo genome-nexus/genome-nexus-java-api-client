@@ -60,7 +60,7 @@ public class AnnotationControllerApi {
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -134,7 +134,7 @@ public class AnnotationControllerApi {
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -149,7 +149,7 @@ public class AnnotationControllerApi {
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -165,7 +165,7 @@ public class AnnotationControllerApi {
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -201,7 +201,7 @@ public class AnnotationControllerApi {
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -274,7 +274,7 @@ public class AnnotationControllerApi {
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -289,7 +289,7 @@ public class AnnotationControllerApi {
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -305,7 +305,7 @@ public class AnnotationControllerApi {
      * @param genomicLocations List of Genomic Locations (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -341,7 +341,7 @@ public class AnnotationControllerApi {
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -415,7 +415,7 @@ public class AnnotationControllerApi {
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -430,7 +430,7 @@ public class AnnotationControllerApi {
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -446,7 +446,7 @@ public class AnnotationControllerApi {
      * @param variantId dbSNP id. For example rs116035550. (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -482,7 +482,7 @@ public class AnnotationControllerApi {
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -555,7 +555,7 @@ public class AnnotationControllerApi {
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -570,7 +570,7 @@ public class AnnotationControllerApi {
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -586,7 +586,7 @@ public class AnnotationControllerApi {
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: annotation_summary (optional, default to annotation_summary)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -622,7 +622,7 @@ public class AnnotationControllerApi {
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -696,7 +696,7 @@ public class AnnotationControllerApi {
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -711,7 +711,7 @@ public class AnnotationControllerApi {
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -727,7 +727,7 @@ public class AnnotationControllerApi {
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -763,7 +763,7 @@ public class AnnotationControllerApi {
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -836,7 +836,7 @@ public class AnnotationControllerApi {
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -851,7 +851,7 @@ public class AnnotationControllerApi {
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -867,7 +867,7 @@ public class AnnotationControllerApi {
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
      * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
-     * @param fields Comma separated list of fields to include (case-sensitive!). For example: hotspots (optional, default to hotspots)
+     * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

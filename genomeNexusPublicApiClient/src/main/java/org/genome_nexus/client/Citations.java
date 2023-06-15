@@ -29,7 +29,7 @@ import org.genome_nexus.client.ArticleAbstract;
 /**
  * Citations
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-15T10:43:11.221-05:00")
 public class Citations {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;

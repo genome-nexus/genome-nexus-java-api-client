@@ -24,29 +24,38 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PfamDomain
+ * SourceVersionInfo
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-15T10:43:11.221-05:00")
-public class PfamDomain {
+public class SourceVersionInfo {
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("pfamAccession")
-  private String pfamAccession = null;
+  @SerializedName("type")
+  private String type = null;
 
-  public PfamDomain description(String description) {
+  @SerializedName("url")
+  private String url = null;
+
+  @SerializedName("version")
+  private String version = null;
+
+  public SourceVersionInfo description(String description) {
     this.description = description;
     return this;
   }
 
    /**
-   * PFAM domain description
+   * Get description
    * @return description
   **/
-  @ApiModelProperty(value = "PFAM domain description")
+  @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
   }
@@ -55,16 +64,34 @@ public class PfamDomain {
     this.description = description;
   }
 
-  public PfamDomain name(String name) {
+  public SourceVersionInfo id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SourceVersionInfo name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * PFAM domain name
+   * Get name
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "PFAM domain name")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -73,22 +100,58 @@ public class PfamDomain {
     this.name = name;
   }
 
-  public PfamDomain pfamAccession(String pfamAccession) {
-    this.pfamAccession = pfamAccession;
+  public SourceVersionInfo type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * PFAM domain accession
-   * @return pfamAccession
+   * Get type
+   * @return type
   **/
-  @ApiModelProperty(required = true, value = "PFAM domain accession")
-  public String getPfamAccession() {
-    return pfamAccession;
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
   }
 
-  public void setPfamAccession(String pfamAccession) {
-    this.pfamAccession = pfamAccession;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public SourceVersionInfo url(String url) {
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @ApiModelProperty(value = "")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public SourceVersionInfo version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -100,26 +163,32 @@ public class PfamDomain {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PfamDomain pfamDomain = (PfamDomain) o;
-    return Objects.equals(this.description, pfamDomain.description) &&
-        Objects.equals(this.name, pfamDomain.name) &&
-        Objects.equals(this.pfamAccession, pfamDomain.pfamAccession);
+    SourceVersionInfo sourceVersionInfo = (SourceVersionInfo) o;
+    return Objects.equals(this.description, sourceVersionInfo.description) &&
+        Objects.equals(this.id, sourceVersionInfo.id) &&
+        Objects.equals(this.name, sourceVersionInfo.name) &&
+        Objects.equals(this.type, sourceVersionInfo.type) &&
+        Objects.equals(this.url, sourceVersionInfo.url) &&
+        Objects.equals(this.version, sourceVersionInfo.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, pfamAccession);
+    return Objects.hash(description, id, name, type, url, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PfamDomain {\n");
+    sb.append("class SourceVersionInfo {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    pfamAccession: ").append(toIndentedString(pfamAccession)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

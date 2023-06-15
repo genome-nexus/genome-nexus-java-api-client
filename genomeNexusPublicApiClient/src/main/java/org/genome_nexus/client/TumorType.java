@@ -32,7 +32,7 @@ import org.genome_nexus.client.TumorType;
  * OncoTree Detailed Cancer Type
  */
 @ApiModel(description = "OncoTree Detailed Cancer Type")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-15T10:43:11.221-05:00")
 public class TumorType {
   @SerializedName("children")
   private Map<String, TumorType> children = null;

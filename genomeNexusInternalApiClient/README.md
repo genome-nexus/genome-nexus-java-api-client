@@ -157,7 +157,6 @@ Class | Method | HTTP request | Description
  - [TranscriptConsequenceSummary](docs/TranscriptConsequenceSummary.md)
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
  - [Vcf](docs/Vcf.md)
- - [Vues](docs/Vues.md)
 
 
 ## Documentation for Authorization

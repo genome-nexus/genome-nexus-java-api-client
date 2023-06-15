@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **hgvsp** | **String** | HGVSp |  [optional]
 **hgvspShort** | **String** | HGVSp short |  [optional]
 **hugoGeneSymbol** | **String** | Hugo gene symbol |  [optional]
-**isVue** | **Boolean** |  |  [optional]
 **polyphenPrediction** | **String** | Polyphen Prediction |  [optional]
 **polyphenScore** | **Double** | Polyphen Score |  [optional]
 **proteinPosition** | [**IntegerRange**](IntegerRange.md) | Protein position (start and end) |  [optional]

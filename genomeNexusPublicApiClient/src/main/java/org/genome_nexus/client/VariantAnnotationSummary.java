@@ -26,12 +26,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.GenomicLocation;
 import org.genome_nexus.client.TranscriptConsequenceSummary;
-import org.genome_nexus.client.Vues;
 
 /**
  * VariantAnnotationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-15T10:43:11.221-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class VariantAnnotationSummary {
   @SerializedName("assemblyName")
   private String assemblyName = null;
@@ -59,9 +58,6 @@ public class VariantAnnotationSummary {
 
   @SerializedName("variantType")
   private String variantType = null;
-
-  @SerializedName("vues")
-  private Vues vues = null;
 
   public VariantAnnotationSummary assemblyName(String assemblyName) {
     this.assemblyName = assemblyName;
@@ -235,24 +231,6 @@ public class VariantAnnotationSummary {
     this.variantType = variantType;
   }
 
-  public VariantAnnotationSummary vues(Vues vues) {
-    this.vues = vues;
-    return this;
-  }
-
-   /**
-   * Get vues
-   * @return vues
-  **/
-  @ApiModelProperty(value = "")
-  public Vues getVues() {
-    return vues;
-  }
-
-  public void setVues(Vues vues) {
-    this.vues = vues;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -271,13 +249,12 @@ public class VariantAnnotationSummary {
         Objects.equals(this.transcriptConsequenceSummary, variantAnnotationSummary.transcriptConsequenceSummary) &&
         Objects.equals(this.transcriptConsequences, variantAnnotationSummary.transcriptConsequences) &&
         Objects.equals(this.variant, variantAnnotationSummary.variant) &&
-        Objects.equals(this.variantType, variantAnnotationSummary.variantType) &&
-        Objects.equals(this.vues, variantAnnotationSummary.vues);
+        Objects.equals(this.variantType, variantAnnotationSummary.variantType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType, vues);
+    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType);
   }
 
 
@@ -295,7 +272,6 @@ public class VariantAnnotationSummary {
     sb.append("    transcriptConsequences: ").append(toIndentedString(transcriptConsequences)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("    variantType: ").append(toIndentedString(variantType)).append("\n");
-    sb.append("    vues: ").append(toIndentedString(vues)).append("\n");
     sb.append("}");
     return sb.toString();
   }

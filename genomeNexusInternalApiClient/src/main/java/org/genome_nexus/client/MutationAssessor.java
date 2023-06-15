@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MutationAssessor
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-06-15T10:43:13.566-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
 public class MutationAssessor {
   @SerializedName("codonStartPosition")
   private String codonStartPosition = null;

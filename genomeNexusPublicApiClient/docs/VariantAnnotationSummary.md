@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **transcriptConsequences** | [**List&lt;TranscriptConsequenceSummary&gt;**](TranscriptConsequenceSummary.md) | (Deprecated) Transcript consequence summaries (list of one when using annotation/, multiple when using annotation/summary/ | 
 **variant** | **String** | Variant key | 
 **variantType** | **String** | Variant type |  [optional]
+**vues** | [**Vues**](Vues.md) |  |  [optional]
 
 
 

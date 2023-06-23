@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.genome_nexus.client.GenomeNexusInfo;
+import org.genome_nexus.client.SourceVersionInfo;
 import org.genome_nexus.client.VEPInfo;
 
 /**
@@ -30,11 +33,40 @@ import org.genome_nexus.client.VEPInfo;
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
 public class AggregateSourceInfo {
+  @SerializedName("annotationSourcesInfo")
+  private List<SourceVersionInfo> annotationSourcesInfo = null;
+
   @SerializedName("genomeNexus")
   private GenomeNexusInfo genomeNexus = null;
 
   @SerializedName("vep")
   private VEPInfo vep = null;
+
+  public AggregateSourceInfo annotationSourcesInfo(List<SourceVersionInfo> annotationSourcesInfo) {
+    this.annotationSourcesInfo = annotationSourcesInfo;
+    return this;
+  }
+
+  public AggregateSourceInfo addAnnotationSourcesInfoItem(SourceVersionInfo annotationSourcesInfoItem) {
+    if (this.annotationSourcesInfo == null) {
+      this.annotationSourcesInfo = new ArrayList<SourceVersionInfo>();
+    }
+    this.annotationSourcesInfo.add(annotationSourcesInfoItem);
+    return this;
+  }
+
+   /**
+   * Get annotationSourcesInfo
+   * @return annotationSourcesInfo
+  **/
+  @ApiModelProperty(value = "")
+  public List<SourceVersionInfo> getAnnotationSourcesInfo() {
+    return annotationSourcesInfo;
+  }
+
+  public void setAnnotationSourcesInfo(List<SourceVersionInfo> annotationSourcesInfo) {
+    this.annotationSourcesInfo = annotationSourcesInfo;
+  }
 
   public AggregateSourceInfo genomeNexus(GenomeNexusInfo genomeNexus) {
     this.genomeNexus = genomeNexus;
@@ -82,13 +114,14 @@ public class AggregateSourceInfo {
       return false;
     }
     AggregateSourceInfo aggregateSourceInfo = (AggregateSourceInfo) o;
-    return Objects.equals(this.genomeNexus, aggregateSourceInfo.genomeNexus) &&
+    return Objects.equals(this.annotationSourcesInfo, aggregateSourceInfo.annotationSourcesInfo) &&
+        Objects.equals(this.genomeNexus, aggregateSourceInfo.genomeNexus) &&
         Objects.equals(this.vep, aggregateSourceInfo.vep);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(genomeNexus, vep);
+    return Objects.hash(annotationSourcesInfo, genomeNexus, vep);
   }
 
 
@@ -97,6 +130,7 @@ public class AggregateSourceInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggregateSourceInfo {\n");
     
+    sb.append("    annotationSourcesInfo: ").append(toIndentedString(annotationSourcesInfo)).append("\n");
     sb.append("    genomeNexus: ").append(toIndentedString(genomeNexus)).append("\n");
     sb.append("    vep: ").append(toIndentedString(vep)).append("\n");
     sb.append("}");

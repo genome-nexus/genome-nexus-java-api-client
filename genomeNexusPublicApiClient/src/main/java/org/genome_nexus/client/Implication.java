@@ -24,13 +24,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.genome_nexus.client.ArticleAbstract;
 import org.genome_nexus.client.TumorType;
 
 /**
  * Implication
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-07T00:04:15.944-04:00")
 public class Implication {
+  @SerializedName("abstracts")
+  private List<ArticleAbstract> abstracts = null;
+
   @SerializedName("alterations")
   private List<String> alterations = null;
 
@@ -42,15 +46,9 @@ public class Implication {
    */
   @JsonAdapter(LevelOfEvidenceEnum.Adapter.class)
   public enum LevelOfEvidenceEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -61,8 +59,6 @@ public class Implication {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -75,6 +71,12 @@ public class Implication {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -119,8 +121,37 @@ public class Implication {
   @SerializedName("levelOfEvidence")
   private LevelOfEvidenceEnum levelOfEvidence = null;
 
+  @SerializedName("pmids")
+  private List<String> pmids = null;
+
   @SerializedName("tumorType")
   private TumorType tumorType = null;
+
+  public Implication abstracts(List<ArticleAbstract> abstracts) {
+    this.abstracts = abstracts;
+    return this;
+  }
+
+  public Implication addAbstractsItem(ArticleAbstract abstractsItem) {
+    if (this.abstracts == null) {
+      this.abstracts = new ArrayList<ArticleAbstract>();
+    }
+    this.abstracts.add(abstractsItem);
+    return this;
+  }
+
+   /**
+   * Get abstracts
+   * @return abstracts
+  **/
+  @ApiModelProperty(value = "")
+  public List<ArticleAbstract> getAbstracts() {
+    return abstracts;
+  }
+
+  public void setAbstracts(List<ArticleAbstract> abstracts) {
+    this.abstracts = abstracts;
+  }
 
   public Implication alterations(List<String> alterations) {
     this.alterations = alterations;
@@ -184,6 +215,32 @@ public class Implication {
     this.levelOfEvidence = levelOfEvidence;
   }
 
+  public Implication pmids(List<String> pmids) {
+    this.pmids = pmids;
+    return this;
+  }
+
+  public Implication addPmidsItem(String pmidsItem) {
+    if (this.pmids == null) {
+      this.pmids = new ArrayList<String>();
+    }
+    this.pmids.add(pmidsItem);
+    return this;
+  }
+
+   /**
+   * Get pmids
+   * @return pmids
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getPmids() {
+    return pmids;
+  }
+
+  public void setPmids(List<String> pmids) {
+    this.pmids = pmids;
+  }
+
   public Implication tumorType(TumorType tumorType) {
     this.tumorType = tumorType;
     return this;
@@ -212,15 +269,17 @@ public class Implication {
       return false;
     }
     Implication implication = (Implication) o;
-    return Objects.equals(this.alterations, implication.alterations) &&
+    return Objects.equals(this.abstracts, implication.abstracts) &&
+        Objects.equals(this.alterations, implication.alterations) &&
         Objects.equals(this.description, implication.description) &&
         Objects.equals(this.levelOfEvidence, implication.levelOfEvidence) &&
+        Objects.equals(this.pmids, implication.pmids) &&
         Objects.equals(this.tumorType, implication.tumorType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alterations, description, levelOfEvidence, tumorType);
+    return Objects.hash(abstracts, alterations, description, levelOfEvidence, pmids, tumorType);
   }
 
 
@@ -229,9 +288,11 @@ public class Implication {
     StringBuilder sb = new StringBuilder();
     sb.append("class Implication {\n");
     
+    sb.append("    abstracts: ").append(toIndentedString(abstracts)).append("\n");
     sb.append("    alterations: ").append(toIndentedString(alterations)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    levelOfEvidence: ").append(toIndentedString(levelOfEvidence)).append("\n");
+    sb.append("    pmids: ").append(toIndentedString(pmids)).append("\n");
     sb.append("    tumorType: ").append(toIndentedString(tumorType)).append("\n");
     sb.append("}");
     return sb.toString();

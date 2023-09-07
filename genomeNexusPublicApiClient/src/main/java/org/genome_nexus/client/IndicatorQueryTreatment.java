@@ -31,7 +31,7 @@ import org.genome_nexus.client.TumorType;
 /**
  * IndicatorQueryTreatment
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-07T00:04:15.944-04:00")
 public class IndicatorQueryTreatment {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;
@@ -48,23 +48,14 @@ public class IndicatorQueryTreatment {
   @SerializedName("drugs")
   private List<Drug> drugs = null;
 
-  @SerializedName("fdaApproved")
-  private Boolean fdaApproved = null;
-
   /**
-   * Gets or Sets level
+   * Gets or Sets fdaLevel
    */
-  @JsonAdapter(LevelEnum.Adapter.class)
-  public enum LevelEnum {
-    LEVEL_0("LEVEL_0"),
-    
+  @JsonAdapter(FdaLevelEnum.Adapter.class)
+  public enum FdaLevelEnum {
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -75,8 +66,6 @@ public class IndicatorQueryTreatment {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -89,6 +78,92 @@ public class IndicatorQueryTreatment {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
+    
+    NO("NO");
+
+    private String value;
+
+    FdaLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static FdaLevelEnum fromValue(String text) {
+      for (FdaLevelEnum b : FdaLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<FdaLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FdaLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FdaLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return FdaLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("fdaLevel")
+  private FdaLevelEnum fdaLevel = null;
+
+  /**
+   * Gets or Sets level
+   */
+  @JsonAdapter(LevelEnum.Adapter.class)
+  public enum LevelEnum {
+    LEVEL_1("LEVEL_1"),
+    
+    LEVEL_2("LEVEL_2"),
+    
+    LEVEL_3A("LEVEL_3A"),
+    
+    LEVEL_3B("LEVEL_3B"),
+    
+    LEVEL_4("LEVEL_4"),
+    
+    LEVEL_R1("LEVEL_R1"),
+    
+    LEVEL_R2("LEVEL_R2"),
+    
+    LEVEL_PX1("LEVEL_Px1"),
+    
+    LEVEL_PX2("LEVEL_Px2"),
+    
+    LEVEL_PX3("LEVEL_Px3"),
+    
+    LEVEL_DX1("LEVEL_Dx1"),
+    
+    LEVEL_DX2("LEVEL_Dx2"),
+    
+    LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -135,6 +210,9 @@ public class IndicatorQueryTreatment {
 
   @SerializedName("levelAssociatedCancerType")
   private TumorType levelAssociatedCancerType = null;
+
+  @SerializedName("levelExcludedCancerTypes")
+  private List<TumorType> levelExcludedCancerTypes = null;
 
   @SerializedName("pmids")
   private List<String> pmids = null;
@@ -261,22 +339,22 @@ public class IndicatorQueryTreatment {
     this.drugs = drugs;
   }
 
-  public IndicatorQueryTreatment fdaApproved(Boolean fdaApproved) {
-    this.fdaApproved = fdaApproved;
+  public IndicatorQueryTreatment fdaLevel(FdaLevelEnum fdaLevel) {
+    this.fdaLevel = fdaLevel;
     return this;
   }
 
    /**
-   * Get fdaApproved
-   * @return fdaApproved
+   * Get fdaLevel
+   * @return fdaLevel
   **/
-  @ApiModelProperty(example = "false", value = "")
-  public Boolean isFdaApproved() {
-    return fdaApproved;
+  @ApiModelProperty(value = "")
+  public FdaLevelEnum getFdaLevel() {
+    return fdaLevel;
   }
 
-  public void setFdaApproved(Boolean fdaApproved) {
-    this.fdaApproved = fdaApproved;
+  public void setFdaLevel(FdaLevelEnum fdaLevel) {
+    this.fdaLevel = fdaLevel;
   }
 
   public IndicatorQueryTreatment level(LevelEnum level) {
@@ -313,6 +391,32 @@ public class IndicatorQueryTreatment {
 
   public void setLevelAssociatedCancerType(TumorType levelAssociatedCancerType) {
     this.levelAssociatedCancerType = levelAssociatedCancerType;
+  }
+
+  public IndicatorQueryTreatment levelExcludedCancerTypes(List<TumorType> levelExcludedCancerTypes) {
+    this.levelExcludedCancerTypes = levelExcludedCancerTypes;
+    return this;
+  }
+
+  public IndicatorQueryTreatment addLevelExcludedCancerTypesItem(TumorType levelExcludedCancerTypesItem) {
+    if (this.levelExcludedCancerTypes == null) {
+      this.levelExcludedCancerTypes = new ArrayList<TumorType>();
+    }
+    this.levelExcludedCancerTypes.add(levelExcludedCancerTypesItem);
+    return this;
+  }
+
+   /**
+   * Get levelExcludedCancerTypes
+   * @return levelExcludedCancerTypes
+  **/
+  @ApiModelProperty(value = "")
+  public List<TumorType> getLevelExcludedCancerTypes() {
+    return levelExcludedCancerTypes;
+  }
+
+  public void setLevelExcludedCancerTypes(List<TumorType> levelExcludedCancerTypes) {
+    this.levelExcludedCancerTypes = levelExcludedCancerTypes;
   }
 
   public IndicatorQueryTreatment pmids(List<String> pmids) {
@@ -356,15 +460,16 @@ public class IndicatorQueryTreatment {
         Objects.equals(this.approvedIndications, indicatorQueryTreatment.approvedIndications) &&
         Objects.equals(this.description, indicatorQueryTreatment.description) &&
         Objects.equals(this.drugs, indicatorQueryTreatment.drugs) &&
-        Objects.equals(this.fdaApproved, indicatorQueryTreatment.fdaApproved) &&
+        Objects.equals(this.fdaLevel, indicatorQueryTreatment.fdaLevel) &&
         Objects.equals(this.level, indicatorQueryTreatment.level) &&
         Objects.equals(this.levelAssociatedCancerType, indicatorQueryTreatment.levelAssociatedCancerType) &&
+        Objects.equals(this.levelExcludedCancerTypes, indicatorQueryTreatment.levelExcludedCancerTypes) &&
         Objects.equals(this.pmids, indicatorQueryTreatment.pmids);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(abstracts, alterations, approvedIndications, description, drugs, fdaApproved, level, levelAssociatedCancerType, pmids);
+    return Objects.hash(abstracts, alterations, approvedIndications, description, drugs, fdaLevel, level, levelAssociatedCancerType, levelExcludedCancerTypes, pmids);
   }
 
 
@@ -378,9 +483,10 @@ public class IndicatorQueryTreatment {
     sb.append("    approvedIndications: ").append(toIndentedString(approvedIndications)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    drugs: ").append(toIndentedString(drugs)).append("\n");
-    sb.append("    fdaApproved: ").append(toIndentedString(fdaApproved)).append("\n");
+    sb.append("    fdaLevel: ").append(toIndentedString(fdaLevel)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    levelAssociatedCancerType: ").append(toIndentedString(levelAssociatedCancerType)).append("\n");
+    sb.append("    levelExcludedCancerTypes: ").append(toIndentedString(levelExcludedCancerTypes)).append("\n");
     sb.append("    pmids: ").append(toIndentedString(pmids)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -22,16 +22,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Vues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-07T00:04:15.944-04:00")
 public class Vues {
   @SerializedName("comment")
   private String comment = null;
+
+  @SerializedName("confirmed")
+  private Boolean confirmed = null;
+
+  @SerializedName("context")
+  private String context = null;
 
   @SerializedName("defaultEffect")
   private String defaultEffect = null;
@@ -45,8 +49,8 @@ public class Vues {
   @SerializedName("hugoGeneSymbol")
   private String hugoGeneSymbol = null;
 
-  @SerializedName("pubmedIds")
-  private List<Integer> pubmedIds = null;
+  @SerializedName("pubmedId")
+  private Integer pubmedId = null;
 
   @SerializedName("referenceText")
   private String referenceText = null;
@@ -54,14 +58,20 @@ public class Vues {
   @SerializedName("revisedProteinEffect")
   private String revisedProteinEffect = null;
 
+  @SerializedName("revisedVariantClassification")
+  private String revisedVariantClassification = null;
+
   @SerializedName("transcriptId")
   private String transcriptId = null;
 
   @SerializedName("variant")
   private String variant = null;
 
-  @SerializedName("variantClassification")
-  private String variantClassification = null;
+  @SerializedName("vepPredictedProteinEffect")
+  private String vepPredictedProteinEffect = null;
+
+  @SerializedName("vepPredictedVariantClassification")
+  private String vepPredictedVariantClassification = null;
 
   public Vues comment(String comment) {
     this.comment = comment;
@@ -79,6 +89,42 @@ public class Vues {
 
   public void setComment(String comment) {
     this.comment = comment;
+  }
+
+  public Vues confirmed(Boolean confirmed) {
+    this.confirmed = confirmed;
+    return this;
+  }
+
+   /**
+   * Get confirmed
+   * @return confirmed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isConfirmed() {
+    return confirmed;
+  }
+
+  public void setConfirmed(Boolean confirmed) {
+    this.confirmed = confirmed;
+  }
+
+  public Vues context(String context) {
+    this.context = context;
+    return this;
+  }
+
+   /**
+   * Get context
+   * @return context
+  **/
+  @ApiModelProperty(value = "")
+  public String getContext() {
+    return context;
+  }
+
+  public void setContext(String context) {
+    this.context = context;
   }
 
   public Vues defaultEffect(String defaultEffect) {
@@ -153,30 +199,22 @@ public class Vues {
     this.hugoGeneSymbol = hugoGeneSymbol;
   }
 
-  public Vues pubmedIds(List<Integer> pubmedIds) {
-    this.pubmedIds = pubmedIds;
-    return this;
-  }
-
-  public Vues addPubmedIdsItem(Integer pubmedIdsItem) {
-    if (this.pubmedIds == null) {
-      this.pubmedIds = new ArrayList<Integer>();
-    }
-    this.pubmedIds.add(pubmedIdsItem);
+  public Vues pubmedId(Integer pubmedId) {
+    this.pubmedId = pubmedId;
     return this;
   }
 
    /**
-   * Get pubmedIds
-   * @return pubmedIds
+   * Get pubmedId
+   * @return pubmedId
   **/
   @ApiModelProperty(value = "")
-  public List<Integer> getPubmedIds() {
-    return pubmedIds;
+  public Integer getPubmedId() {
+    return pubmedId;
   }
 
-  public void setPubmedIds(List<Integer> pubmedIds) {
-    this.pubmedIds = pubmedIds;
+  public void setPubmedId(Integer pubmedId) {
+    this.pubmedId = pubmedId;
   }
 
   public Vues referenceText(String referenceText) {
@@ -215,6 +253,24 @@ public class Vues {
     this.revisedProteinEffect = revisedProteinEffect;
   }
 
+  public Vues revisedVariantClassification(String revisedVariantClassification) {
+    this.revisedVariantClassification = revisedVariantClassification;
+    return this;
+  }
+
+   /**
+   * Get revisedVariantClassification
+   * @return revisedVariantClassification
+  **/
+  @ApiModelProperty(value = "")
+  public String getRevisedVariantClassification() {
+    return revisedVariantClassification;
+  }
+
+  public void setRevisedVariantClassification(String revisedVariantClassification) {
+    this.revisedVariantClassification = revisedVariantClassification;
+  }
+
   public Vues transcriptId(String transcriptId) {
     this.transcriptId = transcriptId;
     return this;
@@ -251,22 +307,40 @@ public class Vues {
     this.variant = variant;
   }
 
-  public Vues variantClassification(String variantClassification) {
-    this.variantClassification = variantClassification;
+  public Vues vepPredictedProteinEffect(String vepPredictedProteinEffect) {
+    this.vepPredictedProteinEffect = vepPredictedProteinEffect;
     return this;
   }
 
    /**
-   * Get variantClassification
-   * @return variantClassification
+   * Get vepPredictedProteinEffect
+   * @return vepPredictedProteinEffect
   **/
   @ApiModelProperty(value = "")
-  public String getVariantClassification() {
-    return variantClassification;
+  public String getVepPredictedProteinEffect() {
+    return vepPredictedProteinEffect;
   }
 
-  public void setVariantClassification(String variantClassification) {
-    this.variantClassification = variantClassification;
+  public void setVepPredictedProteinEffect(String vepPredictedProteinEffect) {
+    this.vepPredictedProteinEffect = vepPredictedProteinEffect;
+  }
+
+  public Vues vepPredictedVariantClassification(String vepPredictedVariantClassification) {
+    this.vepPredictedVariantClassification = vepPredictedVariantClassification;
+    return this;
+  }
+
+   /**
+   * Get vepPredictedVariantClassification
+   * @return vepPredictedVariantClassification
+  **/
+  @ApiModelProperty(value = "")
+  public String getVepPredictedVariantClassification() {
+    return vepPredictedVariantClassification;
+  }
+
+  public void setVepPredictedVariantClassification(String vepPredictedVariantClassification) {
+    this.vepPredictedVariantClassification = vepPredictedVariantClassification;
   }
 
 
@@ -280,21 +354,25 @@ public class Vues {
     }
     Vues vues = (Vues) o;
     return Objects.equals(this.comment, vues.comment) &&
+        Objects.equals(this.confirmed, vues.confirmed) &&
+        Objects.equals(this.context, vues.context) &&
         Objects.equals(this.defaultEffect, vues.defaultEffect) &&
         Objects.equals(this.genomicLocation, vues.genomicLocation) &&
         Objects.equals(this.genomicLocationDescription, vues.genomicLocationDescription) &&
         Objects.equals(this.hugoGeneSymbol, vues.hugoGeneSymbol) &&
-        Objects.equals(this.pubmedIds, vues.pubmedIds) &&
+        Objects.equals(this.pubmedId, vues.pubmedId) &&
         Objects.equals(this.referenceText, vues.referenceText) &&
         Objects.equals(this.revisedProteinEffect, vues.revisedProteinEffect) &&
+        Objects.equals(this.revisedVariantClassification, vues.revisedVariantClassification) &&
         Objects.equals(this.transcriptId, vues.transcriptId) &&
         Objects.equals(this.variant, vues.variant) &&
-        Objects.equals(this.variantClassification, vues.variantClassification);
+        Objects.equals(this.vepPredictedProteinEffect, vues.vepPredictedProteinEffect) &&
+        Objects.equals(this.vepPredictedVariantClassification, vues.vepPredictedVariantClassification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, defaultEffect, genomicLocation, genomicLocationDescription, hugoGeneSymbol, pubmedIds, referenceText, revisedProteinEffect, transcriptId, variant, variantClassification);
+    return Objects.hash(comment, confirmed, context, defaultEffect, genomicLocation, genomicLocationDescription, hugoGeneSymbol, pubmedId, referenceText, revisedProteinEffect, revisedVariantClassification, transcriptId, variant, vepPredictedProteinEffect, vepPredictedVariantClassification);
   }
 
 
@@ -304,16 +382,20 @@ public class Vues {
     sb.append("class Vues {\n");
     
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    confirmed: ").append(toIndentedString(confirmed)).append("\n");
+    sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    defaultEffect: ").append(toIndentedString(defaultEffect)).append("\n");
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
     sb.append("    genomicLocationDescription: ").append(toIndentedString(genomicLocationDescription)).append("\n");
     sb.append("    hugoGeneSymbol: ").append(toIndentedString(hugoGeneSymbol)).append("\n");
-    sb.append("    pubmedIds: ").append(toIndentedString(pubmedIds)).append("\n");
+    sb.append("    pubmedId: ").append(toIndentedString(pubmedId)).append("\n");
     sb.append("    referenceText: ").append(toIndentedString(referenceText)).append("\n");
     sb.append("    revisedProteinEffect: ").append(toIndentedString(revisedProteinEffect)).append("\n");
+    sb.append("    revisedVariantClassification: ").append(toIndentedString(revisedVariantClassification)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
-    sb.append("    variantClassification: ").append(toIndentedString(variantClassification)).append("\n");
+    sb.append("    vepPredictedProteinEffect: ").append(toIndentedString(vepPredictedProteinEffect)).append("\n");
+    sb.append("    vepPredictedVariantClassification: ").append(toIndentedString(vepPredictedVariantClassification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

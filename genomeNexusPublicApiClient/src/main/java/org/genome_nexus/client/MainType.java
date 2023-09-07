@@ -27,7 +27,7 @@ import java.io.IOException;
  * OncoTree Cancer Type
  */
 @ApiModel(description = "OncoTree Cancer Type")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-07T00:04:15.944-04:00")
 public class MainType {
   @SerializedName("id")
   private Integer id = null;
@@ -42,7 +42,9 @@ public class MainType {
   public enum TumorFormEnum {
     SOLID("SOLID"),
     
-    LIQUID("LIQUID");
+    LIQUID("LIQUID"),
+    
+    MIXED("MIXED");
 
     private String value;
 

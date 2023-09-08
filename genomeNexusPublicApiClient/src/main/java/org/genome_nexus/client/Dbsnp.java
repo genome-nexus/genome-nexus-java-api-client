@@ -30,7 +30,7 @@ import org.genome_nexus.client.Hg19;
 /**
  * Dbsnp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-08T17:14:25.592-04:00")
 public class Dbsnp {
   @SerializedName("_class")
   private String propertyClass = null;

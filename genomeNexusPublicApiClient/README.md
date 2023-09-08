@@ -89,7 +89,7 @@ public class AnnotationControllerApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://www.genomenexus.org*
+All URIs are relative to *http://localhost:38080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -127,7 +127,6 @@ Class | Method | HTTP request | Description
  - [Alleles](docs/Alleles.md)
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [Citations](docs/Citations.md)
- - [ClinVar](docs/ClinVar.md)
  - [Clinvar](docs/Clinvar.md)
  - [ClinvarAnnotation](docs/ClinvarAnnotation.md)
  - [ColocatedVariant](docs/ColocatedVariant.md)
@@ -164,6 +163,7 @@ Class | Method | HTTP request | Description
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)
  - [MyVariantInfoAnnotation](docs/MyVariantInfoAnnotation.md)
+ - [MyVariantInfoClinVar](docs/MyVariantInfoClinVar.md)
  - [NucleotideContext](docs/NucleotideContext.md)
  - [NucleotideContextAnnotation](docs/NucleotideContextAnnotation.md)
  - [OncokbAnnotation](docs/OncokbAnnotation.md)

@@ -30,7 +30,7 @@ import org.genome_nexus.client.TumorType;
 /**
  * Implication
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-07T00:04:15.944-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-08T17:14:25.592-04:00")
 public class Implication {
   @SerializedName("abstracts")
   private List<ArticleAbstract> abstracts = null;

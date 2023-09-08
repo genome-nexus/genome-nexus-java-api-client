@@ -1,6 +1,6 @@
 # PfamControllerApi
 
-All URIs are relative to *http://www.genomenexus.org*
+All URIs are relative to *http://localhost:38080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

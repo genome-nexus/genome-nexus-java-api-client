@@ -22,13 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.genome_nexus.client.Cosmic;
-import org.genome_nexus.client.Dbsnp;
-import org.genome_nexus.client.Gnomad;
-import org.genome_nexus.client.Mutdb;
-import org.genome_nexus.client.MyVariantInfoClinVar;
-import org.genome_nexus.client.Snpeff;
-import org.genome_nexus.client.Vcf;
 
 /**
  * MyVariantInfo

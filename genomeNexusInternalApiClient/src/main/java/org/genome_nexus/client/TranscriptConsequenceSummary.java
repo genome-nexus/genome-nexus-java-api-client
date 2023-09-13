@@ -27,7 +27,7 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-08T17:14:26.472-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T14:14:23.202-04:00")
 public class TranscriptConsequenceSummary {
   @SerializedName("aminoAcidAlt")
   private String aminoAcidAlt = null;

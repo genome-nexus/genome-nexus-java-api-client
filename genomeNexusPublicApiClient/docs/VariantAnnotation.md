@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **clinvar** | [**ClinvarAnnotation**](ClinvarAnnotation.md) | MyVariantInfoClinVar |  [optional]
 **colocatedVariants** | [**List&lt;ColocatedVariant&gt;**](ColocatedVariant.md) |  |  [optional]
 **end** | **Integer** | End position |  [optional]
+**errorMessage** | **String** |  |  [optional]
 **genomicLocationExplanation** | **String** |  |  [optional]
 **hgvsg** | **String** |  |  [optional]
 **hotspots** | [**HotspotAnnotation**](HotspotAnnotation.md) | Hotspot Annotation |  [optional]

@@ -40,7 +40,7 @@ import org.genome_nexus.client.VariantAnnotationSummary;
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-08T17:14:25.592-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T14:14:22.346-04:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -62,6 +62,9 @@ public class VariantAnnotation {
 
   @SerializedName("end")
   private Integer end = null;
+
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
 
   @SerializedName("genomicLocationExplanation")
   private String genomicLocationExplanation = null;
@@ -252,6 +255,24 @@ public class VariantAnnotation {
 
   public void setEnd(Integer end) {
     this.end = end;
+  }
+
+  public VariantAnnotation errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @ApiModelProperty(value = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
   public VariantAnnotation genomicLocationExplanation(String genomicLocationExplanation) {
@@ -626,6 +647,7 @@ public class VariantAnnotation {
         Objects.equals(this.clinvar, variantAnnotation.clinvar) &&
         Objects.equals(this.colocatedVariants, variantAnnotation.colocatedVariants) &&
         Objects.equals(this.end, variantAnnotation.end) &&
+        Objects.equals(this.errorMessage, variantAnnotation.errorMessage) &&
         Objects.equals(this.genomicLocationExplanation, variantAnnotation.genomicLocationExplanation) &&
         Objects.equals(this.hgvsg, variantAnnotation.hgvsg) &&
         Objects.equals(this.hotspots, variantAnnotation.hotspots) &&
@@ -649,7 +671,7 @@ public class VariantAnnotation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, clinvar, colocatedVariants, end, genomicLocationExplanation, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, nucleotideContext, oncokb, originalVariantQuery, ptms, seqRegionName, signalAnnotation, start, strand, successfullyAnnotated, transcriptConsequences, variant);
+    return Objects.hash(alleleString, annotationJSON, annotationSummary, assemblyName, clinvar, colocatedVariants, end, errorMessage, genomicLocationExplanation, hgvsg, hotspots, id, intergenicConsequences, mostSevereConsequence, mutationAssessor, myVariantInfo, nucleotideContext, oncokb, originalVariantQuery, ptms, seqRegionName, signalAnnotation, start, strand, successfullyAnnotated, transcriptConsequences, variant);
   }
 
 
@@ -665,6 +687,7 @@ public class VariantAnnotation {
     sb.append("    clinvar: ").append(toIndentedString(clinvar)).append("\n");
     sb.append("    colocatedVariants: ").append(toIndentedString(colocatedVariants)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    genomicLocationExplanation: ").append(toIndentedString(genomicLocationExplanation)).append("\n");
     sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");
     sb.append("    hotspots: ").append(toIndentedString(hotspots)).append("\n");

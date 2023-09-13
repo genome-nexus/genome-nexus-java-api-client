@@ -22,11 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.genome_nexus.client.Cosmic;
+import org.genome_nexus.client.Dbsnp;
+import org.genome_nexus.client.Gnomad;
+import org.genome_nexus.client.Mutdb;
+import org.genome_nexus.client.MyVariantInfoClinVar;
+import org.genome_nexus.client.Snpeff;
+import org.genome_nexus.client.Vcf;
 
 /**
  * MyVariantInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-08T17:14:25.592-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T14:14:22.346-04:00")
 public class MyVariantInfo {
   @SerializedName("clinVar")
   private MyVariantInfoClinVar clinVar = null;

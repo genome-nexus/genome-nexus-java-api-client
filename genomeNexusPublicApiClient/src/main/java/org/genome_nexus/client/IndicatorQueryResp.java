@@ -32,7 +32,7 @@ import org.genome_nexus.client.Query;
 /**
  * IndicatorQueryResp
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:39.388-04:00")
 public class IndicatorQueryResp {
   @SerializedName("alleleExist")
   private Boolean alleleExist = null;
@@ -57,15 +57,9 @@ public class IndicatorQueryResp {
    */
   @JsonAdapter(HighestDiagnosticImplicationLevelEnum.Adapter.class)
   public enum HighestDiagnosticImplicationLevelEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -76,8 +70,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -90,6 +82,12 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -135,19 +133,13 @@ public class IndicatorQueryResp {
   private HighestDiagnosticImplicationLevelEnum highestDiagnosticImplicationLevel = null;
 
   /**
-   * Gets or Sets highestPrognosticImplicationLevel
+   * Gets or Sets highestFdaLevel
    */
-  @JsonAdapter(HighestPrognosticImplicationLevelEnum.Adapter.class)
-  public enum HighestPrognosticImplicationLevelEnum {
-    LEVEL_0("LEVEL_0"),
-    
+  @JsonAdapter(HighestFdaLevelEnum.Adapter.class)
+  public enum HighestFdaLevelEnum {
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -158,8 +150,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -172,6 +162,92 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
+    
+    NO("NO");
+
+    private String value;
+
+    HighestFdaLevelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static HighestFdaLevelEnum fromValue(String text) {
+      for (HighestFdaLevelEnum b : HighestFdaLevelEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<HighestFdaLevelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HighestFdaLevelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HighestFdaLevelEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HighestFdaLevelEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("highestFdaLevel")
+  private HighestFdaLevelEnum highestFdaLevel = null;
+
+  /**
+   * Gets or Sets highestPrognosticImplicationLevel
+   */
+  @JsonAdapter(HighestPrognosticImplicationLevelEnum.Adapter.class)
+  public enum HighestPrognosticImplicationLevelEnum {
+    LEVEL_1("LEVEL_1"),
+    
+    LEVEL_2("LEVEL_2"),
+    
+    LEVEL_3A("LEVEL_3A"),
+    
+    LEVEL_3B("LEVEL_3B"),
+    
+    LEVEL_4("LEVEL_4"),
+    
+    LEVEL_R1("LEVEL_R1"),
+    
+    LEVEL_R2("LEVEL_R2"),
+    
+    LEVEL_PX1("LEVEL_Px1"),
+    
+    LEVEL_PX2("LEVEL_Px2"),
+    
+    LEVEL_PX3("LEVEL_Px3"),
+    
+    LEVEL_DX1("LEVEL_Dx1"),
+    
+    LEVEL_DX2("LEVEL_Dx2"),
+    
+    LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -221,15 +297,9 @@ public class IndicatorQueryResp {
    */
   @JsonAdapter(HighestResistanceLevelEnum.Adapter.class)
   public enum HighestResistanceLevelEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -240,8 +310,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -254,6 +322,12 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -303,15 +377,9 @@ public class IndicatorQueryResp {
    */
   @JsonAdapter(HighestSensitiveLevelEnum.Adapter.class)
   public enum HighestSensitiveLevelEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -322,8 +390,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -336,6 +402,12 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -397,15 +469,9 @@ public class IndicatorQueryResp {
    */
   @JsonAdapter(OtherSignificantResistanceLevelsEnum.Adapter.class)
   public enum OtherSignificantResistanceLevelsEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -416,8 +482,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -430,6 +494,12 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -479,15 +549,9 @@ public class IndicatorQueryResp {
    */
   @JsonAdapter(OtherSignificantSensitiveLevelsEnum.Adapter.class)
   public enum OtherSignificantSensitiveLevelsEnum {
-    LEVEL_0("LEVEL_0"),
-    
     LEVEL_1("LEVEL_1"),
     
     LEVEL_2("LEVEL_2"),
-    
-    LEVEL_2A("LEVEL_2A"),
-    
-    LEVEL_2B("LEVEL_2B"),
     
     LEVEL_3A("LEVEL_3A"),
     
@@ -498,8 +562,6 @@ public class IndicatorQueryResp {
     LEVEL_R1("LEVEL_R1"),
     
     LEVEL_R2("LEVEL_R2"),
-    
-    LEVEL_R3("LEVEL_R3"),
     
     LEVEL_PX1("LEVEL_Px1"),
     
@@ -512,6 +574,12 @@ public class IndicatorQueryResp {
     LEVEL_DX2("LEVEL_Dx2"),
     
     LEVEL_DX3("LEVEL_Dx3"),
+    
+    LEVEL_FDA1("LEVEL_Fda1"),
+    
+    LEVEL_FDA2("LEVEL_Fda2"),
+    
+    LEVEL_FDA3("LEVEL_Fda3"),
     
     NO("NO");
 
@@ -712,6 +780,24 @@ public class IndicatorQueryResp {
 
   public void setHighestDiagnosticImplicationLevel(HighestDiagnosticImplicationLevelEnum highestDiagnosticImplicationLevel) {
     this.highestDiagnosticImplicationLevel = highestDiagnosticImplicationLevel;
+  }
+
+  public IndicatorQueryResp highestFdaLevel(HighestFdaLevelEnum highestFdaLevel) {
+    this.highestFdaLevel = highestFdaLevel;
+    return this;
+  }
+
+   /**
+   * Get highestFdaLevel
+   * @return highestFdaLevel
+  **/
+  @ApiModelProperty(value = "")
+  public HighestFdaLevelEnum getHighestFdaLevel() {
+    return highestFdaLevel;
+  }
+
+  public void setHighestFdaLevel(HighestFdaLevelEnum highestFdaLevel) {
+    this.highestFdaLevel = highestFdaLevel;
   }
 
   public IndicatorQueryResp highestPrognosticImplicationLevel(HighestPrognosticImplicationLevelEnum highestPrognosticImplicationLevel) {
@@ -1069,6 +1155,7 @@ public class IndicatorQueryResp {
         Objects.equals(this.geneExist, indicatorQueryResp.geneExist) &&
         Objects.equals(this.geneSummary, indicatorQueryResp.geneSummary) &&
         Objects.equals(this.highestDiagnosticImplicationLevel, indicatorQueryResp.highestDiagnosticImplicationLevel) &&
+        Objects.equals(this.highestFdaLevel, indicatorQueryResp.highestFdaLevel) &&
         Objects.equals(this.highestPrognosticImplicationLevel, indicatorQueryResp.highestPrognosticImplicationLevel) &&
         Objects.equals(this.highestResistanceLevel, indicatorQueryResp.highestResistanceLevel) &&
         Objects.equals(this.highestSensitiveLevel, indicatorQueryResp.highestSensitiveLevel) &&
@@ -1090,7 +1177,7 @@ public class IndicatorQueryResp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alleleExist, dataVersion, diagnosticImplications, diagnosticSummary, geneExist, geneSummary, highestDiagnosticImplicationLevel, highestPrognosticImplicationLevel, highestResistanceLevel, highestSensitiveLevel, hotspot, lastUpdate, mutationEffect, oncogenic, otherSignificantResistanceLevels, otherSignificantSensitiveLevels, prognosticImplications, prognosticSummary, query, treatments, tumorTypeSummary, variantExist, variantSummary, vus);
+    return Objects.hash(alleleExist, dataVersion, diagnosticImplications, diagnosticSummary, geneExist, geneSummary, highestDiagnosticImplicationLevel, highestFdaLevel, highestPrognosticImplicationLevel, highestResistanceLevel, highestSensitiveLevel, hotspot, lastUpdate, mutationEffect, oncogenic, otherSignificantResistanceLevels, otherSignificantSensitiveLevels, prognosticImplications, prognosticSummary, query, treatments, tumorTypeSummary, variantExist, variantSummary, vus);
   }
 
 
@@ -1106,6 +1193,7 @@ public class IndicatorQueryResp {
     sb.append("    geneExist: ").append(toIndentedString(geneExist)).append("\n");
     sb.append("    geneSummary: ").append(toIndentedString(geneSummary)).append("\n");
     sb.append("    highestDiagnosticImplicationLevel: ").append(toIndentedString(highestDiagnosticImplicationLevel)).append("\n");
+    sb.append("    highestFdaLevel: ").append(toIndentedString(highestFdaLevel)).append("\n");
     sb.append("    highestPrognosticImplicationLevel: ").append(toIndentedString(highestPrognosticImplicationLevel)).append("\n");
     sb.append("    highestResistanceLevel: ").append(toIndentedString(highestResistanceLevel)).append("\n");
     sb.append("    highestSensitiveLevel: ").append(toIndentedString(highestSensitiveLevel)).append("\n");

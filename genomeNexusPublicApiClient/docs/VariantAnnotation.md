@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **annotationJSON** | **String** | Annotation data as JSON string |  [optional]
 **annotationSummary** | [**VariantAnnotationSummary**](VariantAnnotationSummary.md) | Variant Annotation Summary |  [optional]
 **assemblyName** | **String** | NCBI build number |  [optional]
-**clinvar** | [**ClinvarAnnotation**](ClinvarAnnotation.md) | ClinVar |  [optional]
+**clinvar** | [**ClinvarAnnotation**](ClinvarAnnotation.md) | MyVariantInfoClinVar |  [optional]
 **colocatedVariants** | [**List&lt;ColocatedVariant&gt;**](ColocatedVariant.md) |  |  [optional]
 **end** | **Integer** | End position |  [optional]
+**errorMessage** | **String** |  |  [optional]
+**genomicLocationExplanation** | **String** |  |  [optional]
 **hgvsg** | **String** |  |  [optional]
 **hotspots** | [**HotspotAnnotation**](HotspotAnnotation.md) | Hotspot Annotation |  [optional]
 **id** | **String** | Variant id | 

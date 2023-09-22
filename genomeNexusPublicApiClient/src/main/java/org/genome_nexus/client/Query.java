@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Query
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:39.388-04:00")
 public class Query {
   @SerializedName("alteration")
   private String alteration = null;
@@ -54,6 +54,56 @@ public class Query {
 
   @SerializedName("proteinStart")
   private Integer proteinStart = null;
+
+  /**
+   * Gets or Sets referenceGenome
+   */
+  @JsonAdapter(ReferenceGenomeEnum.Adapter.class)
+  public enum ReferenceGenomeEnum {
+    GRCH37("GRCh37"),
+    
+    GRCH38("GRCh38");
+
+    private String value;
+
+    ReferenceGenomeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ReferenceGenomeEnum fromValue(String text) {
+      for (ReferenceGenomeEnum b : ReferenceGenomeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ReferenceGenomeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReferenceGenomeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReferenceGenomeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ReferenceGenomeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("referenceGenome")
+  private ReferenceGenomeEnum referenceGenome = null;
 
   /**
    * Gets or Sets svType
@@ -117,9 +167,6 @@ public class Query {
 
   @SerializedName("tumorType")
   private String tumorType = null;
-
-  @SerializedName("type")
-  private String type = null;
 
   public Query alteration(String alteration) {
     this.alteration = alteration;
@@ -283,6 +330,24 @@ public class Query {
     this.proteinStart = proteinStart;
   }
 
+  public Query referenceGenome(ReferenceGenomeEnum referenceGenome) {
+    this.referenceGenome = referenceGenome;
+    return this;
+  }
+
+   /**
+   * Get referenceGenome
+   * @return referenceGenome
+  **/
+  @ApiModelProperty(value = "")
+  public ReferenceGenomeEnum getReferenceGenome() {
+    return referenceGenome;
+  }
+
+  public void setReferenceGenome(ReferenceGenomeEnum referenceGenome) {
+    this.referenceGenome = referenceGenome;
+  }
+
   public Query svType(SvTypeEnum svType) {
     this.svType = svType;
     return this;
@@ -319,24 +384,6 @@ public class Query {
     this.tumorType = tumorType;
   }
 
-  public Query type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -356,14 +403,14 @@ public class Query {
         Objects.equals(this.id, query.id) &&
         Objects.equals(this.proteinEnd, query.proteinEnd) &&
         Objects.equals(this.proteinStart, query.proteinStart) &&
+        Objects.equals(this.referenceGenome, query.referenceGenome) &&
         Objects.equals(this.svType, query.svType) &&
-        Objects.equals(this.tumorType, query.tumorType) &&
-        Objects.equals(this.type, query.type);
+        Objects.equals(this.tumorType, query.tumorType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alteration, alterationType, consequence, entrezGeneId, hgvs, hugoSymbol, id, proteinEnd, proteinStart, svType, tumorType, type);
+    return Objects.hash(alteration, alterationType, consequence, entrezGeneId, hgvs, hugoSymbol, id, proteinEnd, proteinStart, referenceGenome, svType, tumorType);
   }
 
 
@@ -381,9 +428,9 @@ public class Query {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    proteinEnd: ").append(toIndentedString(proteinEnd)).append("\n");
     sb.append("    proteinStart: ").append(toIndentedString(proteinStart)).append("\n");
+    sb.append("    referenceGenome: ").append(toIndentedString(referenceGenome)).append("\n");
     sb.append("    svType: ").append(toIndentedString(svType)).append("\n");
     sb.append("    tumorType: ").append(toIndentedString(tumorType)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

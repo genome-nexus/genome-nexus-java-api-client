@@ -1,5 +1,5 @@
 
-# ClinVar
+# MyVariantInfoClinVar
 
 ## Properties
 Name | Type | Description | Notes

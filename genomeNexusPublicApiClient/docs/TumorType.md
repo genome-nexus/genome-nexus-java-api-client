@@ -22,6 +22,7 @@ Name | Value
 ---- | -----
 SOLID | &quot;SOLID&quot;
 LIQUID | &quot;LIQUID&quot;
+MIXED | &quot;MIXED&quot;
 
 
 

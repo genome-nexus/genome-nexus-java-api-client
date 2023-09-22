@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clinVar** | [**ClinVar**](ClinVar.md) | clinvar |  [optional]
+**clinVar** | [**MyVariantInfoClinVar**](MyVariantInfoClinVar.md) | clinvar |  [optional]
 **cosmic** | [**Cosmic**](Cosmic.md) | cosmic |  [optional]
 **dbsnp** | [**Dbsnp**](Dbsnp.md) | dbsnp |  [optional]
 **gnomadExome** | [**Gnomad**](Gnomad.md) | gnomad_exome |  [optional]

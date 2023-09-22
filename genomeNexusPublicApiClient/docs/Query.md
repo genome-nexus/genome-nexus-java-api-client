@@ -13,9 +13,17 @@ Name | Type | Description | Notes
 **id** | **String** |  |  [optional]
 **proteinEnd** | **Integer** |  |  [optional]
 **proteinStart** | **Integer** |  |  [optional]
+**referenceGenome** | [**ReferenceGenomeEnum**](#ReferenceGenomeEnum) |  |  [optional]
 **svType** | [**SvTypeEnum**](#SvTypeEnum) |  |  [optional]
 **tumorType** | **String** |  |  [optional]
-**type** | **String** |  |  [optional]
+
+
+<a name="ReferenceGenomeEnum"></a>
+## Enum: ReferenceGenomeEnum
+Name | Value
+---- | -----
+GRCH37 | &quot;GRCh37&quot;
+GRCH38 | &quot;GRCh38&quot;
 
 
 <a name="SvTypeEnum"></a>

@@ -31,10 +31,10 @@ import org.genome_nexus.client.Hgvs;
 import org.genome_nexus.client.Rcv;
 
 /**
- * ClinVar
+ * MyVariantInfoClinVar
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
-public class ClinVar {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:39.388-04:00")
+public class MyVariantInfoClinVar {
   @SerializedName("alleleId")
   private Integer alleleId = null;
 
@@ -68,7 +68,7 @@ public class ClinVar {
   @SerializedName("variantId")
   private Integer variantId = null;
 
-  public ClinVar alleleId(Integer alleleId) {
+  public MyVariantInfoClinVar alleleId(Integer alleleId) {
     this.alleleId = alleleId;
     return this;
   }
@@ -86,7 +86,7 @@ public class ClinVar {
     this.alleleId = alleleId;
   }
 
-  public ClinVar alt(String alt) {
+  public MyVariantInfoClinVar alt(String alt) {
     this.alt = alt;
     return this;
   }
@@ -104,7 +104,7 @@ public class ClinVar {
     this.alt = alt;
   }
 
-  public ClinVar chrom(String chrom) {
+  public MyVariantInfoClinVar chrom(String chrom) {
     this.chrom = chrom;
     return this;
   }
@@ -122,7 +122,7 @@ public class ClinVar {
     this.chrom = chrom;
   }
 
-  public ClinVar cytogenic(String cytogenic) {
+  public MyVariantInfoClinVar cytogenic(String cytogenic) {
     this.cytogenic = cytogenic;
     return this;
   }
@@ -140,7 +140,7 @@ public class ClinVar {
     this.cytogenic = cytogenic;
   }
 
-  public ClinVar gene(Gene gene) {
+  public MyVariantInfoClinVar gene(Gene gene) {
     this.gene = gene;
     return this;
   }
@@ -158,7 +158,7 @@ public class ClinVar {
     this.gene = gene;
   }
 
-  public ClinVar hg19(Hg19 hg19) {
+  public MyVariantInfoClinVar hg19(Hg19 hg19) {
     this.hg19 = hg19;
     return this;
   }
@@ -176,7 +176,7 @@ public class ClinVar {
     this.hg19 = hg19;
   }
 
-  public ClinVar hg38(Hg38 hg38) {
+  public MyVariantInfoClinVar hg38(Hg38 hg38) {
     this.hg38 = hg38;
     return this;
   }
@@ -194,7 +194,7 @@ public class ClinVar {
     this.hg38 = hg38;
   }
 
-  public ClinVar hgvs(Hgvs hgvs) {
+  public MyVariantInfoClinVar hgvs(Hgvs hgvs) {
     this.hgvs = hgvs;
     return this;
   }
@@ -212,7 +212,7 @@ public class ClinVar {
     this.hgvs = hgvs;
   }
 
-  public ClinVar license(String license) {
+  public MyVariantInfoClinVar license(String license) {
     this.license = license;
     return this;
   }
@@ -230,12 +230,12 @@ public class ClinVar {
     this.license = license;
   }
 
-  public ClinVar rcv(List<Rcv> rcv) {
+  public MyVariantInfoClinVar rcv(List<Rcv> rcv) {
     this.rcv = rcv;
     return this;
   }
 
-  public ClinVar addRcvItem(Rcv rcvItem) {
+  public MyVariantInfoClinVar addRcvItem(Rcv rcvItem) {
     if (this.rcv == null) {
       this.rcv = new ArrayList<Rcv>();
     }
@@ -256,7 +256,7 @@ public class ClinVar {
     this.rcv = rcv;
   }
 
-  public ClinVar variantId(Integer variantId) {
+  public MyVariantInfoClinVar variantId(Integer variantId) {
     this.variantId = variantId;
     return this;
   }
@@ -283,18 +283,18 @@ public class ClinVar {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ClinVar clinVar = (ClinVar) o;
-    return Objects.equals(this.alleleId, clinVar.alleleId) &&
-        Objects.equals(this.alt, clinVar.alt) &&
-        Objects.equals(this.chrom, clinVar.chrom) &&
-        Objects.equals(this.cytogenic, clinVar.cytogenic) &&
-        Objects.equals(this.gene, clinVar.gene) &&
-        Objects.equals(this.hg19, clinVar.hg19) &&
-        Objects.equals(this.hg38, clinVar.hg38) &&
-        Objects.equals(this.hgvs, clinVar.hgvs) &&
-        Objects.equals(this.license, clinVar.license) &&
-        Objects.equals(this.rcv, clinVar.rcv) &&
-        Objects.equals(this.variantId, clinVar.variantId);
+    MyVariantInfoClinVar myVariantInfoClinVar = (MyVariantInfoClinVar) o;
+    return Objects.equals(this.alleleId, myVariantInfoClinVar.alleleId) &&
+        Objects.equals(this.alt, myVariantInfoClinVar.alt) &&
+        Objects.equals(this.chrom, myVariantInfoClinVar.chrom) &&
+        Objects.equals(this.cytogenic, myVariantInfoClinVar.cytogenic) &&
+        Objects.equals(this.gene, myVariantInfoClinVar.gene) &&
+        Objects.equals(this.hg19, myVariantInfoClinVar.hg19) &&
+        Objects.equals(this.hg38, myVariantInfoClinVar.hg38) &&
+        Objects.equals(this.hgvs, myVariantInfoClinVar.hgvs) &&
+        Objects.equals(this.license, myVariantInfoClinVar.license) &&
+        Objects.equals(this.rcv, myVariantInfoClinVar.rcv) &&
+        Objects.equals(this.variantId, myVariantInfoClinVar.variantId);
   }
 
   @Override
@@ -306,7 +306,7 @@ public class ClinVar {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ClinVar {\n");
+    sb.append("class MyVariantInfoClinVar {\n");
     
     sb.append("    alleleId: ").append(toIndentedString(alleleId)).append("\n");
     sb.append("    alt: ").append(toIndentedString(alt)).append("\n");

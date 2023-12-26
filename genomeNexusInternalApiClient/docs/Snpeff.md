@@ -1,10 +1,13 @@
 
+
 # Snpeff
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**license** | **String** | license |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**license** | **String** | license |  [optional] |
 
 
 

@@ -1,0 +1,2569 @@
+openapi: 3.0.1
+info:
+  description: |-
+    This page shows how to use HTTP requests to access the Genome Nexus API. There are more high level clients available in Python, R, JavaScript, TypeScript and various other languages as well as a command line client to annotate MAF and VCF. See https://docs.genomenexus.org/api.
+
+    Aside from programmatic clients there are web based tools to annotate variants, see https://docs.genomenexus.org/tools.
+
+     We currently only provide long-term support for the '/annotation' endpoint. The other endpoints might change.
+  license:
+    name: MIT License
+    url: https://github.com/genome-nexus/genome-nexus/blob/master/LICENSE
+  title: Genome Nexus API
+  version: "2.0"
+servers:
+- url: http://www.genomenexus.org/
+- url: https://www.genomenexus.org/
+tags:
+- description: Cross Reference Controller
+  name: cross-reference-controller
+- description: Signal Mutation Controller
+  name: signal-mutation-controller
+- description: Search Controller
+  name: search-controller
+- description: Cancer Hotspots Controller
+  name: cancer-hotspots-controller
+- description: Mutation Assessor Controller
+  name: mutation-assessor-controller
+- description: Annotation Summary Controller
+  name: annotation-summary-controller
+- description: Curious Cases Controller
+  name: curious-cases-controller
+- description: Signal Query Controller
+  name: signal-query-controller
+- description: My Variant Info Controller
+  name: my-variant-info-controller
+- description: Nucleotide Context Controller
+  name: nucleotide-context-controller
+paths:
+  /annotation/summary:
+    post:
+      operationId: fetchVariantAnnotationSummaryPOST
+      parameters:
+      - description: Isoform override source. For example uniprot
+        in: query
+        name: isoformOverrideSource
+        schema:
+          type: string
+      - description: Indicates whether to return summary for all transcripts or only
+          for canonical transcript
+        in: query
+        name: projection
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - CANONICAL
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of variants. For example [\"X:g.66937331T>A\",\"17:g.41242962_41242963insGA\"\
+          ] (GRCh37) or [\"1:g.182712A>C\", \"2:g.265023C>T\", \"3:g.319781del\",\
+          \ \"19:g.110753dup\", \"1:g.1385015_1387562del\"] (GRCh38)"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VariantAnnotationSummary'
+                type: array
+          description: OK
+      summary: Retrieves VEP annotation summary for the provided list of variants
+      tags:
+      - annotation-summary-controller
+      x-codegen-request-body-name: variants
+      x-content-type: application/json
+      x-accepts: application/json
+  /annotation/summary/{variant}:
+    get:
+      operationId: fetchVariantAnnotationSummaryGET
+      parameters:
+      - description: Variant. For example 17:g.41242962_41242963insGA
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      - description: Isoform override source. For example uniprot
+        in: query
+        name: isoformOverrideSource
+        schema:
+          type: string
+      - description: Indicates whether to return summary for all transcripts or only
+          for canonical transcript
+        in: query
+        name: projection
+        schema:
+          default: ALL
+          enum:
+          - ALL
+          - CANONICAL
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantAnnotationSummary'
+          description: OK
+      summary: Retrieves VEP annotation summary for the provided variant
+      tags:
+      - annotation-summary-controller
+      x-accepts: application/json
+  /cancer_hotspots/genomic:
+    post:
+      operationId: fetchHotspotAnnotationByGenomicLocationPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/GenomicLocation'
+              type: array
+        description: List of genomic locations.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AggregatedHotspots'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for the provided list of genomic locations
+      tags:
+      - cancer-hotspots-controller
+      x-codegen-request-body-name: genomicLocations
+      x-content-type: application/json
+      x-accepts: application/json
+  /cancer_hotspots/genomic/{genomicLocation}:
+    get:
+      operationId: fetchHotspotAnnotationByGenomicLocationGET
+      parameters:
+      - description: "A genomic location. For example 7,140453136,140453136,A,T"
+        in: path
+        name: genomicLocation
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Hotspot'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for a specific genomic location
+      tags:
+      - cancer-hotspots-controller
+      x-accepts: application/json
+  /cancer_hotspots/hgvs:
+    post:
+      operationId: fetchHotspotAnnotationByHgvsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of variants. For example [\"7:g.140453136A>T\",\"12:g.25398285C>A\"\
+          ]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AggregatedHotspots'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for the provided list of variants
+      tags:
+      - cancer-hotspots-controller
+      x-codegen-request-body-name: variants
+      x-content-type: application/json
+      x-accepts: application/json
+  /cancer_hotspots/hgvs/{variant}:
+    get:
+      operationId: fetchHotspotAnnotationByHgvsGET
+      parameters:
+      - description: A variant. For example 7:g.140453136A>T
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Hotspot'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for a specific variant
+      tags:
+      - cancer-hotspots-controller
+      x-accepts: application/json
+  /cancer_hotspots/proteinLocations:
+    post:
+      operationId: fetchHotspotAnnotationByProteinLocationsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/ProteinLocation'
+              type: array
+        description: "List of transcript id, protein start location, protein end location,\
+          \ mutation type. \bThe mutation types are limited to 'Missense_Mutation',\
+          \ 'In_Frame_Ins', 'In_Frame_Del', 'Splice_Site', and 'Splice_Region'"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AggregatedHotspots'
+                type: array
+          description: OK
+      summary: "Retrieves hotspot annotations for the provided list of transcript\
+        \ id, protein location and mutation type"
+      tags:
+      - cancer-hotspots-controller
+      x-codegen-request-body-name: proteinLocations
+      x-content-type: application/json
+      x-accepts: application/json
+  /cancer_hotspots/transcript:
+    post:
+      operationId: fetchHotspotAnnotationByTranscriptIdPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of transcript Id. For example [\"ENST00000288602\",\"ENST00000256078\"\
+          ]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AggregatedHotspots'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for the provided list of transcript ID
+      tags:
+      - cancer-hotspots-controller
+      x-codegen-request-body-name: transcriptIds
+      x-content-type: application/json
+      x-accepts: application/json
+  /cancer_hotspots/transcript/{transcriptId}:
+    get:
+      operationId: fetchHotspotAnnotationByTranscriptIdGET
+      parameters:
+      - description: A Transcript Id. For example ENST00000288602
+        in: path
+        name: transcriptId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Hotspot'
+                type: array
+          description: OK
+      summary: Retrieves hotspot annotations for the provided transcript ID
+      tags:
+      - cancer-hotspots-controller
+      x-accepts: application/json
+  /curious_cases/{genomicLocation}:
+    get:
+      operationId: fetchCuriousCasesGET
+      parameters:
+      - description: "Genomic location, for example: 7,116411883,116411905,TTCTTTCTCTCTGTTTTAAGATC,-"
+        in: path
+        name: genomicLocation
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CuriousCases'
+          description: OK
+      summary: Retrieves Curious Cases info by a genomic location
+      tags:
+      - curious-cases-controller
+      x-accepts: application/json
+  /mutation_assessor:
+    post:
+      operationId: postMutationAssessorAnnotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of variants. For example [\"7:g.140453136A>T\",\"12:g.25398285C>A\"\
+          ]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MutationAssessor'
+                type: array
+          description: OK
+      summary: Retrieves mutation assessor information for the provided list of variants
+      tags:
+      - mutation-assessor-controller
+      x-codegen-request-body-name: variants
+      x-content-type: application/json
+      x-accepts: application/json
+  /mutation_assessor/{variant}:
+    get:
+      operationId: fetchMutationAssessorAnnotationGET
+      parameters:
+      - description: A variant. For example 7:g.140453136A>T
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MutationAssessor'
+          description: OK
+      summary: Retrieves mutation assessor information for the provided list of variants
+      tags:
+      - mutation-assessor-controller
+      x-accepts: application/json
+  /my_variant_info/variant:
+    post:
+      operationId: postMyVariantInfoAnnotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of variants. For example [\"7:g.140453136A>T\",\"12:g.25398285C>A\"\
+          ]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MyVariantInfo'
+                type: array
+          description: OK
+      summary: Retrieves myvariant information for the provided list of variants
+      tags:
+      - my-variant-info-controller
+      x-codegen-request-body-name: variants
+      x-content-type: application/json
+      x-accepts: application/json
+  /my_variant_info/variant/{variant}:
+    get:
+      operationId: fetchMyVariantInfoAnnotationGET
+      parameters:
+      - description: . For example 7:g.140453136A>T
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyVariantInfo'
+          description: OK
+      summary: Retrieves myvariant information for the provided list of variants
+      tags:
+      - my-variant-info-controller
+      x-accepts: application/json
+  /nucleotide_context:
+    post:
+      operationId: postNucleotideContextAnnotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        description: "List of variants. For example [\"7:g.140453136A>T\",\"12:g.25398285C>A\"\
+          ]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NucleotideContext'
+                type: array
+          description: OK
+      summary: Retrieves nucleotide context information for the provided list of variants
+      tags:
+      - nucleotide-context-controller
+      x-codegen-request-body-name: variants
+      x-content-type: application/json
+      x-accepts: application/json
+  /nucleotide_context/{variant}:
+    get:
+      operationId: fetchNucleotideContextAnnotationGET
+      parameters:
+      - description: A variant. For example 7:g.140453136A>T
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NucleotideContext'
+          description: OK
+      summary: Retrieves nucleotide context information for the provided list of variants
+      tags:
+      - nucleotide-context-controller
+      x-accepts: application/json
+  /search:
+    get:
+      operationId: searchAnnotationByKeywordGETUsingGET
+      parameters:
+      - description: "keyword. For example 13:g.32890665G>A, TP53 p.R273C, BRAF c.1799T>A"
+        in: query
+        name: keyword
+        required: true
+        schema:
+          type: string
+      - description: Max number of matching results to return
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/IndexSearch'
+                type: array
+          description: OK
+      summary: Performs index search.
+      tags:
+      - search-controller
+      x-accepts: application/json
+  /signal/mutation:
+    get:
+      operationId: fetchSignalMutationsByHugoSymbolGETUsingGET
+      parameters:
+      - description: Hugo Symbol. For example BRCA1
+        in: query
+        name: hugoGeneSymbol
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SignalMutation'
+                type: array
+          description: OK
+      summary: Retrieves SignalDB mutations by Hugo Gene Symbol
+      tags:
+      - signal-mutation-controller
+      x-accepts: application/json
+    post:
+      operationId: fetchSignalMutationsByMutationFilterPOSTUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalMutationFilter'
+        description: "List of Hugo Gene Symbols. For example [\"TP53\", \"PIK3CA\"\
+          , \"BRCA1\"]"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SignalMutation'
+                type: array
+          description: OK
+      summary: Retrieves SignalDB mutations by Mutation Filter
+      tags:
+      - signal-mutation-controller
+      x-codegen-request-body-name: mutationFilter
+      x-content-type: application/json
+      x-accepts: application/json
+  /signal/mutation/hgvs/{variant}:
+    get:
+      operationId: fetchSignalMutationsByHgvsgGETUsingGET
+      parameters:
+      - description: A variant. For example 13:g.32890665G>A
+        in: path
+        name: variant
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SignalMutation'
+                type: array
+          description: OK
+      summary: Retrieves SignalDB mutations by hgvgs variant
+      tags:
+      - signal-mutation-controller
+      x-accepts: application/json
+  /signal/search:
+    get:
+      operationId: searchSignalByKeywordGETUsingGET
+      parameters:
+      - description: keyword. For example BRCA; BRAF V600; 13:32906640-32906640; 13:g.32890665G>A
+        in: query
+        name: keyword
+        required: true
+        schema:
+          type: string
+      - description: Max number of matching results to return
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SignalQuery'
+                type: array
+          description: OK
+      summary: "Performs search by gene, protein change, variant or region."
+      tags:
+      - signal-query-controller
+      x-accepts: application/json
+  /xrefs/{accession}:
+    get:
+      deprecated: true
+      operationId: fetchGeneXrefsGET_1
+      parameters:
+      - description: Ensembl gene accession. For example ENSG00000169083
+        in: path
+        name: accession
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GeneXref'
+                type: array
+          description: OK
+      summary: Perform lookups of Ensembl identifiers and retrieve their external
+        references in other databases
+      tags:
+      - cross-reference-controller
+      x-accepts: application/json
+components:
+  schemas:
+    AggregatedHotspots:
+      example:
+        genomicLocation:
+          chromosome: chromosome
+          start: 0
+          end: 6
+          referenceAllele: referenceAllele
+          variantAllele: variantAllele
+        proteinLocation:
+          mutationType: mutationType
+          transcriptId: transcriptId
+          start: 2
+          end: 7
+        transcriptId: transcriptId
+        variant: variant
+        hotspots:
+        - inframeCount: 0
+          truncatingCount: 5
+          missenseCount: 6
+          transcriptId: transcriptId
+          hugoSymbol: hugoSymbol
+          type: type
+          spliceCount: 1
+          residue: residue
+          tumorCount: 5
+        - inframeCount: 0
+          truncatingCount: 5
+          missenseCount: 6
+          transcriptId: transcriptId
+          hugoSymbol: hugoSymbol
+          type: type
+          spliceCount: 1
+          residue: residue
+          tumorCount: 5
+      properties:
+        genomicLocation:
+          $ref: '#/components/schemas/GenomicLocation'
+        hotspots:
+          description: Hotspots
+          items:
+            $ref: '#/components/schemas/Hotspot'
+          type: array
+        proteinLocation:
+          $ref: '#/components/schemas/ProteinLocation'
+        transcriptId:
+          type: string
+        variant:
+          description: HGVS notation
+          type: string
+      required:
+      - genomicLocation
+      - hotspots
+      - variant
+      type: object
+    AlleleCount:
+      example:
+        ac_oth: 1
+        ac: 7
+        ac_afr: 9
+        ac_nfe: 1
+        ac_fin: 7
+        ac_amr: 3
+        ac_asj: 2
+        ac_sas: 1
+        ac_eas: 4
+      properties:
+        ac:
+          format: int32
+          type: integer
+        ac_afr:
+          format: int32
+          type: integer
+        ac_amr:
+          format: int32
+          type: integer
+        ac_asj:
+          format: int32
+          type: integer
+        ac_eas:
+          format: int32
+          type: integer
+        ac_fin:
+          format: int32
+          type: integer
+        ac_nfe:
+          format: int32
+          type: integer
+        ac_oth:
+          format: int32
+          type: integer
+        ac_sas:
+          format: int32
+          type: integer
+      required:
+      - ac
+      - ac_afr
+      - ac_amr
+      - ac_asj
+      - ac_eas
+      - ac_fin
+      - ac_nfe
+      - ac_oth
+      - ac_sas
+      type: object
+    AlleleFrequency:
+      example:
+        af_fin: 9.965781217890562
+        af_afr: 7.457744773683766
+        af_nfe: 9.369310271410669
+        af: 6.84685269835264
+        af_oth: 6.683562403749608
+        af_sas: 8.762042012749001
+        af_amr: 1.1730742509559433
+        af_eas: 5.025004791520295
+        af_asj: 4.965218492984954
+      properties:
+        af:
+          format: double
+          type: number
+        af_afr:
+          format: double
+          type: number
+        af_amr:
+          format: double
+          type: number
+        af_asj:
+          format: double
+          type: number
+        af_eas:
+          format: double
+          type: number
+        af_fin:
+          format: double
+          type: number
+        af_nfe:
+          format: double
+          type: number
+        af_oth:
+          format: double
+          type: number
+        af_sas:
+          format: double
+          type: number
+      required:
+      - af
+      - af_afr
+      - af_amr
+      - af_asj
+      - af_eas
+      - af_fin
+      - af_nfe
+      - af_oth
+      - af_sas
+      type: object
+    AlleleNumber:
+      example:
+        an_oth: 6
+        an_sas: 5
+        an_amr: 3
+        an_eas: 1
+        an_asj: 6
+        an_fin: 2
+        an_nfe: 6
+        an_afr: 6
+        an: 9
+      properties:
+        an:
+          format: int32
+          type: integer
+        an_afr:
+          format: int32
+          type: integer
+        an_amr:
+          format: int32
+          type: integer
+        an_asj:
+          format: int32
+          type: integer
+        an_eas:
+          format: int32
+          type: integer
+        an_fin:
+          format: int32
+          type: integer
+        an_nfe:
+          format: int32
+          type: integer
+        an_oth:
+          format: int32
+          type: integer
+        an_sas:
+          format: int32
+          type: integer
+      required:
+      - an
+      - an_afr
+      - an_amr
+      - an_asj
+      - an_eas
+      - an_fin
+      - an_nfe
+      - an_oth
+      - an_sas
+      type: object
+    Alleles:
+      example:
+        allele: allele
+      properties:
+        allele:
+          description: allele
+          type: string
+      type: object
+    Cosmic:
+      example:
+        license: license
+        ref: ref
+        mutNt: mutNt
+        mutFreq: 5.637376656633329
+        hg19:
+          start: 1
+          end: 6
+        alt: alt
+        tumorSite: tumorSite
+        cosmicId: cosmicId
+        chrom: chrom
+      properties:
+        alt:
+          description: alt
+          type: string
+        chrom:
+          description: chrom
+          type: string
+        cosmicId:
+          description: cosmic_id
+          type: string
+        hg19:
+          $ref: '#/components/schemas/Hg19'
+        license:
+          description: _license
+          type: string
+        mutFreq:
+          description: mut_freq
+          format: double
+          type: number
+        mutNt:
+          description: mut_nt
+          type: string
+        ref:
+          description: ref
+          type: string
+        tumorSite:
+          description: tumor_site
+          type: string
+      type: object
+    CountByTumorType:
+      example:
+        tumorType: tumorType
+        tumorTypeCount: 0
+        variantCount: 6
+      properties:
+        tumorType:
+          description: Tumor Type
+          type: string
+        tumorTypeCount:
+          description: Sample count for Tumor Type
+          format: int32
+          type: integer
+        variantCount:
+          description: Variant count for Tumor Type
+          format: int32
+          type: integer
+      type: object
+    CuriousCases:
+      example:
+        hugoGeneSymbol: hugoGeneSymbol
+        genomicLocation: genomicLocation
+        pubmedIds:
+        - 0
+        - 0
+        comment: comment
+      properties:
+        comment:
+          type: string
+        genomicLocation:
+          type: string
+        hugoGeneSymbol:
+          type: string
+        pubmedIds:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    Dbsnp:
+      example:
+        alleleOrigin: alleleOrigin
+        vartype: vartype
+        varSubtype: varSubtype
+        alt: alt
+        flags:
+        - flags
+        - flags
+        rsid: rsid
+        chrom: chrom
+        license: license
+        ref: ref
+        validated: false
+        hg19:
+          start: 1
+          end: 6
+        dbsnpBuild: 2
+        _class: _class
+        alleles:
+        - allele: allele
+        - allele: allele
+      properties:
+        _class:
+          description: class
+          type: string
+        alleleOrigin:
+          description: allele_origin
+          type: string
+        alleles:
+          description: alleles
+          items:
+            $ref: '#/components/schemas/Alleles'
+          type: array
+        alt:
+          description: alt
+          type: string
+        chrom:
+          description: chrom
+          type: string
+        dbsnpBuild:
+          description: dbsnp_build
+          format: int32
+          type: integer
+        flags:
+          description: flags
+          items:
+            type: string
+          type: array
+        hg19:
+          $ref: '#/components/schemas/Hg19'
+        license:
+          description: _license
+          type: string
+        ref:
+          description: ref
+          type: string
+        rsid:
+          description: rsid
+          type: string
+        validated:
+          description: validated
+          example: false
+          type: boolean
+        varSubtype:
+          description: var_subtype
+          type: string
+        vartype:
+          description: vartype
+          type: string
+      type: object
+    Gene:
+      example:
+        symbol: symbol
+        geneId: geneId
+      properties:
+        geneId:
+          description: geneid
+          type: string
+        symbol:
+          description: symbol
+          type: string
+      type: object
+    GeneXref:
+      example:
+        ensemblGeneId: ensemblGeneId
+        info_types: info_types
+        dbname: dbname
+        display_id: display_id
+        synonyms:
+        - synonyms
+        - synonyms
+        info_text: info_text
+        db_display_name: db_display_name
+        description: description
+        primary_id: primary_id
+        version: version
+      properties:
+        db_display_name:
+          description: Database display name
+          type: string
+        dbname:
+          description: Database name
+          type: string
+        description:
+          description: Description
+          type: string
+        display_id:
+          description: Display id
+          type: string
+        ensemblGeneId:
+          type: string
+        info_text:
+          description: Database info text
+          type: string
+        info_types:
+          description: Database info type
+          type: string
+        primary_id:
+          description: Primary id
+          type: string
+        synonyms:
+          description: Synonyms
+          items:
+            type: string
+          type: array
+        version:
+          description: Version
+          type: string
+      required:
+      - db_display_name
+      - dbname
+      - description
+      - display_id
+      - primary_id
+      - version
+      type: object
+    GeneralPopulationStats:
+      example:
+        counts:
+          oth: 3.616076749251911
+          eur: 7.061401241503109
+          impact: 9.301444243932576
+          asj: 5.637376656633329
+          afr: 5.962133916683182
+          asn: 2.3021358869347655
+        frequencies:
+          oth: 3.616076749251911
+          eur: 7.061401241503109
+          impact: 9.301444243932576
+          asj: 5.637376656633329
+          afr: 5.962133916683182
+          asn: 2.3021358869347655
+      properties:
+        counts:
+          $ref: '#/components/schemas/SignalPopulationStats'
+        frequencies:
+          $ref: '#/components/schemas/SignalPopulationStats'
+      type: object
+    GenomicLocation:
+      example:
+        chromosome: chromosome
+        start: 0
+        end: 6
+        referenceAllele: referenceAllele
+        variantAllele: variantAllele
+      properties:
+        chromosome:
+          description: Chromosome
+          type: string
+        start:
+          description: Start Position
+          format: int32
+          type: integer
+        end:
+          description: End Position
+          format: int32
+          type: integer
+        referenceAllele:
+          description: Reference Allele
+          type: string
+        variantAllele:
+          description: Variant Allele
+          type: string
+      required:
+      - chromosome
+      - end
+      - referenceAllele
+      - start
+      - variantAllele
+      type: object
+    Gnomad:
+      example:
+        alleleFrequency:
+          af_fin: 9.965781217890562
+          af_afr: 7.457744773683766
+          af_nfe: 9.369310271410669
+          af: 6.84685269835264
+          af_oth: 6.683562403749608
+          af_sas: 8.762042012749001
+          af_amr: 1.1730742509559433
+          af_eas: 5.025004791520295
+          af_asj: 4.965218492984954
+        alleleCount:
+          ac_oth: 1
+          ac: 7
+          ac_afr: 9
+          ac_nfe: 1
+          ac_fin: 7
+          ac_amr: 3
+          ac_asj: 2
+          ac_sas: 1
+          ac_eas: 4
+        homozygotes:
+          hom_eas: 0
+          hom_asj: 7
+          hom_sas: 4
+          hom_amr: 3
+          hom_oth: 0
+          hom: 6
+          hom_afr: 3
+          hom_nfe: 6
+          hom_fin: 7
+        alleleNumber:
+          an_oth: 6
+          an_sas: 5
+          an_amr: 3
+          an_eas: 1
+          an_asj: 6
+          an_fin: 2
+          an_nfe: 6
+          an_afr: 6
+          an: 9
+      properties:
+        alleleCount:
+          $ref: '#/components/schemas/AlleleCount'
+        alleleFrequency:
+          $ref: '#/components/schemas/AlleleFrequency'
+        alleleNumber:
+          $ref: '#/components/schemas/AlleleNumber'
+        homozygotes:
+          $ref: '#/components/schemas/Homozygotes'
+      type: object
+    Hg19:
+      example:
+        start: 1
+        end: 6
+      properties:
+        end:
+          description: end
+          format: int32
+          type: integer
+        start:
+          description: start
+          format: int32
+          type: integer
+      type: object
+    Hg38:
+      example:
+        start: start
+        end: end
+      properties:
+        end:
+          description: end
+          type: string
+        start:
+          description: start
+          type: string
+      type: object
+    Hgvs:
+      example:
+        coding:
+        - coding
+        - coding
+        genomic:
+        - genomic
+        - genomic
+        protein:
+        - protein
+        - protein
+      properties:
+        coding:
+          items:
+            type: string
+          type: array
+        genomic:
+          items:
+            type: string
+          type: array
+        protein:
+          items:
+            type: string
+          type: array
+      type: object
+    Homozygotes:
+      example:
+        hom_eas: 0
+        hom_asj: 7
+        hom_sas: 4
+        hom_amr: 3
+        hom_oth: 0
+        hom: 6
+        hom_afr: 3
+        hom_nfe: 6
+        hom_fin: 7
+      properties:
+        hom:
+          format: int32
+          type: integer
+        hom_afr:
+          format: int32
+          type: integer
+        hom_amr:
+          format: int32
+          type: integer
+        hom_asj:
+          format: int32
+          type: integer
+        hom_eas:
+          format: int32
+          type: integer
+        hom_fin:
+          format: int32
+          type: integer
+        hom_nfe:
+          format: int32
+          type: integer
+        hom_oth:
+          format: int32
+          type: integer
+        hom_sas:
+          format: int32
+          type: integer
+      required:
+      - hom
+      - hom_afr
+      - hom_amr
+      - hom_asj
+      - hom_eas
+      - hom_fin
+      - hom_nfe
+      - hom_oth
+      - hom_sas
+      type: object
+    Hotspot:
+      example:
+        inframeCount: 0
+        truncatingCount: 5
+        missenseCount: 6
+        transcriptId: transcriptId
+        hugoSymbol: hugoSymbol
+        type: type
+        spliceCount: 1
+        residue: residue
+        tumorCount: 5
+      properties:
+        hugoSymbol:
+          description: Hugo gene symbol
+          type: string
+        inframeCount:
+          description: Inframe mutation count
+          format: int32
+          type: integer
+        missenseCount:
+          description: Missense mutation count
+          format: int32
+          type: integer
+        residue:
+          description: Hotspot residue
+          type: string
+        spliceCount:
+          description: Splice mutation count
+          format: int32
+          type: integer
+        transcriptId:
+          description: Ensembl Transcript Id
+          type: string
+        truncatingCount:
+          description: Truncation mutation count
+          format: int32
+          type: integer
+        tumorCount:
+          description: Tumor count
+          format: int32
+          type: integer
+        type:
+          description: Hotspot type
+          type: string
+      type: object
+    HrdScore:
+      example:
+        ntelomericAi: 7.457744773683766
+        fractionLoh: 1.4894159098541704
+        lst: 6.84685269835264
+      properties:
+        fractionLoh:
+          description: Median HRD Fraction LOH
+          format: double
+          type: number
+        lst:
+          description: Median HRD LST
+          format: double
+          type: number
+        ntelomericAi:
+          description: Median HRD ntelomeric AI
+          format: double
+          type: number
+      type: object
+    Index:
+      example:
+        variant: variant
+        rsid:
+        - rsid
+        - rsid
+        cdna:
+        - cdna
+        - cdna
+        hugoSymbol:
+        - hugoSymbol
+        - hugoSymbol
+        hgvsc:
+        - hgvsc
+        - hgvsc
+        hgvsp:
+        - hgvsp
+        - hgvsp
+        hgvspShort:
+        - hgvspShort
+        - hgvspShort
+      properties:
+        cdna:
+          items:
+            type: string
+          type: array
+        hgvsc:
+          items:
+            type: string
+          type: array
+        hgvsp:
+          items:
+            type: string
+          type: array
+        hgvspShort:
+          items:
+            type: string
+          type: array
+        hugoSymbol:
+          items:
+            type: string
+          type: array
+        rsid:
+          items:
+            type: string
+          type: array
+        variant:
+          type: string
+      type: object
+    IndexSearch:
+      example:
+        results:
+        - variant: variant
+          rsid:
+          - rsid
+          - rsid
+          cdna:
+          - cdna
+          - cdna
+          hugoSymbol:
+          - hugoSymbol
+          - hugoSymbol
+          hgvsc:
+          - hgvsc
+          - hgvsc
+          hgvsp:
+          - hgvsp
+          - hgvsp
+          hgvspShort:
+          - hgvspShort
+          - hgvspShort
+        - variant: variant
+          rsid:
+          - rsid
+          - rsid
+          cdna:
+          - cdna
+          - cdna
+          hugoSymbol:
+          - hugoSymbol
+          - hugoSymbol
+          hgvsc:
+          - hgvsc
+          - hgvsc
+          hgvsp:
+          - hgvsp
+          - hgvsp
+          hgvspShort:
+          - hgvspShort
+          - hgvspShort
+        queryType: GENE_HGVSPSHORT
+      properties:
+        queryType:
+          enum:
+          - GENE_HGVSPSHORT
+          - GENE_CDNA
+          - GENE_HGVSP
+          - HGVSG
+          - HGVSC
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/Index'
+          type: array
+      type: object
+    IntegerRange:
+      example:
+        start: 5
+        end: 5
+      properties:
+        end:
+          format: int32
+          type: integer
+        start:
+          format: int32
+          type: integer
+      type: object
+    MutationAssessor:
+      example:
+        refseqPosition: 5
+        referenceGenomeVariantType: referenceGenomeVariantType
+        msaGaps: 1.4658129805029452
+        cosmicCount: 0
+        msaHeight: 5
+        mappingIssue: mappingIssue
+        uniprotResidue: uniprotResidue
+        uniprotPosition: 7
+        functionalImpact: functionalImpact
+        hugoSymbol: hugoSymbol
+        msaLink: msaLink
+        refseqId: refseqId
+        hgvs: hgvs
+        snpCount: 2
+        pdbLink: pdbLink
+        variantConservationScore: 9.301444243932576
+        refseqResidue: refseqResidue
+        input: input
+        codonStartPosition: codonStartPosition
+        referenceGenomeVariant: referenceGenomeVariant
+        variantSpecificityScore: 3.616076749251911
+        variant: variant
+        uniprotId: uniprotId
+        functionalImpactScore: 6.027456183070403
+      properties:
+        codonStartPosition:
+          description: Codon start position
+          type: string
+        cosmicCount:
+          description: Number of mutations in COSMIC for this protein
+          format: int32
+          type: integer
+        functionalImpact:
+          description: Functional impact
+          type: string
+        functionalImpactScore:
+          description: Functional impact score
+          format: double
+          type: number
+        hgvs:
+          type: string
+        hugoSymbol:
+          description: Hugo gene symbol
+          type: string
+        input:
+          description: User-input variants
+          type: string
+        mappingIssue:
+          description: Mapping issue info
+          type: string
+        msaGaps:
+          description: Portion of gaps in variant position in multiple sequence alignment
+          format: double
+          type: number
+        msaHeight:
+          description: Number of diverse sequences in multiple sequence alignment
+            (identical or highly similar sequences filtered out)
+          format: int32
+          type: integer
+        msaLink:
+          description: Link to multiple sequence alignment
+          type: string
+        pdbLink:
+          description: Link to 3d structure browser
+          type: string
+        referenceGenomeVariant:
+          description: Reference genome variant
+          type: string
+        referenceGenomeVariantType:
+          description: Reference genome variant type
+          type: string
+        refseqId:
+          description: Refseq protein ID
+          type: string
+        refseqPosition:
+          description: "Variant position in Refseq protein, can be different from\
+            \ the one in Uniprot"
+          format: int32
+          type: integer
+        refseqResidue:
+          description: "Reference residue in Refseq protein, can be different from\
+            \ the one in Uniprot"
+          type: string
+        snpCount:
+          description: Number of SNPs in dbSNP for this protein
+          format: int32
+          type: integer
+        uniprotId:
+          description: Uniprot protein accession ID
+          type: string
+        uniprotPosition:
+          description: "Variant position in Uniprot protein, can be different from\
+            \ the one in Refseq"
+          format: int32
+          type: integer
+        uniprotResidue:
+          description: "Reference residue in Uniprot protein, can be different from\
+            \ the one in Refseq"
+          type: string
+        variant:
+          description: Amino acid substitution
+          type: string
+        variantConservationScore:
+          description: Variant conservation score
+          format: double
+          type: number
+        variantSpecificityScore:
+          description: Variant specificity score
+          format: double
+          type: number
+      required:
+      - input
+      type: object
+    Mutdb:
+      example:
+        ref: ref
+        mutpredScore: 8.969578798196912
+        hg19:
+          start: 1
+          end: 6
+        alt: alt
+        rsid: rsid
+        cosmicId: cosmicId
+        uniprotId: uniprotId
+        chrom: chrom
+      properties:
+        alt:
+          description: alt
+          type: string
+        chrom:
+          description: chrom
+          type: string
+        cosmicId:
+          description: cosmic_id
+          type: string
+        hg19:
+          $ref: '#/components/schemas/Hg19'
+        mutpredScore:
+          description: mutpred_score
+          format: double
+          type: number
+        ref:
+          description: ref
+          type: string
+        rsid:
+          description: rsid
+          type: string
+        uniprotId:
+          description: uniprot_id
+          type: string
+      type: object
+    MyVariantInfo:
+      example:
+        cosmic:
+          license: license
+          ref: ref
+          mutNt: mutNt
+          mutFreq: 5.637376656633329
+          hg19:
+            start: 1
+            end: 6
+          alt: alt
+          tumorSite: tumorSite
+          cosmicId: cosmicId
+          chrom: chrom
+        clinVar:
+          license: license
+          hg38:
+            start: start
+            end: end
+          rcv:
+          - clinicalSignificance: clinicalSignificance
+            origin: origin
+            accession: accession
+            preferredName: preferredName
+          - clinicalSignificance: clinicalSignificance
+            origin: origin
+            accession: accession
+            preferredName: preferredName
+          cytogenic: cytogenic
+          gene:
+            symbol: symbol
+            geneId: geneId
+          hg19:
+            start: 1
+            end: 6
+          alleleId: 0
+          alt: alt
+          variantId: 5
+          hgvs:
+            coding:
+            - coding
+            - coding
+            genomic:
+            - genomic
+            - genomic
+            protein:
+            - protein
+            - protein
+          chrom: chrom
+        query: query
+        dbsnp:
+          alleleOrigin: alleleOrigin
+          vartype: vartype
+          varSubtype: varSubtype
+          alt: alt
+          flags:
+          - flags
+          - flags
+          rsid: rsid
+          chrom: chrom
+          license: license
+          ref: ref
+          validated: false
+          hg19:
+            start: 1
+            end: 6
+          dbsnpBuild: 2
+          _class: _class
+          alleles:
+          - allele: allele
+          - allele: allele
+        gnomadExome:
+          alleleFrequency:
+            af_fin: 9.965781217890562
+            af_afr: 7.457744773683766
+            af_nfe: 9.369310271410669
+            af: 6.84685269835264
+            af_oth: 6.683562403749608
+            af_sas: 8.762042012749001
+            af_amr: 1.1730742509559433
+            af_eas: 5.025004791520295
+            af_asj: 4.965218492984954
+          alleleCount:
+            ac_oth: 1
+            ac: 7
+            ac_afr: 9
+            ac_nfe: 1
+            ac_fin: 7
+            ac_amr: 3
+            ac_asj: 2
+            ac_sas: 1
+            ac_eas: 4
+          homozygotes:
+            hom_eas: 0
+            hom_asj: 7
+            hom_sas: 4
+            hom_amr: 3
+            hom_oth: 0
+            hom: 6
+            hom_afr: 3
+            hom_nfe: 6
+            hom_fin: 7
+          alleleNumber:
+            an_oth: 6
+            an_sas: 5
+            an_amr: 3
+            an_eas: 1
+            an_asj: 6
+            an_fin: 2
+            an_nfe: 6
+            an_afr: 6
+            an: 9
+        variant: variant
+        vcf:
+          ref: ref
+          alt: alt
+          position: position
+        gnomadGenome:
+          alleleFrequency:
+            af_fin: 9.965781217890562
+            af_afr: 7.457744773683766
+            af_nfe: 9.369310271410669
+            af: 6.84685269835264
+            af_oth: 6.683562403749608
+            af_sas: 8.762042012749001
+            af_amr: 1.1730742509559433
+            af_eas: 5.025004791520295
+            af_asj: 4.965218492984954
+          alleleCount:
+            ac_oth: 1
+            ac: 7
+            ac_afr: 9
+            ac_nfe: 1
+            ac_fin: 7
+            ac_amr: 3
+            ac_asj: 2
+            ac_sas: 1
+            ac_eas: 4
+          homozygotes:
+            hom_eas: 0
+            hom_asj: 7
+            hom_sas: 4
+            hom_amr: 3
+            hom_oth: 0
+            hom: 6
+            hom_afr: 3
+            hom_nfe: 6
+            hom_fin: 7
+          alleleNumber:
+            an_oth: 6
+            an_sas: 5
+            an_amr: 3
+            an_eas: 1
+            an_asj: 6
+            an_fin: 2
+            an_nfe: 6
+            an_afr: 6
+            an: 9
+        hgvs: hgvs
+        mutdb:
+          ref: ref
+          mutpredScore: 8.969578798196912
+          hg19:
+            start: 1
+            end: 6
+          alt: alt
+          rsid: rsid
+          cosmicId: cosmicId
+          uniprotId: uniprotId
+          chrom: chrom
+        version: 7
+        snpeff:
+          license: license
+      properties:
+        clinVar:
+          $ref: '#/components/schemas/MyVariantInfoClinVar'
+        cosmic:
+          $ref: '#/components/schemas/Cosmic'
+        dbsnp:
+          $ref: '#/components/schemas/Dbsnp'
+        gnomadExome:
+          $ref: '#/components/schemas/Gnomad'
+        gnomadGenome:
+          $ref: '#/components/schemas/Gnomad'
+        hgvs:
+          description: hgvs
+          type: string
+        mutdb:
+          $ref: '#/components/schemas/Mutdb'
+        query:
+          type: string
+        snpeff:
+          $ref: '#/components/schemas/Snpeff'
+        variant:
+          description: variant
+          type: string
+        vcf:
+          $ref: '#/components/schemas/Vcf'
+        version:
+          description: version
+          format: int32
+          type: integer
+      type: object
+    MyVariantInfoClinVar:
+      example:
+        license: license
+        hg38:
+          start: start
+          end: end
+        rcv:
+        - clinicalSignificance: clinicalSignificance
+          origin: origin
+          accession: accession
+          preferredName: preferredName
+        - clinicalSignificance: clinicalSignificance
+          origin: origin
+          accession: accession
+          preferredName: preferredName
+        cytogenic: cytogenic
+        gene:
+          symbol: symbol
+          geneId: geneId
+        hg19:
+          start: 1
+          end: 6
+        alleleId: 0
+        alt: alt
+        variantId: 5
+        hgvs:
+          coding:
+          - coding
+          - coding
+          genomic:
+          - genomic
+          - genomic
+          protein:
+          - protein
+          - protein
+        chrom: chrom
+      properties:
+        alleleId:
+          description: allele_id
+          format: int32
+          type: integer
+        alt:
+          description: alt
+          type: string
+        chrom:
+          description: chrom
+          type: string
+        cytogenic:
+          description: cytogenic
+          type: string
+        gene:
+          $ref: '#/components/schemas/Gene'
+        hg19:
+          $ref: '#/components/schemas/Hg19'
+        hg38:
+          $ref: '#/components/schemas/Hg38'
+        hgvs:
+          $ref: '#/components/schemas/Hgvs'
+        license:
+          description: license
+          type: string
+        rcv:
+          items:
+            $ref: '#/components/schemas/Rcv'
+          type: array
+        variantId:
+          description: variant_id
+          format: int32
+          type: integer
+      type: object
+    NucleotideContext:
+      example:
+        query: query
+        id: id
+        molecule: molecule
+        hgvs: hgvs
+        seq: seq
+      properties:
+        hgvs:
+          type: string
+        id:
+          type: string
+        molecule:
+          type: string
+        query:
+          type: string
+        seq:
+          description: Nucleotide context sequence
+          type: string
+      required:
+      - seq
+      type: object
+    ProteinLocation:
+      example:
+        mutationType: mutationType
+        transcriptId: transcriptId
+        start: 2
+        end: 7
+      properties:
+        transcriptId:
+          description: Ensembl Transcript ID
+          type: string
+        start:
+          description: Start Position Residue
+          format: int32
+          type: integer
+        end:
+          description: End Position Residue
+          format: int32
+          type: integer
+        mutationType:
+          description: Mutation Type e.g. Missense_Mutation
+          type: string
+      required:
+      - end
+      - mutationType
+      - start
+      - transcriptId
+      type: object
+    Rcv:
+      example:
+        clinicalSignificance: clinicalSignificance
+        origin: origin
+        accession: accession
+        preferredName: preferredName
+      properties:
+        accession:
+          description: accession
+          type: string
+        clinicalSignificance:
+          description: clinical_significance
+          type: string
+        origin:
+          description: origin
+          type: string
+        preferredName:
+          description: preferred_name
+          type: string
+      type: object
+    SignalMutation:
+      example:
+        mskExperReview: false
+        statsByTumorType:
+        - fCancerTypeCount: 1.0246457001441578
+          numberOfGermlineHomozygous: 5
+          tumorType: tumorType
+          msiScore: 1.1730742509559433
+          ageAtDx: 7
+          tmb: 9.369310271410669
+          fBiallelic: 1.2315135367772556
+          nCancerTypeCount: 4
+          numberWithSig: 9
+          hrdScore:
+            ntelomericAi: 7.457744773683766
+            fractionLoh: 1.4894159098541704
+            lst: 6.84685269835264
+        - fCancerTypeCount: 1.0246457001441578
+          numberOfGermlineHomozygous: 5
+          tumorType: tumorType
+          msiScore: 1.1730742509559433
+          ageAtDx: 7
+          tmb: 9.369310271410669
+          fBiallelic: 1.2315135367772556
+          nCancerTypeCount: 4
+          numberWithSig: 9
+          hrdScore:
+            ntelomericAi: 7.457744773683766
+            fractionLoh: 1.4894159098541704
+            lst: 6.84685269835264
+        pathogenic: pathogenic
+        chromosome: chromosome
+        penetrance: penetrance
+        qcPassCountsByTumorType:
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        biallelicCountsByTumorType:
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        generalPopulationStats:
+          counts:
+            oth: 3.616076749251911
+            eur: 7.061401241503109
+            impact: 9.301444243932576
+            asj: 5.637376656633329
+            afr: 5.962133916683182
+            asn: 2.3021358869347655
+          frequencies:
+            oth: 3.616076749251911
+            eur: 7.061401241503109
+            impact: 9.301444243932576
+            asj: 5.637376656633329
+            afr: 5.962133916683182
+            asn: 2.3021358869347655
+        mutationStatus: mutationStatus
+        startPosition: 4
+        hugoGeneSymbol: hugoGeneSymbol
+        overallNumberOfGermlineHomozygous: 2
+        countsByTumorType:
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        - tumorType: tumorType
+          tumorTypeCount: 0
+          variantCount: 6
+        endPosition: 1
+        referenceAllele: referenceAllele
+        variantAllele: variantAllele
+      properties:
+        biallelicCountsByTumorType:
+          description: Biallelic Counts by Tumor Type
+          items:
+            $ref: '#/components/schemas/CountByTumorType'
+          type: array
+        chromosome:
+          description: Chromosome
+          type: string
+        countsByTumorType:
+          description: Counts by Tumor Type
+          items:
+            $ref: '#/components/schemas/CountByTumorType'
+          type: array
+        endPosition:
+          description: End Position
+          format: int64
+          type: integer
+        generalPopulationStats:
+          $ref: '#/components/schemas/GeneralPopulationStats'
+        hugoGeneSymbol:
+          description: Hugo Gene Symbol
+          type: string
+        mskExperReview:
+          description: Msk Expert Review
+          example: false
+          type: boolean
+        mutationStatus:
+          description: Mutation Status
+          type: string
+        overallNumberOfGermlineHomozygous:
+          format: int32
+          type: integer
+        pathogenic:
+          description: Pathogenic
+          type: string
+        penetrance:
+          description: Penetrance
+          type: string
+        qcPassCountsByTumorType:
+          description: QC Pass Counts by Tumor Type
+          items:
+            $ref: '#/components/schemas/CountByTumorType'
+          type: array
+        referenceAllele:
+          description: Reference Allele
+          type: string
+        startPosition:
+          description: Start Position
+          format: int64
+          type: integer
+        statsByTumorType:
+          description: Stats By Tumor Type
+          items:
+            $ref: '#/components/schemas/StatsByTumorType'
+          type: array
+        variantAllele:
+          description: Variant Allele
+          type: string
+      type: object
+    SignalMutationFilter:
+      example:
+        hugoSymbols:
+        - hugoSymbols
+        - hugoSymbols
+      properties:
+        hugoSymbols:
+          description: "List of Hugo Symbols. For example [\"TP53\", \"PIK3CA\", \"\
+            BRCA1\"]"
+          items:
+            type: string
+          type: array
+      type: object
+    SignalPopulationStats:
+      example:
+        oth: 3.616076749251911
+        eur: 7.061401241503109
+        impact: 9.301444243932576
+        asj: 5.637376656633329
+        afr: 5.962133916683182
+        asn: 2.3021358869347655
+      properties:
+        afr:
+          description: African/African American
+          format: double
+          type: number
+        asj:
+          description: Ashkenazi Jewish
+          format: double
+          type: number
+        asn:
+          description: Asian
+          format: double
+          type: number
+        eur:
+          description: European
+          format: double
+          type: number
+        impact:
+          description: Impact
+          format: double
+          type: number
+        oth:
+          description: Other
+          format: double
+          type: number
+      type: object
+    SignalQuery:
+      example:
+        matchType: EXACT
+        variant: variant
+        alteration: alteration
+        description: description
+        hugoSymbol: hugoSymbol
+        region: region
+        queryType: GENE
+      properties:
+        alteration:
+          description: "Matching Alteration (e.g: V600E)"
+          type: string
+        description:
+          description: Optional free-form text
+          type: string
+        hugoSymbol:
+          description: "Matching Hugo Gene Symbol (e.g: BRCA2, BRAF)"
+          type: string
+        matchType:
+          description: Match Type
+          enum:
+          - EXACT
+          - STARTS_WITH
+          - PARTIAL
+          - NO_MATCH
+          type: string
+        queryType:
+          description: Query Type
+          enum:
+          - GENE
+          - ALTERATION
+          - VARIANT
+          - REGION
+          type: string
+        region:
+          description: "Matching Region (e.g: 13:32968940-32968940)"
+          type: string
+        variant:
+          description: "Matching HGVSG Variant (e.g: 17:g.37880220T>C)"
+          type: string
+      type: object
+    Snpeff:
+      example:
+        license: license
+      properties:
+        license:
+          description: license
+          type: string
+      type: object
+    StatsByTumorType:
+      example:
+        fCancerTypeCount: 1.0246457001441578
+        numberOfGermlineHomozygous: 5
+        tumorType: tumorType
+        msiScore: 1.1730742509559433
+        ageAtDx: 7
+        tmb: 9.369310271410669
+        fBiallelic: 1.2315135367772556
+        nCancerTypeCount: 4
+        numberWithSig: 9
+        hrdScore:
+          ntelomericAi: 7.457744773683766
+          fractionLoh: 1.4894159098541704
+          lst: 6.84685269835264
+      properties:
+        ageAtDx:
+          description: Median Age at Dx
+          format: int32
+          type: integer
+        fBiallelic:
+          description: Frequency Of Biallelic
+          format: double
+          type: number
+        fCancerTypeCount:
+          description: Frequency Of Cancer Type Count
+          format: double
+          type: number
+        hrdScore:
+          $ref: '#/components/schemas/HrdScore'
+        msiScore:
+          description: Msi Score
+          format: double
+          type: number
+        nCancerTypeCount:
+          description: Number Of Cancer Type Count
+          format: int32
+          type: integer
+        numberOfGermlineHomozygous:
+          description: Number Of Germline Homozygous Per Tumor Type
+          format: int32
+          type: integer
+        numberWithSig:
+          description: Number of Variants with Signature
+          format: int32
+          type: integer
+        tmb:
+          description: Median TMB
+          format: double
+          type: number
+        tumorType:
+          description: Tumor Type
+          type: string
+      type: object
+    TranscriptConsequenceSummary:
+      example:
+        isVue: true
+        siftPrediction: siftPrediction
+        polyphenPrediction: polyphenPrediction
+        consequenceTerms: consequenceTerms
+        polyphenScore: 1.4658129805029452
+        siftScore: 2.3021358869347655
+        refSeq: refSeq
+        aminoAcidRef: aminoAcidRef
+        hgvsc: hgvsc
+        hugoGeneSymbol: hugoGeneSymbol
+        proteinPosition:
+          start: 5
+          end: 5
+        aminoAcids: aminoAcids
+        codonChange: codonChange
+        transcriptId: transcriptId
+        entrezGeneId: entrezGeneId
+        aminoAcidAlt: aminoAcidAlt
+        variantClassification: variantClassification
+        exon: exon
+        uniprotId: uniprotId
+        hgvsp: hgvsp
+        hgvspShort: hgvspShort
+      properties:
+        aminoAcidAlt:
+          description: Alt Amino Acid
+          type: string
+        aminoAcidRef:
+          description: Reference Amino Acid
+          type: string
+        aminoAcids:
+          description: Amino acids change
+          type: string
+        codonChange:
+          description: Codon change
+          type: string
+        consequenceTerms:
+          description: Consequence terms (comma separated)
+          type: string
+        entrezGeneId:
+          description: Entrez gene id
+          type: string
+        exon:
+          type: string
+        hgvsc:
+          description: HGVSc
+          type: string
+        hgvsp:
+          description: HGVSp
+          type: string
+        hgvspShort:
+          description: HGVSp short
+          type: string
+        hugoGeneSymbol:
+          description: Hugo gene symbol
+          type: string
+        isVue:
+          type: boolean
+        polyphenPrediction:
+          description: Polyphen Prediction
+          type: string
+        polyphenScore:
+          description: Polyphen Score
+          format: double
+          type: number
+        proteinPosition:
+          $ref: '#/components/schemas/IntegerRange'
+        refSeq:
+          description: RefSeq id
+          type: string
+        siftPrediction:
+          description: Sift Prediction
+          type: string
+        siftScore:
+          description: Sift Score
+          format: double
+          type: number
+        transcriptId:
+          description: Transcript id
+          type: string
+        uniprotId:
+          description: Uniprot ID
+          type: string
+        variantClassification:
+          description: Variant classification
+          type: string
+      required:
+      - transcriptId
+      type: object
+    VariantAnnotationSummary:
+      example:
+        transcriptConsequences:
+        - isVue: true
+          siftPrediction: siftPrediction
+          polyphenPrediction: polyphenPrediction
+          consequenceTerms: consequenceTerms
+          polyphenScore: 1.4658129805029452
+          siftScore: 2.3021358869347655
+          refSeq: refSeq
+          aminoAcidRef: aminoAcidRef
+          hgvsc: hgvsc
+          hugoGeneSymbol: hugoGeneSymbol
+          proteinPosition:
+            start: 5
+            end: 5
+          aminoAcids: aminoAcids
+          codonChange: codonChange
+          transcriptId: transcriptId
+          entrezGeneId: entrezGeneId
+          aminoAcidAlt: aminoAcidAlt
+          variantClassification: variantClassification
+          exon: exon
+          uniprotId: uniprotId
+          hgvsp: hgvsp
+          hgvspShort: hgvspShort
+        - isVue: true
+          siftPrediction: siftPrediction
+          polyphenPrediction: polyphenPrediction
+          consequenceTerms: consequenceTerms
+          polyphenScore: 1.4658129805029452
+          siftScore: 2.3021358869347655
+          refSeq: refSeq
+          aminoAcidRef: aminoAcidRef
+          hgvsc: hgvsc
+          hugoGeneSymbol: hugoGeneSymbol
+          proteinPosition:
+            start: 5
+            end: 5
+          aminoAcids: aminoAcids
+          codonChange: codonChange
+          transcriptId: transcriptId
+          entrezGeneId: entrezGeneId
+          aminoAcidAlt: aminoAcidAlt
+          variantClassification: variantClassification
+          exon: exon
+          uniprotId: uniprotId
+          hgvsp: hgvsp
+          hgvspShort: hgvspShort
+        variantType: variantType
+        genomicLocation:
+          chromosome: chromosome
+          start: 0
+          end: 6
+          referenceAllele: referenceAllele
+          variantAllele: variantAllele
+        transcriptConsequenceSummary:
+          isVue: true
+          siftPrediction: siftPrediction
+          polyphenPrediction: polyphenPrediction
+          consequenceTerms: consequenceTerms
+          polyphenScore: 1.4658129805029452
+          siftScore: 2.3021358869347655
+          refSeq: refSeq
+          aminoAcidRef: aminoAcidRef
+          hgvsc: hgvsc
+          hugoGeneSymbol: hugoGeneSymbol
+          proteinPosition:
+            start: 5
+            end: 5
+          aminoAcids: aminoAcids
+          codonChange: codonChange
+          transcriptId: transcriptId
+          entrezGeneId: entrezGeneId
+          aminoAcidAlt: aminoAcidAlt
+          variantClassification: variantClassification
+          exon: exon
+          uniprotId: uniprotId
+          hgvsp: hgvsp
+          hgvspShort: hgvspShort
+        strandSign: strandSign
+        assemblyName: assemblyName
+        variant: variant
+        transcriptConsequenceSummaries:
+        - isVue: true
+          siftPrediction: siftPrediction
+          polyphenPrediction: polyphenPrediction
+          consequenceTerms: consequenceTerms
+          polyphenScore: 1.4658129805029452
+          siftScore: 2.3021358869347655
+          refSeq: refSeq
+          aminoAcidRef: aminoAcidRef
+          hgvsc: hgvsc
+          hugoGeneSymbol: hugoGeneSymbol
+          proteinPosition:
+            start: 5
+            end: 5
+          aminoAcids: aminoAcids
+          codonChange: codonChange
+          transcriptId: transcriptId
+          entrezGeneId: entrezGeneId
+          aminoAcidAlt: aminoAcidAlt
+          variantClassification: variantClassification
+          exon: exon
+          uniprotId: uniprotId
+          hgvsp: hgvsp
+          hgvspShort: hgvspShort
+        - isVue: true
+          siftPrediction: siftPrediction
+          polyphenPrediction: polyphenPrediction
+          consequenceTerms: consequenceTerms
+          polyphenScore: 1.4658129805029452
+          siftScore: 2.3021358869347655
+          refSeq: refSeq
+          aminoAcidRef: aminoAcidRef
+          hgvsc: hgvsc
+          hugoGeneSymbol: hugoGeneSymbol
+          proteinPosition:
+            start: 5
+            end: 5
+          aminoAcids: aminoAcids
+          codonChange: codonChange
+          transcriptId: transcriptId
+          entrezGeneId: entrezGeneId
+          aminoAcidAlt: aminoAcidAlt
+          variantClassification: variantClassification
+          exon: exon
+          uniprotId: uniprotId
+          hgvsp: hgvsp
+          hgvspShort: hgvspShort
+        vues:
+          revisedVariantClassification: revisedVariantClassification
+          genomicLocation: genomicLocation
+          revisedProteinEffect: revisedProteinEffect
+          confirmed: true
+          pubmedId: 7
+          defaultEffect: defaultEffect
+          hugoGeneSymbol: hugoGeneSymbol
+          referenceText: referenceText
+          vepPredictedProteinEffect: vepPredictedProteinEffect
+          vepPredictedVariantClassification: vepPredictedVariantClassification
+          transcriptId: transcriptId
+          context: context
+          variant: variant
+          comment: comment
+          genomicLocationDescription: genomicLocationDescription
+        canonicalTranscriptId: canonicalTranscriptId
+      properties:
+        assemblyName:
+          description: Assembly name
+          type: string
+        canonicalTranscriptId:
+          description: Canonical transcript id
+          type: string
+        genomicLocation:
+          $ref: '#/components/schemas/GenomicLocation'
+        strandSign:
+          description: Strand (- or +)
+          type: string
+        transcriptConsequenceSummaries:
+          description: All transcript consequence summaries
+          items:
+            $ref: '#/components/schemas/TranscriptConsequenceSummary'
+          type: array
+        transcriptConsequenceSummary:
+          $ref: '#/components/schemas/TranscriptConsequenceSummary'
+        transcriptConsequences:
+          description: "(Deprecated) Transcript consequence summaries (list of one\
+            \ when using annotation/, multiple when using annotation/summary/"
+          items:
+            $ref: '#/components/schemas/TranscriptConsequenceSummary'
+          type: array
+        variant:
+          description: Variant key
+          type: string
+        variantType:
+          description: Variant type
+          type: string
+        vues:
+          $ref: '#/components/schemas/Vues'
+      required:
+      - transcriptConsequenceSummaries
+      - transcriptConsequenceSummary
+      - transcriptConsequences
+      - variant
+      type: object
+    Vcf:
+      example:
+        ref: ref
+        alt: alt
+        position: position
+      properties:
+        alt:
+          description: alt
+          type: string
+        position:
+          description: position
+          type: string
+        ref:
+          description: ref
+          type: string
+      type: object
+    Vues:
+      example:
+        revisedVariantClassification: revisedVariantClassification
+        genomicLocation: genomicLocation
+        revisedProteinEffect: revisedProteinEffect
+        confirmed: true
+        pubmedId: 7
+        defaultEffect: defaultEffect
+        hugoGeneSymbol: hugoGeneSymbol
+        referenceText: referenceText
+        vepPredictedProteinEffect: vepPredictedProteinEffect
+        vepPredictedVariantClassification: vepPredictedVariantClassification
+        transcriptId: transcriptId
+        context: context
+        variant: variant
+        comment: comment
+        genomicLocationDescription: genomicLocationDescription
+      properties:
+        comment:
+          type: string
+        confirmed:
+          type: boolean
+        context:
+          type: string
+        defaultEffect:
+          type: string
+        genomicLocation:
+          type: string
+        genomicLocationDescription:
+          type: string
+        hugoGeneSymbol:
+          type: string
+        pubmedId:
+          format: int32
+          type: integer
+        referenceText:
+          type: string
+        revisedProteinEffect:
+          type: string
+        revisedVariantClassification:
+          type: string
+        transcriptId:
+          type: string
+        variant:
+          type: string
+        vepPredictedProteinEffect:
+          type: string
+        vepPredictedVariantClassification:
+          type: string
+      type: object
+x-original-swagger-version: "2.0"
+

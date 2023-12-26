@@ -1,13 +1,16 @@
 
+
 # Gnomad
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**alleleCount** | [**AlleleCount**](AlleleCount.md) | ac |  [optional]
-**alleleFrequency** | [**AlleleFrequency**](AlleleFrequency.md) | af |  [optional]
-**alleleNumber** | [**AlleleNumber**](AlleleNumber.md) | an |  [optional]
-**homozygotes** | [**Homozygotes**](Homozygotes.md) | hom |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**alleleCount** | [**AlleleCount**](AlleleCount.md) |  |  [optional] |
+|**alleleFrequency** | [**AlleleFrequency**](AlleleFrequency.md) |  |  [optional] |
+|**alleleNumber** | [**AlleleNumber**](AlleleNumber.md) |  |  [optional] |
+|**homozygotes** | [**Homozygotes**](Homozygotes.md) |  |  [optional] |
 
 
 

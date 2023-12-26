@@ -1,11 +1,14 @@
 
+
 # PtmAnnotation
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**annotation** | [**List&lt;List&lt;PostTranslationalModification&gt;&gt;**](List.md) |  |  [optional]
-**license** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**annotation** | **List&lt;List&lt;PostTranslationalModification&gt;&gt;** |  |  [optional] |
+|**license** | **String** |  |  [optional] |
 
 
 

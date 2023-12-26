@@ -1,11 +1,14 @@
 
+
 # HotspotAnnotation
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**annotation** | [**List&lt;List&lt;Hotspot&gt;&gt;**](List.md) |  |  [optional]
-**license** | **String** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**annotation** | **List&lt;List&lt;Hotspot&gt;&gt;** |  |  [optional] |
+|**license** | **String** |  |  [optional] |
 
 
 

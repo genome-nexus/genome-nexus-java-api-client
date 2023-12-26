@@ -1,10 +1,13 @@
 
+
 # ClinvarAnnotation
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**annotation** | [**Clinvar**](Clinvar.md) |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**annotation** | [**Clinvar**](Clinvar.md) |  |  [optional] |
 
 
 

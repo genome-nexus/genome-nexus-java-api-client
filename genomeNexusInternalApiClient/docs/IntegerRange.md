@@ -1,11 +1,14 @@
 
+
 # IntegerRange
 
+
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**end** | **Integer** |  |  [optional]
-**start** | **Integer** |  |  [optional]
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**end** | **Integer** |  |  [optional] |
+|**start** | **Integer** |  |  [optional] |
 
 
 

@@ -841,7 +841,7 @@ public class VariantAnnotation {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
-    openapiRequiredFields.add("intergenic_consequences");
+    //openapiRequiredFields.add("intergenic_consequences");
     openapiRequiredFields.add("originalVariantQuery");
     openapiRequiredFields.add("variant");
   }
@@ -922,15 +922,17 @@ public class VariantAnnotation {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // ensure the json data is an array
-      if (!jsonObj.get("intergenic_consequences").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `intergenic_consequences` to be an array in the JSON string but got `%s`", jsonObj.get("intergenic_consequences").toString()));
+      if (jsonObj.get("intergenic_consequences") != null) {
+        if (!jsonObj.get("intergenic_consequences").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `intergenic_consequences` to be an array in the JSON string but got `%s`", jsonObj.get("intergenic_consequences").toString()));
+        }
+  
+        JsonArray jsonArrayintergenicConsequences = jsonObj.getAsJsonArray("intergenic_consequences");
+        // validate the required field `intergenic_consequences` (array)
+        for (int i = 0; i < jsonArrayintergenicConsequences.size(); i++) {
+          IntergenicConsequences.validateJsonElement(jsonArrayintergenicConsequences.get(i));
+        };
       }
-
-      JsonArray jsonArrayintergenicConsequences = jsonObj.getAsJsonArray("intergenic_consequences");
-      // validate the required field `intergenic_consequences` (array)
-      for (int i = 0; i < jsonArrayintergenicConsequences.size(); i++) {
-        IntergenicConsequences.validateJsonElement(jsonArrayintergenicConsequences.get(i));
-      };
       if ((jsonObj.get("most_severe_consequence") != null && !jsonObj.get("most_severe_consequence").isJsonNull()) && !jsonObj.get("most_severe_consequence").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `most_severe_consequence` to be a primitive type in the JSON string but got `%s`", jsonObj.get("most_severe_consequence").toString()));
       }

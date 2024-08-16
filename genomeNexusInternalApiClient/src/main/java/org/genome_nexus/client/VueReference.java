@@ -24,50 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Drug
+ * VueReference
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-16T00:11:13.000-04:00")
-public class Drug {
-  @SerializedName("drugName")
-  private String drugName = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-16T00:11:13.876-04:00")
+public class VueReference {
+  @SerializedName("pubmedId")
+  private Integer pubmedId = null;
 
-  @SerializedName("ncitCode")
-  private String ncitCode = null;
+  @SerializedName("referenceText")
+  private String referenceText = null;
 
-  public Drug drugName(String drugName) {
-    this.drugName = drugName;
+  public VueReference pubmedId(Integer pubmedId) {
+    this.pubmedId = pubmedId;
     return this;
   }
 
    /**
-   * Get drugName
-   * @return drugName
+   * Get pubmedId
+   * @return pubmedId
   **/
   @ApiModelProperty(value = "")
-  public String getDrugName() {
-    return drugName;
+  public Integer getPubmedId() {
+    return pubmedId;
   }
 
-  public void setDrugName(String drugName) {
-    this.drugName = drugName;
+  public void setPubmedId(Integer pubmedId) {
+    this.pubmedId = pubmedId;
   }
 
-  public Drug ncitCode(String ncitCode) {
-    this.ncitCode = ncitCode;
+  public VueReference referenceText(String referenceText) {
+    this.referenceText = referenceText;
     return this;
   }
 
    /**
-   * Get ncitCode
-   * @return ncitCode
+   * Get referenceText
+   * @return referenceText
   **/
   @ApiModelProperty(value = "")
-  public String getNcitCode() {
-    return ncitCode;
+  public String getReferenceText() {
+    return referenceText;
   }
 
-  public void setNcitCode(String ncitCode) {
-    this.ncitCode = ncitCode;
+  public void setReferenceText(String referenceText) {
+    this.referenceText = referenceText;
   }
 
 
@@ -79,24 +79,24 @@ public class Drug {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Drug drug = (Drug) o;
-    return Objects.equals(this.drugName, drug.drugName) &&
-        Objects.equals(this.ncitCode, drug.ncitCode);
+    VueReference vueReference = (VueReference) o;
+    return Objects.equals(this.pubmedId, vueReference.pubmedId) &&
+        Objects.equals(this.referenceText, vueReference.referenceText);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(drugName, ncitCode);
+    return Objects.hash(pubmedId, referenceText);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Drug {\n");
+    sb.append("class VueReference {\n");
     
-    sb.append("    drugName: ").append(toIndentedString(drugName)).append("\n");
-    sb.append("    ncitCode: ").append(toIndentedString(ncitCode)).append("\n");
+    sb.append("    pubmedId: ").append(toIndentedString(pubmedId)).append("\n");
+    sb.append("    referenceText: ").append(toIndentedString(referenceText)).append("\n");
     sb.append("}");
     return sb.toString();
   }

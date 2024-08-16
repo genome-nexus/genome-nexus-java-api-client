@@ -89,7 +89,7 @@ public class AnnotationControllerApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://www.genomenexus.org*
+All URIs are relative to *http://localhost:38080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
  - [IndicatorQueryResp](docs/IndicatorQueryResp.md)
  - [IndicatorQueryTreatment](docs/IndicatorQueryTreatment.md)
  - [IntegerRange](docs/IntegerRange.md)
+ - [IntergenicConsequenceSummary](docs/IntergenicConsequenceSummary.md)
  - [IntergenicConsequences](docs/IntergenicConsequences.md)
  - [MainType](docs/MainType.md)
  - [MutationAssessor](docs/MutationAssessor.md)
@@ -190,6 +191,7 @@ Class | Method | HTTP request | Description
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
  - [Vcf](docs/Vcf.md)
  - [Version](docs/Version.md)
+ - [VueReference](docs/VueReference.md)
  - [Vues](docs/Vues.md)
 
 

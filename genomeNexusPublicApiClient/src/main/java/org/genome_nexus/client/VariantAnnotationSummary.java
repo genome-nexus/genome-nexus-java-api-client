@@ -25,13 +25,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.genome_nexus.client.GenomicLocation;
+import org.genome_nexus.client.IntergenicConsequenceSummary;
 import org.genome_nexus.client.TranscriptConsequenceSummary;
 import org.genome_nexus.client.Vues;
 
 /**
  * VariantAnnotationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-16T00:11:13.000-04:00")
 public class VariantAnnotationSummary {
   @SerializedName("assemblyName")
   private String assemblyName = null;
@@ -41,6 +42,9 @@ public class VariantAnnotationSummary {
 
   @SerializedName("genomicLocation")
   private GenomicLocation genomicLocation = null;
+
+  @SerializedName("intergenicConsequenceSummaries")
+  private List<IntergenicConsequenceSummary> intergenicConsequenceSummaries = null;
 
   @SerializedName("strandSign")
   private String strandSign = null;
@@ -115,6 +119,32 @@ public class VariantAnnotationSummary {
 
   public void setGenomicLocation(GenomicLocation genomicLocation) {
     this.genomicLocation = genomicLocation;
+  }
+
+  public VariantAnnotationSummary intergenicConsequenceSummaries(List<IntergenicConsequenceSummary> intergenicConsequenceSummaries) {
+    this.intergenicConsequenceSummaries = intergenicConsequenceSummaries;
+    return this;
+  }
+
+  public VariantAnnotationSummary addIntergenicConsequenceSummariesItem(IntergenicConsequenceSummary intergenicConsequenceSummariesItem) {
+    if (this.intergenicConsequenceSummaries == null) {
+      this.intergenicConsequenceSummaries = new ArrayList<IntergenicConsequenceSummary>();
+    }
+    this.intergenicConsequenceSummaries.add(intergenicConsequenceSummariesItem);
+    return this;
+  }
+
+   /**
+   * Get intergenicConsequenceSummaries
+   * @return intergenicConsequenceSummaries
+  **/
+  @ApiModelProperty(value = "")
+  public List<IntergenicConsequenceSummary> getIntergenicConsequenceSummaries() {
+    return intergenicConsequenceSummaries;
+  }
+
+  public void setIntergenicConsequenceSummaries(List<IntergenicConsequenceSummary> intergenicConsequenceSummaries) {
+    this.intergenicConsequenceSummaries = intergenicConsequenceSummaries;
   }
 
   public VariantAnnotationSummary strandSign(String strandSign) {
@@ -266,6 +296,7 @@ public class VariantAnnotationSummary {
     return Objects.equals(this.assemblyName, variantAnnotationSummary.assemblyName) &&
         Objects.equals(this.canonicalTranscriptId, variantAnnotationSummary.canonicalTranscriptId) &&
         Objects.equals(this.genomicLocation, variantAnnotationSummary.genomicLocation) &&
+        Objects.equals(this.intergenicConsequenceSummaries, variantAnnotationSummary.intergenicConsequenceSummaries) &&
         Objects.equals(this.strandSign, variantAnnotationSummary.strandSign) &&
         Objects.equals(this.transcriptConsequenceSummaries, variantAnnotationSummary.transcriptConsequenceSummaries) &&
         Objects.equals(this.transcriptConsequenceSummary, variantAnnotationSummary.transcriptConsequenceSummary) &&
@@ -277,7 +308,7 @@ public class VariantAnnotationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType, vues);
+    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, intergenicConsequenceSummaries, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType, vues);
   }
 
 
@@ -289,6 +320,7 @@ public class VariantAnnotationSummary {
     sb.append("    assemblyName: ").append(toIndentedString(assemblyName)).append("\n");
     sb.append("    canonicalTranscriptId: ").append(toIndentedString(canonicalTranscriptId)).append("\n");
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
+    sb.append("    intergenicConsequenceSummaries: ").append(toIndentedString(intergenicConsequenceSummaries)).append("\n");
     sb.append("    strandSign: ").append(toIndentedString(strandSign)).append("\n");
     sb.append("    transcriptConsequenceSummaries: ").append(toIndentedString(transcriptConsequenceSummaries)).append("\n");
     sb.append("    transcriptConsequenceSummary: ").append(toIndentedString(transcriptConsequenceSummary)).append("\n");

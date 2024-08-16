@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **assemblyName** | **String** | Assembly name |  [optional]
 **canonicalTranscriptId** | **String** | Canonical transcript id |  [optional]
 **genomicLocation** | [**GenomicLocation**](GenomicLocation.md) | Genomic location |  [optional]
+**intergenicConsequenceSummaries** | [**List&lt;IntergenicConsequenceSummary&gt;**](IntergenicConsequenceSummary.md) |  |  [optional]
 **strandSign** | **String** | Strand (- or +) |  [optional]
 **transcriptConsequenceSummaries** | [**List&lt;TranscriptConsequenceSummary&gt;**](TranscriptConsequenceSummary.md) | All transcript consequence summaries | 
 **transcriptConsequenceSummary** | [**TranscriptConsequenceSummary**](TranscriptConsequenceSummary.md) | Most impactful transcript consequence of canonical transcript or if non-existent any transcript | 

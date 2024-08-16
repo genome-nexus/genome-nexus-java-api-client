@@ -1,11 +1,11 @@
 
-# Drug
+# VueReference
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**drugName** | **String** |  |  [optional]
-**ncitCode** | **String** |  |  [optional]
+**pubmedId** | **Integer** |  |  [optional]
+**referenceText** | **String** |  |  [optional]
 
 
 

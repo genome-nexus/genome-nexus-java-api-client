@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Query
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:39.388-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-07-29T11:52:00.564-04:00")
 public class Query {
   @SerializedName("alteration")
   private String alteration = null;

@@ -22,13 +22,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.genome_nexus.client.AlphaMissense;
 import org.genome_nexus.client.IntegerRange;
 
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-07-29T11:52:00.564-04:00")
 public class TranscriptConsequenceSummary {
+  @SerializedName("alphaMissense")
+  private AlphaMissense alphaMissense = null;
+
   @SerializedName("aminoAcidAlt")
   private String aminoAcidAlt = null;
 
@@ -91,6 +95,24 @@ public class TranscriptConsequenceSummary {
 
   @SerializedName("variantClassification")
   private String variantClassification = null;
+
+  public TranscriptConsequenceSummary alphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+    return this;
+  }
+
+   /**
+   * Get alphaMissense
+   * @return alphaMissense
+  **/
+  @ApiModelProperty(value = "")
+  public AlphaMissense getAlphaMissense() {
+    return alphaMissense;
+  }
+
+  public void setAlphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+  }
 
   public TranscriptConsequenceSummary aminoAcidAlt(String aminoAcidAlt) {
     this.aminoAcidAlt = aminoAcidAlt;
@@ -480,7 +502,8 @@ public class TranscriptConsequenceSummary {
       return false;
     }
     TranscriptConsequenceSummary transcriptConsequenceSummary = (TranscriptConsequenceSummary) o;
-    return Objects.equals(this.aminoAcidAlt, transcriptConsequenceSummary.aminoAcidAlt) &&
+    return Objects.equals(this.alphaMissense, transcriptConsequenceSummary.alphaMissense) &&
+        Objects.equals(this.aminoAcidAlt, transcriptConsequenceSummary.aminoAcidAlt) &&
         Objects.equals(this.aminoAcidRef, transcriptConsequenceSummary.aminoAcidRef) &&
         Objects.equals(this.aminoAcids, transcriptConsequenceSummary.aminoAcids) &&
         Objects.equals(this.codonChange, transcriptConsequenceSummary.codonChange) &&
@@ -505,7 +528,7 @@ public class TranscriptConsequenceSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, isVue, polyphenPrediction, polyphenScore, proteinPosition, refSeq, siftPrediction, siftScore, transcriptId, uniprotId, variantClassification);
+    return Objects.hash(alphaMissense, aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, isVue, polyphenPrediction, polyphenScore, proteinPosition, refSeq, siftPrediction, siftScore, transcriptId, uniprotId, variantClassification);
   }
 
 
@@ -514,6 +537,7 @@ public class TranscriptConsequenceSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class TranscriptConsequenceSummary {\n");
     
+    sb.append("    alphaMissense: ").append(toIndentedString(alphaMissense)).append("\n");
     sb.append("    aminoAcidAlt: ").append(toIndentedString(aminoAcidAlt)).append("\n");
     sb.append("    aminoAcidRef: ").append(toIndentedString(aminoAcidRef)).append("\n");
     sb.append("    aminoAcids: ").append(toIndentedString(aminoAcids)).append("\n");

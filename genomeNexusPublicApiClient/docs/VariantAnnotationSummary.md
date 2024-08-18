@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alphaMissense** | [**AlphaMissense**](AlphaMissense.md) |  |  [optional]
 **assemblyName** | **String** | Assembly name |  [optional]
 **canonicalTranscriptId** | **String** | Canonical transcript id |  [optional]
 **genomicLocation** | [**GenomicLocation**](GenomicLocation.md) | Genomic location |  [optional]

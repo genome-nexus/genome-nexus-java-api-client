@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alphaMissense** | [**AlphaMissense**](AlphaMissense.md) |  |  [optional]
 **aminoAcidAlt** | **String** | Alt Amino Acid |  [optional]
 **aminoAcidRef** | **String** | Reference Amino Acid |  [optional]
 **aminoAcids** | **String** | Amino acids change |  [optional]

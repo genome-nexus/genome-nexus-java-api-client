@@ -31,7 +31,7 @@ import org.genome_nexus.client.ProteinLocation;
 /**
  * AggregatedHotspots
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-07-29T11:52:01.463-04:00")
 public class AggregatedHotspots {
   @SerializedName("genomicLocation")
   private GenomicLocation genomicLocation = null;

@@ -89,7 +89,7 @@ public class AnnotationControllerApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://www.genomenexus.org*
+All URIs are relative to *http://beta.genomenexus.org*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
  - [AlleleFrequency](docs/AlleleFrequency.md)
  - [AlleleNumber](docs/AlleleNumber.md)
  - [Alleles](docs/Alleles.md)
+ - [AlphaMissense](docs/AlphaMissense.md)
  - [ArticleAbstract](docs/ArticleAbstract.md)
  - [Citations](docs/Citations.md)
  - [Clinvar](docs/Clinvar.md)
@@ -190,6 +191,7 @@ Class | Method | HTTP request | Description
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
  - [Vcf](docs/Vcf.md)
  - [Version](docs/Version.md)
+ - [VueReference](docs/VueReference.md)
  - [Vues](docs/Vues.md)
 
 

@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.genome_nexus.client.AlphaMissense;
 import org.genome_nexus.client.GenomicLocation;
 import org.genome_nexus.client.TranscriptConsequenceSummary;
 import org.genome_nexus.client.Vues;
@@ -31,8 +32,11 @@ import org.genome_nexus.client.Vues;
 /**
  * VariantAnnotationSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-07-29T11:52:01.463-04:00")
 public class VariantAnnotationSummary {
+  @SerializedName("alphaMissense")
+  private AlphaMissense alphaMissense = null;
+
   @SerializedName("assemblyName")
   private String assemblyName = null;
 
@@ -62,6 +66,24 @@ public class VariantAnnotationSummary {
 
   @SerializedName("vues")
   private Vues vues = null;
+
+  public VariantAnnotationSummary alphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+    return this;
+  }
+
+   /**
+   * Get alphaMissense
+   * @return alphaMissense
+  **/
+  @ApiModelProperty(value = "")
+  public AlphaMissense getAlphaMissense() {
+    return alphaMissense;
+  }
+
+  public void setAlphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+  }
 
   public VariantAnnotationSummary assemblyName(String assemblyName) {
     this.assemblyName = assemblyName;
@@ -263,7 +285,8 @@ public class VariantAnnotationSummary {
       return false;
     }
     VariantAnnotationSummary variantAnnotationSummary = (VariantAnnotationSummary) o;
-    return Objects.equals(this.assemblyName, variantAnnotationSummary.assemblyName) &&
+    return Objects.equals(this.alphaMissense, variantAnnotationSummary.alphaMissense) &&
+        Objects.equals(this.assemblyName, variantAnnotationSummary.assemblyName) &&
         Objects.equals(this.canonicalTranscriptId, variantAnnotationSummary.canonicalTranscriptId) &&
         Objects.equals(this.genomicLocation, variantAnnotationSummary.genomicLocation) &&
         Objects.equals(this.strandSign, variantAnnotationSummary.strandSign) &&
@@ -277,7 +300,7 @@ public class VariantAnnotationSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType, vues);
+    return Objects.hash(alphaMissense, assemblyName, canonicalTranscriptId, genomicLocation, strandSign, transcriptConsequenceSummaries, transcriptConsequenceSummary, transcriptConsequences, variant, variantType, vues);
   }
 
 
@@ -286,6 +309,7 @@ public class VariantAnnotationSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class VariantAnnotationSummary {\n");
     
+    sb.append("    alphaMissense: ").append(toIndentedString(alphaMissense)).append("\n");
     sb.append("    assemblyName: ").append(toIndentedString(assemblyName)).append("\n");
     sb.append("    canonicalTranscriptId: ").append(toIndentedString(canonicalTranscriptId)).append("\n");
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");

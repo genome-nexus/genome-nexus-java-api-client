@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
  - [AlleleFrequency](docs/AlleleFrequency.md)
  - [AlleleNumber](docs/AlleleNumber.md)
  - [Alleles](docs/Alleles.md)
+ - [AlphaMissense](docs/AlphaMissense.md)
  - [Cosmic](docs/Cosmic.md)
  - [CountByTumorType](docs/CountByTumorType.md)
  - [CuriousCases](docs/CuriousCases.md)

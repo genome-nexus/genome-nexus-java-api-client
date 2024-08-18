@@ -29,7 +29,7 @@ import org.genome_nexus.client.Hotspot;
 /**
  * HotspotAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-07-29T11:52:00.564-04:00")
 public class HotspotAnnotation {
   @SerializedName("annotation")
   private List<List<Hotspot>> annotation = null;

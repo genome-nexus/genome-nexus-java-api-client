@@ -1,6 +1,6 @@
 # InfoControllerApi
 
-All URIs are relative to *http://www.genomenexus.org*
+All URIs are relative to *http://beta.genomenexus.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

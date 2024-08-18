@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alphaMissense** | [**AlphaMissense**](AlphaMissense.md) |  |  [optional]
 **aminoAcids** | **String** | Amino acids |  [optional]
 **canonical** | **String** | Canonical transcript indicator |  [optional]
 **codons** | **String** | Codons |  [optional]

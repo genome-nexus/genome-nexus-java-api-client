@@ -22,25 +22,17 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Drug
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:41:58.865-04:00")
 public class Drug {
   @SerializedName("drugName")
   private String drugName = null;
 
   @SerializedName("ncitCode")
   private String ncitCode = null;
-
-  @SerializedName("synonyms")
-  private List<String> synonyms = null;
-
-  @SerializedName("uuid")
-  private String uuid = null;
 
   public Drug drugName(String drugName) {
     this.drugName = drugName;
@@ -78,50 +70,6 @@ public class Drug {
     this.ncitCode = ncitCode;
   }
 
-  public Drug synonyms(List<String> synonyms) {
-    this.synonyms = synonyms;
-    return this;
-  }
-
-  public Drug addSynonymsItem(String synonymsItem) {
-    if (this.synonyms == null) {
-      this.synonyms = new ArrayList<String>();
-    }
-    this.synonyms.add(synonymsItem);
-    return this;
-  }
-
-   /**
-   * Get synonyms
-   * @return synonyms
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getSynonyms() {
-    return synonyms;
-  }
-
-  public void setSynonyms(List<String> synonyms) {
-    this.synonyms = synonyms;
-  }
-
-  public Drug uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
-
-   /**
-   * Get uuid
-   * @return uuid
-  **/
-  @ApiModelProperty(value = "")
-  public String getUuid() {
-    return uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,14 +81,12 @@ public class Drug {
     }
     Drug drug = (Drug) o;
     return Objects.equals(this.drugName, drug.drugName) &&
-        Objects.equals(this.ncitCode, drug.ncitCode) &&
-        Objects.equals(this.synonyms, drug.synonyms) &&
-        Objects.equals(this.uuid, drug.uuid);
+        Objects.equals(this.ncitCode, drug.ncitCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(drugName, ncitCode, synonyms, uuid);
+    return Objects.hash(drugName, ncitCode);
   }
 
 
@@ -151,8 +97,6 @@ public class Drug {
     
     sb.append("    drugName: ").append(toIndentedString(drugName)).append("\n");
     sb.append("    ncitCode: ").append(toIndentedString(ncitCode)).append("\n");
-    sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

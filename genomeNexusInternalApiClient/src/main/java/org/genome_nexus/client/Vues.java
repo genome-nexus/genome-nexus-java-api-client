@@ -22,11 +22,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.genome_nexus.client.VueReference;
 
 /**
  * Vues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:40.483-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:42:00.439-04:00")
 public class Vues {
   @SerializedName("comment")
   private String comment = null;
@@ -49,17 +52,20 @@ public class Vues {
   @SerializedName("hugoGeneSymbol")
   private String hugoGeneSymbol = null;
 
-  @SerializedName("pubmedId")
-  private Integer pubmedId = null;
+  @SerializedName("mutationOrigin")
+  private String mutationOrigin = null;
 
-  @SerializedName("referenceText")
-  private String referenceText = null;
+  @SerializedName("references")
+  private List<VueReference> references = null;
 
   @SerializedName("revisedProteinEffect")
   private String revisedProteinEffect = null;
 
   @SerializedName("revisedVariantClassification")
   private String revisedVariantClassification = null;
+
+  @SerializedName("revisedVariantClassificationStandard")
+  private String revisedVariantClassificationStandard = null;
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
@@ -199,40 +205,48 @@ public class Vues {
     this.hugoGeneSymbol = hugoGeneSymbol;
   }
 
-  public Vues pubmedId(Integer pubmedId) {
-    this.pubmedId = pubmedId;
+  public Vues mutationOrigin(String mutationOrigin) {
+    this.mutationOrigin = mutationOrigin;
     return this;
   }
 
    /**
-   * Get pubmedId
-   * @return pubmedId
+   * Get mutationOrigin
+   * @return mutationOrigin
   **/
   @ApiModelProperty(value = "")
-  public Integer getPubmedId() {
-    return pubmedId;
+  public String getMutationOrigin() {
+    return mutationOrigin;
   }
 
-  public void setPubmedId(Integer pubmedId) {
-    this.pubmedId = pubmedId;
+  public void setMutationOrigin(String mutationOrigin) {
+    this.mutationOrigin = mutationOrigin;
   }
 
-  public Vues referenceText(String referenceText) {
-    this.referenceText = referenceText;
+  public Vues references(List<VueReference> references) {
+    this.references = references;
+    return this;
+  }
+
+  public Vues addReferencesItem(VueReference referencesItem) {
+    if (this.references == null) {
+      this.references = new ArrayList<VueReference>();
+    }
+    this.references.add(referencesItem);
     return this;
   }
 
    /**
-   * Get referenceText
-   * @return referenceText
+   * Get references
+   * @return references
   **/
   @ApiModelProperty(value = "")
-  public String getReferenceText() {
-    return referenceText;
+  public List<VueReference> getReferences() {
+    return references;
   }
 
-  public void setReferenceText(String referenceText) {
-    this.referenceText = referenceText;
+  public void setReferences(List<VueReference> references) {
+    this.references = references;
   }
 
   public Vues revisedProteinEffect(String revisedProteinEffect) {
@@ -269,6 +283,24 @@ public class Vues {
 
   public void setRevisedVariantClassification(String revisedVariantClassification) {
     this.revisedVariantClassification = revisedVariantClassification;
+  }
+
+  public Vues revisedVariantClassificationStandard(String revisedVariantClassificationStandard) {
+    this.revisedVariantClassificationStandard = revisedVariantClassificationStandard;
+    return this;
+  }
+
+   /**
+   * Get revisedVariantClassificationStandard
+   * @return revisedVariantClassificationStandard
+  **/
+  @ApiModelProperty(value = "")
+  public String getRevisedVariantClassificationStandard() {
+    return revisedVariantClassificationStandard;
+  }
+
+  public void setRevisedVariantClassificationStandard(String revisedVariantClassificationStandard) {
+    this.revisedVariantClassificationStandard = revisedVariantClassificationStandard;
   }
 
   public Vues transcriptId(String transcriptId) {
@@ -360,10 +392,11 @@ public class Vues {
         Objects.equals(this.genomicLocation, vues.genomicLocation) &&
         Objects.equals(this.genomicLocationDescription, vues.genomicLocationDescription) &&
         Objects.equals(this.hugoGeneSymbol, vues.hugoGeneSymbol) &&
-        Objects.equals(this.pubmedId, vues.pubmedId) &&
-        Objects.equals(this.referenceText, vues.referenceText) &&
+        Objects.equals(this.mutationOrigin, vues.mutationOrigin) &&
+        Objects.equals(this.references, vues.references) &&
         Objects.equals(this.revisedProteinEffect, vues.revisedProteinEffect) &&
         Objects.equals(this.revisedVariantClassification, vues.revisedVariantClassification) &&
+        Objects.equals(this.revisedVariantClassificationStandard, vues.revisedVariantClassificationStandard) &&
         Objects.equals(this.transcriptId, vues.transcriptId) &&
         Objects.equals(this.variant, vues.variant) &&
         Objects.equals(this.vepPredictedProteinEffect, vues.vepPredictedProteinEffect) &&
@@ -372,7 +405,7 @@ public class Vues {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, confirmed, context, defaultEffect, genomicLocation, genomicLocationDescription, hugoGeneSymbol, pubmedId, referenceText, revisedProteinEffect, revisedVariantClassification, transcriptId, variant, vepPredictedProteinEffect, vepPredictedVariantClassification);
+    return Objects.hash(comment, confirmed, context, defaultEffect, genomicLocation, genomicLocationDescription, hugoGeneSymbol, mutationOrigin, references, revisedProteinEffect, revisedVariantClassification, revisedVariantClassificationStandard, transcriptId, variant, vepPredictedProteinEffect, vepPredictedVariantClassification);
   }
 
 
@@ -388,10 +421,11 @@ public class Vues {
     sb.append("    genomicLocation: ").append(toIndentedString(genomicLocation)).append("\n");
     sb.append("    genomicLocationDescription: ").append(toIndentedString(genomicLocationDescription)).append("\n");
     sb.append("    hugoGeneSymbol: ").append(toIndentedString(hugoGeneSymbol)).append("\n");
-    sb.append("    pubmedId: ").append(toIndentedString(pubmedId)).append("\n");
-    sb.append("    referenceText: ").append(toIndentedString(referenceText)).append("\n");
+    sb.append("    mutationOrigin: ").append(toIndentedString(mutationOrigin)).append("\n");
+    sb.append("    references: ").append(toIndentedString(references)).append("\n");
     sb.append("    revisedProteinEffect: ").append(toIndentedString(revisedProteinEffect)).append("\n");
     sb.append("    revisedVariantClassification: ").append(toIndentedString(revisedVariantClassification)).append("\n");
+    sb.append("    revisedVariantClassificationStandard: ").append(toIndentedString(revisedVariantClassificationStandard)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("    vepPredictedProteinEffect: ").append(toIndentedString(vepPredictedProteinEffect)).append("\n");

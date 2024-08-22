@@ -24,12 +24,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.genome_nexus.client.AlphaMissense;
 
 /**
  * TranscriptConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:41:58.865-04:00")
 public class TranscriptConsequence {
+  @SerializedName("alphaMissense")
+  private AlphaMissense alphaMissense = null;
+
   @SerializedName("amino_acids")
   private String aminoAcids = null;
 
@@ -95,6 +99,24 @@ public class TranscriptConsequence {
 
   @SerializedName("variant_allele")
   private String variantAllele = null;
+
+  public TranscriptConsequence alphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+    return this;
+  }
+
+   /**
+   * Get alphaMissense
+   * @return alphaMissense
+  **/
+  @ApiModelProperty(value = "")
+  public AlphaMissense getAlphaMissense() {
+    return alphaMissense;
+  }
+
+  public void setAlphaMissense(AlphaMissense alphaMissense) {
+    this.alphaMissense = alphaMissense;
+  }
 
   public TranscriptConsequence aminoAcids(String aminoAcids) {
     this.aminoAcids = aminoAcids;
@@ -518,7 +540,8 @@ public class TranscriptConsequence {
       return false;
     }
     TranscriptConsequence transcriptConsequence = (TranscriptConsequence) o;
-    return Objects.equals(this.aminoAcids, transcriptConsequence.aminoAcids) &&
+    return Objects.equals(this.alphaMissense, transcriptConsequence.alphaMissense) &&
+        Objects.equals(this.aminoAcids, transcriptConsequence.aminoAcids) &&
         Objects.equals(this.canonical, transcriptConsequence.canonical) &&
         Objects.equals(this.codons, transcriptConsequence.codons) &&
         Objects.equals(this.consequenceTerms, transcriptConsequence.consequenceTerms) &&
@@ -544,7 +567,7 @@ public class TranscriptConsequence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, uniprotId, variantAllele);
+    return Objects.hash(alphaMissense, aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, uniprotId, variantAllele);
   }
 
 
@@ -553,6 +576,7 @@ public class TranscriptConsequence {
     StringBuilder sb = new StringBuilder();
     sb.append("class TranscriptConsequence {\n");
     
+    sb.append("    alphaMissense: ").append(toIndentedString(alphaMissense)).append("\n");
     sb.append("    aminoAcids: ").append(toIndentedString(aminoAcids)).append("\n");
     sb.append("    canonical: ").append(toIndentedString(canonical)).append("\n");
     sb.append("    codons: ").append(toIndentedString(codons)).append("\n");

@@ -61,24 +61,25 @@ Please follow the [installation](#installation) instruction and execute the foll
 import org.genome_nexus.*;
 import org.genome_nexus.auth.*;
 import org.genome_nexus.client.*;
-import org.genome_nexus.client.AnnotationSummaryControllerApi;
+import org.genome_nexus.client.AnnotationControllerApi;
 
 import java.io.File;
 import java.util.*;
 
-public class AnnotationSummaryControllerApiExample {
+public class AnnotationControllerApiExample {
 
     public static void main(String[] args) {
         
-        AnnotationSummaryControllerApi apiInstance = new AnnotationSummaryControllerApi();
-        String variant = "variant_example"; // String | Variant. For example 17:g.41242962_41242963insGA
+        AnnotationControllerApi apiInstance = new AnnotationControllerApi();
+        String genomicLocation = "genomicLocation_example"; // String | A genomic location. For example 7,140453136,140453136,A,T
         String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
-        String projection = "ALL"; // String | Indicates whether to return summary for all transcripts or only for canonical transcript
+        String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
+        List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \"annotation_summary\" if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}
         try {
-            VariantAnnotationSummary result = apiInstance.fetchVariantAnnotationSummaryGET(variant, isoformOverrideSource, projection);
+            VariantAnnotation result = apiInstance.fetchVariantAnnotationByGenomicLocationGET(genomicLocation, isoformOverrideSource, token, fields);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AnnotationSummaryControllerApi#fetchVariantAnnotationSummaryGET");
+            System.err.println("Exception when calling AnnotationControllerApi#fetchVariantAnnotationByGenomicLocationGET");
             e.printStackTrace();
         }
     }
@@ -92,44 +93,56 @@ All URIs are relative to *http://www.genomenexus.org*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AnnotationSummaryControllerApi* | [**fetchVariantAnnotationSummaryGET**](docs/AnnotationSummaryControllerApi.md#fetchVariantAnnotationSummaryGET) | **GET** /annotation/summary/{variant} | Retrieves VEP annotation summary for the provided variant
-*AnnotationSummaryControllerApi* | [**fetchVariantAnnotationSummaryPOST**](docs/AnnotationSummaryControllerApi.md#fetchVariantAnnotationSummaryPOST) | **POST** /annotation/summary | Retrieves VEP annotation summary for the provided list of variants
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByGenomicLocationGET**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByGenomicLocationGET) | **GET** /cancer_hotspots/genomic/{genomicLocation} | Retrieves hotspot annotations for a specific genomic location
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByGenomicLocationPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByGenomicLocationPOST) | **POST** /cancer_hotspots/genomic | Retrieves hotspot annotations for the provided list of genomic locations
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByHgvsGET**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByHgvsGET) | **GET** /cancer_hotspots/hgvs/{variant} | Retrieves hotspot annotations for a specific variant
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByHgvsPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByHgvsPOST) | **POST** /cancer_hotspots/hgvs | Retrieves hotspot annotations for the provided list of variants
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByProteinLocationsPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByProteinLocationsPOST) | **POST** /cancer_hotspots/proteinLocations | Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByTranscriptIdGET**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByTranscriptIdGET) | **GET** /cancer_hotspots/transcript/{transcriptId} | Retrieves hotspot annotations for the provided transcript ID
-*CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByTranscriptIdPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByTranscriptIdPOST) | **POST** /cancer_hotspots/transcript | Retrieves hotspot annotations for the provided list of transcript ID
-*CrossReferenceControllerApi* | [**fetchGeneXrefsGET1**](docs/CrossReferenceControllerApi.md#fetchGeneXrefsGET1) | **GET** /xrefs/{accession} | Perform lookups of Ensembl identifiers and retrieve their external references in other databases
-*CuriousCasesControllerApi* | [**fetchCuriousCasesGET**](docs/CuriousCasesControllerApi.md#fetchCuriousCasesGET) | **GET** /curious_cases/{genomicLocation} | Retrieves Curious Cases info by a genomic location
-*MutationAssessorControllerApi* | [**fetchMutationAssessorAnnotationGET**](docs/MutationAssessorControllerApi.md#fetchMutationAssessorAnnotationGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
-*MutationAssessorControllerApi* | [**postMutationAssessorAnnotation**](docs/MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
-*MyVariantInfoControllerApi* | [**fetchMyVariantInfoAnnotationGET**](docs/MyVariantInfoControllerApi.md#fetchMyVariantInfoAnnotationGET) | **GET** /my_variant_info/variant/{variant} | Retrieves myvariant information for the provided list of variants
-*MyVariantInfoControllerApi* | [**postMyVariantInfoAnnotation**](docs/MyVariantInfoControllerApi.md#postMyVariantInfoAnnotation) | **POST** /my_variant_info/variant | Retrieves myvariant information for the provided list of variants
-*NucleotideContextControllerApi* | [**fetchNucleotideContextAnnotationGET**](docs/NucleotideContextControllerApi.md#fetchNucleotideContextAnnotationGET) | **GET** /nucleotide_context/{variant} | Retrieves nucleotide context information for the provided list of variants
-*NucleotideContextControllerApi* | [**postNucleotideContextAnnotation**](docs/NucleotideContextControllerApi.md#postNucleotideContextAnnotation) | **POST** /nucleotide_context | Retrieves nucleotide context information for the provided list of variants
-*SearchControllerApi* | [**searchAnnotationByKeywordGETUsingGET**](docs/SearchControllerApi.md#searchAnnotationByKeywordGETUsingGET) | **GET** /search | Performs index search.
-*SignalMutationControllerApi* | [**fetchSignalMutationsByHgvsgGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHgvsgGETUsingGET) | **GET** /signal/mutation/hgvs/{variant} | Retrieves SignalDB mutations by hgvgs variant
-*SignalMutationControllerApi* | [**fetchSignalMutationsByHugoSymbolGETUsingGET**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByHugoSymbolGETUsingGET) | **GET** /signal/mutation | Retrieves SignalDB mutations by Hugo Gene Symbol
-*SignalMutationControllerApi* | [**fetchSignalMutationsByMutationFilterPOSTUsingPOST**](docs/SignalMutationControllerApi.md#fetchSignalMutationsByMutationFilterPOSTUsingPOST) | **POST** /signal/mutation | Retrieves SignalDB mutations by Mutation Filter
-*SignalQueryControllerApi* | [**searchSignalByKeywordGETUsingGET**](docs/SignalQueryControllerApi.md#searchSignalByKeywordGETUsingGET) | **GET** /signal/search | Performs search by gene, protein change, variant or region.
+*AnnotationControllerApi* | [**fetchVariantAnnotationByGenomicLocationGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationGET) | **GET** /annotation/genomic/{genomicLocation} | Retrieves VEP annotation for the provided genomic location
+*AnnotationControllerApi* | [**fetchVariantAnnotationByGenomicLocationPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByGenomicLocationPOST) | **POST** /annotation/genomic | Retrieves VEP annotation for the provided list of genomic locations
+*AnnotationControllerApi* | [**fetchVariantAnnotationByIdGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByIdGET) | **GET** /annotation/dbsnp/{variantId} | Retrieves VEP annotation for the give dbSNP id
+*AnnotationControllerApi* | [**fetchVariantAnnotationByIdPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationByIdPOST) | **POST** /annotation/dbsnp/ | Retrieves VEP annotation for the provided list of dbSNP ids
+*AnnotationControllerApi* | [**fetchVariantAnnotationGET**](docs/AnnotationControllerApi.md#fetchVariantAnnotationGET) | **GET** /annotation/{variant} | Retrieves VEP annotation for the provided variant
+*AnnotationControllerApi* | [**fetchVariantAnnotationPOST**](docs/AnnotationControllerApi.md#fetchVariantAnnotationPOST) | **POST** /annotation | Retrieves VEP annotation for the provided list of variants
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET) | **GET** /ensembl/canonical-gene/entrez/{entrezGeneId} | Retrieves Ensembl canonical gene id by Entrez Gene Id
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST) | **POST** /ensembl/canonical-gene/entrez | Retrieves canonical Ensembl Gene ID by Entrez Gene Ids
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByHugoSymbolGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolGET) | **GET** /ensembl/canonical-gene/hgnc/{hugoSymbol} | Retrieves Ensembl canonical gene id by Hugo Symbol
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST) | **POST** /ensembl/canonical-gene/hgnc | Retrieves canonical Ensembl Gene ID by Hugo Symbols
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblTranscriptByHugoSymbolGET**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblTranscriptByHugoSymbolGET) | **GET** /ensembl/canonical-transcript/hgnc/{hugoSymbol} | Retrieves Ensembl canonical transcript by Hugo Symbol
+*EnsemblControllerApi* | [**fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST**](docs/EnsemblControllerApi.md#fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST) | **POST** /ensembl/canonical-transcript/hgnc | Retrieves Ensembl canonical transcripts by Hugo Symbols
+*EnsemblControllerApi* | [**fetchEnsemblTranscriptByTranscriptIdGET**](docs/EnsemblControllerApi.md#fetchEnsemblTranscriptByTranscriptIdGET) | **GET** /ensembl/transcript/{transcriptId} | Retrieves the transcript by an Ensembl transcript ID
+*EnsemblControllerApi* | [**fetchEnsemblTranscriptsByEnsemblFilterPOST**](docs/EnsemblControllerApi.md#fetchEnsemblTranscriptsByEnsemblFilterPOST) | **POST** /ensembl/transcript | Retrieves Ensembl Transcripts by Ensembl transcript IDs, hugo Symbols, protein IDs, or gene IDs
+*EnsemblControllerApi* | [**fetchEnsemblTranscriptsGET**](docs/EnsemblControllerApi.md#fetchEnsemblTranscriptsGET) | **GET** /ensembl/transcript | Retrieves Ensembl Transcripts by protein ID, and gene ID. Retrieves all transcripts in case no query parameter provided
+*EnsemblControllerApi* | [**fetchGeneXrefsGET**](docs/EnsemblControllerApi.md#fetchGeneXrefsGET) | **GET** /ensembl/xrefs | Perform lookups of Ensembl identifiers and retrieve their external references in other databases
+*InfoControllerApi* | [**fetchVersionGET**](docs/InfoControllerApi.md#fetchVersionGET) | **GET** /version | Retrieve Genome Nexus Version
+*PdbControllerApi* | [**fetchPdbHeaderGET**](docs/PdbControllerApi.md#fetchPdbHeaderGET) | **GET** /pdb/header/{pdbId} | Retrieves PDB header info by a PDB id
+*PdbControllerApi* | [**fetchPdbHeaderPOST**](docs/PdbControllerApi.md#fetchPdbHeaderPOST) | **POST** /pdb/header | Retrieves PDB header info by a PDB id
+*PfamControllerApi* | [**fetchPfamDomainsByAccessionGET**](docs/PfamControllerApi.md#fetchPfamDomainsByAccessionGET) | **GET** /pfam/domain/{pfamAccession} | Retrieves a PFAM domain by a PFAM domain ID
+*PfamControllerApi* | [**fetchPfamDomainsByPfamAccessionPOST**](docs/PfamControllerApi.md#fetchPfamDomainsByPfamAccessionPOST) | **POST** /pfam/domain | Retrieves PFAM domains by PFAM domain accession IDs
+*PtmControllerApi* | [**fetchPostTranslationalModificationsByPtmFilterPOST**](docs/PtmControllerApi.md#fetchPostTranslationalModificationsByPtmFilterPOST) | **POST** /ptm/experimental | Retrieves PTM entries by Ensembl Transcript IDs
+*PtmControllerApi* | [**fetchPostTranslationalModificationsGET**](docs/PtmControllerApi.md#fetchPostTranslationalModificationsGET) | **GET** /ptm/experimental | Retrieves PTM entries by Ensembl Transcript ID
 
 
 ## Documentation for Models
 
- - [AggregatedHotspots](docs/AggregatedHotspots.md)
+ - [AggregateSourceInfo](docs/AggregateSourceInfo.md)
  - [AlleleCount](docs/AlleleCount.md)
  - [AlleleFrequency](docs/AlleleFrequency.md)
  - [AlleleNumber](docs/AlleleNumber.md)
  - [Alleles](docs/Alleles.md)
+ - [AlphaMissense](docs/AlphaMissense.md)
+ - [ArticleAbstract](docs/ArticleAbstract.md)
+ - [Citations](docs/Citations.md)
+ - [Clinvar](docs/Clinvar.md)
+ - [ClinvarAnnotation](docs/ClinvarAnnotation.md)
+ - [ColocatedVariant](docs/ColocatedVariant.md)
  - [Cosmic](docs/Cosmic.md)
  - [CountByTumorType](docs/CountByTumorType.md)
- - [CuriousCases](docs/CuriousCases.md)
  - [Dbsnp](docs/Dbsnp.md)
+ - [Drug](docs/Drug.md)
+ - [EnsemblFilter](docs/EnsemblFilter.md)
+ - [EnsemblGene](docs/EnsemblGene.md)
+ - [EnsemblTranscript](docs/EnsemblTranscript.md)
+ - [Exon](docs/Exon.md)
  - [Gene](docs/Gene.md)
  - [GeneXref](docs/GeneXref.md)
  - [GeneralPopulationStats](docs/GeneralPopulationStats.md)
+ - [GenomeNexusInfo](docs/GenomeNexusInfo.md)
  - [GenomicLocation](docs/GenomicLocation.md)
  - [Gnomad](docs/Gnomad.md)
  - [Hg19](docs/Hg19.md)
@@ -137,26 +150,48 @@ Class | Method | HTTP request | Description
  - [Hgvs](docs/Hgvs.md)
  - [Homozygotes](docs/Homozygotes.md)
  - [Hotspot](docs/Hotspot.md)
+ - [HotspotAnnotation](docs/HotspotAnnotation.md)
  - [HrdScore](docs/HrdScore.md)
- - [Index](docs/Index.md)
- - [IndexSearch](docs/IndexSearch.md)
+ - [Implication](docs/Implication.md)
+ - [IndicatorQueryResp](docs/IndicatorQueryResp.md)
+ - [IndicatorQueryTreatment](docs/IndicatorQueryTreatment.md)
  - [IntegerRange](docs/IntegerRange.md)
+ - [IntergenicConsequences](docs/IntergenicConsequences.md)
+ - [MainType](docs/MainType.md)
  - [MutationAssessor](docs/MutationAssessor.md)
+ - [MutationAssessorAnnotation](docs/MutationAssessorAnnotation.md)
+ - [MutationEffectResp](docs/MutationEffectResp.md)
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)
+ - [MyVariantInfoAnnotation](docs/MyVariantInfoAnnotation.md)
  - [MyVariantInfoClinVar](docs/MyVariantInfoClinVar.md)
  - [NucleotideContext](docs/NucleotideContext.md)
- - [ProteinLocation](docs/ProteinLocation.md)
+ - [NucleotideContextAnnotation](docs/NucleotideContextAnnotation.md)
+ - [OncokbAnnotation](docs/OncokbAnnotation.md)
+ - [PdbHeader](docs/PdbHeader.md)
+ - [PfamDomain](docs/PfamDomain.md)
+ - [PfamDomainRange](docs/PfamDomainRange.md)
+ - [PostTranslationalModification](docs/PostTranslationalModification.md)
+ - [PtmAnnotation](docs/PtmAnnotation.md)
+ - [PtmFilter](docs/PtmFilter.md)
+ - [Query](docs/Query.md)
  - [Rcv](docs/Rcv.md)
+ - [SignalAnnotation](docs/SignalAnnotation.md)
  - [SignalMutation](docs/SignalMutation.md)
- - [SignalMutationFilter](docs/SignalMutationFilter.md)
  - [SignalPopulationStats](docs/SignalPopulationStats.md)
- - [SignalQuery](docs/SignalQuery.md)
  - [Snpeff](docs/Snpeff.md)
+ - [SourceVersionInfo](docs/SourceVersionInfo.md)
  - [StatsByTumorType](docs/StatsByTumorType.md)
+ - [TranscriptConsequence](docs/TranscriptConsequence.md)
  - [TranscriptConsequenceSummary](docs/TranscriptConsequenceSummary.md)
+ - [TumorType](docs/TumorType.md)
+ - [UntranslatedRegion](docs/UntranslatedRegion.md)
+ - [VEPInfo](docs/VEPInfo.md)
+ - [VariantAnnotation](docs/VariantAnnotation.md)
  - [VariantAnnotationSummary](docs/VariantAnnotationSummary.md)
  - [Vcf](docs/Vcf.md)
+ - [Version](docs/Version.md)
+ - [VueReference](docs/VueReference.md)
  - [Vues](docs/Vues.md)
 
 

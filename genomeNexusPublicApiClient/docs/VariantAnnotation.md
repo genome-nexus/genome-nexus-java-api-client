@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **id** | **String** | Variant id | 
 **intergenicConsequences** | [**List&lt;IntergenicConsequences&gt;**](IntergenicConsequences.md) | intergenicConsequences | 
 **mostSevereConsequence** | **String** | Most severe consequence |  [optional]
-**mutationAssessor** | [**MutationAssessorAnnotation**](MutationAssessorAnnotation.md) | Mutation Assessor Annotation |  [optional]
+**mutationAssessor** | [**MutationAssessor**](MutationAssessor.md) | Mutation Assessor |  [optional]
 **myVariantInfo** | [**MyVariantInfoAnnotation**](MyVariantInfoAnnotation.md) | My Variant Info Annotation |  [optional]
 **nucleotideContext** | [**NucleotideContextAnnotation**](NucleotideContextAnnotation.md) | Nucleotide Context Annotation |  [optional]
 **oncokb** | [**OncokbAnnotation**](OncokbAnnotation.md) | Oncokb |  [optional]

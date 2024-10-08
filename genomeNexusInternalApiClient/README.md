@@ -103,8 +103,8 @@ Class | Method | HTTP request | Description
 *CancerHotspotsControllerApi* | [**fetchHotspotAnnotationByTranscriptIdPOST**](docs/CancerHotspotsControllerApi.md#fetchHotspotAnnotationByTranscriptIdPOST) | **POST** /cancer_hotspots/transcript | Retrieves hotspot annotations for the provided list of transcript ID
 *CrossReferenceControllerApi* | [**fetchGeneXrefsGET1**](docs/CrossReferenceControllerApi.md#fetchGeneXrefsGET1) | **GET** /xrefs/{accession} | Perform lookups of Ensembl identifiers and retrieve their external references in other databases
 *CuriousCasesControllerApi* | [**fetchCuriousCasesGET**](docs/CuriousCasesControllerApi.md#fetchCuriousCasesGET) | **GET** /curious_cases/{genomicLocation} | Retrieves Curious Cases info by a genomic location
-*MutationAssessorControllerApi* | [**fetchMutationAssessorAnnotationGET**](docs/MutationAssessorControllerApi.md#fetchMutationAssessorAnnotationGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
-*MutationAssessorControllerApi* | [**postMutationAssessorAnnotation**](docs/MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
+*MutationAssessorControllerApi* | [**fetchMutationAssessorGET**](docs/MutationAssessorControllerApi.md#fetchMutationAssessorGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
+*MutationAssessorControllerApi* | [**postMutationAssessor**](docs/MutationAssessorControllerApi.md#postMutationAssessor) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
 *MyVariantInfoControllerApi* | [**fetchMyVariantInfoAnnotationGET**](docs/MyVariantInfoControllerApi.md#fetchMyVariantInfoAnnotationGET) | **GET** /my_variant_info/variant/{variant} | Retrieves myvariant information for the provided list of variants
 *MyVariantInfoControllerApi* | [**postMyVariantInfoAnnotation**](docs/MyVariantInfoControllerApi.md#postMyVariantInfoAnnotation) | **POST** /my_variant_info/variant | Retrieves myvariant information for the provided list of variants
 *NucleotideContextControllerApi* | [**fetchNucleotideContextAnnotationGET**](docs/NucleotideContextControllerApi.md#fetchNucleotideContextAnnotationGET) | **GET** /nucleotide_context/{variant} | Retrieves nucleotide context information for the provided list of variants
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
  - [Index](docs/Index.md)
  - [IndexSearch](docs/IndexSearch.md)
  - [IntegerRange](docs/IntegerRange.md)
+ - [IntergenicConsequenceSummary](docs/IntergenicConsequenceSummary.md)
  - [MutationAssessor](docs/MutationAssessor.md)
  - [Mutdb](docs/Mutdb.md)
  - [MyVariantInfo](docs/MyVariantInfo.md)

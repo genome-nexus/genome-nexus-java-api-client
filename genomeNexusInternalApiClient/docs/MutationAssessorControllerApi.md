@@ -4,13 +4,13 @@ All URIs are relative to *http://www.genomenexus.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetchMutationAssessorAnnotationGET**](MutationAssessorControllerApi.md#fetchMutationAssessorAnnotationGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
-[**postMutationAssessorAnnotation**](MutationAssessorControllerApi.md#postMutationAssessorAnnotation) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
+[**fetchMutationAssessorGET**](MutationAssessorControllerApi.md#fetchMutationAssessorGET) | **GET** /mutation_assessor/{variant} | Retrieves mutation assessor information for the provided list of variants
+[**postMutationAssessor**](MutationAssessorControllerApi.md#postMutationAssessor) | **POST** /mutation_assessor | Retrieves mutation assessor information for the provided list of variants
 
 
-<a name="fetchMutationAssessorAnnotationGET"></a>
-# **fetchMutationAssessorAnnotationGET**
-> MutationAssessor fetchMutationAssessorAnnotationGET(variant)
+<a name="fetchMutationAssessorGET"></a>
+# **fetchMutationAssessorGET**
+> MutationAssessor fetchMutationAssessorGET(variant)
 
 Retrieves mutation assessor information for the provided list of variants
 
@@ -24,10 +24,10 @@ Retrieves mutation assessor information for the provided list of variants
 MutationAssessorControllerApi apiInstance = new MutationAssessorControllerApi();
 String variant = "variant_example"; // String | A variant. For example 7:g.140453136A>T
 try {
-    MutationAssessor result = apiInstance.fetchMutationAssessorAnnotationGET(variant);
+    MutationAssessor result = apiInstance.fetchMutationAssessorGET(variant);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MutationAssessorControllerApi#fetchMutationAssessorAnnotationGET");
+    System.err.println("Exception when calling MutationAssessorControllerApi#fetchMutationAssessorGET");
     e.printStackTrace();
 }
 ```
@@ -51,9 +51,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="postMutationAssessorAnnotation"></a>
-# **postMutationAssessorAnnotation**
-> List&lt;MutationAssessor&gt; postMutationAssessorAnnotation(variants)
+<a name="postMutationAssessor"></a>
+# **postMutationAssessor**
+> List&lt;MutationAssessor&gt; postMutationAssessor(variants)
 
 Retrieves mutation assessor information for the provided list of variants
 
@@ -67,10 +67,10 @@ Retrieves mutation assessor information for the provided list of variants
 MutationAssessorControllerApi apiInstance = new MutationAssessorControllerApi();
 List<String> variants = Arrays.asList(new List<String>()); // List<String> | List of variants. For example [\"7:g.140453136A>T\",\"12:g.25398285C>A\"]
 try {
-    List<MutationAssessor> result = apiInstance.postMutationAssessorAnnotation(variants);
+    List<MutationAssessor> result = apiInstance.postMutationAssessor(variants);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling MutationAssessorControllerApi#postMutationAssessorAnnotation");
+    System.err.println("Exception when calling MutationAssessorControllerApi#postMutationAssessor");
     e.printStackTrace();
 }
 ```

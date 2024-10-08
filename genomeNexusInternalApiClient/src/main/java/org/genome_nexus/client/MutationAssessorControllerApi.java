@@ -55,14 +55,14 @@ public class MutationAssessorControllerApi {
     }
 
     /**
-     * Build call for fetchMutationAssessorAnnotationGET
+     * Build call for fetchMutationAssessorGET
      * @param variant A variant. For example 7:g.140453136A&gt;T (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchMutationAssessorAnnotationGETCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchMutationAssessorGETCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -105,15 +105,15 @@ public class MutationAssessorControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchMutationAssessorAnnotationGETValidateBeforeCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchMutationAssessorGETValidateBeforeCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variant' is set
         if (variant == null) {
-            throw new ApiException("Missing the required parameter 'variant' when calling fetchMutationAssessorAnnotationGET(Async)");
+            throw new ApiException("Missing the required parameter 'variant' when calling fetchMutationAssessorGET(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = fetchMutationAssessorAnnotationGETCall(variant, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchMutationAssessorGETCall(variant, progressListener, progressRequestListener);
         return call;
 
     }
@@ -125,8 +125,8 @@ public class MutationAssessorControllerApi {
      * @return MutationAssessor
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MutationAssessor fetchMutationAssessorAnnotationGET(String variant) throws ApiException {
-        ApiResponse<MutationAssessor> resp = fetchMutationAssessorAnnotationGETWithHttpInfo(variant);
+    public MutationAssessor fetchMutationAssessorGET(String variant) throws ApiException {
+        ApiResponse<MutationAssessor> resp = fetchMutationAssessorGETWithHttpInfo(variant);
         return resp.getData();
     }
 
@@ -137,8 +137,8 @@ public class MutationAssessorControllerApi {
      * @return ApiResponse&lt;MutationAssessor&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MutationAssessor> fetchMutationAssessorAnnotationGETWithHttpInfo(String variant) throws ApiException {
-        com.squareup.okhttp.Call call = fetchMutationAssessorAnnotationGETValidateBeforeCall(variant, null, null);
+    public ApiResponse<MutationAssessor> fetchMutationAssessorGETWithHttpInfo(String variant) throws ApiException {
+        com.squareup.okhttp.Call call = fetchMutationAssessorGETValidateBeforeCall(variant, null, null);
         Type localVarReturnType = new TypeToken<MutationAssessor>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -151,7 +151,7 @@ public class MutationAssessorControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchMutationAssessorAnnotationGETAsync(String variant, final ApiCallback<MutationAssessor> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchMutationAssessorGETAsync(String variant, final ApiCallback<MutationAssessor> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,20 +172,20 @@ public class MutationAssessorControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchMutationAssessorAnnotationGETValidateBeforeCall(variant, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchMutationAssessorGETValidateBeforeCall(variant, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<MutationAssessor>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for postMutationAssessorAnnotation
+     * Build call for postMutationAssessor
      * @param variants List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;] (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call postMutationAssessorAnnotationCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call postMutationAssessorCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = variants;
 
         // create path and map variables
@@ -227,15 +227,15 @@ public class MutationAssessorControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postMutationAssessorAnnotationValidateBeforeCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call postMutationAssessorValidateBeforeCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variants' is set
         if (variants == null) {
-            throw new ApiException("Missing the required parameter 'variants' when calling postMutationAssessorAnnotation(Async)");
+            throw new ApiException("Missing the required parameter 'variants' when calling postMutationAssessor(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = postMutationAssessorAnnotationCall(variants, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postMutationAssessorCall(variants, progressListener, progressRequestListener);
         return call;
 
     }
@@ -247,8 +247,8 @@ public class MutationAssessorControllerApi {
      * @return List&lt;MutationAssessor&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<MutationAssessor> postMutationAssessorAnnotation(List<String> variants) throws ApiException {
-        ApiResponse<List<MutationAssessor>> resp = postMutationAssessorAnnotationWithHttpInfo(variants);
+    public List<MutationAssessor> postMutationAssessor(List<String> variants) throws ApiException {
+        ApiResponse<List<MutationAssessor>> resp = postMutationAssessorWithHttpInfo(variants);
         return resp.getData();
     }
 
@@ -259,8 +259,8 @@ public class MutationAssessorControllerApi {
      * @return ApiResponse&lt;List&lt;MutationAssessor&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<MutationAssessor>> postMutationAssessorAnnotationWithHttpInfo(List<String> variants) throws ApiException {
-        com.squareup.okhttp.Call call = postMutationAssessorAnnotationValidateBeforeCall(variants, null, null);
+    public ApiResponse<List<MutationAssessor>> postMutationAssessorWithHttpInfo(List<String> variants) throws ApiException {
+        com.squareup.okhttp.Call call = postMutationAssessorValidateBeforeCall(variants, null, null);
         Type localVarReturnType = new TypeToken<List<MutationAssessor>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -273,7 +273,7 @@ public class MutationAssessorControllerApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postMutationAssessorAnnotationAsync(List<String> variants, final ApiCallback<List<MutationAssessor>> callback) throws ApiException {
+    public com.squareup.okhttp.Call postMutationAssessorAsync(List<String> variants, final ApiCallback<List<MutationAssessor>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -294,7 +294,7 @@ public class MutationAssessorControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = postMutationAssessorAnnotationValidateBeforeCall(variants, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = postMutationAssessorValidateBeforeCall(variants, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<MutationAssessor>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

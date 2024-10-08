@@ -28,7 +28,7 @@ import org.genome_nexus.client.ClinvarAnnotation;
 import org.genome_nexus.client.ColocatedVariant;
 import org.genome_nexus.client.HotspotAnnotation;
 import org.genome_nexus.client.IntergenicConsequences;
-import org.genome_nexus.client.MutationAssessorAnnotation;
+import org.genome_nexus.client.MutationAssessor;
 import org.genome_nexus.client.MyVariantInfoAnnotation;
 import org.genome_nexus.client.NucleotideContextAnnotation;
 import org.genome_nexus.client.OncokbAnnotation;
@@ -40,7 +40,7 @@ import org.genome_nexus.client.VariantAnnotationSummary;
 /**
  * VariantAnnotation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-22T13:27:39.388-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-10-08T11:22:49.826-04:00")
 public class VariantAnnotation {
   @SerializedName("allele_string")
   private String alleleString = null;
@@ -85,7 +85,7 @@ public class VariantAnnotation {
   private String mostSevereConsequence = null;
 
   @SerializedName("mutation_assessor")
-  private MutationAssessorAnnotation mutationAssessor = null;
+  private MutationAssessor mutationAssessor = null;
 
   @SerializedName("my_variant_info")
   private MyVariantInfoAnnotation myVariantInfo = null;
@@ -388,21 +388,21 @@ public class VariantAnnotation {
     this.mostSevereConsequence = mostSevereConsequence;
   }
 
-  public VariantAnnotation mutationAssessor(MutationAssessorAnnotation mutationAssessor) {
+  public VariantAnnotation mutationAssessor(MutationAssessor mutationAssessor) {
     this.mutationAssessor = mutationAssessor;
     return this;
   }
 
    /**
-   * Mutation Assessor Annotation
+   * Mutation Assessor
    * @return mutationAssessor
   **/
-  @ApiModelProperty(value = "Mutation Assessor Annotation")
-  public MutationAssessorAnnotation getMutationAssessor() {
+  @ApiModelProperty(value = "Mutation Assessor")
+  public MutationAssessor getMutationAssessor() {
     return mutationAssessor;
   }
 
-  public void setMutationAssessor(MutationAssessorAnnotation mutationAssessor) {
+  public void setMutationAssessor(MutationAssessor mutationAssessor) {
     this.mutationAssessor = mutationAssessor;
   }
 

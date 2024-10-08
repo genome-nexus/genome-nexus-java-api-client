@@ -26,132 +26,45 @@ import java.io.IOException;
 /**
  * MutationAssessor
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-10-08T11:22:49.826-04:00")
 public class MutationAssessor {
-  @SerializedName("codonStartPosition")
-  private String codonStartPosition = null;
-
-  @SerializedName("cosmicCount")
-  private Integer cosmicCount = null;
-
-  @SerializedName("functionalImpact")
-  private String functionalImpact = null;
+  @SerializedName("functionalImpactPrediction")
+  private String functionalImpactPrediction = null;
 
   @SerializedName("functionalImpactScore")
   private Double functionalImpactScore = null;
 
-  @SerializedName("hgvs")
-  private String hgvs = null;
+  @SerializedName("hgvspShort")
+  private String hgvspShort = null;
 
-  @SerializedName("hugoSymbol")
-  private String hugoSymbol = null;
+  @SerializedName("mav")
+  private Integer mav = null;
 
-  @SerializedName("input")
-  private String input = null;
+  @SerializedName("msa")
+  private String msa = null;
 
-  @SerializedName("mappingIssue")
-  private String mappingIssue = null;
-
-  @SerializedName("msaGaps")
-  private Double msaGaps = null;
-
-  @SerializedName("msaHeight")
-  private Integer msaHeight = null;
-
-  @SerializedName("msaLink")
-  private String msaLink = null;
-
-  @SerializedName("pdbLink")
-  private String pdbLink = null;
-
-  @SerializedName("referenceGenomeVariant")
-  private String referenceGenomeVariant = null;
-
-  @SerializedName("referenceGenomeVariantType")
-  private String referenceGenomeVariantType = null;
-
-  @SerializedName("refseqId")
-  private String refseqId = null;
-
-  @SerializedName("refseqPosition")
-  private Integer refseqPosition = null;
-
-  @SerializedName("refseqResidue")
-  private String refseqResidue = null;
-
-  @SerializedName("snpCount")
-  private Integer snpCount = null;
+  @SerializedName("sv")
+  private Integer sv = null;
 
   @SerializedName("uniprotId")
   private String uniprotId = null;
 
-  @SerializedName("uniprotPosition")
-  private Integer uniprotPosition = null;
-
-  @SerializedName("uniprotResidue")
-  private String uniprotResidue = null;
-
-  @SerializedName("variant")
-  private String variant = null;
-
-  @SerializedName("variantConservationScore")
-  private Double variantConservationScore = null;
-
-  @SerializedName("variantSpecificityScore")
-  private Double variantSpecificityScore = null;
-
-  public MutationAssessor codonStartPosition(String codonStartPosition) {
-    this.codonStartPosition = codonStartPosition;
+  public MutationAssessor functionalImpactPrediction(String functionalImpactPrediction) {
+    this.functionalImpactPrediction = functionalImpactPrediction;
     return this;
   }
 
    /**
-   * Codon start position
-   * @return codonStartPosition
+   * Get functionalImpactPrediction
+   * @return functionalImpactPrediction
   **/
-  @ApiModelProperty(value = "Codon start position")
-  public String getCodonStartPosition() {
-    return codonStartPosition;
+  @ApiModelProperty(value = "")
+  public String getFunctionalImpactPrediction() {
+    return functionalImpactPrediction;
   }
 
-  public void setCodonStartPosition(String codonStartPosition) {
-    this.codonStartPosition = codonStartPosition;
-  }
-
-  public MutationAssessor cosmicCount(Integer cosmicCount) {
-    this.cosmicCount = cosmicCount;
-    return this;
-  }
-
-   /**
-   * Number of mutations in COSMIC for this protein
-   * @return cosmicCount
-  **/
-  @ApiModelProperty(value = "Number of mutations in COSMIC for this protein")
-  public Integer getCosmicCount() {
-    return cosmicCount;
-  }
-
-  public void setCosmicCount(Integer cosmicCount) {
-    this.cosmicCount = cosmicCount;
-  }
-
-  public MutationAssessor functionalImpact(String functionalImpact) {
-    this.functionalImpact = functionalImpact;
-    return this;
-  }
-
-   /**
-   * Functional impact
-   * @return functionalImpact
-  **/
-  @ApiModelProperty(value = "Functional impact")
-  public String getFunctionalImpact() {
-    return functionalImpact;
-  }
-
-  public void setFunctionalImpact(String functionalImpact) {
-    this.functionalImpact = functionalImpact;
+  public void setFunctionalImpactPrediction(String functionalImpactPrediction) {
+    this.functionalImpactPrediction = functionalImpactPrediction;
   }
 
   public MutationAssessor functionalImpactScore(Double functionalImpactScore) {
@@ -172,256 +85,76 @@ public class MutationAssessor {
     this.functionalImpactScore = functionalImpactScore;
   }
 
-  public MutationAssessor hgvs(String hgvs) {
-    this.hgvs = hgvs;
+  public MutationAssessor hgvspShort(String hgvspShort) {
+    this.hgvspShort = hgvspShort;
     return this;
   }
 
    /**
-   * Get hgvs
-   * @return hgvs
+   * Get hgvspShort
+   * @return hgvspShort
   **/
   @ApiModelProperty(value = "")
-  public String getHgvs() {
-    return hgvs;
+  public String getHgvspShort() {
+    return hgvspShort;
   }
 
-  public void setHgvs(String hgvs) {
-    this.hgvs = hgvs;
+  public void setHgvspShort(String hgvspShort) {
+    this.hgvspShort = hgvspShort;
   }
 
-  public MutationAssessor hugoSymbol(String hugoSymbol) {
-    this.hugoSymbol = hugoSymbol;
+  public MutationAssessor mav(Integer mav) {
+    this.mav = mav;
     return this;
   }
 
    /**
-   * Hugo gene symbol
-   * @return hugoSymbol
+   * Get mav
+   * @return mav
   **/
-  @ApiModelProperty(value = "Hugo gene symbol")
-  public String getHugoSymbol() {
-    return hugoSymbol;
+  @ApiModelProperty(value = "")
+  public Integer getMav() {
+    return mav;
   }
 
-  public void setHugoSymbol(String hugoSymbol) {
-    this.hugoSymbol = hugoSymbol;
+  public void setMav(Integer mav) {
+    this.mav = mav;
   }
 
-  public MutationAssessor input(String input) {
-    this.input = input;
+  public MutationAssessor msa(String msa) {
+    this.msa = msa;
     return this;
   }
 
    /**
-   * User-input variants
-   * @return input
+   * Get msa
+   * @return msa
   **/
-  @ApiModelProperty(required = true, value = "User-input variants")
-  public String getInput() {
-    return input;
+  @ApiModelProperty(value = "")
+  public String getMsa() {
+    return msa;
   }
 
-  public void setInput(String input) {
-    this.input = input;
+  public void setMsa(String msa) {
+    this.msa = msa;
   }
 
-  public MutationAssessor mappingIssue(String mappingIssue) {
-    this.mappingIssue = mappingIssue;
+  public MutationAssessor sv(Integer sv) {
+    this.sv = sv;
     return this;
   }
 
    /**
-   * Mapping issue info
-   * @return mappingIssue
+   * Get sv
+   * @return sv
   **/
-  @ApiModelProperty(value = "Mapping issue info")
-  public String getMappingIssue() {
-    return mappingIssue;
+  @ApiModelProperty(value = "")
+  public Integer getSv() {
+    return sv;
   }
 
-  public void setMappingIssue(String mappingIssue) {
-    this.mappingIssue = mappingIssue;
-  }
-
-  public MutationAssessor msaGaps(Double msaGaps) {
-    this.msaGaps = msaGaps;
-    return this;
-  }
-
-   /**
-   * Portion of gaps in variant position in multiple sequence alignment
-   * @return msaGaps
-  **/
-  @ApiModelProperty(value = "Portion of gaps in variant position in multiple sequence alignment")
-  public Double getMsaGaps() {
-    return msaGaps;
-  }
-
-  public void setMsaGaps(Double msaGaps) {
-    this.msaGaps = msaGaps;
-  }
-
-  public MutationAssessor msaHeight(Integer msaHeight) {
-    this.msaHeight = msaHeight;
-    return this;
-  }
-
-   /**
-   * Number of diverse sequences in multiple sequence alignment (identical or highly similar sequences filtered out)
-   * @return msaHeight
-  **/
-  @ApiModelProperty(value = "Number of diverse sequences in multiple sequence alignment (identical or highly similar sequences filtered out)")
-  public Integer getMsaHeight() {
-    return msaHeight;
-  }
-
-  public void setMsaHeight(Integer msaHeight) {
-    this.msaHeight = msaHeight;
-  }
-
-  public MutationAssessor msaLink(String msaLink) {
-    this.msaLink = msaLink;
-    return this;
-  }
-
-   /**
-   * Link to multiple sequence alignment
-   * @return msaLink
-  **/
-  @ApiModelProperty(value = "Link to multiple sequence alignment")
-  public String getMsaLink() {
-    return msaLink;
-  }
-
-  public void setMsaLink(String msaLink) {
-    this.msaLink = msaLink;
-  }
-
-  public MutationAssessor pdbLink(String pdbLink) {
-    this.pdbLink = pdbLink;
-    return this;
-  }
-
-   /**
-   * Link to 3d structure browser
-   * @return pdbLink
-  **/
-  @ApiModelProperty(value = "Link to 3d structure browser")
-  public String getPdbLink() {
-    return pdbLink;
-  }
-
-  public void setPdbLink(String pdbLink) {
-    this.pdbLink = pdbLink;
-  }
-
-  public MutationAssessor referenceGenomeVariant(String referenceGenomeVariant) {
-    this.referenceGenomeVariant = referenceGenomeVariant;
-    return this;
-  }
-
-   /**
-   * Reference genome variant
-   * @return referenceGenomeVariant
-  **/
-  @ApiModelProperty(value = "Reference genome variant")
-  public String getReferenceGenomeVariant() {
-    return referenceGenomeVariant;
-  }
-
-  public void setReferenceGenomeVariant(String referenceGenomeVariant) {
-    this.referenceGenomeVariant = referenceGenomeVariant;
-  }
-
-  public MutationAssessor referenceGenomeVariantType(String referenceGenomeVariantType) {
-    this.referenceGenomeVariantType = referenceGenomeVariantType;
-    return this;
-  }
-
-   /**
-   * Reference genome variant type
-   * @return referenceGenomeVariantType
-  **/
-  @ApiModelProperty(value = "Reference genome variant type")
-  public String getReferenceGenomeVariantType() {
-    return referenceGenomeVariantType;
-  }
-
-  public void setReferenceGenomeVariantType(String referenceGenomeVariantType) {
-    this.referenceGenomeVariantType = referenceGenomeVariantType;
-  }
-
-  public MutationAssessor refseqId(String refseqId) {
-    this.refseqId = refseqId;
-    return this;
-  }
-
-   /**
-   * Refseq protein ID
-   * @return refseqId
-  **/
-  @ApiModelProperty(value = "Refseq protein ID")
-  public String getRefseqId() {
-    return refseqId;
-  }
-
-  public void setRefseqId(String refseqId) {
-    this.refseqId = refseqId;
-  }
-
-  public MutationAssessor refseqPosition(Integer refseqPosition) {
-    this.refseqPosition = refseqPosition;
-    return this;
-  }
-
-   /**
-   * Variant position in Refseq protein, can be different from the one in Uniprot
-   * @return refseqPosition
-  **/
-  @ApiModelProperty(value = "Variant position in Refseq protein, can be different from the one in Uniprot")
-  public Integer getRefseqPosition() {
-    return refseqPosition;
-  }
-
-  public void setRefseqPosition(Integer refseqPosition) {
-    this.refseqPosition = refseqPosition;
-  }
-
-  public MutationAssessor refseqResidue(String refseqResidue) {
-    this.refseqResidue = refseqResidue;
-    return this;
-  }
-
-   /**
-   * Reference residue in Refseq protein, can be different from the one in Uniprot
-   * @return refseqResidue
-  **/
-  @ApiModelProperty(value = "Reference residue in Refseq protein, can be different from the one in Uniprot")
-  public String getRefseqResidue() {
-    return refseqResidue;
-  }
-
-  public void setRefseqResidue(String refseqResidue) {
-    this.refseqResidue = refseqResidue;
-  }
-
-  public MutationAssessor snpCount(Integer snpCount) {
-    this.snpCount = snpCount;
-    return this;
-  }
-
-   /**
-   * Number of SNPs in dbSNP for this protein
-   * @return snpCount
-  **/
-  @ApiModelProperty(value = "Number of SNPs in dbSNP for this protein")
-  public Integer getSnpCount() {
-    return snpCount;
-  }
-
-  public void setSnpCount(Integer snpCount) {
-    this.snpCount = snpCount;
+  public void setSv(Integer sv) {
+    this.sv = sv;
   }
 
   public MutationAssessor uniprotId(String uniprotId) {
@@ -442,96 +175,6 @@ public class MutationAssessor {
     this.uniprotId = uniprotId;
   }
 
-  public MutationAssessor uniprotPosition(Integer uniprotPosition) {
-    this.uniprotPosition = uniprotPosition;
-    return this;
-  }
-
-   /**
-   * Variant position in Uniprot protein, can be different from the one in Refseq
-   * @return uniprotPosition
-  **/
-  @ApiModelProperty(value = "Variant position in Uniprot protein, can be different from the one in Refseq")
-  public Integer getUniprotPosition() {
-    return uniprotPosition;
-  }
-
-  public void setUniprotPosition(Integer uniprotPosition) {
-    this.uniprotPosition = uniprotPosition;
-  }
-
-  public MutationAssessor uniprotResidue(String uniprotResidue) {
-    this.uniprotResidue = uniprotResidue;
-    return this;
-  }
-
-   /**
-   * Reference residue in Uniprot protein, can be different from the one in Refseq
-   * @return uniprotResidue
-  **/
-  @ApiModelProperty(value = "Reference residue in Uniprot protein, can be different from the one in Refseq")
-  public String getUniprotResidue() {
-    return uniprotResidue;
-  }
-
-  public void setUniprotResidue(String uniprotResidue) {
-    this.uniprotResidue = uniprotResidue;
-  }
-
-  public MutationAssessor variant(String variant) {
-    this.variant = variant;
-    return this;
-  }
-
-   /**
-   * Amino acid substitution
-   * @return variant
-  **/
-  @ApiModelProperty(value = "Amino acid substitution")
-  public String getVariant() {
-    return variant;
-  }
-
-  public void setVariant(String variant) {
-    this.variant = variant;
-  }
-
-  public MutationAssessor variantConservationScore(Double variantConservationScore) {
-    this.variantConservationScore = variantConservationScore;
-    return this;
-  }
-
-   /**
-   * Variant conservation score
-   * @return variantConservationScore
-  **/
-  @ApiModelProperty(value = "Variant conservation score")
-  public Double getVariantConservationScore() {
-    return variantConservationScore;
-  }
-
-  public void setVariantConservationScore(Double variantConservationScore) {
-    this.variantConservationScore = variantConservationScore;
-  }
-
-  public MutationAssessor variantSpecificityScore(Double variantSpecificityScore) {
-    this.variantSpecificityScore = variantSpecificityScore;
-    return this;
-  }
-
-   /**
-   * Variant specificity score
-   * @return variantSpecificityScore
-  **/
-  @ApiModelProperty(value = "Variant specificity score")
-  public Double getVariantSpecificityScore() {
-    return variantSpecificityScore;
-  }
-
-  public void setVariantSpecificityScore(Double variantSpecificityScore) {
-    this.variantSpecificityScore = variantSpecificityScore;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -542,35 +185,18 @@ public class MutationAssessor {
       return false;
     }
     MutationAssessor mutationAssessor = (MutationAssessor) o;
-    return Objects.equals(this.codonStartPosition, mutationAssessor.codonStartPosition) &&
-        Objects.equals(this.cosmicCount, mutationAssessor.cosmicCount) &&
-        Objects.equals(this.functionalImpact, mutationAssessor.functionalImpact) &&
+    return Objects.equals(this.functionalImpactPrediction, mutationAssessor.functionalImpactPrediction) &&
         Objects.equals(this.functionalImpactScore, mutationAssessor.functionalImpactScore) &&
-        Objects.equals(this.hgvs, mutationAssessor.hgvs) &&
-        Objects.equals(this.hugoSymbol, mutationAssessor.hugoSymbol) &&
-        Objects.equals(this.input, mutationAssessor.input) &&
-        Objects.equals(this.mappingIssue, mutationAssessor.mappingIssue) &&
-        Objects.equals(this.msaGaps, mutationAssessor.msaGaps) &&
-        Objects.equals(this.msaHeight, mutationAssessor.msaHeight) &&
-        Objects.equals(this.msaLink, mutationAssessor.msaLink) &&
-        Objects.equals(this.pdbLink, mutationAssessor.pdbLink) &&
-        Objects.equals(this.referenceGenomeVariant, mutationAssessor.referenceGenomeVariant) &&
-        Objects.equals(this.referenceGenomeVariantType, mutationAssessor.referenceGenomeVariantType) &&
-        Objects.equals(this.refseqId, mutationAssessor.refseqId) &&
-        Objects.equals(this.refseqPosition, mutationAssessor.refseqPosition) &&
-        Objects.equals(this.refseqResidue, mutationAssessor.refseqResidue) &&
-        Objects.equals(this.snpCount, mutationAssessor.snpCount) &&
-        Objects.equals(this.uniprotId, mutationAssessor.uniprotId) &&
-        Objects.equals(this.uniprotPosition, mutationAssessor.uniprotPosition) &&
-        Objects.equals(this.uniprotResidue, mutationAssessor.uniprotResidue) &&
-        Objects.equals(this.variant, mutationAssessor.variant) &&
-        Objects.equals(this.variantConservationScore, mutationAssessor.variantConservationScore) &&
-        Objects.equals(this.variantSpecificityScore, mutationAssessor.variantSpecificityScore);
+        Objects.equals(this.hgvspShort, mutationAssessor.hgvspShort) &&
+        Objects.equals(this.mav, mutationAssessor.mav) &&
+        Objects.equals(this.msa, mutationAssessor.msa) &&
+        Objects.equals(this.sv, mutationAssessor.sv) &&
+        Objects.equals(this.uniprotId, mutationAssessor.uniprotId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(codonStartPosition, cosmicCount, functionalImpact, functionalImpactScore, hgvs, hugoSymbol, input, mappingIssue, msaGaps, msaHeight, msaLink, pdbLink, referenceGenomeVariant, referenceGenomeVariantType, refseqId, refseqPosition, refseqResidue, snpCount, uniprotId, uniprotPosition, uniprotResidue, variant, variantConservationScore, variantSpecificityScore);
+    return Objects.hash(functionalImpactPrediction, functionalImpactScore, hgvspShort, mav, msa, sv, uniprotId);
   }
 
 
@@ -579,30 +205,13 @@ public class MutationAssessor {
     StringBuilder sb = new StringBuilder();
     sb.append("class MutationAssessor {\n");
     
-    sb.append("    codonStartPosition: ").append(toIndentedString(codonStartPosition)).append("\n");
-    sb.append("    cosmicCount: ").append(toIndentedString(cosmicCount)).append("\n");
-    sb.append("    functionalImpact: ").append(toIndentedString(functionalImpact)).append("\n");
+    sb.append("    functionalImpactPrediction: ").append(toIndentedString(functionalImpactPrediction)).append("\n");
     sb.append("    functionalImpactScore: ").append(toIndentedString(functionalImpactScore)).append("\n");
-    sb.append("    hgvs: ").append(toIndentedString(hgvs)).append("\n");
-    sb.append("    hugoSymbol: ").append(toIndentedString(hugoSymbol)).append("\n");
-    sb.append("    input: ").append(toIndentedString(input)).append("\n");
-    sb.append("    mappingIssue: ").append(toIndentedString(mappingIssue)).append("\n");
-    sb.append("    msaGaps: ").append(toIndentedString(msaGaps)).append("\n");
-    sb.append("    msaHeight: ").append(toIndentedString(msaHeight)).append("\n");
-    sb.append("    msaLink: ").append(toIndentedString(msaLink)).append("\n");
-    sb.append("    pdbLink: ").append(toIndentedString(pdbLink)).append("\n");
-    sb.append("    referenceGenomeVariant: ").append(toIndentedString(referenceGenomeVariant)).append("\n");
-    sb.append("    referenceGenomeVariantType: ").append(toIndentedString(referenceGenomeVariantType)).append("\n");
-    sb.append("    refseqId: ").append(toIndentedString(refseqId)).append("\n");
-    sb.append("    refseqPosition: ").append(toIndentedString(refseqPosition)).append("\n");
-    sb.append("    refseqResidue: ").append(toIndentedString(refseqResidue)).append("\n");
-    sb.append("    snpCount: ").append(toIndentedString(snpCount)).append("\n");
+    sb.append("    hgvspShort: ").append(toIndentedString(hgvspShort)).append("\n");
+    sb.append("    mav: ").append(toIndentedString(mav)).append("\n");
+    sb.append("    msa: ").append(toIndentedString(msa)).append("\n");
+    sb.append("    sv: ").append(toIndentedString(sv)).append("\n");
     sb.append("    uniprotId: ").append(toIndentedString(uniprotId)).append("\n");
-    sb.append("    uniprotPosition: ").append(toIndentedString(uniprotPosition)).append("\n");
-    sb.append("    uniprotResidue: ").append(toIndentedString(uniprotResidue)).append("\n");
-    sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
-    sb.append("    variantConservationScore: ").append(toIndentedString(variantConservationScore)).append("\n");
-    sb.append("    variantSpecificityScore: ").append(toIndentedString(variantSpecificityScore)).append("\n");
     sb.append("}");
     return sb.toString();
   }

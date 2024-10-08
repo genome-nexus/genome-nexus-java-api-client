@@ -41,9 +41,9 @@ public class MutationAssessorControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void fetchMutationAssessorAnnotationGETTest() throws ApiException {
+    public void fetchMutationAssessorGETTest() throws ApiException {
         String variant = null;
-        MutationAssessor response = api.fetchMutationAssessorAnnotationGET(variant);
+        MutationAssessor response = api.fetchMutationAssessorGET(variant);
 
         // TODO: test validations
     }
@@ -57,9 +57,9 @@ public class MutationAssessorControllerApiTest {
      *          if the Api call fails
      */
     @Test
-    public void postMutationAssessorAnnotationTest() throws ApiException {
+    public void postMutationAssessorTest() throws ApiException {
         List<String> variants = null;
-        List<MutationAssessor> response = api.postMutationAssessorAnnotation(variants);
+        List<MutationAssessor> response = api.postMutationAssessor(variants);
 
         // TODO: test validations
     }

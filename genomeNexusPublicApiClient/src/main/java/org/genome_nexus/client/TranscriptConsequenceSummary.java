@@ -28,7 +28,7 @@ import org.genome_nexus.client.IntegerRange;
 /**
  * TranscriptConsequenceSummary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:41:58.865-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:41.583-05:00")
 public class TranscriptConsequenceSummary {
   @SerializedName("alphaMissense")
   private AlphaMissense alphaMissense = null;
@@ -89,6 +89,9 @@ public class TranscriptConsequenceSummary {
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
+
+  @SerializedName("transcriptIdVersion")
+  private String transcriptIdVersion = null;
 
   @SerializedName("uniprotId")
   private String uniprotId = null;
@@ -456,6 +459,24 @@ public class TranscriptConsequenceSummary {
     this.transcriptId = transcriptId;
   }
 
+  public TranscriptConsequenceSummary transcriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+    return this;
+  }
+
+   /**
+   * Transcript id version
+   * @return transcriptIdVersion
+  **/
+  @ApiModelProperty(value = "Transcript id version")
+  public String getTranscriptIdVersion() {
+    return transcriptIdVersion;
+  }
+
+  public void setTranscriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+  }
+
   public TranscriptConsequenceSummary uniprotId(String uniprotId) {
     this.uniprotId = uniprotId;
     return this;
@@ -522,13 +543,14 @@ public class TranscriptConsequenceSummary {
         Objects.equals(this.siftPrediction, transcriptConsequenceSummary.siftPrediction) &&
         Objects.equals(this.siftScore, transcriptConsequenceSummary.siftScore) &&
         Objects.equals(this.transcriptId, transcriptConsequenceSummary.transcriptId) &&
+        Objects.equals(this.transcriptIdVersion, transcriptConsequenceSummary.transcriptIdVersion) &&
         Objects.equals(this.uniprotId, transcriptConsequenceSummary.uniprotId) &&
         Objects.equals(this.variantClassification, transcriptConsequenceSummary.variantClassification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphaMissense, aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, isVue, polyphenPrediction, polyphenScore, proteinPosition, refSeq, siftPrediction, siftScore, transcriptId, uniprotId, variantClassification);
+    return Objects.hash(alphaMissense, aminoAcidAlt, aminoAcidRef, aminoAcids, codonChange, consequenceTerms, entrezGeneId, exon, hgvsc, hgvsp, hgvspShort, hugoGeneSymbol, isVue, polyphenPrediction, polyphenScore, proteinPosition, refSeq, siftPrediction, siftScore, transcriptId, transcriptIdVersion, uniprotId, variantClassification);
   }
 
 
@@ -557,6 +579,7 @@ public class TranscriptConsequenceSummary {
     sb.append("    siftPrediction: ").append(toIndentedString(siftPrediction)).append("\n");
     sb.append("    siftScore: ").append(toIndentedString(siftScore)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    transcriptIdVersion: ").append(toIndentedString(transcriptIdVersion)).append("\n");
     sb.append("    uniprotId: ").append(toIndentedString(uniprotId)).append("\n");
     sb.append("    variantClassification: ").append(toIndentedString(variantClassification)).append("\n");
     sb.append("}");

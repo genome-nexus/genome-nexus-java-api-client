@@ -18,7 +18,7 @@ import org.genome_nexus.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

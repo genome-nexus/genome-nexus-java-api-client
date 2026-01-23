@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * MutationAssessor
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-10-08T11:22:52.229-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class MutationAssessor {
   @SerializedName("functionalImpactPrediction")
   private String functionalImpactPrediction = null;

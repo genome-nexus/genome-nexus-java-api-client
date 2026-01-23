@@ -72,7 +72,7 @@ public class AnnotationControllerApiExample {
         
         AnnotationControllerApi apiInstance = new AnnotationControllerApi();
         String genomicLocation = "genomicLocation_example"; // String | A genomic location. For example 7,140453136,140453136,A,T
-        String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+        String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example mskcc
         String token = "token_example"; // String | Map of tokens. For example {\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}
         List<String> fields = Arrays.asList("annotation_summary"); // List<String> | Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \"annotation_summary\" if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}
         try {

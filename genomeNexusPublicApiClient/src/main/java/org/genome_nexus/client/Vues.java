@@ -29,7 +29,7 @@ import org.genome_nexus.client.VueReference;
 /**
  * Vues
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:41:58.865-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:41.583-05:00")
 public class Vues {
   @SerializedName("comment")
   private String comment = null;

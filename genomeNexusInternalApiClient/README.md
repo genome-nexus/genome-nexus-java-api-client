@@ -72,7 +72,7 @@ public class AnnotationSummaryControllerApiExample {
         
         AnnotationSummaryControllerApi apiInstance = new AnnotationSummaryControllerApi();
         String variant = "variant_example"; // String | Variant. For example 17:g.41242962_41242963insGA
-        String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example uniprot
+        String isoformOverrideSource = "isoformOverrideSource_example"; // String | Isoform override source. For example mskcc
         String projection = "ALL"; // String | Indicates whether to return summary for all transcripts or only for canonical transcript
         try {
             VariantAnnotationSummary result = apiInstance.fetchVariantAnnotationSummaryGET(variant, isoformOverrideSource, projection);

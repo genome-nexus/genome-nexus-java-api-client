@@ -31,7 +31,7 @@ import org.genome_nexus.client.ProteinLocation;
 /**
  * AggregatedHotspots
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class AggregatedHotspots {
   @SerializedName("genomicLocation")
   private GenomicLocation genomicLocation = null;
@@ -44,6 +44,9 @@ public class AggregatedHotspots {
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
+
+  @SerializedName("transcriptIdVersion")
+  private String transcriptIdVersion = null;
 
   @SerializedName("variant")
   private String variant = null;
@@ -125,6 +128,24 @@ public class AggregatedHotspots {
     this.transcriptId = transcriptId;
   }
 
+  public AggregatedHotspots transcriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+    return this;
+  }
+
+   /**
+   * Get transcriptIdVersion
+   * @return transcriptIdVersion
+  **/
+  @ApiModelProperty(value = "")
+  public String getTranscriptIdVersion() {
+    return transcriptIdVersion;
+  }
+
+  public void setTranscriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+  }
+
   public AggregatedHotspots variant(String variant) {
     this.variant = variant;
     return this;
@@ -157,12 +178,13 @@ public class AggregatedHotspots {
         Objects.equals(this.hotspots, aggregatedHotspots.hotspots) &&
         Objects.equals(this.proteinLocation, aggregatedHotspots.proteinLocation) &&
         Objects.equals(this.transcriptId, aggregatedHotspots.transcriptId) &&
+        Objects.equals(this.transcriptIdVersion, aggregatedHotspots.transcriptIdVersion) &&
         Objects.equals(this.variant, aggregatedHotspots.variant);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(genomicLocation, hotspots, proteinLocation, transcriptId, variant);
+    return Objects.hash(genomicLocation, hotspots, proteinLocation, transcriptId, transcriptIdVersion, variant);
   }
 
 
@@ -175,6 +197,7 @@ public class AggregatedHotspots {
     sb.append("    hotspots: ").append(toIndentedString(hotspots)).append("\n");
     sb.append("    proteinLocation: ").append(toIndentedString(proteinLocation)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    transcriptIdVersion: ").append(toIndentedString(transcriptIdVersion)).append("\n");
     sb.append("    variant: ").append(toIndentedString(variant)).append("\n");
     sb.append("}");
     return sb.toString();

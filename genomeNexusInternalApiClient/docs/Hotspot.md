@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **residue** | **String** | Hotspot residue |  [optional]
 **spliceCount** | **Integer** | Splice mutation count |  [optional]
 **transcriptId** | **String** | Ensembl Transcript Id |  [optional]
+**transcriptIdVersion** | **String** | Ensembl Transcript Id Version |  [optional]
 **truncatingCount** | **Integer** | Truncation mutation count |  [optional]
 **tumorCount** | **Integer** | Tumor count |  [optional]
 **type** | **String** | Hotspot type |  [optional]

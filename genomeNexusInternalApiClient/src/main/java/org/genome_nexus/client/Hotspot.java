@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Hotspot
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class Hotspot {
   @SerializedName("hugoSymbol")
   private String hugoSymbol = null;
@@ -45,6 +45,9 @@ public class Hotspot {
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
+
+  @SerializedName("transcriptIdVersion")
+  private String transcriptIdVersion = null;
 
   @SerializedName("truncatingCount")
   private Integer truncatingCount = null;
@@ -163,6 +166,24 @@ public class Hotspot {
     this.transcriptId = transcriptId;
   }
 
+  public Hotspot transcriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+    return this;
+  }
+
+   /**
+   * Ensembl Transcript Id Version
+   * @return transcriptIdVersion
+  **/
+  @ApiModelProperty(value = "Ensembl Transcript Id Version")
+  public String getTranscriptIdVersion() {
+    return transcriptIdVersion;
+  }
+
+  public void setTranscriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+  }
+
   public Hotspot truncatingCount(Integer truncatingCount) {
     this.truncatingCount = truncatingCount;
     return this;
@@ -233,6 +254,7 @@ public class Hotspot {
         Objects.equals(this.residue, hotspot.residue) &&
         Objects.equals(this.spliceCount, hotspot.spliceCount) &&
         Objects.equals(this.transcriptId, hotspot.transcriptId) &&
+        Objects.equals(this.transcriptIdVersion, hotspot.transcriptIdVersion) &&
         Objects.equals(this.truncatingCount, hotspot.truncatingCount) &&
         Objects.equals(this.tumorCount, hotspot.tumorCount) &&
         Objects.equals(this.type, hotspot.type);
@@ -240,7 +262,7 @@ public class Hotspot {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hugoSymbol, inframeCount, missenseCount, residue, spliceCount, transcriptId, truncatingCount, tumorCount, type);
+    return Objects.hash(hugoSymbol, inframeCount, missenseCount, residue, spliceCount, transcriptId, transcriptIdVersion, truncatingCount, tumorCount, type);
   }
 
 
@@ -255,6 +277,7 @@ public class Hotspot {
     sb.append("    residue: ").append(toIndentedString(residue)).append("\n");
     sb.append("    spliceCount: ").append(toIndentedString(spliceCount)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    transcriptIdVersion: ").append(toIndentedString(transcriptIdVersion)).append("\n");
     sb.append("    truncatingCount: ").append(toIndentedString(truncatingCount)).append("\n");
     sb.append("    tumorCount: ").append(toIndentedString(tumorCount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

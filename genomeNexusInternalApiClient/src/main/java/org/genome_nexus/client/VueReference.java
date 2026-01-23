@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * VueReference
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2024-08-22T13:42:00.439-04:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class VueReference {
   @SerializedName("pubmedId")
   private Integer pubmedId = null;

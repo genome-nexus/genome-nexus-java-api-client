@@ -203,7 +203,7 @@ Retrieves Ensembl canonical transcript by Hugo Symbol
 
 EnsemblControllerApi apiInstance = new EnsemblControllerApi();
 String hugoSymbol = "hugoSymbol_example"; // String | A Hugo Symbol. For example TP53
-String isoformOverrideSource = "uniprot"; // String | Isoform override source. For example uniprot
+String isoformOverrideSource = "mskcc"; // String | Isoform override source. For example mskcc
 try {
     EnsemblTranscript result = apiInstance.fetchCanonicalEnsemblTranscriptByHugoSymbolGET(hugoSymbol, isoformOverrideSource);
     System.out.println(result);
@@ -218,7 +218,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hugoSymbol** | **String**| A Hugo Symbol. For example TP53 |
- **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional] [default to uniprot]
+ **isoformOverrideSource** | **String**| Isoform override source. For example mskcc | [optional] [default to mskcc]
 
 ### Return type
 
@@ -248,7 +248,7 @@ Retrieves Ensembl canonical transcripts by Hugo Symbols
 
 EnsemblControllerApi apiInstance = new EnsemblControllerApi();
 List<String> hugoSymbols = Arrays.asList(new List<String>()); // List<String> | List of Hugo Symbols. For example [\"TP53\",\"PIK3CA\",\"BRCA1\"]
-String isoformOverrideSource = "uniprot"; // String | Isoform override source. For example uniprot
+String isoformOverrideSource = "mskcc"; // String | Isoform override source. For example mskcc
 try {
     List<EnsemblTranscript> result = apiInstance.fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST(hugoSymbols, isoformOverrideSource);
     System.out.println(result);
@@ -263,7 +263,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **hugoSymbols** | **List&lt;String&gt;**| List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;] |
- **isoformOverrideSource** | **String**| Isoform override source. For example uniprot | [optional] [default to uniprot]
+ **isoformOverrideSource** | **String**| Isoform override source. For example mskcc | [optional] [default to mskcc]
 
 ### Return type
 

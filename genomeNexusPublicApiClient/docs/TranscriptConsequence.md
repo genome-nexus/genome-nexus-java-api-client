@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **siftPrediction** | **String** | Sift Prediction |  [optional]
 **siftScore** | **Double** | Sift Score |  [optional]
 **transcriptId** | **String** | Ensembl transcript id | 
+**transcriptIdVersion** | **String** | Ensembl transcript id version |  [optional]
 **uniprotId** | **String** |  |  [optional]
 **variantAllele** | **String** | Variant allele |  [optional]
 

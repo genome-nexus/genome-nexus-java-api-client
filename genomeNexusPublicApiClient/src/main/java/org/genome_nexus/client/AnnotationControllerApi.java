@@ -58,7 +58,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationByGenomicLocationGET
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -132,7 +132,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided genomic location
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
@@ -147,7 +147,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided genomic location
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
@@ -163,7 +163,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided genomic location (asynchronously)
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
@@ -199,7 +199,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationByGenomicLocationPOST
      * @param genomicLocations List of Genomic Locations (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -272,7 +272,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of genomic locations
      * 
      * @param genomicLocations List of Genomic Locations (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
@@ -287,7 +287,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of genomic locations
      * 
      * @param genomicLocations List of Genomic Locations (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
@@ -303,7 +303,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of genomic locations (asynchronously)
      * 
      * @param genomicLocations List of Genomic Locations (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
@@ -339,7 +339,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationByIdGET
      * @param variantId dbSNP id. For example rs116035550. (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -413,7 +413,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the give dbSNP id
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
@@ -428,7 +428,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the give dbSNP id
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
@@ -444,7 +444,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the give dbSNP id (asynchronously)
      * 
      * @param variantId dbSNP id. For example rs116035550. (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
@@ -480,7 +480,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationByIdPOST
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -553,7 +553,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of dbSNP ids
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
@@ -568,7 +568,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of dbSNP ids
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
@@ -584,7 +584,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of dbSNP ids (asynchronously)
      * 
      * @param variantIds List of variant IDs. For example [\&quot;rs116035550\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
@@ -620,7 +620,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationGET
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -694,7 +694,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided variant
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return VariantAnnotation
@@ -709,7 +709,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided variant
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;VariantAnnotation&gt;
@@ -725,7 +725,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided variant (asynchronously)
      * 
      * @param variant Variant. For example 17:g.41242962_41242963insGA (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes
@@ -761,7 +761,7 @@ public class AnnotationControllerApi {
     /**
      * Build call for fetchVariantAnnotationPOST
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param progressListener Progress listener
@@ -834,7 +834,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of variants
      * 
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return List&lt;VariantAnnotation&gt;
@@ -849,7 +849,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of variants
      * 
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @return ApiResponse&lt;List&lt;VariantAnnotation&gt;&gt;
@@ -865,7 +865,7 @@ public class AnnotationControllerApi {
      * Retrieves VEP annotation for the provided list of variants (asynchronously)
      * 
      * @param variants List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, \&quot;1:g.1385015_1387562del\&quot;] (GRCh38) (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional)
      * @param token Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;} (optional)
      * @param fields Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal} (optional, default to annotation_summary)
      * @param callback The callback to be executed when the API call finishes

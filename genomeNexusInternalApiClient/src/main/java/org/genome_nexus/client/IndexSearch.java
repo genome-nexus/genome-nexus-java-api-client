@@ -29,7 +29,7 @@ import org.genome_nexus.client.Index;
 /**
  * IndexSearch
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:04:00.294-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
 public class IndexSearch {
   /**
    * Gets or Sets queryType

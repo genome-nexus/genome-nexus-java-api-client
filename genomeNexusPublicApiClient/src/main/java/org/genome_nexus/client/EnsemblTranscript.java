@@ -31,13 +31,16 @@ import org.genome_nexus.client.UntranslatedRegion;
 /**
  * EnsemblTranscript
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-12-08T09:03:57.668-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:41.583-05:00")
 public class EnsemblTranscript {
   @SerializedName("uniprotId")
   private String uniprotId = null;
 
   @SerializedName("transcriptId")
   private String transcriptId = null;
+
+  @SerializedName("transcriptIdVersion")
+  private String transcriptIdVersion = null;
 
   @SerializedName("geneId")
   private String geneId = null;
@@ -100,6 +103,24 @@ public class EnsemblTranscript {
 
   public void setTranscriptId(String transcriptId) {
     this.transcriptId = transcriptId;
+  }
+
+  public EnsemblTranscript transcriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
+    return this;
+  }
+
+   /**
+   * Ensembl transcript id version
+   * @return transcriptIdVersion
+  **/
+  @ApiModelProperty(value = "Ensembl transcript id version")
+  public String getTranscriptIdVersion() {
+    return transcriptIdVersion;
+  }
+
+  public void setTranscriptIdVersion(String transcriptIdVersion) {
+    this.transcriptIdVersion = transcriptIdVersion;
   }
 
   public EnsemblTranscript geneId(String geneId) {
@@ -308,6 +329,7 @@ public class EnsemblTranscript {
     EnsemblTranscript ensemblTranscript = (EnsemblTranscript) o;
     return Objects.equals(this.uniprotId, ensemblTranscript.uniprotId) &&
         Objects.equals(this.transcriptId, ensemblTranscript.transcriptId) &&
+        Objects.equals(this.transcriptIdVersion, ensemblTranscript.transcriptIdVersion) &&
         Objects.equals(this.geneId, ensemblTranscript.geneId) &&
         Objects.equals(this.proteinId, ensemblTranscript.proteinId) &&
         Objects.equals(this.proteinLength, ensemblTranscript.proteinLength) &&
@@ -321,7 +343,7 @@ public class EnsemblTranscript {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uniprotId, transcriptId, geneId, proteinId, proteinLength, pfamDomains, hugoSymbols, refseqMrnaId, ccdsId, exons, utrs);
+    return Objects.hash(uniprotId, transcriptId, transcriptIdVersion, geneId, proteinId, proteinLength, pfamDomains, hugoSymbols, refseqMrnaId, ccdsId, exons, utrs);
   }
 
 
@@ -332,6 +354,7 @@ public class EnsemblTranscript {
     
     sb.append("    uniprotId: ").append(toIndentedString(uniprotId)).append("\n");
     sb.append("    transcriptId: ").append(toIndentedString(transcriptId)).append("\n");
+    sb.append("    transcriptIdVersion: ").append(toIndentedString(transcriptIdVersion)).append("\n");
     sb.append("    geneId: ").append(toIndentedString(geneId)).append("\n");
     sb.append("    proteinId: ").append(toIndentedString(proteinId)).append("\n");
     sb.append("    proteinLength: ").append(toIndentedString(proteinLength)).append("\n");

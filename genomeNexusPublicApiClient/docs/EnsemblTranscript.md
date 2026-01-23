@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uniprotId** | **String** |  |  [optional]
 **transcriptId** | **String** | Ensembl transcript id | 
+**transcriptIdVersion** | **String** | Ensembl transcript id version |  [optional]
 **geneId** | **String** | Ensembl gene id | 
 **proteinId** | **String** | Ensembl protein id | 
 **proteinLength** | **Integer** | Length of protein |  [optional]

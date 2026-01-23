@@ -550,7 +550,7 @@ public class EnsemblControllerApi {
     /**
      * Build call for fetchCanonicalEnsemblTranscriptByHugoSymbolGET
      * @param hugoSymbol A Hugo Symbol. For example TP53 (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -618,7 +618,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcript by Hugo Symbol
      * 
      * @param hugoSymbol A Hugo Symbol. For example TP53 (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @return EnsemblTranscript
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -631,7 +631,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcript by Hugo Symbol
      * 
      * @param hugoSymbol A Hugo Symbol. For example TP53 (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @return ApiResponse&lt;EnsemblTranscript&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -645,7 +645,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcript by Hugo Symbol (asynchronously)
      * 
      * @param hugoSymbol A Hugo Symbol. For example TP53 (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -679,7 +679,7 @@ public class EnsemblControllerApi {
     /**
      * Build call for fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST
      * @param hugoSymbols List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -746,7 +746,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcripts by Hugo Symbols
      * 
      * @param hugoSymbols List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @return List&lt;EnsemblTranscript&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -759,7 +759,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcripts by Hugo Symbols
      * 
      * @param hugoSymbols List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @return ApiResponse&lt;List&lt;EnsemblTranscript&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -773,7 +773,7 @@ public class EnsemblControllerApi {
      * Retrieves Ensembl canonical transcripts by Hugo Symbols (asynchronously)
      * 
      * @param hugoSymbols List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;] (required)
-     * @param isoformOverrideSource Isoform override source. For example uniprot (optional, default to uniprot)
+     * @param isoformOverrideSource Isoform override source. For example mskcc (optional, default to mskcc)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

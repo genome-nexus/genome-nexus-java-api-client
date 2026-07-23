@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **truncatingCount** | **Integer** | Truncation mutation count |  [optional]
 **tumorCount** | **Integer** | Tumor count |  [optional]
 **type** | **String** | Hotspot type |  [optional]
+**version** | **String** | Hotspot version (v2 or v3) |  [optional]
 
 
 

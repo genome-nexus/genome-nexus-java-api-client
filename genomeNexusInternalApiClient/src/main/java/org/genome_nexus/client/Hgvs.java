@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Hgvs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:42.349-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-07-23T19:01:56.808-04:00")
 public class Hgvs {
   @SerializedName("coding")
   private List<String> coding = null;

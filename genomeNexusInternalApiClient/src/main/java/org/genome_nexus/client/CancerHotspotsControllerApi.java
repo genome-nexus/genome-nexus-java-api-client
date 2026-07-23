@@ -60,12 +60,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByGenomicLocationGET
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETCall(String genomicLocation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETCall(String genomicLocation, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -74,6 +75,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -108,7 +111,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(String genomicLocation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(String genomicLocation, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'genomicLocation' is set
         if (genomicLocation == null) {
@@ -116,7 +119,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETCall(genomicLocation, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETCall(genomicLocation, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -125,11 +128,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific genomic location
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;Hotspot&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Hotspot> fetchHotspotAnnotationByGenomicLocationGET(String genomicLocation) throws ApiException {
-        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByGenomicLocationGETWithHttpInfo(genomicLocation);
+    public List<Hotspot> fetchHotspotAnnotationByGenomicLocationGET(String genomicLocation, String version) throws ApiException {
+        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByGenomicLocationGETWithHttpInfo(genomicLocation, version);
         return resp.getData();
     }
 
@@ -137,11 +141,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific genomic location
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;Hotspot&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByGenomicLocationGETWithHttpInfo(String genomicLocation) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, null, null);
+    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByGenomicLocationGETWithHttpInfo(String genomicLocation, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, version, null, null);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -150,11 +155,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific genomic location (asynchronously)
      * 
      * @param genomicLocation A genomic location. For example 7,140453136,140453136,A,T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETAsync(String genomicLocation, final ApiCallback<List<Hotspot>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationGETAsync(String genomicLocation, String version, final ApiCallback<List<Hotspot>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -175,7 +181,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationGETValidateBeforeCall(genomicLocation, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -183,12 +189,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByGenomicLocationPOST
      * @param genomicLocations List of genomic locations. (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTCall(List<GenomicLocation> genomicLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTCall(List<GenomicLocation> genomicLocations, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = genomicLocations;
 
         // create path and map variables
@@ -196,6 +203,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -230,7 +239,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(List<GenomicLocation> genomicLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(List<GenomicLocation> genomicLocations, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'genomicLocations' is set
         if (genomicLocations == null) {
@@ -238,7 +247,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTCall(genomicLocations, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTCall(genomicLocations, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -247,11 +256,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of genomic locations
      * 
      * @param genomicLocations List of genomic locations. (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;AggregatedHotspots&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AggregatedHotspots> fetchHotspotAnnotationByGenomicLocationPOST(List<GenomicLocation> genomicLocations) throws ApiException {
-        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByGenomicLocationPOSTWithHttpInfo(genomicLocations);
+    public List<AggregatedHotspots> fetchHotspotAnnotationByGenomicLocationPOST(List<GenomicLocation> genomicLocations, String version) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByGenomicLocationPOSTWithHttpInfo(genomicLocations, version);
         return resp.getData();
     }
 
@@ -259,11 +269,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of genomic locations
      * 
      * @param genomicLocations List of genomic locations. (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByGenomicLocationPOSTWithHttpInfo(List<GenomicLocation> genomicLocations) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, null, null);
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByGenomicLocationPOSTWithHttpInfo(List<GenomicLocation> genomicLocations, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, version, null, null);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -272,11 +283,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of genomic locations (asynchronously)
      * 
      * @param genomicLocations List of genomic locations. (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTAsync(List<GenomicLocation> genomicLocations, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByGenomicLocationPOSTAsync(List<GenomicLocation> genomicLocations, String version, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -297,7 +309,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByGenomicLocationPOSTValidateBeforeCall(genomicLocations, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -305,12 +317,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByHgvsGET
      * @param variant A variant. For example 7:g.140453136A&gt;T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETCall(String variant, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -319,6 +332,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -353,7 +368,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETValidateBeforeCall(String variant, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETValidateBeforeCall(String variant, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variant' is set
         if (variant == null) {
@@ -361,7 +376,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETCall(variant, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETCall(variant, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -370,11 +385,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific variant
      * 
      * @param variant A variant. For example 7:g.140453136A&gt;T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;Hotspot&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Hotspot> fetchHotspotAnnotationByHgvsGET(String variant) throws ApiException {
-        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByHgvsGETWithHttpInfo(variant);
+    public List<Hotspot> fetchHotspotAnnotationByHgvsGET(String variant, String version) throws ApiException {
+        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByHgvsGETWithHttpInfo(variant, version);
         return resp.getData();
     }
 
@@ -382,11 +398,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific variant
      * 
      * @param variant A variant. For example 7:g.140453136A&gt;T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;Hotspot&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByHgvsGETWithHttpInfo(String variant) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETValidateBeforeCall(variant, null, null);
+    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByHgvsGETWithHttpInfo(String variant, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETValidateBeforeCall(variant, version, null, null);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -395,11 +412,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for a specific variant (asynchronously)
      * 
      * @param variant A variant. For example 7:g.140453136A&gt;T (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETAsync(String variant, final ApiCallback<List<Hotspot>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsGETAsync(String variant, String version, final ApiCallback<List<Hotspot>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -420,7 +438,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETValidateBeforeCall(variant, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsGETValidateBeforeCall(variant, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -428,12 +446,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByHgvsPOST
      * @param variants List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTCall(List<String> variants, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = variants;
 
         // create path and map variables
@@ -441,6 +460,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -475,7 +496,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(List<String> variants, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(List<String> variants, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'variants' is set
         if (variants == null) {
@@ -483,7 +504,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTCall(variants, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTCall(variants, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -492,11 +513,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of variants
      * 
      * @param variants List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;AggregatedHotspots&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AggregatedHotspots> fetchHotspotAnnotationByHgvsPOST(List<String> variants) throws ApiException {
-        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByHgvsPOSTWithHttpInfo(variants);
+    public List<AggregatedHotspots> fetchHotspotAnnotationByHgvsPOST(List<String> variants, String version) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByHgvsPOSTWithHttpInfo(variants, version);
         return resp.getData();
     }
 
@@ -504,11 +526,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of variants
      * 
      * @param variants List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByHgvsPOSTWithHttpInfo(List<String> variants) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(variants, null, null);
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByHgvsPOSTWithHttpInfo(List<String> variants, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(variants, version, null, null);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -517,11 +540,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of variants (asynchronously)
      * 
      * @param variants List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTAsync(List<String> variants, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByHgvsPOSTAsync(List<String> variants, String version, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -542,20 +566,21 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(variants, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByHgvsPOSTValidateBeforeCall(variants, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for fetchHotspotAnnotationByProteinLocationsPOST
-     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTCall(List<ProteinLocation> proteinLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTCall(List<ProteinLocation> proteinLocations, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = proteinLocations;
 
         // create path and map variables
@@ -563,6 +588,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -597,7 +624,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(List<ProteinLocation> proteinLocations, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(List<ProteinLocation> proteinLocations, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'proteinLocations' is set
         if (proteinLocations == null) {
@@ -605,7 +632,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTCall(proteinLocations, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTCall(proteinLocations, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -613,24 +640,26 @@ public class CancerHotspotsControllerApi {
     /**
      * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
      * 
-     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;AggregatedHotspots&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AggregatedHotspots> fetchHotspotAnnotationByProteinLocationsPOST(List<ProteinLocation> proteinLocations) throws ApiException {
-        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(proteinLocations);
+    public List<AggregatedHotspots> fetchHotspotAnnotationByProteinLocationsPOST(List<ProteinLocation> proteinLocations, String version) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(proteinLocations, version);
         return resp.getData();
     }
 
     /**
      * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type
      * 
-     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(List<ProteinLocation> proteinLocations) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, null, null);
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByProteinLocationsPOSTWithHttpInfo(List<ProteinLocation> proteinLocations, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, version, null, null);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -638,12 +667,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Retrieves hotspot annotations for the provided list of transcript id, protein location and mutation type (asynchronously)
      * 
-     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param proteinLocations List of transcript id, protein start location, protein end location, mutation type. The mutation types are limited to &#39;Missense_Mutation&#39;, &#39;In_Frame_Ins&#39;, &#39;In_Frame_Del&#39;, &#39;Splice_Site&#39;, and &#39;Splice_Region&#39; (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTAsync(List<ProteinLocation> proteinLocations, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByProteinLocationsPOSTAsync(List<ProteinLocation> proteinLocations, String version, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -664,7 +694,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByProteinLocationsPOSTValidateBeforeCall(proteinLocations, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -672,12 +702,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByTranscriptIdGET
      * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETCall(String transcriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETCall(String transcriptId, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -686,6 +717,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -720,7 +753,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(String transcriptId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(String transcriptId, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'transcriptId' is set
         if (transcriptId == null) {
@@ -728,7 +761,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETCall(transcriptId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETCall(transcriptId, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -737,11 +770,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided transcript ID
      * 
      * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;Hotspot&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Hotspot> fetchHotspotAnnotationByTranscriptIdGET(String transcriptId) throws ApiException {
-        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(transcriptId);
+    public List<Hotspot> fetchHotspotAnnotationByTranscriptIdGET(String transcriptId, String version) throws ApiException {
+        ApiResponse<List<Hotspot>> resp = fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(transcriptId, version);
         return resp.getData();
     }
 
@@ -749,11 +783,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided transcript ID
      * 
      * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;Hotspot&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(String transcriptId) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, null, null);
+    public ApiResponse<List<Hotspot>> fetchHotspotAnnotationByTranscriptIdGETWithHttpInfo(String transcriptId, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, version, null, null);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -762,11 +797,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided transcript ID (asynchronously)
      * 
      * @param transcriptId A Transcript Id. For example ENST00000288602 (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETAsync(String transcriptId, final ApiCallback<List<Hotspot>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdGETAsync(String transcriptId, String version, final ApiCallback<List<Hotspot>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -787,7 +823,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdGETValidateBeforeCall(transcriptId, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Hotspot>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -795,12 +831,13 @@ public class CancerHotspotsControllerApi {
     /**
      * Build call for fetchHotspotAnnotationByTranscriptIdPOST
      * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTCall(List<String> transcriptIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTCall(List<String> transcriptIds, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = transcriptIds;
 
         // create path and map variables
@@ -808,6 +845,8 @@ public class CancerHotspotsControllerApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (version != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -842,7 +881,7 @@ public class CancerHotspotsControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(List<String> transcriptIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(List<String> transcriptIds, String version, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'transcriptIds' is set
         if (transcriptIds == null) {
@@ -850,7 +889,7 @@ public class CancerHotspotsControllerApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTCall(transcriptIds, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTCall(transcriptIds, version, progressListener, progressRequestListener);
         return call;
 
     }
@@ -859,11 +898,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of transcript ID
      * 
      * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return List&lt;AggregatedHotspots&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<AggregatedHotspots> fetchHotspotAnnotationByTranscriptIdPOST(List<String> transcriptIds) throws ApiException {
-        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(transcriptIds);
+    public List<AggregatedHotspots> fetchHotspotAnnotationByTranscriptIdPOST(List<String> transcriptIds, String version) throws ApiException {
+        ApiResponse<List<AggregatedHotspots>> resp = fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(transcriptIds, version);
         return resp.getData();
     }
 
@@ -871,11 +911,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of transcript ID
      * 
      * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @return ApiResponse&lt;List&lt;AggregatedHotspots&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(List<String> transcriptIds) throws ApiException {
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, null, null);
+    public ApiResponse<List<AggregatedHotspots>> fetchHotspotAnnotationByTranscriptIdPOSTWithHttpInfo(List<String> transcriptIds, String version) throws ApiException {
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, version, null, null);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -884,11 +925,12 @@ public class CancerHotspotsControllerApi {
      * Retrieves hotspot annotations for the provided list of transcript ID (asynchronously)
      * 
      * @param transcriptIds List of transcript Id. For example [\&quot;ENST00000288602\&quot;,\&quot;ENST00000256078\&quot;] (required)
+     * @param version Cancer hotspots dataset version to return. &#39;v2&#39; returns only v2 hotspots. &#39;v3&#39; returns v2 and v3 hotspots (v3 is a cumulative superset of v2, not v3-only). Default: v3 (optional, default to v3)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTAsync(List<String> transcriptIds, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchHotspotAnnotationByTranscriptIdPOSTAsync(List<String> transcriptIds, String version, final ApiCallback<List<AggregatedHotspots>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -909,7 +951,7 @@ public class CancerHotspotsControllerApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchHotspotAnnotationByTranscriptIdPOSTValidateBeforeCall(transcriptIds, version, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<AggregatedHotspots>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

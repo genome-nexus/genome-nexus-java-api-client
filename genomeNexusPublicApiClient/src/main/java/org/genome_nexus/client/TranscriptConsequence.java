@@ -29,13 +29,16 @@ import org.genome_nexus.client.AlphaMissense;
 /**
  * TranscriptConsequence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:41.583-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-07-23T19:01:55.760-04:00")
 public class TranscriptConsequence {
   @SerializedName("alphaMissense")
   private AlphaMissense alphaMissense = null;
 
   @SerializedName("amino_acids")
   private String aminoAcids = null;
+
+  @SerializedName("biotype")
+  private String biotype = null;
 
   @SerializedName("canonical")
   private String canonical = null;
@@ -57,6 +60,9 @@ public class TranscriptConsequence {
 
   @SerializedName("hgnc_id")
   private String hgncId = null;
+
+  @SerializedName("hgvs_offset")
+  private Integer hgvsOffset = null;
 
   @SerializedName("hgvsc")
   private String hgvsc = null;
@@ -137,6 +143,24 @@ public class TranscriptConsequence {
 
   public void setAminoAcids(String aminoAcids) {
     this.aminoAcids = aminoAcids;
+  }
+
+  public TranscriptConsequence biotype(String biotype) {
+    this.biotype = biotype;
+    return this;
+  }
+
+   /**
+   * Get biotype
+   * @return biotype
+  **/
+  @ApiModelProperty(value = "")
+  public String getBiotype() {
+    return biotype;
+  }
+
+  public void setBiotype(String biotype) {
+    this.biotype = biotype;
   }
 
   public TranscriptConsequence canonical(String canonical) {
@@ -271,6 +295,24 @@ public class TranscriptConsequence {
 
   public void setHgncId(String hgncId) {
     this.hgncId = hgncId;
+  }
+
+  public TranscriptConsequence hgvsOffset(Integer hgvsOffset) {
+    this.hgvsOffset = hgvsOffset;
+    return this;
+  }
+
+   /**
+   * HGVS offset
+   * @return hgvsOffset
+  **/
+  @ApiModelProperty(value = "HGVS offset")
+  public Integer getHgvsOffset() {
+    return hgvsOffset;
+  }
+
+  public void setHgvsOffset(Integer hgvsOffset) {
+    this.hgvsOffset = hgvsOffset;
   }
 
   public TranscriptConsequence hgvsc(String hgvsc) {
@@ -563,6 +605,7 @@ public class TranscriptConsequence {
     TranscriptConsequence transcriptConsequence = (TranscriptConsequence) o;
     return Objects.equals(this.alphaMissense, transcriptConsequence.alphaMissense) &&
         Objects.equals(this.aminoAcids, transcriptConsequence.aminoAcids) &&
+        Objects.equals(this.biotype, transcriptConsequence.biotype) &&
         Objects.equals(this.canonical, transcriptConsequence.canonical) &&
         Objects.equals(this.codons, transcriptConsequence.codons) &&
         Objects.equals(this.consequenceTerms, transcriptConsequence.consequenceTerms) &&
@@ -570,6 +613,7 @@ public class TranscriptConsequence {
         Objects.equals(this.geneId, transcriptConsequence.geneId) &&
         Objects.equals(this.geneSymbol, transcriptConsequence.geneSymbol) &&
         Objects.equals(this.hgncId, transcriptConsequence.hgncId) &&
+        Objects.equals(this.hgvsOffset, transcriptConsequence.hgvsOffset) &&
         Objects.equals(this.hgvsc, transcriptConsequence.hgvsc) &&
         Objects.equals(this.hgvsg, transcriptConsequence.hgvsg) &&
         Objects.equals(this.hgvsp, transcriptConsequence.hgvsp) &&
@@ -589,7 +633,7 @@ public class TranscriptConsequence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphaMissense, aminoAcids, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, transcriptIdVersion, uniprotId, variantAllele);
+    return Objects.hash(alphaMissense, aminoAcids, biotype, canonical, codons, consequenceTerms, exon, geneId, geneSymbol, hgncId, hgvsOffset, hgvsc, hgvsg, hgvsp, polyphenPrediction, polyphenScore, proteinEnd, proteinId, proteinStart, refseqTranscriptIds, siftPrediction, siftScore, transcriptId, transcriptIdVersion, uniprotId, variantAllele);
   }
 
 
@@ -600,6 +644,7 @@ public class TranscriptConsequence {
     
     sb.append("    alphaMissense: ").append(toIndentedString(alphaMissense)).append("\n");
     sb.append("    aminoAcids: ").append(toIndentedString(aminoAcids)).append("\n");
+    sb.append("    biotype: ").append(toIndentedString(biotype)).append("\n");
     sb.append("    canonical: ").append(toIndentedString(canonical)).append("\n");
     sb.append("    codons: ").append(toIndentedString(codons)).append("\n");
     sb.append("    consequenceTerms: ").append(toIndentedString(consequenceTerms)).append("\n");
@@ -607,6 +652,7 @@ public class TranscriptConsequence {
     sb.append("    geneId: ").append(toIndentedString(geneId)).append("\n");
     sb.append("    geneSymbol: ").append(toIndentedString(geneSymbol)).append("\n");
     sb.append("    hgncId: ").append(toIndentedString(hgncId)).append("\n");
+    sb.append("    hgvsOffset: ").append(toIndentedString(hgvsOffset)).append("\n");
     sb.append("    hgvsc: ").append(toIndentedString(hgvsc)).append("\n");
     sb.append("    hgvsg: ").append(toIndentedString(hgvsg)).append("\n");
     sb.append("    hgvsp: ").append(toIndentedString(hgvsp)).append("\n");

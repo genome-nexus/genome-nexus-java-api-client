@@ -46,7 +46,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByGenomicLocationGETTest() throws ApiException {
         String genomicLocation = null;
-        List<Hotspot> response = api.fetchHotspotAnnotationByGenomicLocationGET(genomicLocation);
+        String version = null;
+        List<Hotspot> response = api.fetchHotspotAnnotationByGenomicLocationGET(genomicLocation, version);
 
         // TODO: test validations
     }
@@ -62,7 +63,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByGenomicLocationPOSTTest() throws ApiException {
         List<GenomicLocation> genomicLocations = null;
-        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByGenomicLocationPOST(genomicLocations);
+        String version = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByGenomicLocationPOST(genomicLocations, version);
 
         // TODO: test validations
     }
@@ -78,7 +80,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByHgvsGETTest() throws ApiException {
         String variant = null;
-        List<Hotspot> response = api.fetchHotspotAnnotationByHgvsGET(variant);
+        String version = null;
+        List<Hotspot> response = api.fetchHotspotAnnotationByHgvsGET(variant, version);
 
         // TODO: test validations
     }
@@ -94,7 +97,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByHgvsPOSTTest() throws ApiException {
         List<String> variants = null;
-        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByHgvsPOST(variants);
+        String version = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByHgvsPOST(variants, version);
 
         // TODO: test validations
     }
@@ -110,7 +114,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByProteinLocationsPOSTTest() throws ApiException {
         List<ProteinLocation> proteinLocations = null;
-        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByProteinLocationsPOST(proteinLocations);
+        String version = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByProteinLocationsPOST(proteinLocations, version);
 
         // TODO: test validations
     }
@@ -126,7 +131,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByTranscriptIdGETTest() throws ApiException {
         String transcriptId = null;
-        List<Hotspot> response = api.fetchHotspotAnnotationByTranscriptIdGET(transcriptId);
+        String version = null;
+        List<Hotspot> response = api.fetchHotspotAnnotationByTranscriptIdGET(transcriptId, version);
 
         // TODO: test validations
     }
@@ -142,7 +148,8 @@ public class CancerHotspotsControllerApiTest {
     @Test
     public void fetchHotspotAnnotationByTranscriptIdPOSTTest() throws ApiException {
         List<String> transcriptIds = null;
-        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByTranscriptIdPOST(transcriptIds);
+        String version = null;
+        List<AggregatedHotspots> response = api.fetchHotspotAnnotationByTranscriptIdPOST(transcriptIds, version);
 
         // TODO: test validations
     }

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alphaMissense** | [**AlphaMissense**](AlphaMissense.md) |  |  [optional]
 **aminoAcids** | **String** | Amino acids |  [optional]
+**biotype** | **String** |  |  [optional]
 **canonical** | **String** | Canonical transcript indicator |  [optional]
 **codons** | **String** | Codons |  [optional]
 **consequenceTerms** | **List&lt;String&gt;** | List of consequence terms |  [optional]
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **geneId** | **String** | Ensembl gene id |  [optional]
 **geneSymbol** | **String** | Hugo gene symbol |  [optional]
 **hgncId** | **String** | HGNC id |  [optional]
+**hgvsOffset** | **Integer** | HGVS offset |  [optional]
 **hgvsc** | **String** | HGVSc |  [optional]
 **hgvsg** | **String** | HGVSg |  [optional]
 **hgvsp** | **String** | HGVSp |  [optional]

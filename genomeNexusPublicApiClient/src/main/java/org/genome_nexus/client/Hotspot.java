@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Hotspot
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-01-23T08:16:41.583-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-07-23T19:01:55.760-04:00")
 public class Hotspot {
   @SerializedName("hugoSymbol")
   private String hugoSymbol = null;
@@ -57,6 +57,9 @@ public class Hotspot {
 
   @SerializedName("type")
   private String type = null;
+
+  @SerializedName("version")
+  private String version = null;
 
   public Hotspot hugoSymbol(String hugoSymbol) {
     this.hugoSymbol = hugoSymbol;
@@ -238,6 +241,24 @@ public class Hotspot {
     this.type = type;
   }
 
+  public Hotspot version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Hotspot version (v2 or v3)
+   * @return version
+  **/
+  @ApiModelProperty(value = "Hotspot version (v2 or v3)")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -257,12 +278,13 @@ public class Hotspot {
         Objects.equals(this.transcriptIdVersion, hotspot.transcriptIdVersion) &&
         Objects.equals(this.truncatingCount, hotspot.truncatingCount) &&
         Objects.equals(this.tumorCount, hotspot.tumorCount) &&
-        Objects.equals(this.type, hotspot.type);
+        Objects.equals(this.type, hotspot.type) &&
+        Objects.equals(this.version, hotspot.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hugoSymbol, inframeCount, missenseCount, residue, spliceCount, transcriptId, transcriptIdVersion, truncatingCount, tumorCount, type);
+    return Objects.hash(hugoSymbol, inframeCount, missenseCount, residue, spliceCount, transcriptId, transcriptIdVersion, truncatingCount, tumorCount, type, version);
   }
 
 
@@ -281,6 +303,7 @@ public class Hotspot {
     sb.append("    truncatingCount: ").append(toIndentedString(truncatingCount)).append("\n");
     sb.append("    tumorCount: ").append(toIndentedString(tumorCount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
